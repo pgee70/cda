@@ -26,7 +26,7 @@
     "php": "^7.0",
     "ext-dom": "*",
     "ext-mbstring": "*",
-    "ext-http": "*",
+    "ext-http": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "^7.3"
