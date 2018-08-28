@@ -6,7 +6,7 @@ This library has some Australian CDA Extensions enabled.
 This library is a work in progress and does not currently provide full CDA coverage.
 
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/php-health/cda/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/php-health/cda/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pgee70/cda/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pgee70/cda/?branch=master)
 
 ## Usage
 
