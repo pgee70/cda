@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Users/pgee/projects/cda/lib/RIM/Act</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../.css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../../.css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../../.css/style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src="../../.js/html5shiv.min.js"></script>
+  <script src="../../.js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../../index.html">/Users/pgee/projects/cda/lib</a></li>
+        <li><a href="../index.html">RIM</a></li>
+        <li><a href="index.html">Act</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Criterion.php.html#48">PHPHealth\CDA\RIM\Act\Criterion</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocumentationOf.php.html#44">PHPHealth\CDA\RIM\Act\DocumentationOf</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Encounter.php.html#64">PHPHealth\CDA\RIM\Act\Encounter</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Precondition.php.html#44">PHPHealth\CDA\RIM\Act\Precondition</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ServiceEvent.php.html#58">PHPHealth\CDA\RIM\Act\ServiceEvent</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="OrganizerComponent.php.html#57">PHPHealth\CDA\RIM\Act\OrganizerComponent</a></td><td class="text-right">28%</td></tr>
+       <tr><td><a href="EntryRelationship.php.html#65">PHPHealth\CDA\RIM\Act\EntryRelationship</a></td><td class="text-right">81%</td></tr>
+       <tr><td><a href="Consent.php.html#54">PHPHealth\CDA\RIM\Act\Consent</a></td><td class="text-right">86%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="OrganizerComponent.php.html#57">PHPHealth\CDA\RIM\Act\OrganizerComponent</a></td><td class="text-right">181</td></tr>
+       <tr><td><a href="Criterion.php.html#48">PHPHealth\CDA\RIM\Act\Criterion</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="EntryRelationship.php.html#65">PHPHealth\CDA\RIM\Act\EntryRelationship</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Consent.php.html#54">PHPHealth\CDA\RIM\Act\Consent</a></td><td class="text-right">7</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ServiceEvent.php.html#91"><abbr title="PHPHealth\CDA\RIM\Act\ServiceEvent::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Precondition.php.html#70"><abbr title="PHPHealth\CDA\RIM\Act\Precondition::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Precondition.php.html#50"><abbr title="PHPHealth\CDA\RIM\Act\Precondition::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ServiceEvent.php.html#67"><abbr title="PHPHealth\CDA\RIM\Act\ServiceEvent::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="ServiceEvent.php.html#78"><abbr title="PHPHealth\CDA\RIM\Act\ServiceEvent::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Criterion.php.html#56"><abbr title="PHPHealth\CDA\RIM\Act\Criterion::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Encounter.php.html#132"><abbr title="PHPHealth\CDA\RIM\Act\Encounter::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Encounter.php.html#105"><abbr title="PHPHealth\CDA\RIM\Act\Encounter::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Encounter.php.html#88"><abbr title="PHPHealth\CDA\RIM\Act\Encounter::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocumentationOf.php.html#69"><abbr title="PHPHealth\CDA\RIM\Act\DocumentationOf::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocumentationOf.php.html#59"><abbr title="PHPHealth\CDA\RIM\Act\DocumentationOf::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DocumentationOf.php.html#49"><abbr title="PHPHealth\CDA\RIM\Act\DocumentationOf::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Criterion.php.html#85"><abbr title="PHPHealth\CDA\RIM\Act\Criterion::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Criterion.php.html#67"><abbr title="PHPHealth\CDA\RIM\Act\Criterion::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Precondition.php.html#60"><abbr title="PHPHealth\CDA\RIM\Act\Precondition::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="OrganizerComponent.php.html#97"><abbr title="PHPHealth\CDA\RIM\Act\OrganizerComponent::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">25%</td></tr>
+       <tr><td><a href="OrganizerComponent.php.html#73"><abbr title="PHPHealth\CDA\RIM\Act\OrganizerComponent::__construct">__construct</abbr></a></td><td class="text-right">29%</td></tr>
+       <tr><td><a href="Consent.php.html#82"><abbr title="PHPHealth\CDA\RIM\Act\Consent::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="EntryRelationship.php.html#123"><abbr title="PHPHealth\CDA\RIM\Act\EntryRelationship::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="EntryRelationship.php.html#91"><abbr title="PHPHealth\CDA\RIM\Act\EntryRelationship::__construct">__construct</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="ObservationRange.php.html#76"><abbr title="PHPHealth\CDA\RIM\Act\ObservationRange::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">88%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="OrganizerComponent.php.html#97"><abbr title="PHPHealth\CDA\RIM\Act\OrganizerComponent::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="OrganizerComponent.php.html#73"><abbr title="PHPHealth\CDA\RIM\Act\OrganizerComponent::__construct">__construct</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Criterion.php.html#67"><abbr title="PHPHealth\CDA\RIM\Act\Criterion::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="EntryRelationship.php.html#123"><abbr title="PHPHealth\CDA\RIM\Act\EntryRelationship::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">9</td></tr>
+       <tr><td><a href="EntryRelationship.php.html#91"><abbr title="PHPHealth\CDA\RIM\Act\EntryRelationship::__construct">__construct</abbr></a></td><td class="text-right">8</td></tr>
+       <tr><td><a href="Consent.php.html#82"><abbr title="PHPHealth\CDA\RIM\Act\Consent::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">5</td></tr>
+       <tr><td><a href="ObservationRange.php.html#76"><abbr title="PHPHealth\CDA\RIM\Act\ObservationRange::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 6.0.1</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.9</a> with <a href="https://xdebug.org/">Xdebug 2.6.1</a> and <a href="https://phpunit.de/">PHPUnit 7.0.3</a> at Tue Aug 28 12:19:16 UTC 2018.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../.js/jquery.min.js" type="text/javascript"></script>
+  <script src="../../.js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../.js/holder.min.js" type="text/javascript"></script>
+  <script src="../../.js/d3.min.js" type="text/javascript"></script>
+  <script src="../../.js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([5,0,0,1,0,0,0,0,0,2,1,10], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([15,0,0,2,0,0,0,0,2,2,0,37], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,3,"<a href=\"Act.php.html#58\">PHPHealth\\CDA\\RIM\\Act\\Act<\/a>"],[100,3,"<a href=\"Authorization.php.html#48\">PHPHealth\\CDA\\RIM\\Act\\Authorization<\/a>"],[100,5,"<a href=\"ComponentOf.php.html#49\">PHPHealth\\CDA\\RIM\\Act\\ComponentOf<\/a>"],[86.66666666666667,7,"<a href=\"Consent.php.html#54\">PHPHealth\\CDA\\RIM\\Act\\Consent<\/a>"],[0,6,"<a href=\"Criterion.php.html#48\">PHPHealth\\CDA\\RIM\\Act\\Criterion<\/a>"],[0,3,"<a href=\"DocumentationOf.php.html#44\">PHPHealth\\CDA\\RIM\\Act\\DocumentationOf<\/a>"],[100,4,"<a href=\"EncompassingEncounter.php.html#60\">PHPHealth\\CDA\\RIM\\Act\\EncompassingEncounter<\/a>"],[0,3,"<a href=\"Encounter.php.html#64\">PHPHealth\\CDA\\RIM\\Act\\Encounter<\/a>"],[81.08108108108108,18,"<a href=\"EntryRelationship.php.html#65\">PHPHealth\\CDA\\RIM\\Act\\EntryRelationship<\/a>"],[100,6,"<a href=\"Observation.php.html#46\">PHPHealth\\CDA\\RIM\\Act\\Observation<\/a>"],[100,3,"<a href=\"ObservationMedia.php.html#61\">PHPHealth\\CDA\\RIM\\Act\\ObservationMedia<\/a>"],[93.33333333333333,5,"<a href=\"ObservationRange.php.html#55\">PHPHealth\\CDA\\RIM\\Act\\ObservationRange<\/a>"],[100,3,"<a href=\"Organizer.php.html#62\">PHPHealth\\CDA\\RIM\\Act\\Organizer<\/a>"],[28.57142857142857,21,"<a href=\"OrganizerComponent.php.html#57\">PHPHealth\\CDA\\RIM\\Act\\OrganizerComponent<\/a>"],[0,3,"<a href=\"Precondition.php.html#44\">PHPHealth\\CDA\\RIM\\Act\\Precondition<\/a>"],[100,3,"<a href=\"ReferenceRange.php.html#44\">PHPHealth\\CDA\\RIM\\Act\\ReferenceRange<\/a>"],[0,3,"<a href=\"ServiceEvent.php.html#58\">PHPHealth\\CDA\\RIM\\Act\\ServiceEvent<\/a>"],[100,4,"<a href=\"SubstanceAdministration.php.html#43\">PHPHealth\\CDA\\RIM\\Act\\SubstanceAdministration<\/a>"],[100,3,"<a href=\"Supply.php.html#66\">PHPHealth\\CDA\\RIM\\Act\\Supply<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Act.php.html#85\">PHPHealth\\CDA\\RIM\\Act\\Act::__construct<\/a>"],[100,1,"<a href=\"Act.php.html#99\">PHPHealth\\CDA\\RIM\\Act\\Act::toDOMElement<\/a>"],[100,1,"<a href=\"Act.php.html#124\">PHPHealth\\CDA\\RIM\\Act\\Act::getElementTag<\/a>"],[100,1,"<a href=\"Authorization.php.html#58\">PHPHealth\\CDA\\RIM\\Act\\Authorization::__construct<\/a>"],[100,1,"<a href=\"Authorization.php.html#73\">PHPHealth\\CDA\\RIM\\Act\\Authorization::toDOMElement<\/a>"],[100,1,"<a href=\"Authorization.php.html#83\">PHPHealth\\CDA\\RIM\\Act\\Authorization::getElementTag<\/a>"],[100,2,"<a href=\"ComponentOf.php.html#60\">PHPHealth\\CDA\\RIM\\Act\\ComponentOf::__construct<\/a>"],[100,2,"<a href=\"ComponentOf.php.html#78\">PHPHealth\\CDA\\RIM\\Act\\ComponentOf::toDOMElement<\/a>"],[100,1,"<a href=\"ComponentOf.php.html#93\">PHPHealth\\CDA\\RIM\\Act\\ComponentOf::getElementTag<\/a>"],[100,1,"<a href=\"Consent.php.html#65\">PHPHealth\\CDA\\RIM\\Act\\Consent::__construct<\/a>"],[77.77777777777779,5,"<a href=\"Consent.php.html#82\">PHPHealth\\CDA\\RIM\\Act\\Consent::toDOMElement<\/a>"],[100,1,"<a href=\"Consent.php.html#106\">PHPHealth\\CDA\\RIM\\Act\\Consent::getElementTag<\/a>"],[0,1,"<a href=\"Criterion.php.html#56\">PHPHealth\\CDA\\RIM\\Act\\Criterion::__construct<\/a>"],[0,4,"<a href=\"Criterion.php.html#67\">PHPHealth\\CDA\\RIM\\Act\\Criterion::toDOMElement<\/a>"],[0,1,"<a href=\"Criterion.php.html#85\">PHPHealth\\CDA\\RIM\\Act\\Criterion::getElementTag<\/a>"],[0,1,"<a href=\"DocumentationOf.php.html#49\">PHPHealth\\CDA\\RIM\\Act\\DocumentationOf::__construct<\/a>"],[0,1,"<a href=\"DocumentationOf.php.html#59\">PHPHealth\\CDA\\RIM\\Act\\DocumentationOf::toDOMElement<\/a>"],[0,1,"<a href=\"DocumentationOf.php.html#69\">PHPHealth\\CDA\\RIM\\Act\\DocumentationOf::getElementTag<\/a>"],[100,2,"<a href=\"EncompassingEncounter.php.html#78\">PHPHealth\\CDA\\RIM\\Act\\EncompassingEncounter::__construct<\/a>"],[100,1,"<a href=\"EncompassingEncounter.php.html#97\">PHPHealth\\CDA\\RIM\\Act\\EncompassingEncounter::toDOMElement<\/a>"],[100,1,"<a href=\"EncompassingEncounter.php.html#117\">PHPHealth\\CDA\\RIM\\Act\\EncompassingEncounter::getElementTag<\/a>"],[0,1,"<a href=\"Encounter.php.html#88\">PHPHealth\\CDA\\RIM\\Act\\Encounter::__construct<\/a>"],[0,1,"<a href=\"Encounter.php.html#105\">PHPHealth\\CDA\\RIM\\Act\\Encounter::toDOMElement<\/a>"],[0,1,"<a href=\"Encounter.php.html#132\">PHPHealth\\CDA\\RIM\\Act\\Encounter::getElementTag<\/a>"],[83.33333333333334,8,"<a href=\"EntryRelationship.php.html#91\">PHPHealth\\CDA\\RIM\\Act\\EntryRelationship::__construct<\/a>"],[77.77777777777779,9,"<a href=\"EntryRelationship.php.html#123\">PHPHealth\\CDA\\RIM\\Act\\EntryRelationship::toDOMElement<\/a>"],[100,1,"<a href=\"EntryRelationship.php.html#154\">PHPHealth\\CDA\\RIM\\Act\\EntryRelationship::getElementTag<\/a>"],[100,3,"<a href=\"Observation.php.html#62\">PHPHealth\\CDA\\RIM\\Act\\Observation::__construct<\/a>"],[100,1,"<a href=\"Observation.php.html#84\">PHPHealth\\CDA\\RIM\\Act\\Observation::nullObservation<\/a>"],[100,1,"<a href=\"Observation.php.html#93\">PHPHealth\\CDA\\RIM\\Act\\Observation::toDOMElement<\/a>"],[100,1,"<a href=\"Observation.php.html#124\">PHPHealth\\CDA\\RIM\\Act\\Observation::getElementTag<\/a>"],[100,1,"<a href=\"ObservationMedia.php.html#81\">PHPHealth\\CDA\\RIM\\Act\\ObservationMedia::__construct<\/a>"],[100,1,"<a href=\"ObservationMedia.php.html#93\">PHPHealth\\CDA\\RIM\\Act\\ObservationMedia::toDOMElement<\/a>"],[100,1,"<a href=\"ObservationMedia.php.html#113\">PHPHealth\\CDA\\RIM\\Act\\ObservationMedia::getElementTag<\/a>"],[100,1,"<a href=\"ObservationRange.php.html#65\">PHPHealth\\CDA\\RIM\\Act\\ObservationRange::__construct<\/a>"],[88.88888888888889,3,"<a href=\"ObservationRange.php.html#76\">PHPHealth\\CDA\\RIM\\Act\\ObservationRange::toDOMElement<\/a>"],[100,1,"<a href=\"ObservationRange.php.html#94\">PHPHealth\\CDA\\RIM\\Act\\ObservationRange::getElementTag<\/a>"],[100,1,"<a href=\"Organizer.php.html#84\">PHPHealth\\CDA\\RIM\\Act\\Organizer::__construct<\/a>"],[100,1,"<a href=\"Organizer.php.html#96\">PHPHealth\\CDA\\RIM\\Act\\Organizer::toDOMElement<\/a>"],[100,1,"<a href=\"Organizer.php.html#119\">PHPHealth\\CDA\\RIM\\Act\\Organizer::getElementTag<\/a>"],[29.411764705882355,8,"<a href=\"OrganizerComponent.php.html#73\">PHPHealth\\CDA\\RIM\\Act\\OrganizerComponent::__construct<\/a>"],[25,12,"<a href=\"OrganizerComponent.php.html#97\">PHPHealth\\CDA\\RIM\\Act\\OrganizerComponent::toDOMElement<\/a>"],[100,1,"<a href=\"OrganizerComponent.php.html#133\">PHPHealth\\CDA\\RIM\\Act\\OrganizerComponent::getElementTag<\/a>"],[0,1,"<a href=\"Precondition.php.html#50\">PHPHealth\\CDA\\RIM\\Act\\Precondition::__construct<\/a>"],[0,1,"<a href=\"Precondition.php.html#60\">PHPHealth\\CDA\\RIM\\Act\\Precondition::toDOMElement<\/a>"],[0,1,"<a href=\"Precondition.php.html#70\">PHPHealth\\CDA\\RIM\\Act\\Precondition::getElementTag<\/a>"],[100,1,"<a href=\"ReferenceRange.php.html#49\">PHPHealth\\CDA\\RIM\\Act\\ReferenceRange::__construct<\/a>"],[100,1,"<a href=\"ReferenceRange.php.html#60\">PHPHealth\\CDA\\RIM\\Act\\ReferenceRange::toDOMElement<\/a>"],[100,1,"<a href=\"ReferenceRange.php.html#70\">PHPHealth\\CDA\\RIM\\Act\\ReferenceRange::getElementTag<\/a>"],[0,1,"<a href=\"ServiceEvent.php.html#67\">PHPHealth\\CDA\\RIM\\Act\\ServiceEvent::__construct<\/a>"],[0,1,"<a href=\"ServiceEvent.php.html#78\">PHPHealth\\CDA\\RIM\\Act\\ServiceEvent::toDOMElement<\/a>"],[0,1,"<a href=\"ServiceEvent.php.html#91\">PHPHealth\\CDA\\RIM\\Act\\ServiceEvent::getElementTag<\/a>"],[100,2,"<a href=\"SubstanceAdministration.php.html#60\">PHPHealth\\CDA\\RIM\\Act\\SubstanceAdministration::__construct<\/a>"],[100,1,"<a href=\"SubstanceAdministration.php.html#77\">PHPHealth\\CDA\\RIM\\Act\\SubstanceAdministration::toDOMElement<\/a>"],[100,1,"<a href=\"SubstanceAdministration.php.html#95\">PHPHealth\\CDA\\RIM\\Act\\SubstanceAdministration::getElementTag<\/a>"],[100,1,"<a href=\"Supply.php.html#94\">PHPHealth\\CDA\\RIM\\Act\\Supply::__construct<\/a>"],[100,1,"<a href=\"Supply.php.html#104\">PHPHealth\\CDA\\RIM\\Act\\Supply::toDOMElement<\/a>"],[100,1,"<a href=\"Supply.php.html#135\">PHPHealth\\CDA\\RIM\\Act\\Supply::getElementTag<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

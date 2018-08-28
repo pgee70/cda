@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Users/pgee/projects/cda/lib/RIM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../.css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../.css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../.css/style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src="../.js/html5shiv.min.js"></script>
+  <script src="../.js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">/Users/pgee/projects/cda/lib</a></li>
+        <li><a href="index.html">RIM</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Participation/AssignedAuthorsTrait.php.html#37">AssignedAuthorsTrait</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/MaintainedEntity.php.html#41">PHPHealth\CDA\RIM\Entity\MaintainedEntity</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/EncounterParticipant.php.html#45">PHPHealth\CDA\RIM\Participation\EncounterParticipant</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/Product.php.html#45">PHPHealth\CDA\RIM\Participation\Product</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtPolicyOrAccount.php.html#41">PHPHealth\CDA\RIM\Extensions\ExtPolicyOrAccount</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtCoverage.php.html#42">PHPHealth\CDA\RIM\Extensions\ExtCoverage</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtControlAct.php.html#62">PHPHealth\CDA\RIM\Extensions\ExtControlAct</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtAbstractElement.php.html#48">PHPHealth\CDA\RIM\Extensions\ExtAbstractElement</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Subject.php.html#39">PHPHealth\CDA\RIM\Entity\Subject</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Criterion.php.html#48">PHPHealth\CDA\RIM\Act\Criterion</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/PlayingDevice.php.html#39">PHPHealth\CDA\RIM\Entity\PlayingDevice</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/LivingSubject.php.html#40">PHPHealth\CDA\RIM\Entity\LivingSubject</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/SubstitutionPermission.php.html#47">PHPHealth\CDA\RIM\Extensions\SubstitutionPermission</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Device.php.html#46">PHPHealth\CDA\RIM\Entity\Device</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/DataEnterer.php.html#47">PHPHealth\CDA\RIM\Entity\DataEnterer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/AssociatedPerson.php.html#41">PHPHealth\CDA\RIM\Entity\AssociatedPerson</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/AssociatedEntity.php.html#53">PHPHealth\CDA\RIM\Entity\AssociatedEntity</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/ServiceEvent.php.html#58">PHPHealth\CDA\RIM\Act\ServiceEvent</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Precondition.php.html#44">PHPHealth\CDA\RIM\Act\Precondition</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Encounter.php.html#64">PHPHealth\CDA\RIM\Act\Encounter</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/DocumentationOf.php.html#44">PHPHealth\CDA\RIM\Act\DocumentationOf</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/Subject2.php.html#44">PHPHealth\CDA\RIM\Extensions\Subject2</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/OrganizerComponent.php.html#57">PHPHealth\CDA\RIM\Act\OrganizerComponent</a></td><td class="text-right">28%</td></tr>
+       <tr><td><a href="Role/ParticipantRole.php.html#49">PHPHealth\CDA\RIM\Role\ParticipantRole</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Act/EntryRelationship.php.html#65">PHPHealth\CDA\RIM\Act\EntryRelationship</a></td><td class="text-right">81%</td></tr>
+       <tr><td><a href="Entity/RepresentedOrganization.php.html#59">PHPHealth\CDA\RIM\Entity\RepresentedOrganization</a></td><td class="text-right">82%</td></tr>
+       <tr><td><a href="Role/ManufacturedProduct.php.html#38">PHPHealth\CDA\RIM\Role\ManufacturedProduct</a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Extensions/MultipleBirthOrderNumber.php.html#46">PHPHealth\CDA\RIM\Extensions\MultipleBirthOrderNumber</a></td><td class="text-right">85%</td></tr>
+       <tr><td><a href="Act/Consent.php.html#54">PHPHealth\CDA\RIM\Act\Consent</a></td><td class="text-right">86%</td></tr>
+       <tr><td><a href="Extensions/MultipleBirthInd.php.html#46">PHPHealth\CDA\RIM\Extensions\MultipleBirthInd</a></td><td class="text-right">88%</td></tr>
+       <tr><td><a href="Extensions/DeceasedInd.php.html#46">PHPHealth\CDA\RIM\Extensions\DeceasedInd</a></td><td class="text-right">88%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Act/OrganizerComponent.php.html#57">PHPHealth\CDA\RIM\Act\OrganizerComponent</a></td><td class="text-right">181</td></tr>
+       <tr><td><a href="Extensions/ExtAbstractElement.php.html#48">PHPHealth\CDA\RIM\Extensions\ExtAbstractElement</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Act/Criterion.php.html#48">PHPHealth\CDA\RIM\Act\Criterion</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Participation/AssignedAuthorsTrait.php.html#37">AssignedAuthorsTrait</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Extensions/ExtCoverage.php.html#42">PHPHealth\CDA\RIM\Extensions\ExtCoverage</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Extensions/Subject2.php.html#44">PHPHealth\CDA\RIM\Extensions\Subject2</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Entity/RepresentedOrganization.php.html#59">PHPHealth\CDA\RIM\Entity\RepresentedOrganization</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Act/EntryRelationship.php.html#65">PHPHealth\CDA\RIM\Act\EntryRelationship</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Participation/EncounterParticipant.php.html#45">PHPHealth\CDA\RIM\Participation\EncounterParticipant</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Role/ManufacturedProduct.php.html#38">PHPHealth\CDA\RIM\Role\ManufacturedProduct</a></td><td class="text-right">19</td></tr>
+       <tr><td><a href="Role/ParticipantRole.php.html#49">PHPHealth\CDA\RIM\Role\ParticipantRole</a></td><td class="text-right">8</td></tr>
+       <tr><td><a href="Act/Consent.php.html#54">PHPHealth\CDA\RIM\Act\Consent</a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Extensions/DeceasedInd.php.html#46">PHPHealth\CDA\RIM\Extensions\DeceasedInd</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Extensions/MultipleBirthInd.php.html#46">PHPHealth\CDA\RIM\Extensions\MultipleBirthInd</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/LivingSubject.php.html#40">PHPHealth\CDA\RIM\Entity\LivingSubject</a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Participation/AssignedAuthorsTrait.php.html#80"><abbr title="AssignedAuthorsTrait::hasAssignedAuthors">hasAssignedAuthors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtCoverage.php.html#59"><abbr title="PHPHealth\CDA\RIM\Extensions\ExtCoverage::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/MultipleBirthOrderNumber.php.html#64"><abbr title="PHPHealth\CDA\RIM\Extensions\MultipleBirthOrderNumber::getValue">getValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/MultipleBirthInd.php.html#64"><abbr title="PHPHealth\CDA\RIM\Extensions\MultipleBirthInd::getValue">getValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/JobClassCode.php.html#92"><abbr title="PHPHealth\CDA\RIM\Extensions\JobClassCode::getCodedValue">getCodedValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtPolicyOrAccount.php.html#48"><abbr title="PHPHealth\CDA\RIM\Extensions\ExtPolicyOrAccount::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtPolicyOrAccount.php.html#43"><abbr title="PHPHealth\CDA\RIM\Extensions\ExtPolicyOrAccount::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtCoverage.php.html#69"><abbr title="PHPHealth\CDA\RIM\Extensions\ExtCoverage::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtCoverage.php.html#47"><abbr title="PHPHealth\CDA\RIM\Extensions\ExtCoverage::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/Subject2.php.html#62"><abbr title="PHPHealth\CDA\RIM\Extensions\Subject2::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtControlAct.php.html#104"><abbr title="PHPHealth\CDA\RIM\Extensions\ExtControlAct::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtControlAct.php.html#96"><abbr title="PHPHealth\CDA\RIM\Extensions\ExtControlAct::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtControlAct.php.html#85"><abbr title="PHPHealth\CDA\RIM\Extensions\ExtControlAct::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/ExtAbstractElement.php.html#56"><abbr title="PHPHealth\CDA\RIM\Extensions\ExtAbstractElement::createElement">createElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/DeceasedTime.php.html#65"><abbr title="PHPHealth\CDA\RIM\Extensions\DeceasedTime::getValue">getValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/DeceasedInd.php.html#64"><abbr title="PHPHealth\CDA\RIM\Extensions\DeceasedInd::getValue">getValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Criterion.php.html#56"><abbr title="PHPHealth\CDA\RIM\Act\Criterion::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/Subject2.php.html#49"><abbr title="PHPHealth\CDA\RIM\Extensions\Subject2::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/Subject2.php.html#72"><abbr title="PHPHealth\CDA\RIM\Extensions\Subject2::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RepresentedOrganization.php.html#155"><abbr title="PHPHealth\CDA\RIM\Entity\RepresentedOrganization::getStandardIndustryClassCode">getStandardIndustryClassCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/Product.php.html#70"><abbr title="PHPHealth\CDA\RIM\Participation\Product::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/AssignedAuthorsTrait.php.html#71"><abbr title="AssignedAuthorsTrait::addAssignedAuthor">addAssignedAuthor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/AssignedAuthorsTrait.php.html#55"><abbr title="AssignedAuthorsTrait::setAssignedAuthors">setAssignedAuthors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/AssignedAuthorsTrait.php.html#45"><abbr title="AssignedAuthorsTrait::getAssignedAuthors">getAssignedAuthors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Role/ManufacturedProduct.php.html#168"><abbr title="PHPHealth\CDA\RIM\Role\ManufacturedProduct::setManufacturerOrganization">setManufacturerOrganization</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Role/ManufacturedProduct.php.html#160"><abbr title="PHPHealth\CDA\RIM\Role\ManufacturedProduct::getManufacturerOrganization">getManufacturerOrganization</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Role/ManufacturedProduct.php.html#70"><abbr title="PHPHealth\CDA\RIM\Role\ManufacturedProduct::hasManufacturedDrugOrOther">hasManufacturedDrugOrOther</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/Product.php.html#60"><abbr title="PHPHealth\CDA\RIM\Participation\Product::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/SubstitutionPermission.php.html#53"><abbr title="PHPHealth\CDA\RIM\Extensions\SubstitutionPermission::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/Product.php.html#50"><abbr title="PHPHealth\CDA\RIM\Participation\Product::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/EncounterParticipant.php.html#75"><abbr title="PHPHealth\CDA\RIM\Participation\EncounterParticipant::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/EncounterParticipant.php.html#61"><abbr title="PHPHealth\CDA\RIM\Participation\EncounterParticipant::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/EncounterParticipant.php.html#51"><abbr title="PHPHealth\CDA\RIM\Participation\EncounterParticipant::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Participation/Authenticator.php.html#80"><abbr title="PHPHealth\CDA\RIM\Participation\Authenticator::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/SubstitutionPermission.php.html#75"><abbr title="PHPHealth\CDA\RIM\Extensions\SubstitutionPermission::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Extensions/SubstitutionPermission.php.html#65"><abbr title="PHPHealth\CDA\RIM\Extensions\SubstitutionPermission::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/RepresentedOrganization.php.html#165"><abbr title="PHPHealth\CDA\RIM\Entity\RepresentedOrganization::setStandardIndustryClassCode">setStandardIndustryClassCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Subject.php.html#44"><abbr title="PHPHealth\CDA\RIM\Entity\Subject::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Precondition.php.html#60"><abbr title="PHPHealth\CDA\RIM\Act\Precondition::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/DocumentationOf.php.html#69"><abbr title="PHPHealth\CDA\RIM\Act\DocumentationOf::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/DocumentationOf.php.html#59"><abbr title="PHPHealth\CDA\RIM\Act\DocumentationOf::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Encounter.php.html#105"><abbr title="PHPHealth\CDA\RIM\Act\Encounter::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Encounter.php.html#132"><abbr title="PHPHealth\CDA\RIM\Act\Encounter::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/DocumentationOf.php.html#49"><abbr title="PHPHealth\CDA\RIM\Act\DocumentationOf::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Criterion.php.html#85"><abbr title="PHPHealth\CDA\RIM\Act\Criterion::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Criterion.php.html#67"><abbr title="PHPHealth\CDA\RIM\Act\Criterion::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Precondition.php.html#50"><abbr title="PHPHealth\CDA\RIM\Act\Precondition::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/PlayingDevice.php.html#44"><abbr title="PHPHealth\CDA\RIM\Entity\PlayingDevice::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Precondition.php.html#70"><abbr title="PHPHealth\CDA\RIM\Act\Precondition::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/ServiceEvent.php.html#67"><abbr title="PHPHealth\CDA\RIM\Act\ServiceEvent::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/ServiceEvent.php.html#78"><abbr title="PHPHealth\CDA\RIM\Act\ServiceEvent::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/ServiceEvent.php.html#91"><abbr title="PHPHealth\CDA\RIM\Act\ServiceEvent::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/AssociatedEntity.php.html#67"><abbr title="PHPHealth\CDA\RIM\Entity\AssociatedEntity::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/AssociatedEntity.php.html#78"><abbr title="PHPHealth\CDA\RIM\Entity\AssociatedEntity::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/AssociatedEntity.php.html#94"><abbr title="PHPHealth\CDA\RIM\Entity\AssociatedEntity::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Person.php.html#91"><abbr title="PHPHealth\CDA\RIM\Entity\Person::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/MaintainedEntity.php.html#58"><abbr title="PHPHealth\CDA\RIM\Entity\MaintainedEntity::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/MaintainedEntity.php.html#48"><abbr title="PHPHealth\CDA\RIM\Entity\MaintainedEntity::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/LivingSubject.php.html#54"><abbr title="PHPHealth\CDA\RIM\Entity\LivingSubject::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Device.php.html#78"><abbr title="PHPHealth\CDA\RIM\Entity\Device::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Device.php.html#66"><abbr title="PHPHealth\CDA\RIM\Entity\Device::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/Encounter.php.html#88"><abbr title="PHPHealth\CDA\RIM\Act\Encounter::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Device.php.html#55"><abbr title="PHPHealth\CDA\RIM\Entity\Device::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/DataEnterer.php.html#76"><abbr title="PHPHealth\CDA\RIM\Entity\DataEnterer::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/DataEnterer.php.html#64"><abbr title="PHPHealth\CDA\RIM\Entity\DataEnterer::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/DataEnterer.php.html#55"><abbr title="PHPHealth\CDA\RIM\Entity\DataEnterer::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/AssociatedPerson.php.html#61"><abbr title="PHPHealth\CDA\RIM\Entity\AssociatedPerson::getElementTag">getElementTag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/AssociatedPerson.php.html#51"><abbr title="PHPHealth\CDA\RIM\Entity\AssociatedPerson::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Act/OrganizerComponent.php.html#97"><abbr title="PHPHealth\CDA\RIM\Act\OrganizerComponent::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">25%</td></tr>
+       <tr><td><a href="Act/OrganizerComponent.php.html#73"><abbr title="PHPHealth\CDA\RIM\Act\OrganizerComponent::__construct">__construct</abbr></a></td><td class="text-right">29%</td></tr>
+       <tr><td><a href="Role/ParticipantRole.php.html#58"><abbr title="PHPHealth\CDA\RIM\Role\ParticipantRole::__construct">__construct</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Entity/RepresentedOrganization.php.html#120"><abbr title="PHPHealth\CDA\RIM\Entity\RepresentedOrganization::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">76%</td></tr>
+       <tr><td><a href="Act/EntryRelationship.php.html#123"><abbr title="PHPHealth\CDA\RIM\Act\EntryRelationship::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="Act/Consent.php.html#82"><abbr title="PHPHealth\CDA\RIM\Act\Consent::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="Participation/Performer.php.html#61"><abbr title="PHPHealth\CDA\RIM\Participation\Performer::__construct">__construct</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Role/ParticipantRole.php.html#72"><abbr title="PHPHealth\CDA\RIM\Role\ParticipantRole::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">81%</td></tr>
+       <tr><td><a href="Role/AssignedAuthor.php.html#108"><abbr title="PHPHealth\CDA\RIM\Role\AssignedAuthor::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Act/EntryRelationship.php.html#91"><abbr title="PHPHealth\CDA\RIM\Act\EntryRelationship::__construct">__construct</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Role/ManufacturedProduct.php.html#80"><abbr title="PHPHealth\CDA\RIM\Role\ManufacturedProduct::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">88%</td></tr>
+       <tr><td><a href="Act/ObservationRange.php.html#76"><abbr title="PHPHealth\CDA\RIM\Act\ObservationRange::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">88%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Act/OrganizerComponent.php.html#97"><abbr title="PHPHealth\CDA\RIM\Act\OrganizerComponent::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Extensions/ExtAbstractElement.php.html#56"><abbr title="PHPHealth\CDA\RIM\Extensions\ExtAbstractElement::createElement">createElement</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Act/OrganizerComponent.php.html#73"><abbr title="PHPHealth\CDA\RIM\Act\OrganizerComponent::__construct">__construct</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Act/Criterion.php.html#67"><abbr title="PHPHealth\CDA\RIM\Act\Criterion::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Extensions/Subject2.php.html#49"><abbr title="PHPHealth\CDA\RIM\Extensions\Subject2::__construct">__construct</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Extensions/ExtCoverage.php.html#47"><abbr title="PHPHealth\CDA\RIM\Extensions\ExtCoverage::__construct">__construct</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Participation/AssignedAuthorsTrait.php.html#55"><abbr title="AssignedAuthorsTrait::setAssignedAuthors">setAssignedAuthors</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Act/EntryRelationship.php.html#123"><abbr title="PHPHealth\CDA\RIM\Act\EntryRelationship::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">9</td></tr>
+       <tr><td><a href="Act/EntryRelationship.php.html#91"><abbr title="PHPHealth\CDA\RIM\Act\EntryRelationship::__construct">__construct</abbr></a></td><td class="text-right">8</td></tr>
+       <tr><td><a href="Entity/LivingSubject.php.html#54"><abbr title="PHPHealth\CDA\RIM\Entity\LivingSubject::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Participation/EncounterParticipant.php.html#61"><abbr title="PHPHealth\CDA\RIM\Participation\EncounterParticipant::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Act/Consent.php.html#82"><abbr title="PHPHealth\CDA\RIM\Act\Consent::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">5</td></tr>
+       <tr><td><a href="Role/ParticipantRole.php.html#58"><abbr title="PHPHealth\CDA\RIM\Role\ParticipantRole::__construct">__construct</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Entity/RepresentedOrganization.php.html#120"><abbr title="PHPHealth\CDA\RIM\Entity\RepresentedOrganization::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Role/AssignedAuthor.php.html#108"><abbr title="PHPHealth\CDA\RIM\Role\AssignedAuthor::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Role/ManufacturedProduct.php.html#80"><abbr title="PHPHealth\CDA\RIM\Role\ManufacturedProduct::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Role/ParticipantRole.php.html#72"><abbr title="PHPHealth\CDA\RIM\Role\ParticipantRole::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Act/ObservationRange.php.html#76"><abbr title="PHPHealth\CDA\RIM\Act\ObservationRange::toDOMElement">toDOMElement</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Participation/Performer.php.html#61"><abbr title="PHPHealth\CDA\RIM\Participation\Performer::__construct">__construct</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 6.0.1</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.9</a> with <a href="https://xdebug.org/">Xdebug 2.6.1</a> and <a href="https://phpunit.de/">PHPUnit 7.0.3</a> at Tue Aug 28 12:19:16 UTC 2018.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../.js/jquery.min.js" type="text/javascript"></script>
+  <script src="../.js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../.js/holder.min.js" type="text/javascript"></script>
+  <script src="../.js/d3.min.js" type="text/javascript"></script>
+  <script src="../.js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([22,0,0,1,0,0,0,0,0,8,7,55], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([68,0,0,2,0,0,0,0,4,6,0,217], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,3,"<a href=\"Act\/Act.php.html#58\">PHPHealth\\CDA\\RIM\\Act\\Act<\/a>"],[100,3,"<a href=\"Act\/Authorization.php.html#48\">PHPHealth\\CDA\\RIM\\Act\\Authorization<\/a>"],[100,5,"<a href=\"Act\/ComponentOf.php.html#49\">PHPHealth\\CDA\\RIM\\Act\\ComponentOf<\/a>"],[86.66666666666667,7,"<a href=\"Act\/Consent.php.html#54\">PHPHealth\\CDA\\RIM\\Act\\Consent<\/a>"],[0,6,"<a href=\"Act\/Criterion.php.html#48\">PHPHealth\\CDA\\RIM\\Act\\Criterion<\/a>"],[0,3,"<a href=\"Act\/DocumentationOf.php.html#44\">PHPHealth\\CDA\\RIM\\Act\\DocumentationOf<\/a>"],[100,4,"<a href=\"Act\/EncompassingEncounter.php.html#60\">PHPHealth\\CDA\\RIM\\Act\\EncompassingEncounter<\/a>"],[0,3,"<a href=\"Act\/Encounter.php.html#64\">PHPHealth\\CDA\\RIM\\Act\\Encounter<\/a>"],[81.08108108108108,18,"<a href=\"Act\/EntryRelationship.php.html#65\">PHPHealth\\CDA\\RIM\\Act\\EntryRelationship<\/a>"],[100,6,"<a href=\"Act\/Observation.php.html#46\">PHPHealth\\CDA\\RIM\\Act\\Observation<\/a>"],[100,3,"<a href=\"Act\/ObservationMedia.php.html#61\">PHPHealth\\CDA\\RIM\\Act\\ObservationMedia<\/a>"],[93.33333333333333,5,"<a href=\"Act\/ObservationRange.php.html#55\">PHPHealth\\CDA\\RIM\\Act\\ObservationRange<\/a>"],[100,3,"<a href=\"Act\/Organizer.php.html#62\">PHPHealth\\CDA\\RIM\\Act\\Organizer<\/a>"],[28.57142857142857,21,"<a href=\"Act\/OrganizerComponent.php.html#57\">PHPHealth\\CDA\\RIM\\Act\\OrganizerComponent<\/a>"],[0,3,"<a href=\"Act\/Precondition.php.html#44\">PHPHealth\\CDA\\RIM\\Act\\Precondition<\/a>"],[100,3,"<a href=\"Act\/ReferenceRange.php.html#44\">PHPHealth\\CDA\\RIM\\Act\\ReferenceRange<\/a>"],[0,3,"<a href=\"Act\/ServiceEvent.php.html#58\">PHPHealth\\CDA\\RIM\\Act\\ServiceEvent<\/a>"],[100,4,"<a href=\"Act\/SubstanceAdministration.php.html#43\">PHPHealth\\CDA\\RIM\\Act\\SubstanceAdministration<\/a>"],[100,3,"<a href=\"Act\/Supply.php.html#66\">PHPHealth\\CDA\\RIM\\Act\\Supply<\/a>"],[100,5,"<a href=\"Entity\/AssignedCustodian.php.html#34\">PHPHealth\\CDA\\RIM\\Entity\\AssignedCustodian<\/a>"],[100,15,"<a href=\"Entity\/AssignedEntity.php.html#61\">PHPHealth\\CDA\\RIM\\Entity\\AssignedEntity<\/a>"],[100,15,"<a href=\"Entity\/AssignedPerson.php.html#43\">PHPHealth\\CDA\\RIM\\Entity\\AssignedPerson<\/a>"],[0,3,"<a href=\"Entity\/AssociatedEntity.php.html#53\">PHPHealth\\CDA\\RIM\\Entity\\AssociatedEntity<\/a>"],[0,2,"<a href=\"Entity\/AssociatedPerson.php.html#41\">PHPHealth\\CDA\\RIM\\Entity\\AssociatedPerson<\/a>"],[0,3,"<a href=\"Entity\/DataEnterer.php.html#47\">PHPHealth\\CDA\\RIM\\Entity\\DataEnterer<\/a>"],[0,3,"<a href=\"Entity\/Device.php.html#46\">PHPHealth\\CDA\\RIM\\Entity\\Device<\/a>"],[100,0,"<a href=\"Entity\/DrugOrMaterial.php.html#31\">PHPHealth\\CDA\\RIM\\Entity\\DrugOrMaterial<\/a>"],[100,0,"<a href=\"Entity\/Entity.php.html#39\">PHPHealth\\CDA\\RIM\\Entity\\Entity<\/a>"],[100,1,"<a href=\"Entity\/InformationRecipientPerson.php.html#39\">PHPHealth\\CDA\\RIM\\Entity\\InformationRecipientPerson<\/a>"],[0,2,"<a href=\"Entity\/LivingSubject.php.html#40\">PHPHealth\\CDA\\RIM\\Entity\\LivingSubject<\/a>"],[0,2,"<a href=\"Entity\/MaintainedEntity.php.html#41\">PHPHealth\\CDA\\RIM\\Entity\\MaintainedEntity<\/a>"],[100,5,"<a href=\"Entity\/ManufacturedLabeledDrug.php.html#35\">PHPHealth\\CDA\\RIM\\Entity\\ManufacturedLabeledDrug<\/a>"],[100,5,"<a href=\"Entity\/ManufacturedMaterial.php.html#48\">PHPHealth\\CDA\\RIM\\Entity\\ManufacturedMaterial<\/a>"],[100,3,"<a href=\"Entity\/Organization.php.html#38\">PHPHealth\\CDA\\RIM\\Entity\\Organization<\/a>"],[100,1,"<a href=\"Entity\/Patient.php.html#32\">PHPHealth\\CDA\\RIM\\Entity\\Patient<\/a>"],[95.23809523809523,7,"<a href=\"Entity\/Person.php.html#38\">PHPHealth\\CDA\\RIM\\Entity\\Person<\/a>"],[0,1,"<a href=\"Entity\/PlayingDevice.php.html#39\">PHPHealth\\CDA\\RIM\\Entity\\PlayingDevice<\/a>"],[100,5,"<a href=\"Entity\/PlayingEntity.php.html#55\">PHPHealth\\CDA\\RIM\\Entity\\PlayingEntity<\/a>"],[100,1,"<a href=\"Entity\/ReceivedOrganization.php.html#39\">PHPHealth\\CDA\\RIM\\Entity\\ReceivedOrganization<\/a>"],[100,11,"<a href=\"Entity\/RepresentedCustodianOrganization.php.html#61\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedCustodianOrganization<\/a>"],[82.85714285714286,19,"<a href=\"Entity\/RepresentedOrganization.php.html#59\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization<\/a>"],[100,3,"<a href=\"Entity\/SpecimenPlayingEntity.php.html#41\">PHPHealth\\CDA\\RIM\\Entity\\SpecimenPlayingEntity<\/a>"],[0,1,"<a href=\"Entity\/Subject.php.html#39\">PHPHealth\\CDA\\RIM\\Entity\\Subject<\/a>"],[100,11,"<a href=\"Entity\/WholeOrganisation.php.html#55\">PHPHealth\\CDA\\RIM\\Entity\\WholeOrganisation<\/a>"],[100,7,"<a href=\"Extensions\/AsEmployment.php.html#51\">PHPHealth\\CDA\\RIM\\Extensions\\AsEmployment<\/a>"],[100,5,"<a href=\"Extensions\/AsEntityIdentifier.php.html#48\">PHPHealth\\CDA\\RIM\\Extensions\\AsEntityIdentifier<\/a>"],[100,4,"<a href=\"Extensions\/AsQualifications.php.html#47\">PHPHealth\\CDA\\RIM\\Extensions\\AsQualifications<\/a>"],[100,3,"<a href=\"Extensions\/AssigningGeographicArea.php.html#50\">PHPHealth\\CDA\\RIM\\Extensions\\AssigningGeographicArea<\/a>"],[88.88888888888889,6,"<a href=\"Extensions\/DeceasedInd.php.html#46\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedInd<\/a>"],[90.9090909090909,7,"<a href=\"Extensions\/DeceasedTime.php.html#47\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedTime<\/a>"],[0,9,"<a href=\"Extensions\/ExtAbstractElement.php.html#48\">PHPHealth\\CDA\\RIM\\Extensions\\ExtAbstractElement<\/a>"],[100,5,"<a href=\"Extensions\/ExtAsSpecimenInContainer.php.html#43\">PHPHealth\\CDA\\RIM\\Extensions\\ExtAsSpecimenInContainer<\/a>"],[100,7,"<a href=\"Extensions\/ExtCode.php.html#47\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCode<\/a>"],[100,5,"<a href=\"Extensions\/ExtContainer.php.html#42\">PHPHealth\\CDA\\RIM\\Extensions\\ExtContainer<\/a>"],[0,3,"<a href=\"Extensions\/ExtControlAct.php.html#62\">PHPHealth\\CDA\\RIM\\Extensions\\ExtControlAct<\/a>"],[0,5,"<a href=\"Extensions\/ExtCoverage.php.html#42\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCoverage<\/a>"],[100,3,"<a href=\"Extensions\/ExtCoverage2.php.html#44\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCoverage2<\/a>"],[100,7,"<a href=\"Extensions\/ExtEffectiveTime.php.html#49\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEffectiveTime<\/a>"],[100,7,"<a href=\"Extensions\/ExtEmployerOrganization.php.html#47\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEmployerOrganization<\/a>"],[100,11,"<a href=\"Extensions\/ExtEntitlement.php.html#54\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEntitlement<\/a>"],[100,5,"<a href=\"Extensions\/ExtEntityName.php.html#46\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEntityName<\/a>"],[100,6,"<a href=\"Extensions\/ExtId.php.html#47\">PHPHealth\\CDA\\RIM\\Extensions\\ExtId<\/a>"],[100,2,"<a href=\"Extensions\/ExtJobCode.php.html#42\">PHPHealth\\CDA\\RIM\\Extensions\\ExtJobCode<\/a>"],[100,3,"<a href=\"Extensions\/ExtParticipant.php.html#48\">PHPHealth\\CDA\\RIM\\Extensions\\ExtParticipant<\/a>"],[100,3,"<a href=\"Extensions\/ExtParticipantRole.php.html#47\">PHPHealth\\CDA\\RIM\\Extensions\\ExtParticipantRole<\/a>"],[0,2,"<a href=\"Extensions\/ExtPolicyOrAccount.php.html#41\">PHPHealth\\CDA\\RIM\\Extensions\\ExtPolicyOrAccount<\/a>"],[95.45454545454545,7,"<a href=\"Extensions\/JobClassCode.php.html#48\">PHPHealth\\CDA\\RIM\\Extensions\\JobClassCode<\/a>"],[88.88888888888889,6,"<a href=\"Extensions\/MultipleBirthInd.php.html#46\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthInd<\/a>"],[85.71428571428571,5,"<a href=\"Extensions\/MultipleBirthOrderNumber.php.html#46\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthOrderNumber<\/a>"],[0,5,"<a href=\"Extensions\/Subject2.php.html#44\">PHPHealth\\CDA\\RIM\\Extensions\\Subject2<\/a>"],[0,3,"<a href=\"Extensions\/SubstitutionPermission.php.html#47\">PHPHealth\\CDA\\RIM\\Extensions\\SubstitutionPermission<\/a>"],[90,3,"<a href=\"Participation\/Authenticator.php.html#48\">PHPHealth\\CDA\\RIM\\Participation\\Authenticator<\/a>"],[100,7,"<a href=\"Participation\/Author.php.html#40\">PHPHealth\\CDA\\RIM\\Participation\\Author<\/a>"],[100,3,"<a href=\"Participation\/Consumable.php.html#35\">PHPHealth\\CDA\\RIM\\Participation\\Consumable<\/a>"],[100,3,"<a href=\"Participation\/Custodian.php.html#35\">PHPHealth\\CDA\\RIM\\Participation\\Custodian<\/a>"],[0,4,"<a href=\"Participation\/EncounterParticipant.php.html#45\">PHPHealth\\CDA\\RIM\\Participation\\EncounterParticipant<\/a>"],[100,3,"<a href=\"Participation\/InformationRecipient.php.html#44\">PHPHealth\\CDA\\RIM\\Participation\\InformationRecipient<\/a>"],[100,2,"<a href=\"Participation\/LegalAuthenticator.php.html#49\">PHPHealth\\CDA\\RIM\\Participation\\LegalAuthenticator<\/a>"],[100,3,"<a href=\"Participation\/Participant.php.html#53\">PHPHealth\\CDA\\RIM\\Participation\\Participant<\/a>"],[100,0,"<a href=\"Participation\/Participation.php.html#35\">PHPHealth\\CDA\\RIM\\Participation\\Participation<\/a>"],[90.9090909090909,4,"<a href=\"Participation\/Performer.php.html#49\">PHPHealth\\CDA\\RIM\\Participation\\Performer<\/a>"],[0,3,"<a href=\"Participation\/Product.php.html#45\">PHPHealth\\CDA\\RIM\\Participation\\Product<\/a>"],[100,3,"<a href=\"Participation\/RecordTarget.php.html#36\">PHPHealth\\CDA\\RIM\\Participation\\RecordTarget<\/a>"],[100,3,"<a href=\"Participation\/Specimen.php.html#50\">PHPHealth\\CDA\\RIM\\Participation\\Specimen<\/a>"],[100,3,"<a href=\"Role\/AsOrganizationPartOf.php.html#48\">PHPHealth\\CDA\\RIM\\Role\\AsOrganizationPartOf<\/a>"],[92.3076923076923,11,"<a href=\"Role\/AssignedAuthor.php.html#55\">PHPHealth\\CDA\\RIM\\Role\\AssignedAuthor<\/a>"],[100,3,"<a href=\"Role\/IntendedRecipient.php.html#54\">PHPHealth\\CDA\\RIM\\Role\\IntendedRecipient<\/a>"],[83.33333333333334,18,"<a href=\"Role\/ManufacturedProduct.php.html#38\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct<\/a>"],[80,8,"<a href=\"Role\/ParticipantRole.php.html#49\">PHPHealth\\CDA\\RIM\\Role\\ParticipantRole<\/a>"],[100,9,"<a href=\"Role\/PatientRole.php.html#62\">PHPHealth\\CDA\\RIM\\Role\\PatientRole<\/a>"],[100,0,"<a href=\"Role\/Role.php.html#38\">PHPHealth\\CDA\\RIM\\Role\\Role<\/a>"],[100,5,"<a href=\"Role\/SpecimenRole.php.html#48\">PHPHealth\\CDA\\RIM\\Role\\SpecimenRole<\/a>"],[0,6,"<a href=\"Participation\/AssignedAuthorsTrait.php.html#37\">AssignedAuthorsTrait<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Act\/Act.php.html#85\">PHPHealth\\CDA\\RIM\\Act\\Act::__construct<\/a>"],[100,1,"<a href=\"Act\/Act.php.html#99\">PHPHealth\\CDA\\RIM\\Act\\Act::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/Act.php.html#124\">PHPHealth\\CDA\\RIM\\Act\\Act::getElementTag<\/a>"],[100,1,"<a href=\"Act\/Authorization.php.html#58\">PHPHealth\\CDA\\RIM\\Act\\Authorization::__construct<\/a>"],[100,1,"<a href=\"Act\/Authorization.php.html#73\">PHPHealth\\CDA\\RIM\\Act\\Authorization::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/Authorization.php.html#83\">PHPHealth\\CDA\\RIM\\Act\\Authorization::getElementTag<\/a>"],[100,2,"<a href=\"Act\/ComponentOf.php.html#60\">PHPHealth\\CDA\\RIM\\Act\\ComponentOf::__construct<\/a>"],[100,2,"<a href=\"Act\/ComponentOf.php.html#78\">PHPHealth\\CDA\\RIM\\Act\\ComponentOf::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/ComponentOf.php.html#93\">PHPHealth\\CDA\\RIM\\Act\\ComponentOf::getElementTag<\/a>"],[100,1,"<a href=\"Act\/Consent.php.html#65\">PHPHealth\\CDA\\RIM\\Act\\Consent::__construct<\/a>"],[77.77777777777779,5,"<a href=\"Act\/Consent.php.html#82\">PHPHealth\\CDA\\RIM\\Act\\Consent::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/Consent.php.html#106\">PHPHealth\\CDA\\RIM\\Act\\Consent::getElementTag<\/a>"],[0,1,"<a href=\"Act\/Criterion.php.html#56\">PHPHealth\\CDA\\RIM\\Act\\Criterion::__construct<\/a>"],[0,4,"<a href=\"Act\/Criterion.php.html#67\">PHPHealth\\CDA\\RIM\\Act\\Criterion::toDOMElement<\/a>"],[0,1,"<a href=\"Act\/Criterion.php.html#85\">PHPHealth\\CDA\\RIM\\Act\\Criterion::getElementTag<\/a>"],[0,1,"<a href=\"Act\/DocumentationOf.php.html#49\">PHPHealth\\CDA\\RIM\\Act\\DocumentationOf::__construct<\/a>"],[0,1,"<a href=\"Act\/DocumentationOf.php.html#59\">PHPHealth\\CDA\\RIM\\Act\\DocumentationOf::toDOMElement<\/a>"],[0,1,"<a href=\"Act\/DocumentationOf.php.html#69\">PHPHealth\\CDA\\RIM\\Act\\DocumentationOf::getElementTag<\/a>"],[100,2,"<a href=\"Act\/EncompassingEncounter.php.html#78\">PHPHealth\\CDA\\RIM\\Act\\EncompassingEncounter::__construct<\/a>"],[100,1,"<a href=\"Act\/EncompassingEncounter.php.html#97\">PHPHealth\\CDA\\RIM\\Act\\EncompassingEncounter::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/EncompassingEncounter.php.html#117\">PHPHealth\\CDA\\RIM\\Act\\EncompassingEncounter::getElementTag<\/a>"],[0,1,"<a href=\"Act\/Encounter.php.html#88\">PHPHealth\\CDA\\RIM\\Act\\Encounter::__construct<\/a>"],[0,1,"<a href=\"Act\/Encounter.php.html#105\">PHPHealth\\CDA\\RIM\\Act\\Encounter::toDOMElement<\/a>"],[0,1,"<a href=\"Act\/Encounter.php.html#132\">PHPHealth\\CDA\\RIM\\Act\\Encounter::getElementTag<\/a>"],[83.33333333333334,8,"<a href=\"Act\/EntryRelationship.php.html#91\">PHPHealth\\CDA\\RIM\\Act\\EntryRelationship::__construct<\/a>"],[77.77777777777779,9,"<a href=\"Act\/EntryRelationship.php.html#123\">PHPHealth\\CDA\\RIM\\Act\\EntryRelationship::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/EntryRelationship.php.html#154\">PHPHealth\\CDA\\RIM\\Act\\EntryRelationship::getElementTag<\/a>"],[100,3,"<a href=\"Act\/Observation.php.html#62\">PHPHealth\\CDA\\RIM\\Act\\Observation::__construct<\/a>"],[100,1,"<a href=\"Act\/Observation.php.html#84\">PHPHealth\\CDA\\RIM\\Act\\Observation::nullObservation<\/a>"],[100,1,"<a href=\"Act\/Observation.php.html#93\">PHPHealth\\CDA\\RIM\\Act\\Observation::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/Observation.php.html#124\">PHPHealth\\CDA\\RIM\\Act\\Observation::getElementTag<\/a>"],[100,1,"<a href=\"Act\/ObservationMedia.php.html#81\">PHPHealth\\CDA\\RIM\\Act\\ObservationMedia::__construct<\/a>"],[100,1,"<a href=\"Act\/ObservationMedia.php.html#93\">PHPHealth\\CDA\\RIM\\Act\\ObservationMedia::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/ObservationMedia.php.html#113\">PHPHealth\\CDA\\RIM\\Act\\ObservationMedia::getElementTag<\/a>"],[100,1,"<a href=\"Act\/ObservationRange.php.html#65\">PHPHealth\\CDA\\RIM\\Act\\ObservationRange::__construct<\/a>"],[88.88888888888889,3,"<a href=\"Act\/ObservationRange.php.html#76\">PHPHealth\\CDA\\RIM\\Act\\ObservationRange::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/ObservationRange.php.html#94\">PHPHealth\\CDA\\RIM\\Act\\ObservationRange::getElementTag<\/a>"],[100,1,"<a href=\"Act\/Organizer.php.html#84\">PHPHealth\\CDA\\RIM\\Act\\Organizer::__construct<\/a>"],[100,1,"<a href=\"Act\/Organizer.php.html#96\">PHPHealth\\CDA\\RIM\\Act\\Organizer::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/Organizer.php.html#119\">PHPHealth\\CDA\\RIM\\Act\\Organizer::getElementTag<\/a>"],[29.411764705882355,8,"<a href=\"Act\/OrganizerComponent.php.html#73\">PHPHealth\\CDA\\RIM\\Act\\OrganizerComponent::__construct<\/a>"],[25,12,"<a href=\"Act\/OrganizerComponent.php.html#97\">PHPHealth\\CDA\\RIM\\Act\\OrganizerComponent::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/OrganizerComponent.php.html#133\">PHPHealth\\CDA\\RIM\\Act\\OrganizerComponent::getElementTag<\/a>"],[0,1,"<a href=\"Act\/Precondition.php.html#50\">PHPHealth\\CDA\\RIM\\Act\\Precondition::__construct<\/a>"],[0,1,"<a href=\"Act\/Precondition.php.html#60\">PHPHealth\\CDA\\RIM\\Act\\Precondition::toDOMElement<\/a>"],[0,1,"<a href=\"Act\/Precondition.php.html#70\">PHPHealth\\CDA\\RIM\\Act\\Precondition::getElementTag<\/a>"],[100,1,"<a href=\"Act\/ReferenceRange.php.html#49\">PHPHealth\\CDA\\RIM\\Act\\ReferenceRange::__construct<\/a>"],[100,1,"<a href=\"Act\/ReferenceRange.php.html#60\">PHPHealth\\CDA\\RIM\\Act\\ReferenceRange::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/ReferenceRange.php.html#70\">PHPHealth\\CDA\\RIM\\Act\\ReferenceRange::getElementTag<\/a>"],[0,1,"<a href=\"Act\/ServiceEvent.php.html#67\">PHPHealth\\CDA\\RIM\\Act\\ServiceEvent::__construct<\/a>"],[0,1,"<a href=\"Act\/ServiceEvent.php.html#78\">PHPHealth\\CDA\\RIM\\Act\\ServiceEvent::toDOMElement<\/a>"],[0,1,"<a href=\"Act\/ServiceEvent.php.html#91\">PHPHealth\\CDA\\RIM\\Act\\ServiceEvent::getElementTag<\/a>"],[100,2,"<a href=\"Act\/SubstanceAdministration.php.html#60\">PHPHealth\\CDA\\RIM\\Act\\SubstanceAdministration::__construct<\/a>"],[100,1,"<a href=\"Act\/SubstanceAdministration.php.html#77\">PHPHealth\\CDA\\RIM\\Act\\SubstanceAdministration::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/SubstanceAdministration.php.html#95\">PHPHealth\\CDA\\RIM\\Act\\SubstanceAdministration::getElementTag<\/a>"],[100,1,"<a href=\"Act\/Supply.php.html#94\">PHPHealth\\CDA\\RIM\\Act\\Supply::__construct<\/a>"],[100,1,"<a href=\"Act\/Supply.php.html#104\">PHPHealth\\CDA\\RIM\\Act\\Supply::toDOMElement<\/a>"],[100,1,"<a href=\"Act\/Supply.php.html#135\">PHPHealth\\CDA\\RIM\\Act\\Supply::getElementTag<\/a>"],[100,3,"<a href=\"Entity\/AssignedCustodian.php.html#43\">PHPHealth\\CDA\\RIM\\Entity\\AssignedCustodian::__construct<\/a>"],[100,1,"<a href=\"Entity\/AssignedCustodian.php.html#58\">PHPHealth\\CDA\\RIM\\Entity\\AssignedCustodian::toDOMElement<\/a>"],[100,1,"<a href=\"Entity\/AssignedCustodian.php.html#68\">PHPHealth\\CDA\\RIM\\Entity\\AssignedCustodian::getElementTag<\/a>"],[100,13,"<a href=\"Entity\/AssignedEntity.php.html#84\">PHPHealth\\CDA\\RIM\\Entity\\AssignedEntity::__construct<\/a>"],[100,1,"<a href=\"Entity\/AssignedEntity.php.html#122\">PHPHealth\\CDA\\RIM\\Entity\\AssignedEntity::toDOMElement<\/a>"],[100,1,"<a href=\"Entity\/AssignedEntity.php.html#139\">PHPHealth\\CDA\\RIM\\Entity\\AssignedEntity::getElementTag<\/a>"],[100,5,"<a href=\"Entity\/AssignedPerson.php.html#57\">PHPHealth\\CDA\\RIM\\Entity\\AssignedPerson::__construct<\/a>"],[100,3,"<a href=\"Entity\/AssignedPerson.php.html#75\">PHPHealth\\CDA\\RIM\\Entity\\AssignedPerson::toDOMElement<\/a>"],[100,1,"<a href=\"Entity\/AssignedPerson.php.html#87\">PHPHealth\\CDA\\RIM\\Entity\\AssignedPerson::hasAsEmployment<\/a>"],[100,1,"<a href=\"Entity\/AssignedPerson.php.html#92\">PHPHealth\\CDA\\RIM\\Entity\\AssignedPerson::getAsEmployment<\/a>"],[100,1,"<a href=\"Entity\/AssignedPerson.php.html#97\">PHPHealth\\CDA\\RIM\\Entity\\AssignedPerson::setAsEmployment<\/a>"],[100,1,"<a href=\"Entity\/AssignedPerson.php.html#103\">PHPHealth\\CDA\\RIM\\Entity\\AssignedPerson::hasAsQualifications<\/a>"],[100,1,"<a href=\"Entity\/AssignedPerson.php.html#108\">PHPHealth\\CDA\\RIM\\Entity\\AssignedPerson::getAsQualifications<\/a>"],[100,1,"<a href=\"Entity\/AssignedPerson.php.html#113\">PHPHealth\\CDA\\RIM\\Entity\\AssignedPerson::setAsQualifications<\/a>"],[100,1,"<a href=\"Entity\/AssignedPerson.php.html#119\">PHPHealth\\CDA\\RIM\\Entity\\AssignedPerson::getElementTag<\/a>"],[0,1,"<a href=\"Entity\/AssociatedEntity.php.html#67\">PHPHealth\\CDA\\RIM\\Entity\\AssociatedEntity::__construct<\/a>"],[0,1,"<a href=\"Entity\/AssociatedEntity.php.html#78\">PHPHealth\\CDA\\RIM\\Entity\\AssociatedEntity::toDOMElement<\/a>"],[0,1,"<a href=\"Entity\/AssociatedEntity.php.html#94\">PHPHealth\\CDA\\RIM\\Entity\\AssociatedEntity::getElementTag<\/a>"],[0,1,"<a href=\"Entity\/AssociatedPerson.php.html#51\">PHPHealth\\CDA\\RIM\\Entity\\AssociatedPerson::toDOMElement<\/a>"],[0,1,"<a href=\"Entity\/AssociatedPerson.php.html#61\">PHPHealth\\CDA\\RIM\\Entity\\AssociatedPerson::getElementTag<\/a>"],[0,1,"<a href=\"Entity\/DataEnterer.php.html#55\">PHPHealth\\CDA\\RIM\\Entity\\DataEnterer::__construct<\/a>"],[0,1,"<a href=\"Entity\/DataEnterer.php.html#64\">PHPHealth\\CDA\\RIM\\Entity\\DataEnterer::toDOMElement<\/a>"],[0,1,"<a href=\"Entity\/DataEnterer.php.html#76\">PHPHealth\\CDA\\RIM\\Entity\\DataEnterer::getElementTag<\/a>"],[0,1,"<a href=\"Entity\/Device.php.html#55\">PHPHealth\\CDA\\RIM\\Entity\\Device::__construct<\/a>"],[0,1,"<a href=\"Entity\/Device.php.html#66\">PHPHealth\\CDA\\RIM\\Entity\\Device::toDOMElement<\/a>"],[0,1,"<a href=\"Entity\/Device.php.html#78\">PHPHealth\\CDA\\RIM\\Entity\\Device::getElementTag<\/a>"],[100,1,"<a href=\"Entity\/InformationRecipientPerson.php.html#44\">PHPHealth\\CDA\\RIM\\Entity\\InformationRecipientPerson::getElementTag<\/a>"],[0,2,"<a href=\"Entity\/LivingSubject.php.html#54\">PHPHealth\\CDA\\RIM\\Entity\\LivingSubject::toDOMElement<\/a>"],[0,1,"<a href=\"Entity\/MaintainedEntity.php.html#48\">PHPHealth\\CDA\\RIM\\Entity\\MaintainedEntity::toDOMElement<\/a>"],[0,1,"<a href=\"Entity\/MaintainedEntity.php.html#58\">PHPHealth\\CDA\\RIM\\Entity\\MaintainedEntity::getElementTag<\/a>"],[100,3,"<a href=\"Entity\/ManufacturedLabeledDrug.php.html#44\">PHPHealth\\CDA\\RIM\\Entity\\ManufacturedLabeledDrug::__construct<\/a>"],[100,1,"<a href=\"Entity\/ManufacturedLabeledDrug.php.html#58\">PHPHealth\\CDA\\RIM\\Entity\\ManufacturedLabeledDrug::toDOMElement<\/a>"],[100,1,"<a href=\"Entity\/ManufacturedLabeledDrug.php.html#68\">PHPHealth\\CDA\\RIM\\Entity\\ManufacturedLabeledDrug::getElementTag<\/a>"],[100,3,"<a href=\"Entity\/ManufacturedMaterial.php.html#57\">PHPHealth\\CDA\\RIM\\Entity\\ManufacturedMaterial::__construct<\/a>"],[100,1,"<a href=\"Entity\/ManufacturedMaterial.php.html#72\">PHPHealth\\CDA\\RIM\\Entity\\ManufacturedMaterial::toDOMElement<\/a>"],[100,1,"<a href=\"Entity\/ManufacturedMaterial.php.html#83\">PHPHealth\\CDA\\RIM\\Entity\\ManufacturedMaterial::getElementTag<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#51\">PHPHealth\\CDA\\RIM\\Entity\\Organization::__construct<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#65\">PHPHealth\\CDA\\RIM\\Entity\\Organization::toDOMElement<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#76\">PHPHealth\\CDA\\RIM\\Entity\\Organization::hasAsEntityIdentifier<\/a>"],[100,1,"<a href=\"Entity\/Patient.php.html#37\">PHPHealth\\CDA\\RIM\\Entity\\Patient::getElementTag<\/a>"],[100,4,"<a href=\"Entity\/Person.php.html#49\">PHPHealth\\CDA\\RIM\\Entity\\Person::__construct<\/a>"],[100,2,"<a href=\"Entity\/Person.php.html#72\">PHPHealth\\CDA\\RIM\\Entity\\Person::toDOMElement<\/a>"],[0,1,"<a href=\"Entity\/Person.php.html#91\">PHPHealth\\CDA\\RIM\\Entity\\Person::getElementTag<\/a>"],[0,1,"<a href=\"Entity\/PlayingDevice.php.html#44\">PHPHealth\\CDA\\RIM\\Entity\\PlayingDevice::getElementTag<\/a>"],[100,3,"<a href=\"Entity\/PlayingEntity.php.html#70\">PHPHealth\\CDA\\RIM\\Entity\\PlayingEntity::__construct<\/a>"],[100,1,"<a href=\"Entity\/PlayingEntity.php.html#89\">PHPHealth\\CDA\\RIM\\Entity\\PlayingEntity::toDOMElement<\/a>"],[100,1,"<a href=\"Entity\/PlayingEntity.php.html#104\">PHPHealth\\CDA\\RIM\\Entity\\PlayingEntity::getElementTag<\/a>"],[100,1,"<a href=\"Entity\/ReceivedOrganization.php.html#45\">PHPHealth\\CDA\\RIM\\Entity\\ReceivedOrganization::getElementTag<\/a>"],[100,1,"<a href=\"Entity\/RepresentedCustodianOrganization.php.html#64\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedCustodianOrganization::__construct<\/a>"],[100,9,"<a href=\"Entity\/RepresentedCustodianOrganization.php.html#76\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedCustodianOrganization::toDOMElement<\/a>"],[100,1,"<a href=\"Entity\/RepresentedCustodianOrganization.php.html#110\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedCustodianOrganization::getElementTag<\/a>"],[100,5,"<a href=\"Entity\/RepresentedOrganization.php.html#83\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization::__construct<\/a>"],[100,1,"<a href=\"Entity\/RepresentedOrganization.php.html#101\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization::addName<\/a>"],[100,1,"<a href=\"Entity\/RepresentedOrganization.php.html#110\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization::getElementTag<\/a>"],[76.92307692307693,4,"<a href=\"Entity\/RepresentedOrganization.php.html#120\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization::toDOMElement<\/a>"],[100,1,"<a href=\"Entity\/RepresentedOrganization.php.html#147\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization::hasStandardIndustryClassCode<\/a>"],[0,1,"<a href=\"Entity\/RepresentedOrganization.php.html#155\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization::getStandardIndustryClassCode<\/a>"],[0,1,"<a href=\"Entity\/RepresentedOrganization.php.html#165\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization::setStandardIndustryClassCode<\/a>"],[100,2,"<a href=\"Entity\/RepresentedOrganization.php.html#175\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization::renderAsOrganizationPartOf<\/a>"],[100,1,"<a href=\"Entity\/RepresentedOrganization.php.html#185\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization::hasAsOrganizationPartOf<\/a>"],[100,1,"<a href=\"Entity\/RepresentedOrganization.php.html#193\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization::getAsOrganizationPartOf<\/a>"],[100,1,"<a href=\"Entity\/RepresentedOrganization.php.html#203\">PHPHealth\\CDA\\RIM\\Entity\\RepresentedOrganization::setAsOrganizationPartOf<\/a>"],[100,2,"<a href=\"Entity\/SpecimenPlayingEntity.php.html#48\">PHPHealth\\CDA\\RIM\\Entity\\SpecimenPlayingEntity::toDOMElement<\/a>"],[100,1,"<a href=\"Entity\/SpecimenPlayingEntity.php.html#61\">PHPHealth\\CDA\\RIM\\Entity\\SpecimenPlayingEntity::getElementTag<\/a>"],[0,1,"<a href=\"Entity\/Subject.php.html#44\">PHPHealth\\CDA\\RIM\\Entity\\Subject::getElementTag<\/a>"],[100,9,"<a href=\"Entity\/WholeOrganisation.php.html#70\">PHPHealth\\CDA\\RIM\\Entity\\WholeOrganisation::__construct<\/a>"],[100,1,"<a href=\"Entity\/WholeOrganisation.php.html#91\">PHPHealth\\CDA\\RIM\\Entity\\WholeOrganisation::toDOMElement<\/a>"],[100,1,"<a href=\"Entity\/WholeOrganisation.php.html#105\">PHPHealth\\CDA\\RIM\\Entity\\WholeOrganisation::getElementTag<\/a>"],[100,5,"<a href=\"Extensions\/AsEmployment.php.html#66\">PHPHealth\\CDA\\RIM\\Extensions\\AsEmployment::__construct<\/a>"],[100,1,"<a href=\"Extensions\/AsEmployment.php.html#95\">PHPHealth\\CDA\\RIM\\Extensions\\AsEmployment::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/AsEmployment.php.html#108\">PHPHealth\\CDA\\RIM\\Extensions\\AsEmployment::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/AsEntityIdentifier.php.html#60\">PHPHealth\\CDA\\RIM\\Extensions\\AsEntityIdentifier::__construct<\/a>"],[100,1,"<a href=\"Extensions\/AsEntityIdentifier.php.html#74\">PHPHealth\\CDA\\RIM\\Extensions\\AsEntityIdentifier::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/AsEntityIdentifier.php.html#86\">PHPHealth\\CDA\\RIM\\Extensions\\AsEntityIdentifier::getAssigningGeographicArea<\/a>"],[100,1,"<a href=\"Extensions\/AsEntityIdentifier.php.html#96\">PHPHealth\\CDA\\RIM\\Extensions\\AsEntityIdentifier::setAssigningGeographicArea<\/a>"],[100,1,"<a href=\"Extensions\/AsEntityIdentifier.php.html#105\">PHPHealth\\CDA\\RIM\\Extensions\\AsEntityIdentifier::getElementTag<\/a>"],[100,2,"<a href=\"Extensions\/AsQualifications.php.html#56\">PHPHealth\\CDA\\RIM\\Extensions\\AsQualifications::__construct<\/a>"],[100,1,"<a href=\"Extensions\/AsQualifications.php.html#70\">PHPHealth\\CDA\\RIM\\Extensions\\AsQualifications::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/AsQualifications.php.html#81\">PHPHealth\\CDA\\RIM\\Extensions\\AsQualifications::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/AssigningGeographicArea.php.html#62\">PHPHealth\\CDA\\RIM\\Extensions\\AssigningGeographicArea::__construct<\/a>"],[100,1,"<a href=\"Extensions\/AssigningGeographicArea.php.html#74\">PHPHealth\\CDA\\RIM\\Extensions\\AssigningGeographicArea::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/AssigningGeographicArea.php.html#86\">PHPHealth\\CDA\\RIM\\Extensions\\AssigningGeographicArea::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/DeceasedInd.php.html#56\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedInd::__construct<\/a>"],[0,1,"<a href=\"Extensions\/DeceasedInd.php.html#64\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedInd::getValue<\/a>"],[100,2,"<a href=\"Extensions\/DeceasedInd.php.html#74\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedInd::setValue<\/a>"],[100,1,"<a href=\"Extensions\/DeceasedInd.php.html#88\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedInd::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/DeceasedInd.php.html#96\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedInd::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/DeceasedTime.php.html#57\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedTime::__construct<\/a>"],[0,1,"<a href=\"Extensions\/DeceasedTime.php.html#65\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedTime::getValue<\/a>"],[100,3,"<a href=\"Extensions\/DeceasedTime.php.html#75\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedTime::setValue<\/a>"],[100,1,"<a href=\"Extensions\/DeceasedTime.php.html#92\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedTime::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/DeceasedTime.php.html#100\">PHPHealth\\CDA\\RIM\\Extensions\\DeceasedTime::getElementTag<\/a>"],[0,8,"<a href=\"Extensions\/ExtAbstractElement.php.html#56\">PHPHealth\\CDA\\RIM\\Extensions\\ExtAbstractElement::createElement<\/a>"],[100,1,"<a href=\"Extensions\/ExtAbstractElement.php.html#88\">PHPHealth\\CDA\\RIM\\Extensions\\ExtAbstractElement::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/ExtAsSpecimenInContainer.php.html#50\">PHPHealth\\CDA\\RIM\\Extensions\\ExtAsSpecimenInContainer::__construct<\/a>"],[100,1,"<a href=\"Extensions\/ExtAsSpecimenInContainer.php.html#60\">PHPHealth\\CDA\\RIM\\Extensions\\ExtAsSpecimenInContainer::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/ExtAsSpecimenInContainer.php.html#70\">PHPHealth\\CDA\\RIM\\Extensions\\ExtAsSpecimenInContainer::getExtContainer<\/a>"],[100,1,"<a href=\"Extensions\/ExtAsSpecimenInContainer.php.html#80\">PHPHealth\\CDA\\RIM\\Extensions\\ExtAsSpecimenInContainer::setExtContainer<\/a>"],[100,1,"<a href=\"Extensions\/ExtAsSpecimenInContainer.php.html#89\">PHPHealth\\CDA\\RIM\\Extensions\\ExtAsSpecimenInContainer::getElementTag<\/a>"],[100,5,"<a href=\"Extensions\/ExtCode.php.html#52\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCode::__construct<\/a>"],[100,1,"<a href=\"Extensions\/ExtCode.php.html#65\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCode::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/ExtCode.php.html#75\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCode::toDOMElement<\/a>"],[100,3,"<a href=\"Extensions\/ExtContainer.php.html#46\">PHPHealth\\CDA\\RIM\\Extensions\\ExtContainer::__construct<\/a>"],[100,1,"<a href=\"Extensions\/ExtContainer.php.html#56\">PHPHealth\\CDA\\RIM\\Extensions\\ExtContainer::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/ExtContainer.php.html#66\">PHPHealth\\CDA\\RIM\\Extensions\\ExtContainer::getElementTag<\/a>"],[0,1,"<a href=\"Extensions\/ExtControlAct.php.html#85\">PHPHealth\\CDA\\RIM\\Extensions\\ExtControlAct::__construct<\/a>"],[0,1,"<a href=\"Extensions\/ExtControlAct.php.html#96\">PHPHealth\\CDA\\RIM\\Extensions\\ExtControlAct::toDOMElement<\/a>"],[0,1,"<a href=\"Extensions\/ExtControlAct.php.html#104\">PHPHealth\\CDA\\RIM\\Extensions\\ExtControlAct::getElementTag<\/a>"],[0,3,"<a href=\"Extensions\/ExtCoverage.php.html#47\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCoverage::__construct<\/a>"],[0,1,"<a href=\"Extensions\/ExtCoverage.php.html#59\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCoverage::toDOMElement<\/a>"],[0,1,"<a href=\"Extensions\/ExtCoverage.php.html#69\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCoverage::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/ExtCoverage2.php.html#49\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCoverage2::__construct<\/a>"],[100,1,"<a href=\"Extensions\/ExtCoverage2.php.html#56\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCoverage2::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/ExtCoverage2.php.html#63\">PHPHealth\\CDA\\RIM\\Extensions\\ExtCoverage2::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/ExtEffectiveTime.php.html#61\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEffectiveTime::__construct<\/a>"],[100,3,"<a href=\"Extensions\/ExtEffectiveTime.php.html#72\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEffectiveTime::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/ExtEffectiveTime.php.html#91\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEffectiveTime::getIntervalOfTime<\/a>"],[100,1,"<a href=\"Extensions\/ExtEffectiveTime.php.html#101\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEffectiveTime::setIntervalOfTime<\/a>"],[100,1,"<a href=\"Extensions\/ExtEffectiveTime.php.html#110\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEffectiveTime::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/ExtEmployerOrganization.php.html#61\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEmployerOrganization::__construct<\/a>"],[100,1,"<a href=\"Extensions\/ExtEmployerOrganization.php.html#72\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEmployerOrganization::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/ExtEmployerOrganization.php.html#83\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEmployerOrganization::getName<\/a>"],[100,1,"<a href=\"Extensions\/ExtEmployerOrganization.php.html#93\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEmployerOrganization::setName<\/a>"],[100,1,"<a href=\"Extensions\/ExtEmployerOrganization.php.html#102\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEmployerOrganization::getAsOrganizationPartOf<\/a>"],[100,1,"<a href=\"Extensions\/ExtEmployerOrganization.php.html#112\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEmployerOrganization::setAsOrganizationPartOf<\/a>"],[100,1,"<a href=\"Extensions\/ExtEmployerOrganization.php.html#121\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEmployerOrganization::getElementTag<\/a>"],[100,9,"<a href=\"Extensions\/ExtEntitlement.php.html#71\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEntitlement::__construct<\/a>"],[100,1,"<a href=\"Extensions\/ExtEntitlement.php.html#100\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEntitlement::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/ExtEntitlement.php.html#114\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEntitlement::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/ExtEntityName.php.html#55\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEntityName::__construct<\/a>"],[100,1,"<a href=\"Extensions\/ExtEntityName.php.html#65\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEntityName::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/ExtEntityName.php.html#75\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEntityName::getName<\/a>"],[100,1,"<a href=\"Extensions\/ExtEntityName.php.html#85\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEntityName::setName<\/a>"],[100,1,"<a href=\"Extensions\/ExtEntityName.php.html#94\">PHPHealth\\CDA\\RIM\\Extensions\\ExtEntityName::getElementTag<\/a>"],[100,3,"<a href=\"Extensions\/ExtId.php.html#60\">PHPHealth\\CDA\\RIM\\Extensions\\ExtId::__construct<\/a>"],[100,1,"<a href=\"Extensions\/ExtId.php.html#78\">PHPHealth\\CDA\\RIM\\Extensions\\ExtId::fromString<\/a>"],[100,1,"<a href=\"Extensions\/ExtId.php.html#89\">PHPHealth\\CDA\\RIM\\Extensions\\ExtId::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/ExtId.php.html#97\">PHPHealth\\CDA\\RIM\\Extensions\\ExtId::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/ExtJobCode.php.html#44\">PHPHealth\\CDA\\RIM\\Extensions\\ExtJobCode::Occupation<\/a>"],[100,1,"<a href=\"Extensions\/ExtJobCode.php.html#53\">PHPHealth\\CDA\\RIM\\Extensions\\ExtJobCode::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/ExtParticipant.php.html#58\">PHPHealth\\CDA\\RIM\\Extensions\\ExtParticipant::__construct<\/a>"],[100,1,"<a href=\"Extensions\/ExtParticipant.php.html#68\">PHPHealth\\CDA\\RIM\\Extensions\\ExtParticipant::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/ExtParticipant.php.html#78\">PHPHealth\\CDA\\RIM\\Extensions\\ExtParticipant::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/ExtParticipantRole.php.html#56\">PHPHealth\\CDA\\RIM\\Extensions\\ExtParticipantRole::__construct<\/a>"],[100,1,"<a href=\"Extensions\/ExtParticipantRole.php.html#70\">PHPHealth\\CDA\\RIM\\Extensions\\ExtParticipantRole::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/ExtParticipantRole.php.html#81\">PHPHealth\\CDA\\RIM\\Extensions\\ExtParticipantRole::getElementTag<\/a>"],[0,1,"<a href=\"Extensions\/ExtPolicyOrAccount.php.html#43\">PHPHealth\\CDA\\RIM\\Extensions\\ExtPolicyOrAccount::toDOMElement<\/a>"],[0,1,"<a href=\"Extensions\/ExtPolicyOrAccount.php.html#48\">PHPHealth\\CDA\\RIM\\Extensions\\ExtPolicyOrAccount::getElementTag<\/a>"],[100,3,"<a href=\"Extensions\/JobClassCode.php.html#64\">PHPHealth\\CDA\\RIM\\Extensions\\JobClassCode::__construct<\/a>"],[0,1,"<a href=\"Extensions\/JobClassCode.php.html#92\">PHPHealth\\CDA\\RIM\\Extensions\\JobClassCode::getCodedValue<\/a>"],[100,1,"<a href=\"Extensions\/JobClassCode.php.html#102\">PHPHealth\\CDA\\RIM\\Extensions\\JobClassCode::setCodedValue<\/a>"],[100,1,"<a href=\"Extensions\/JobClassCode.php.html#113\">PHPHealth\\CDA\\RIM\\Extensions\\JobClassCode::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/JobClassCode.php.html#121\">PHPHealth\\CDA\\RIM\\Extensions\\JobClassCode::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/MultipleBirthInd.php.html#56\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthInd::__construct<\/a>"],[0,1,"<a href=\"Extensions\/MultipleBirthInd.php.html#64\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthInd::getValue<\/a>"],[100,2,"<a href=\"Extensions\/MultipleBirthInd.php.html#74\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthInd::setValue<\/a>"],[100,1,"<a href=\"Extensions\/MultipleBirthInd.php.html#88\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthInd::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/MultipleBirthInd.php.html#96\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthInd::getElementTag<\/a>"],[100,1,"<a href=\"Extensions\/MultipleBirthOrderNumber.php.html#56\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthOrderNumber::__construct<\/a>"],[0,1,"<a href=\"Extensions\/MultipleBirthOrderNumber.php.html#64\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthOrderNumber::getValue<\/a>"],[100,1,"<a href=\"Extensions\/MultipleBirthOrderNumber.php.html#74\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthOrderNumber::setValue<\/a>"],[100,1,"<a href=\"Extensions\/MultipleBirthOrderNumber.php.html#85\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthOrderNumber::toDOMElement<\/a>"],[100,1,"<a href=\"Extensions\/MultipleBirthOrderNumber.php.html#93\">PHPHealth\\CDA\\RIM\\Extensions\\MultipleBirthOrderNumber::getElementTag<\/a>"],[0,3,"<a href=\"Extensions\/Subject2.php.html#49\">PHPHealth\\CDA\\RIM\\Extensions\\Subject2::__construct<\/a>"],[0,1,"<a href=\"Extensions\/Subject2.php.html#62\">PHPHealth\\CDA\\RIM\\Extensions\\Subject2::toDOMElement<\/a>"],[0,1,"<a href=\"Extensions\/Subject2.php.html#72\">PHPHealth\\CDA\\RIM\\Extensions\\Subject2::getElementTag<\/a>"],[0,1,"<a href=\"Extensions\/SubstitutionPermission.php.html#53\">PHPHealth\\CDA\\RIM\\Extensions\\SubstitutionPermission::__construct<\/a>"],[0,1,"<a href=\"Extensions\/SubstitutionPermission.php.html#65\">PHPHealth\\CDA\\RIM\\Extensions\\SubstitutionPermission::toDOMElement<\/a>"],[0,1,"<a href=\"Extensions\/SubstitutionPermission.php.html#75\">PHPHealth\\CDA\\RIM\\Extensions\\SubstitutionPermission::getElementTag<\/a>"],[100,1,"<a href=\"Participation\/Authenticator.php.html#56\">PHPHealth\\CDA\\RIM\\Participation\\Authenticator::__construct<\/a>"],[100,1,"<a href=\"Participation\/Authenticator.php.html#68\">PHPHealth\\CDA\\RIM\\Participation\\Authenticator::toDOMElement<\/a>"],[0,1,"<a href=\"Participation\/Authenticator.php.html#80\">PHPHealth\\CDA\\RIM\\Participation\\Authenticator::getElementTag<\/a>"],[100,5,"<a href=\"Participation\/Author.php.html#54\">PHPHealth\\CDA\\RIM\\Participation\\Author::__construct<\/a>"],[100,1,"<a href=\"Participation\/Author.php.html#73\">PHPHealth\\CDA\\RIM\\Participation\\Author::toDOMElement<\/a>"],[100,1,"<a href=\"Participation\/Author.php.html#86\">PHPHealth\\CDA\\RIM\\Participation\\Author::getElementTag<\/a>"],[100,1,"<a href=\"Participation\/Consumable.php.html#44\">PHPHealth\\CDA\\RIM\\Participation\\Consumable::__construct<\/a>"],[100,1,"<a href=\"Participation\/Consumable.php.html#56\">PHPHealth\\CDA\\RIM\\Participation\\Consumable::toDOMElement<\/a>"],[100,1,"<a href=\"Participation\/Consumable.php.html#67\">PHPHealth\\CDA\\RIM\\Participation\\Consumable::getElementTag<\/a>"],[100,1,"<a href=\"Participation\/Custodian.php.html#44\">PHPHealth\\CDA\\RIM\\Participation\\Custodian::__construct<\/a>"],[100,1,"<a href=\"Participation\/Custodian.php.html#56\">PHPHealth\\CDA\\RIM\\Participation\\Custodian::toDOMElement<\/a>"],[100,1,"<a href=\"Participation\/Custodian.php.html#69\">PHPHealth\\CDA\\RIM\\Participation\\Custodian::getElementTag<\/a>"],[0,1,"<a href=\"Participation\/EncounterParticipant.php.html#51\">PHPHealth\\CDA\\RIM\\Participation\\EncounterParticipant::__construct<\/a>"],[0,2,"<a href=\"Participation\/EncounterParticipant.php.html#61\">PHPHealth\\CDA\\RIM\\Participation\\EncounterParticipant::toDOMElement<\/a>"],[0,1,"<a href=\"Participation\/EncounterParticipant.php.html#75\">PHPHealth\\CDA\\RIM\\Participation\\EncounterParticipant::getElementTag<\/a>"],[100,1,"<a href=\"Participation\/InformationRecipient.php.html#50\">PHPHealth\\CDA\\RIM\\Participation\\InformationRecipient::__construct<\/a>"],[100,1,"<a href=\"Participation\/InformationRecipient.php.html#59\">PHPHealth\\CDA\\RIM\\Participation\\InformationRecipient::toDOMElement<\/a>"],[100,1,"<a href=\"Participation\/InformationRecipient.php.html#69\">PHPHealth\\CDA\\RIM\\Participation\\InformationRecipient::getElementTag<\/a>"],[100,1,"<a href=\"Participation\/LegalAuthenticator.php.html#58\">PHPHealth\\CDA\\RIM\\Participation\\LegalAuthenticator::__construct<\/a>"],[100,1,"<a href=\"Participation\/LegalAuthenticator.php.html#68\">PHPHealth\\CDA\\RIM\\Participation\\LegalAuthenticator::getElementTag<\/a>"],[100,1,"<a href=\"Participation\/Participant.php.html#62\">PHPHealth\\CDA\\RIM\\Participation\\Participant::__construct<\/a>"],[100,1,"<a href=\"Participation\/Participant.php.html#78\">PHPHealth\\CDA\\RIM\\Participation\\Participant::toDOMElement<\/a>"],[100,1,"<a href=\"Participation\/Participant.php.html#94\">PHPHealth\\CDA\\RIM\\Participation\\Participant::getElementTag<\/a>"],[80,2,"<a href=\"Participation\/Performer.php.html#61\">PHPHealth\\CDA\\RIM\\Participation\\Performer::__construct<\/a>"],[100,1,"<a href=\"Participation\/Performer.php.html#73\">PHPHealth\\CDA\\RIM\\Participation\\Performer::toDOMElement<\/a>"],[100,1,"<a href=\"Participation\/Performer.php.html#86\">PHPHealth\\CDA\\RIM\\Participation\\Performer::getElementTag<\/a>"],[0,1,"<a href=\"Participation\/Product.php.html#50\">PHPHealth\\CDA\\RIM\\Participation\\Product::__construct<\/a>"],[0,1,"<a href=\"Participation\/Product.php.html#60\">PHPHealth\\CDA\\RIM\\Participation\\Product::toDOMElement<\/a>"],[0,1,"<a href=\"Participation\/Product.php.html#70\">PHPHealth\\CDA\\RIM\\Participation\\Product::getElementTag<\/a>"],[100,1,"<a href=\"Participation\/RecordTarget.php.html#45\">PHPHealth\\CDA\\RIM\\Participation\\RecordTarget::__construct<\/a>"],[100,1,"<a href=\"Participation\/RecordTarget.php.html#57\">PHPHealth\\CDA\\RIM\\Participation\\RecordTarget::toDOMElement<\/a>"],[100,1,"<a href=\"Participation\/RecordTarget.php.html#69\">PHPHealth\\CDA\\RIM\\Participation\\RecordTarget::getElementTag<\/a>"],[100,1,"<a href=\"Participation\/Specimen.php.html#55\">PHPHealth\\CDA\\RIM\\Participation\\Specimen::__construct<\/a>"],[100,1,"<a href=\"Participation\/Specimen.php.html#65\">PHPHealth\\CDA\\RIM\\Participation\\Specimen::toDOMElement<\/a>"],[100,1,"<a href=\"Participation\/Specimen.php.html#75\">PHPHealth\\CDA\\RIM\\Participation\\Specimen::getElementTag<\/a>"],[100,1,"<a href=\"Role\/AsOrganizationPartOf.php.html#58\">PHPHealth\\CDA\\RIM\\Role\\AsOrganizationPartOf::__construct<\/a>"],[100,1,"<a href=\"Role\/AsOrganizationPartOf.php.html#68\">PHPHealth\\CDA\\RIM\\Role\\AsOrganizationPartOf::toDOMElement<\/a>"],[100,1,"<a href=\"Role\/AsOrganizationPartOf.php.html#79\">PHPHealth\\CDA\\RIM\\Role\\AsOrganizationPartOf::getElementTag<\/a>"],[100,6,"<a href=\"Role\/AssignedAuthor.php.html#73\">PHPHealth\\CDA\\RIM\\Role\\AssignedAuthor::__construct<\/a>"],[83.33333333333334,4,"<a href=\"Role\/AssignedAuthor.php.html#108\">PHPHealth\\CDA\\RIM\\Role\\AssignedAuthor::toDOMElement<\/a>"],[100,1,"<a href=\"Role\/AssignedAuthor.php.html#130\">PHPHealth\\CDA\\RIM\\Role\\AssignedAuthor::getElementTag<\/a>"],[100,1,"<a href=\"Role\/IntendedRecipient.php.html#67\">PHPHealth\\CDA\\RIM\\Role\\IntendedRecipient::__construct<\/a>"],[100,1,"<a href=\"Role\/IntendedRecipient.php.html#76\">PHPHealth\\CDA\\RIM\\Role\\IntendedRecipient::toDOMElement<\/a>"],[100,1,"<a href=\"Role\/IntendedRecipient.php.html#91\">PHPHealth\\CDA\\RIM\\Role\\IntendedRecipient::getElementTag<\/a>"],[100,3,"<a href=\"Role\/ManufacturedProduct.php.html#55\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::__construct<\/a>"],[0,1,"<a href=\"Role\/ManufacturedProduct.php.html#70\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::hasManufacturedDrugOrOther<\/a>"],[88.88888888888889,4,"<a href=\"Role\/ManufacturedProduct.php.html#80\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::toDOMElement<\/a>"],[100,1,"<a href=\"Role\/ManufacturedProduct.php.html#98\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::hasManufacturedLabeledDrug<\/a>"],[100,1,"<a href=\"Role\/ManufacturedProduct.php.html#106\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::getManufacturedLabeledDrug<\/a>"],[100,1,"<a href=\"Role\/ManufacturedProduct.php.html#116\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::setManufacturedLabeledDrug<\/a>"],[100,1,"<a href=\"Role\/ManufacturedProduct.php.html#125\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::hasManufacturedMaterial<\/a>"],[100,1,"<a href=\"Role\/ManufacturedProduct.php.html#133\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::getManufacturedMaterial<\/a>"],[100,1,"<a href=\"Role\/ManufacturedProduct.php.html#143\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::setManufacturedMaterial<\/a>"],[100,1,"<a href=\"Role\/ManufacturedProduct.php.html#152\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::hasManufacturerOrganization<\/a>"],[0,1,"<a href=\"Role\/ManufacturedProduct.php.html#160\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::getManufacturerOrganization<\/a>"],[0,1,"<a href=\"Role\/ManufacturedProduct.php.html#168\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::setManufacturerOrganization<\/a>"],[100,1,"<a href=\"Role\/ManufacturedProduct.php.html#176\">PHPHealth\\CDA\\RIM\\Role\\ManufacturedProduct::getElementTag<\/a>"],[75,4,"<a href=\"Role\/ParticipantRole.php.html#58\">PHPHealth\\CDA\\RIM\\Role\\ParticipantRole::__construct<\/a>"],[81.81818181818183,3,"<a href=\"Role\/ParticipantRole.php.html#72\">PHPHealth\\CDA\\RIM\\Role\\ParticipantRole::toDOMElement<\/a>"],[100,1,"<a href=\"Role\/ParticipantRole.php.html#93\">PHPHealth\\CDA\\RIM\\Role\\ParticipantRole::getElementTag<\/a>"],[100,1,"<a href=\"Role\/PatientRole.php.html#74\">PHPHealth\\CDA\\RIM\\Role\\PatientRole::__construct<\/a>"],[100,7,"<a href=\"Role\/PatientRole.php.html#91\">PHPHealth\\CDA\\RIM\\Role\\PatientRole::toDOMElement<\/a>"],[100,1,"<a href=\"Role\/PatientRole.php.html#119\">PHPHealth\\CDA\\RIM\\Role\\PatientRole::getElementTag<\/a>"],[100,3,"<a href=\"Role\/SpecimenRole.php.html#57\">PHPHealth\\CDA\\RIM\\Role\\SpecimenRole::__construct<\/a>"],[100,1,"<a href=\"Role\/SpecimenRole.php.html#70\">PHPHealth\\CDA\\RIM\\Role\\SpecimenRole::toDOMElement<\/a>"],[100,1,"<a href=\"Role\/SpecimenRole.php.html#81\">PHPHealth\\CDA\\RIM\\Role\\SpecimenRole::getElementTag<\/a>"],[0,1,"<a href=\"Participation\/AssignedAuthorsTrait.php.html#45\">AssignedAuthorsTrait::getAssignedAuthors<\/a>"],[0,3,"<a href=\"Participation\/AssignedAuthorsTrait.php.html#55\">AssignedAuthorsTrait::setAssignedAuthors<\/a>"],[0,1,"<a href=\"Participation\/AssignedAuthorsTrait.php.html#71\">AssignedAuthorsTrait::addAssignedAuthor<\/a>"],[0,1,"<a href=\"Participation\/AssignedAuthorsTrait.php.html#80\">AssignedAuthorsTrait::hasAssignedAuthors<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

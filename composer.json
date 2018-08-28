@@ -1,24 +1,34 @@
 {
-    "name": "php-health/cda",
-    "description": "a package to create cda files",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Julien Fastré",
-            "email": "julien.fastre@champs-libres.coop"
-        },
-        {
-            "name": "Champs-Libres",
-            "email": "info@champs-libres.coop"
-        }
-    ],
-    "autoload" : {
-	"psr-4": {
-            "PHPHealth\\CDA\\": "lib/"
-	}
+  "name": "php-health/cda",
+  "description": "a package to create cda files",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Julien Fastré",
+      "email": "julien.fastre@champs-libres.coop"
     },
-    "require-dev": {
-        "phpunit/phpunit": "^6.0"
+    {
+      "name": "Peter Gee",
+      "email": "Peter.Gee@i3soft.com.au"
+    },
+    {
+      "name": "Champs-Libres",
+      "email": "info@champs-libres.coop"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PHPHealth\\CDA\\": "lib/"
+    }
+  },
+  "require": {
+    "php": "^7.0",
+    "ext-dom": "*",
+    "ext-mbstring": "*",
+    "ext-http": "*",
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.3"
+  }
 }
