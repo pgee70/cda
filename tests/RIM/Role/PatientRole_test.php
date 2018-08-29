@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Tests\RIM\Role;
+namespace PHPHealth\tests\RIM\Role;
 
 use PHPHealth\CDA\DataType\Code\CodedValue;
 use PHPHealth\CDA\DataType\Collection\Set;

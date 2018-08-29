@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Tests\DataType\Name;
+namespace PHPHealth\tests\DataType\Name;
 
 use PHPHealth\CDA\DataType\Name\PersonName;
 use PHPHealth\tests\MyTestCase;

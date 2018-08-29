@@ -23,7 +23,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Tests\Helper;
+namespace PHPHealth\tests\Helper;
 
 use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
 use PHPHealth\CDA\Helper\IdentifierHelper;

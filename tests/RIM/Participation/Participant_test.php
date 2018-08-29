@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Tests\RIM\Participation;
+namespace PHPHealth\tests\RIM\Participation;
 
 /**
  *

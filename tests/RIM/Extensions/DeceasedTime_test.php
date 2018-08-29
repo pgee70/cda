@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Tests\RIM\Extensions;
+namespace PHPHealth\tests\RIM\Extensions;
 
 /**
  *

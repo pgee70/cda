@@ -23,7 +23,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Tests\TemplateCode;
+namespace PHPHealth\tests\TemplateCode;
 
 use PHPHealth\CDA\DataType\Code\LoincCode;
 use PHPHealth\CDA\Elements\Code;

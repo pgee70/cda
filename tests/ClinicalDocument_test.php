@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA;
+namespace PHPHealth\tests;
 
 /**
  * @author     Julien Fastré <julien.fastre@champs-libres.coop>

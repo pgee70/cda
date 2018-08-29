@@ -23,7 +23,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Tests\RIM\Act;
+namespace PHPHealth\tests\RIM\Act;
 
 use PHPHealth\CDA\DataType\Code\SnomedCTCode;
 use PHPHealth\CDA\DataType\Collection\Interval\PeriodicIntervalOfTime;

@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Tests\RIM\Participation;
+namespace PHPHealth\tests\RIM\Participation;
 
 use PHPHealth\CDA\DataType\Code\AddressCodeType;
 use PHPHealth\CDA\DataType\Code\CodedValue;

@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Tests\Elements;
+namespace PHPHealth\tests\Elements;
 
 /**
  *

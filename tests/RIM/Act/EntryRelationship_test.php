@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Tests\RIM\Act;
+namespace PHPHealth\tests\RIM\Act;
 
 /**
  *

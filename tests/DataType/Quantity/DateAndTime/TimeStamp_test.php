@@ -24,7 +24,7 @@
  */
 
 
-namespace PHPHealth\tests\classes\CDA\Tests\DataType\Quantity\DateAndTime;
+namespace PHPHealth\tests\DataType\Quantity\DateAndTime;
 
 use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
 use PHPHealth\tests\MyTestCase;

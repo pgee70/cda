@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Tests\TemplateCode;
+namespace PHPHealth\tests\TemplateCode;
 
 /**
  *
