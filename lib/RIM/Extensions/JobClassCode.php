@@ -26,23 +26,23 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\Elements\AbstractElement;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\Elements\AbstractElement;
 
 /**
  * Class JobClassCode
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  * @link    https://hl7.org/fhir/2018Jan/v3/EmployeeJobClass/cs.html
  */
 class JobClassCode extends AbstractElement

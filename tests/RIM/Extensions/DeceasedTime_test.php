@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\RIM\Extensions;
+namespace i3Soft\CDA\tests\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_RIM
@@ -42,9 +42,9 @@ namespace PHPHealth\tests\RIM\Extensions;
  */
 
 
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\RIM\Extensions\DeceasedTime;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\RIM\Extensions\DeceasedTime;
+use i3Soft\CDA\tests\MyTestCase;
 
 class DeceasedTime_test extends MyTestCase
 {

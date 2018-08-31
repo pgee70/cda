@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Entity\PlayingDevice;
+use i3Soft\CDA\RIM\Entity\PlayingDevice;
 
 /**
  * Trait PlayingDeviceTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait PlayingDeviceTrait
 {

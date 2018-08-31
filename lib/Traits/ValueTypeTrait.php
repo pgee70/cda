@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\ValueType;
+use i3Soft\CDA\DataType\ValueType;
 
 trait ValueTypeTrait
 {

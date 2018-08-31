@@ -25,18 +25,18 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-use PHPHealth\CDA\DataType\Code\CodedSimple;
+use i3Soft\CDA\DataType\Code\CodedSimple;
 
 /**
  */

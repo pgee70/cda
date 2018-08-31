@@ -24,10 +24,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Code;
+namespace i3Soft\CDA\DataType\Code;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\DataType\AnyType;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\DataType\AnyType;
 
 /**
  * A CD represents any kind of concept usually by giving a code defined in a

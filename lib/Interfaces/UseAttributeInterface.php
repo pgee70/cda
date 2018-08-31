@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Interfaces;
+namespace i3Soft\CDA\Interfaces;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 interface UseAttributeInterface

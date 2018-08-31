@@ -23,12 +23,12 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Collection\Interval;
+namespace i3Soft\CDA\DataType\Collection\Interval;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>
  */
-abstract class AbstractInterval extends \PHPHealth\CDA\DataType\AnyType
+abstract class AbstractInterval extends \i3Soft\CDA\DataType\AnyType
 {
 
 

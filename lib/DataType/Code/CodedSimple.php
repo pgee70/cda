@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Code;
+namespace i3Soft\CDA\DataType\Code;
 
 /**
  * Coded data in its simplest form, where only the code is not predetermined.

@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Interfaces\XSITypeInterface;
+use i3Soft\CDA\Interfaces\XSITypeInterface;
 
 trait XSITypeTrait
 {

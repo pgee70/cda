@@ -25,10 +25,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\DataType\Name;
+namespace i3Soft\CDA\tests\DataType\Name;
 
-use PHPHealth\CDA\DataType\Name\PersonName;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Name\PersonName;
+use i3Soft\CDA\tests\MyTestCase;
 
 /**
  * @author     Julien Fastré <julien.fastre@champs-libres.coop>

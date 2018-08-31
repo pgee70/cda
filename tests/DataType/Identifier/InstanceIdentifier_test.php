@@ -23,10 +23,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\DataType\Identifier;
+namespace i3Soft\CDA\tests\classes\DataType\Identifier;
 
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\tests\MyTestCase;
 
 /**
  * Tests for InstanceIdentifier

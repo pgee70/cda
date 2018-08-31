@@ -26,26 +26,26 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
 
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\RIM\Entity\Entity;
-use PHPHealth\CDA\Traits\AsEntityIdentifierTrait;
-use PHPHealth\CDA\Traits\EncompassingEncounterTrait;
-use PHPHealth\CDA\Traits\ExtEntityNameTrait;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\RIM\Entity\Entity;
+use i3Soft\CDA\Traits\AsEntityIdentifierTrait;
+use i3Soft\CDA\Traits\EncompassingEncounterTrait;
+use i3Soft\CDA\Traits\ExtEntityNameTrait;
 
 /**
  * Class AssigningGeographicArea
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class AssigningGeographicArea extends Entity
 {

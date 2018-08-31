@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\TemplateCode;
+namespace i3Soft\CDA\tests\TemplateCode;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_Elements
@@ -41,9 +41,9 @@ namespace PHPHealth\tests\TemplateCode;
  *
  */
 
-use PHPHealth\CDA\DataType\Code\CodedSimple;
-use PHPHealth\CDA\Elements\SignatureCode;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\CodedSimple;
+use i3Soft\CDA\Elements\SignatureCode;
+use i3Soft\CDA\tests\MyTestCase;
 
 class SignatureCode_test extends MyTestCase
 {

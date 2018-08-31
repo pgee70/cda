@@ -25,28 +25,28 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\RIM\Entity\Entity;
-use PHPHealth\CDA\Traits\ExtCodeTrait;
-use PHPHealth\CDA\Traits\ExtEmployerOrganizationTrait;
-use PHPHealth\CDA\Traits\JobClassCodeTrait;
-use PHPHealth\CDA\Traits\OccupationTrait;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\RIM\Entity\Entity;
+use i3Soft\CDA\Traits\ExtCodeTrait;
+use i3Soft\CDA\Traits\ExtEmployerOrganizationTrait;
+use i3Soft\CDA\Traits\JobClassCodeTrait;
+use i3Soft\CDA\Traits\OccupationTrait;
 
 /**
  * Class AsEmployment
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class AsEmployment extends Entity
 {

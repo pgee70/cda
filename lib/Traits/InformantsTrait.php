@@ -26,14 +26,14 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 //todo informants has not been implemented yet.
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
 trait InformantsTrait

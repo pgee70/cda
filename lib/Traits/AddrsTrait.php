@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\Address\Addr;
+use i3Soft\CDA\Elements\Address\Addr;
 
 /**
  * Trait AddrsTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait AddrsTrait
 {

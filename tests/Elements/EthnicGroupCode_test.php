@@ -27,9 +27,9 @@
 /**
  * see page 86 of EventSummary_CDAImplementationGuide_v1.3.pdf
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  *
  * @group       CDA
@@ -41,8 +41,8 @@
  */
 
 
-use PHPHealth\CDA\Elements\EthnicGroupCode;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\Elements\EthnicGroupCode;
+use i3Soft\CDA\tests\MyTestCase;
 
 class EthnicGroupCode_test extends MyTestCase
 {

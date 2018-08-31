@@ -24,11 +24,11 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements\Html;
+namespace i3Soft\CDA\Elements\Html;
 
-use PHPHealth\CDA\Interfaces\MediaTypeInterface;
-use PHPHealth\CDA\Interfaces\XSITypeInterface;
-use PHPHealth\CDA\Traits\XSITypeTrait;
+use i3Soft\CDA\Interfaces\MediaTypeInterface;
+use i3Soft\CDA\Interfaces\XSITypeInterface;
+use i3Soft\CDA\Traits\XSITypeTrait;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

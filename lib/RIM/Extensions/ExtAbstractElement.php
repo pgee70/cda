@@ -26,21 +26,21 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\ElementInterface;
-use PHPHealth\CDA\Interfaces\MoodCodeInterface;
-use PHPHealth\CDA\Interfaces\NullFlavourInterface;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\ElementInterface;
+use i3Soft\CDA\Interfaces\MoodCodeInterface;
+use i3Soft\CDA\Interfaces\NullFlavourInterface;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
 
 /**
  * this abstract element class does not have the realmcode typecode present in AbstractElement.

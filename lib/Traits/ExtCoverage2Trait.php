@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Extensions\ExtCoverage2;
+use i3Soft\CDA\RIM\Extensions\ExtCoverage2;
 
 trait ExtCoverage2Trait
 {

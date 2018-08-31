@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

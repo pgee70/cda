@@ -26,23 +26,23 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
 
-use PHPHealth\CDA\DataType\Code\AssigningAuthorityNameCode;
-use PHPHealth\CDA\Elements\AbstractElement;
+use i3Soft\CDA\DataType\Code\AssigningAuthorityNameCode;
+use i3Soft\CDA\Elements\AbstractElement;
 
 /**
  * Class ExtId
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class ExtId extends AbstractElement
 {

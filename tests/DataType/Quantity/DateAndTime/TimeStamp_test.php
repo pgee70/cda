@@ -24,10 +24,10 @@
  */
 
 
-namespace PHPHealth\tests\DataType\Quantity\DateAndTime;
+namespace i3Soft\CDA\tests\DataType\Quantity\DateAndTime;
 
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\tests\MyTestCase;
 
 /**
  * tests for TimeStampTest

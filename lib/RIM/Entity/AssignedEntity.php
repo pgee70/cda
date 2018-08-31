@@ -26,37 +26,37 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Elements\Address\Addr;
-use PHPHealth\CDA\Elements\Address\Telecom;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\RIM\Extensions\AsEntityIdentifier;
-use PHPHealth\CDA\Traits\AddrsTrait;
-use PHPHealth\CDA\Traits\AsEntityIdentifierTrait;
-use PHPHealth\CDA\Traits\AssignedEntityTrait;
-use PHPHealth\CDA\Traits\AssignedPersonTrait;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\CodeTrait;
-use PHPHealth\CDA\Traits\IdTrait;
-use PHPHealth\CDA\Traits\RepresentedOrganizationTrait;
-use PHPHealth\CDA\Traits\TelecomsTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Elements\Address\Addr;
+use i3Soft\CDA\Elements\Address\Telecom;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\RIM\Extensions\AsEntityIdentifier;
+use i3Soft\CDA\Traits\AddrsTrait;
+use i3Soft\CDA\Traits\AsEntityIdentifierTrait;
+use i3Soft\CDA\Traits\AssignedEntityTrait;
+use i3Soft\CDA\Traits\AssignedPersonTrait;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\CodeTrait;
+use i3Soft\CDA\Traits\IdTrait;
+use i3Soft\CDA\Traits\RepresentedOrganizationTrait;
+use i3Soft\CDA\Traits\TelecomsTrait;
 
 /**
  * Class AssignedEntity
  *
- * @package PHPHealth\CDA\RIM\Role
+ * @package i3Soft\CDA\RIM\Role
  */
 class AssignedEntity extends AbstractElement implements ClassCodeInterface
 {

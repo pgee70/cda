@@ -26,30 +26,30 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Role;
+namespace i3Soft\CDA\RIM\Role;
 
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Traits\AddrsTrait;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\ExtCodeTrait;
-use PHPHealth\CDA\Traits\IdsTrait;
-use PHPHealth\CDA\Traits\InformationRecipientPersonTrait;
-use PHPHealth\CDA\Traits\ReceivedOrganizationTrait;
-use PHPHealth\CDA\Traits\TelecomsTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Traits\AddrsTrait;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\ExtCodeTrait;
+use i3Soft\CDA\Traits\IdsTrait;
+use i3Soft\CDA\Traits\InformationRecipientPersonTrait;
+use i3Soft\CDA\Traits\ReceivedOrganizationTrait;
+use i3Soft\CDA\Traits\TelecomsTrait;
 
 /**
  * Class IntendedRecipient
  *
- * @package PHPHealth\CDA\RIM\Role
+ * @package i3Soft\CDA\RIM\Role
  */
 class IntendedRecipient extends AbstractElement implements ClassCodeInterface
 {

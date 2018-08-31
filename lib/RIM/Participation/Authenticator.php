@@ -26,24 +26,24 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Participation;
+namespace i3Soft\CDA\RIM\Participation;
 
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\ContextControlCodeInterface;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\Traits\AssignedEntityTrait;
-use PHPHealth\CDA\Traits\ContextControlCodeTrait;
-use PHPHealth\CDA\Traits\SignatureCodeTrait;
-use PHPHealth\CDA\Traits\TimeTrait;
-use PHPHealth\CDA\Traits\TypeCodeTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\ContextControlCodeInterface;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\Traits\AssignedEntityTrait;
+use i3Soft\CDA\Traits\ContextControlCodeTrait;
+use i3Soft\CDA\Traits\SignatureCodeTrait;
+use i3Soft\CDA\Traits\TimeTrait;
+use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class Authenticator extends AbstractElement implements TypeCodeInterface, ContextControlCodeInterface
 {

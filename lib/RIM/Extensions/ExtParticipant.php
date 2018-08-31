@@ -25,25 +25,25 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\Traits\ExtParticipantRoleTrait;
-use PHPHealth\CDA\Traits\TypeCodeTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\Traits\ExtParticipantRoleTrait;
+use i3Soft\CDA\Traits\TypeCodeTrait;
 
 /**
  * Class ExtParticipant
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class ExtParticipant extends AbstractElement implements TypeCodeInterface
 {

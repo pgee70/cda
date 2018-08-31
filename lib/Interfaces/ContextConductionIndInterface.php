@@ -25,9 +25,9 @@
  */
 
 
-namespace PHPHealth\CDA\Interfaces;
+namespace i3Soft\CDA\Interfaces;
 
-use PHPHealth\CDA\DataType\Boolean\Boolean;
+use i3Soft\CDA\DataType\Boolean\Boolean;
 
 interface ContextConductionIndInterface
 {

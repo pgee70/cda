@@ -24,16 +24,16 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\RIM\Role;
+namespace i3Soft\CDA\tests\RIM\Role;
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\DataType\Name\PersonName;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\RIM\Entity\Patient;
-use PHPHealth\CDA\RIM\Role\PatientRole;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\DataType\Name\PersonName;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\RIM\Entity\Patient;
+use i3Soft\CDA\RIM\Role\PatientRole;
+use i3Soft\CDA\tests\MyTestCase;
 
 /**
  * Test PatientRole

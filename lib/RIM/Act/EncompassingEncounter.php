@@ -26,36 +26,36 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Act;
+namespace i3Soft\CDA\RIM\Act;
 
 
-use PHPHealth\CDA\DataType\Collection\Interval\IntervalOfTime;
-use PHPHealth\CDA\DataType\Collection\Interval\PeriodicIntervalOfTime;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\MoodCodeInterface;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\CodedValueTrait;
-use PHPHealth\CDA\Traits\DischargeDispositionCodeTrait;
-use PHPHealth\CDA\Traits\EffectiveTimeTrait;
-use PHPHealth\CDA\Traits\EncounterParticipantsTrait;
-use PHPHealth\CDA\Traits\IdsTrait;
-use PHPHealth\CDA\Traits\LocationTrait;
-use PHPHealth\CDA\Traits\MoodCodeTrait;
-use PHPHealth\CDA\Traits\ResponsiblePartyTrait;
+use i3Soft\CDA\DataType\Collection\Interval\IntervalOfTime;
+use i3Soft\CDA\DataType\Collection\Interval\PeriodicIntervalOfTime;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\MoodCodeInterface;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\CodedValueTrait;
+use i3Soft\CDA\Traits\DischargeDispositionCodeTrait;
+use i3Soft\CDA\Traits\EffectiveTimeTrait;
+use i3Soft\CDA\Traits\EncounterParticipantsTrait;
+use i3Soft\CDA\Traits\IdsTrait;
+use i3Soft\CDA\Traits\LocationTrait;
+use i3Soft\CDA\Traits\MoodCodeTrait;
+use i3Soft\CDA\Traits\ResponsiblePartyTrait;
 
 /**
  * Class EncompassingEncounter
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class EncompassingEncounter extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {

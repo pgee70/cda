@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Entity\AssociatedPerson;
+use i3Soft\CDA\RIM\Entity\AssociatedPerson;
 
 trait AssociatedPersonTrait
 {

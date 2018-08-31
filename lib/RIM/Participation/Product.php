@@ -26,21 +26,21 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Participation;
+namespace i3Soft\CDA\RIM\Participation;
 
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\RIM\Role\ManufacturedProduct;
-use PHPHealth\CDA\Traits\ManufacturedProductTrait;
-use PHPHealth\CDA\Traits\TypeCodeTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\RIM\Role\ManufacturedProduct;
+use i3Soft\CDA\Traits\ManufacturedProductTrait;
+use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class Product extends AbstractElement implements TypeCodeInterface
 {

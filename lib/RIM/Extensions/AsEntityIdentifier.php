@@ -26,24 +26,24 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
 
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\RIM\Entity\Entity;
-use PHPHealth\CDA\Traits\ExtIdTrait;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\RIM\Entity\Entity;
+use i3Soft\CDA\Traits\ExtIdTrait;
 
 /**
  * Class AsEntityIdentifier
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class AsEntityIdentifier extends Entity
 {

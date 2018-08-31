@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\RIM\Role;
+namespace i3Soft\CDA\tests\RIM\Role;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  *
  * @group       CDA
@@ -43,8 +43,8 @@ namespace PHPHealth\tests\classes\CDA\RIM\Role;
  */
 
 
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\tests\MyTestCase;
 
 
 class Occupation_test extends MyTestCase

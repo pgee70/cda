@@ -23,14 +23,14 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements\Html;
+namespace i3Soft\CDA\Elements\Html;
 
-use PHPHealth\CDA\DataType\ValueType;
+use i3Soft\CDA\DataType\ValueType;
 
 /**
  * Class ReferenceElement
  *
- * @package PHPHealth\CDA\Elements\Html
+ * @package i3Soft\CDA\Elements\Html
  */
 class ReferenceElement extends AbstractHtmlElement
 {

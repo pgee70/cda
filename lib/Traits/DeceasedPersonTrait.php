@@ -25,16 +25,16 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Extensions\DeceasedInd;
-use PHPHealth\CDA\RIM\Extensions\DeceasedTime;
+use i3Soft\CDA\RIM\Extensions\DeceasedInd;
+use i3Soft\CDA\RIM\Extensions\DeceasedTime;
 
 /**
  * Trait DeceasedIndTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait DeceasedPersonTrait
 {

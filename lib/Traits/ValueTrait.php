@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\Value;
+use i3Soft\CDA\Elements\Value;
 
 /**
  * Trait ValueTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ValueTrait
 {

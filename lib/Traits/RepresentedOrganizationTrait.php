@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Entity\RepresentedOrganization;
+use i3Soft\CDA\RIM\Entity\RepresentedOrganization;
 
 /**
  * Trait RepresentedOrganizationTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait RepresentedOrganizationTrait
 {

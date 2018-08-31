@@ -24,17 +24,17 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
-use PHPHealth\CDA\DataType\TextAndMultimedia\EncapsuledData;
-use PHPHealth\CDA\Interfaces\XSITypeInterface;
-use PHPHealth\CDA\Traits\XSITypeTrait;
+use i3Soft\CDA\DataType\TextAndMultimedia\EncapsuledData;
+use i3Soft\CDA\Interfaces\XSITypeInterface;
+use i3Soft\CDA\Traits\XSITypeTrait;
 
 
 /**
  * Class Desc
  *
- * @package PHPHealth\CDA\Elements
+ * @package i3Soft\CDA\Elements
  */
 class Desc extends AbstractElement implements XSITypeInterface
 {

@@ -23,7 +23,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType;
+namespace i3Soft\CDA\DataType;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

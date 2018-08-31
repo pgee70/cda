@@ -26,9 +26,9 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * see page 70 of EventSummary_CDAImplementationGuide_v1.3.pdf
  * @group       CDA
@@ -39,17 +39,17 @@
  *
  */
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\DataType\Collection\Interval\IntervalOfTime;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\RIM\Extensions\ExtCode;
-use PHPHealth\CDA\RIM\Extensions\ExtCoverage2;
-use PHPHealth\CDA\RIM\Extensions\ExtEffectiveTime;
-use PHPHealth\CDA\RIM\Extensions\ExtEntitlement;
-use PHPHealth\CDA\RIM\Extensions\ExtId;
-use PHPHealth\CDA\RIM\Extensions\ExtParticipant;
-use PHPHealth\CDA\RIM\Extensions\ExtParticipantRole;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\DataType\Collection\Interval\IntervalOfTime;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\RIM\Extensions\ExtCode;
+use i3Soft\CDA\RIM\Extensions\ExtCoverage2;
+use i3Soft\CDA\RIM\Extensions\ExtEffectiveTime;
+use i3Soft\CDA\RIM\Extensions\ExtEntitlement;
+use i3Soft\CDA\RIM\Extensions\ExtId;
+use i3Soft\CDA\RIM\Extensions\ExtParticipant;
+use i3Soft\CDA\RIM\Extensions\ExtParticipantRole;
+use i3Soft\CDA\tests\MyTestCase;
 
 class ExtCoverage2_test extends MyTestCase
 {

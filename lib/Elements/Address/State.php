@@ -25,15 +25,15 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements\Address;
+namespace i3Soft\CDA\Elements\Address;
 
-use PHPHealth\CDA\Elements\AbstractSimpleElement;
+use i3Soft\CDA\Elements\AbstractSimpleElement;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 class State extends AbstractSimpleElement

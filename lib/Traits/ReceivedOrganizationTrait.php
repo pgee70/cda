@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Entity\ReceivedOrganization;
+use i3Soft\CDA\RIM\Entity\ReceivedOrganization;
 
 /**
  * Trait ReceivedOrganizationTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ReceivedOrganizationTrait
 {

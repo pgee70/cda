@@ -25,26 +25,26 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\DataType\Collection\Interval\IntervalOfTime;
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\XSITypeInterface;
-use PHPHealth\CDA\Traits\XSITypeTrait;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\DataType\Collection\Interval\IntervalOfTime;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\XSITypeInterface;
+use i3Soft\CDA\Traits\XSITypeTrait;
 
 /**
  * Class ExtEffectiveTime
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class ExtEffectiveTime extends AbstractElement implements XSITypeInterface
 {

@@ -23,17 +23,17 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Role;
+namespace i3Soft\CDA\RIM\Role;
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\IdsTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\IdsTrait;
 
 /**
  * Class Role
  *
- * @package PHPHealth\CDA\RIM\Role
+ * @package i3Soft\CDA\RIM\Role
  */
 abstract class Role extends AbstractElement implements ClassCodeInterface
 {

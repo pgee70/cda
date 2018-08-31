@@ -25,16 +25,16 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\Elements\AdministrativeGenderCode;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\Elements\AdministrativeGenderCode;
 
 /**
  * Trait AdministrativeGenderCodeTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait AdministrativeGenderCodeTrait
 {

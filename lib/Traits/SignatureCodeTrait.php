@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\SignatureCode;
+use i3Soft\CDA\Elements\SignatureCode;
 
 /**
  * Trait SignatureCodeTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait SignatureCodeTrait
 {

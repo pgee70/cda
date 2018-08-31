@@ -24,12 +24,12 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\DataType\Collection\Interval\IntervalOfTime;
-use PHPHealth\CDA\DataType\Collection\Interval\PeriodicIntervalOfTime;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\DataType\Collection\Interval\IntervalOfTime;
+use i3Soft\CDA\DataType\Collection\Interval\PeriodicIntervalOfTime;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

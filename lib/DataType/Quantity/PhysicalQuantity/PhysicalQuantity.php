@@ -23,10 +23,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Quantity\PhysicalQuantity;
+namespace i3Soft\CDA\DataType\Quantity\PhysicalQuantity;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\DataType\Quantity\AbstractQuantity;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\DataType\Quantity\AbstractQuantity;
 
 /**
  * A dimensioned quantity expressing the result of measuring.

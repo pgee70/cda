@@ -23,19 +23,19 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
-use PHPHealth\CDA\Traits\AdministrativeGenderCodeTrait;
-use PHPHealth\CDA\Traits\AsEntityIdentifierTrait;
-use PHPHealth\CDA\Traits\BirthPlaceTrait;
-use PHPHealth\CDA\Traits\BirthTimeTrait;
-use PHPHealth\CDA\Traits\EthnicGroupTrait;
-use PHPHealth\CDA\Traits\MultipleBirthsTrait;
+use i3Soft\CDA\Traits\AdministrativeGenderCodeTrait;
+use i3Soft\CDA\Traits\AsEntityIdentifierTrait;
+use i3Soft\CDA\Traits\BirthPlaceTrait;
+use i3Soft\CDA\Traits\BirthTimeTrait;
+use i3Soft\CDA\Traits\EthnicGroupTrait;
+use i3Soft\CDA\Traits\MultipleBirthsTrait;
 
 /**
  * Class LivingSubject
  *
- * @package PHPHealth\CDA\RIM\Entity
+ * @package i3Soft\CDA\RIM\Entity
  */
 abstract class LivingSubject extends Entity
 {

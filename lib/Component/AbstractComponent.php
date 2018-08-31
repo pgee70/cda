@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Component;
+namespace i3Soft\CDA\Component;
 
-use PHPHealth\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Elements\AbstractElement;
 
 /**
  * A base class for components

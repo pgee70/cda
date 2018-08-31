@@ -23,11 +23,11 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Component;
+namespace i3Soft\CDA\Component;
 
-use PHPHealth\CDA\Component\SingleComponent\Section;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\Traits\TypeCodeTrait;
+use i3Soft\CDA\Component\SingleComponent\Section;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\Traits\TypeCodeTrait;
 
 /**
  * Single component. Must be included in a XMLBodyComponent.

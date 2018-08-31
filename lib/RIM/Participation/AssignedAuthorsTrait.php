@@ -24,15 +24,15 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Participation;
+namespace i3Soft\CDA\RIM\Participation;
 
 
-use PHPHealth\CDA\RIM\Role\AssignedAuthor;
+use i3Soft\CDA\RIM\Role\AssignedAuthor;
 
 /**
  * Trait AssignedAuthorsTrait
  *
- * @package PHPHealth\CDA\RIM\Participation
+ * @package i3Soft\CDA\RIM\Participation
  */
 trait AssignedAuthorsTrait
 {

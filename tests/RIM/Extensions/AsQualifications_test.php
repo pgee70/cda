@@ -26,9 +26,9 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  *
  * see EventSummary_CDAImplementationGuide_v1.3.pdf page 79
@@ -41,10 +41,10 @@
  *
  */
 
-use PHPHealth\CDA\Elements\OriginalText;
-use PHPHealth\CDA\RIM\Extensions\AsQualifications;
-use PHPHealth\CDA\RIM\Extensions\ExtCode;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\Elements\OriginalText;
+use i3Soft\CDA\RIM\Extensions\AsQualifications;
+use i3Soft\CDA\RIM\Extensions\ExtCode;
+use i3Soft\CDA\tests\MyTestCase;
 
 class AsQualifications_test extends MyTestCase
 {

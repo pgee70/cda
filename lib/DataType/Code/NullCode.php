@@ -23,10 +23,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Code;
+namespace i3Soft\CDA\DataType\Code;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\Interfaces\NullFlavourInterface;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\Interfaces\NullFlavourInterface;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

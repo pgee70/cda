@@ -25,11 +25,11 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Extensions\MultipleBirthInd;
-use PHPHealth\CDA\RIM\Extensions\MultipleBirthOrderNumber;
+use i3Soft\CDA\RIM\Extensions\MultipleBirthInd;
+use i3Soft\CDA\RIM\Extensions\MultipleBirthOrderNumber;
 
 trait MultipleBirthsTrait
 {

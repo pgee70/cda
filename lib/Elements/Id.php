@@ -24,10 +24,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
-use PHPHealth\CDA\Traits\InstanceIdentifierTrait;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\Traits\InstanceIdentifierTrait;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

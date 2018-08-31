@@ -24,14 +24,14 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\RIM\Entity;
+namespace i3Soft\CDA\tests\RIM\Entity;
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\DataType\Name\PersonName;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\RIM\Entity\Patient;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\DataType\Name\PersonName;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\RIM\Entity\Patient;
+use i3Soft\CDA\tests\MyTestCase;
 
 /**
  * @author     Julien Fastré <julien.fastre@champs-libres.coop>

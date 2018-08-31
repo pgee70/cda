@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Participation\LegalAuthenticator;
+use i3Soft\CDA\RIM\Participation\LegalAuthenticator;
 
 /**
  * Trait LegalAuthenticatorTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait LegalAuthenticatorTrait
 {

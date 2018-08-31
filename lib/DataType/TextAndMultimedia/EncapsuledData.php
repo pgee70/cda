@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\TextAndMultimedia;
+namespace i3Soft\CDA\DataType\TextAndMultimedia;
 
-use PHPHealth\CDA\ClinicalDocument as CD;
+use i3Soft\CDA\ClinicalDocument as CD;
 
 /**
  * Data that is primarily intended for human interpretation or for further

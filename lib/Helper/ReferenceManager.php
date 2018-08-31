@@ -23,10 +23,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Helper;
+namespace i3Soft\CDA\Helper;
 
-use PHPHealth\CDA\DataType\ReferenceType;
-use PHPHealth\CDA\Elements\Html\ReferenceElement;
+use i3Soft\CDA\DataType\ReferenceType;
+use i3Soft\CDA\Elements\Html\ReferenceElement;
 
 /**
  * Manages references inside a document.

@@ -25,30 +25,30 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Traits\AddrsTrait;
-use PHPHealth\CDA\Traits\AssociatedPersonTrait;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\CodedValueTrait;
-use PHPHealth\CDA\Traits\IdsTrait;
-use PHPHealth\CDA\Traits\ScopingOrganizationTrait;
-use PHPHealth\CDA\Traits\TelecomsTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Traits\AddrsTrait;
+use i3Soft\CDA\Traits\AssociatedPersonTrait;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\CodedValueTrait;
+use i3Soft\CDA\Traits\IdsTrait;
+use i3Soft\CDA\Traits\ScopingOrganizationTrait;
+use i3Soft\CDA\Traits\TelecomsTrait;
 
 /**
  * Class AssignedEntity
  *
- * @package PHPHealth\CDA\RIM\Role
+ * @package i3Soft\CDA\RIM\Role
  */
 class AssociatedEntity extends AbstractElement implements ClassCodeInterface
 {

@@ -25,16 +25,16 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\Code\CodedWithEquivalents;
-use PHPHealth\CDA\Elements\Code;
+use i3Soft\CDA\DataType\Code\CodedWithEquivalents;
+use i3Soft\CDA\Elements\Code;
 
 /**
  * Trait CodedWithEquivalentsTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait CodedWithEquivalentsTrait
 {

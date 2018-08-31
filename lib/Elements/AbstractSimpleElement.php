@@ -28,21 +28,21 @@
  *
  * Time: 11:26 PM
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
-use PHPHealth\CDA\DataType\TextAndMultimedia\SimpleString;
+use i3Soft\CDA\DataType\TextAndMultimedia\SimpleString;
 
 /**
  * Class AbstractSimpleElement
  *
- * @package PHPHealth\CDA\Elements
+ * @package i3Soft\CDA\Elements
  */
 abstract class AbstractSimpleElement extends AbstractElement
 {

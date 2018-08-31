@@ -25,14 +25,14 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
-use PHPHealth\CDA\Elements\PriorityCode;
+use i3Soft\CDA\Elements\PriorityCode;
 
 /**
  * Trait PriorityCodesTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait PriorityCodesTrait
 {

@@ -23,13 +23,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Component;
+namespace i3Soft\CDA\Component;
 
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\MoodCodeInterface;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\MoodCodeTrait;
-use PHPHealth\CDA\Traits\SingleComponentTrait;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\MoodCodeInterface;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\MoodCodeTrait;
+use i3Soft\CDA\Traits\SingleComponentTrait;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
 
 /**
  * Trait InstanceIdentifierTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait InstanceIdentifierTrait
 {

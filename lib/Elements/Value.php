@@ -26,23 +26,23 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\DataType\ValueType;
-use PHPHealth\CDA\Elements\Html\ReferenceElement;
-use PHPHealth\CDA\Interfaces\MediaTypeInterface;
-use PHPHealth\CDA\Interfaces\XSITypeInterface;
-use PHPHealth\CDA\Traits\ValueTypeTrait;
-use PHPHealth\CDA\Traits\XSITypeTrait;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\DataType\ValueType;
+use i3Soft\CDA\Elements\Html\ReferenceElement;
+use i3Soft\CDA\Interfaces\MediaTypeInterface;
+use i3Soft\CDA\Interfaces\XSITypeInterface;
+use i3Soft\CDA\Traits\ValueTypeTrait;
+use i3Soft\CDA\Traits\XSITypeTrait;
 
 class Value extends AbstractElement implements XSITypeInterface, MediaTypeInterface
 {

@@ -26,31 +26,31 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\CodeTrait;
-use PHPHealth\CDA\Traits\DescTrait;
-use PHPHealth\CDA\Traits\DeterminerCodeTrait;
-use PHPHealth\CDA\Traits\NamesTrait;
-use PHPHealth\CDA\Traits\QuantitiesTrait;
-use PHPHealth\CDA\Traits\SpecimenPlayingEntityTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\CodeTrait;
+use i3Soft\CDA\Traits\DescTrait;
+use i3Soft\CDA\Traits\DeterminerCodeTrait;
+use i3Soft\CDA\Traits\NamesTrait;
+use i3Soft\CDA\Traits\QuantitiesTrait;
+use i3Soft\CDA\Traits\SpecimenPlayingEntityTrait;
 
 /**
  * Class PlayingEntity
  *
- * @package PHPHealth\CDA\RIM\Entity
+ * @package i3Soft\CDA\RIM\Entity
  */
 class PlayingEntity extends AbstractElement implements ClassCodeInterface
 {

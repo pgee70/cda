@@ -23,12 +23,12 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Interfaces;
+namespace i3Soft\CDA\Interfaces;
 
 /**
  * Interface ClassCodeInterface
  *
- * @package PHPHealth\CDA
+ * @package i3Soft\CDA
  */
 interface ClassCodeInterface
 {

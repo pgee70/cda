@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Act\ObservationMedia;
+use i3Soft\CDA\RIM\Act\ObservationMedia;
 
 /**
  * Trait ObservationMediaTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ObservationMediaTrait
 {

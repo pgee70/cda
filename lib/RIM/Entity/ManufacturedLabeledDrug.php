@@ -23,11 +23,11 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
-use PHPHealth\CDA\DataType\Code\CodedWithEquivalents;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Traits\CodedWithEquivalentsTrait;
+use i3Soft\CDA\DataType\Code\CodedWithEquivalents;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Traits\CodedWithEquivalentsTrait;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

@@ -23,7 +23,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

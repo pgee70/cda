@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Act\ReferenceRange;
+use i3Soft\CDA\RIM\Act\ReferenceRange;
 
 /**
  * Trait ReferenceRangesTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ReferenceRangesTrait
 {

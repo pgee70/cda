@@ -25,24 +25,24 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\DataType\Name\EntityName;
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\RIM\Role\AsOrganizationPartOf;
+use i3Soft\CDA\DataType\Name\EntityName;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\RIM\Role\AsOrganizationPartOf;
 
 /**
  * Class ExtEmployerOrganization
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class ExtEmployerOrganization extends AbstractElement
 {

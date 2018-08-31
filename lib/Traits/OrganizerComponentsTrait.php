@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Act\OrganizerComponent;
+use i3Soft\CDA\RIM\Act\OrganizerComponent;
 
 /**
  * Trait OrganizerComponentsTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait OrganizerComponentsTrait
 {

@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\Elements;
+namespace i3Soft\CDA\tests\Elements;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_Elements
@@ -41,9 +41,9 @@ namespace PHPHealth\tests\Elements;
  *
  */
 
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\Elements\BirthTime;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\Elements\BirthTime;
+use i3Soft\CDA\tests\MyTestCase;
 
 class BirthTime_test extends MyTestCase
 {

@@ -26,29 +26,29 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Participation;
+namespace i3Soft\CDA\RIM\Participation;
 
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\RIM\Role\ParticipantRole;
-use PHPHealth\CDA\Traits\AwarenessCodeTrait;
-use PHPHealth\CDA\Traits\ContextControlCodeTrait;
-use PHPHealth\CDA\Traits\ParticipantRoleTrait;
-use PHPHealth\CDA\Traits\TimeTrait;
-use PHPHealth\CDA\Traits\TypeCodeTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\RIM\Role\ParticipantRole;
+use i3Soft\CDA\Traits\AwarenessCodeTrait;
+use i3Soft\CDA\Traits\ContextControlCodeTrait;
+use i3Soft\CDA\Traits\ParticipantRoleTrait;
+use i3Soft\CDA\Traits\TimeTrait;
+use i3Soft\CDA\Traits\TypeCodeTrait;
 
 /**
  * Class Participant
  *
- * @package PHPHealth\CDA\Elements
+ * @package i3Soft\CDA\Elements
  */
 class Participant extends AbstractElement implements TypeCodeInterface
 {

@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Extensions\ExtEntitlement;
+use i3Soft\CDA\RIM\Extensions\ExtEntitlement;
 
 /**
  * Trait ExtEntitlementTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ExtEntitlementTrait
 {

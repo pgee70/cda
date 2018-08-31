@@ -23,11 +23,11 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Participation;
+namespace i3Soft\CDA\RIM\Participation;
 
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\RIM\Entity\AssignedCustodian;
-use PHPHealth\CDA\Traits\AssignedCustodianTrait;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\RIM\Entity\AssignedCustodian;
+use i3Soft\CDA\Traits\AssignedCustodianTrait;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

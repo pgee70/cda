@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Participation\Participant;
+use i3Soft\CDA\RIM\Participation\Participant;
 
 trait ParticipantsTrait
 {

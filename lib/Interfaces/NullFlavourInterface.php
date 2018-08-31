@@ -25,7 +25,7 @@
  */
 
 
-namespace PHPHealth\CDA\Interfaces;
+namespace i3Soft\CDA\Interfaces;
 
 
 interface NullFlavourInterface

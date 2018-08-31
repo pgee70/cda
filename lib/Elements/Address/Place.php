@@ -26,21 +26,21 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\Elements\Address;
+namespace i3Soft\CDA\Elements\Address;
 
-use PHPHealth\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Elements\AbstractElement;
 
 /**
  * Class Place
  *
- * @package PHPHealth\CDA\Elements\Address
+ * @package i3Soft\CDA\Elements\Address
  */
 class Place extends AbstractElement
 {

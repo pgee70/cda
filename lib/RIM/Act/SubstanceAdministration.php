@@ -23,22 +23,22 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Act;
+namespace i3Soft\CDA\RIM\Act;
 
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\MoodCodeInterface;
-use PHPHealth\CDA\RIM\Participation\Consumable;
-use PHPHealth\CDA\Traits\ApproachSiteCodesTrait;
-use PHPHealth\CDA\Traits\ConsumableTrait;
-use PHPHealth\CDA\Traits\DoseQuantityTrait;
-use PHPHealth\CDA\Traits\EffectiveTimesTrait;
-use PHPHealth\CDA\Traits\RateQuantityTrait;
-use PHPHealth\CDA\Traits\RouteCodeTrait;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\MoodCodeInterface;
+use i3Soft\CDA\RIM\Participation\Consumable;
+use i3Soft\CDA\Traits\ApproachSiteCodesTrait;
+use i3Soft\CDA\Traits\ConsumableTrait;
+use i3Soft\CDA\Traits\DoseQuantityTrait;
+use i3Soft\CDA\Traits\EffectiveTimesTrait;
+use i3Soft\CDA\Traits\RateQuantityTrait;
+use i3Soft\CDA\Traits\RouteCodeTrait;
 
 /**
  * Class SubstanceAdministration
  *
- * @package PHPHealth\CDA\RIM\Act
+ * @package i3Soft\CDA\RIM\Act
  */
 class SubstanceAdministration extends Act
 {

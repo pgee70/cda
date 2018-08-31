@@ -24,13 +24,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Traits\DeceasedPersonTrait;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Traits\DeceasedPersonTrait;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

@@ -25,43 +25,43 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Component\SingleComponent;
+namespace i3Soft\CDA\Component\SingleComponent;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\Entry;
-use PHPHealth\CDA\Elements\Html\Text;
-use PHPHealth\CDA\Elements\Html\Title;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\MoodCodeInterface;
-use PHPHealth\CDA\Traits\AuthorTrait;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\CodeTrait;
-use PHPHealth\CDA\Traits\ConfidentialityCodeTrait;
-use PHPHealth\CDA\Traits\EntriesTrait;
-use PHPHealth\CDA\Traits\ExtCoverage2Trait;
-use PHPHealth\CDA\Traits\IdTrait;
-use PHPHealth\CDA\Traits\InformantsTrait;
-use PHPHealth\CDA\Traits\LanguageCodeTrait;
-use PHPHealth\CDA\Traits\MoodCodeTrait;
-use PHPHealth\CDA\Traits\SingleComponentTrait;
-use PHPHealth\CDA\Traits\SubjectTrait;
-use PHPHealth\CDA\Traits\TextTrait;
-use PHPHealth\CDA\Traits\TitleTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\Entry;
+use i3Soft\CDA\Elements\Html\Text;
+use i3Soft\CDA\Elements\Html\Title;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\MoodCodeInterface;
+use i3Soft\CDA\Traits\AuthorTrait;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\CodeTrait;
+use i3Soft\CDA\Traits\ConfidentialityCodeTrait;
+use i3Soft\CDA\Traits\EntriesTrait;
+use i3Soft\CDA\Traits\ExtCoverage2Trait;
+use i3Soft\CDA\Traits\IdTrait;
+use i3Soft\CDA\Traits\InformantsTrait;
+use i3Soft\CDA\Traits\LanguageCodeTrait;
+use i3Soft\CDA\Traits\MoodCodeTrait;
+use i3Soft\CDA\Traits\SingleComponentTrait;
+use i3Soft\CDA\Traits\SubjectTrait;
+use i3Soft\CDA\Traits\TextTrait;
+use i3Soft\CDA\Traits\TitleTrait;
 
 /**
  * Class Section
  *
- * @package PHPHealth\CDA\Component\SingleComponent
+ * @package i3Soft\CDA\Component\SingleComponent
  */
 class Section extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {

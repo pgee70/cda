@@ -25,32 +25,32 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Role;
+namespace i3Soft\CDA\RIM\Role;
 
 /**
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\Elements\Address\Addr;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\RIM\Entity\AssignedPerson;
-use PHPHealth\CDA\Traits\AddrsTrait;
-use PHPHealth\CDA\Traits\AsEntityIdentifierTrait;
-use PHPHealth\CDA\Traits\AssignedPersonTrait;
-use PHPHealth\CDA\Traits\AuthoringDeviceTrait;
-use PHPHealth\CDA\Traits\OccupationTrait;
-use PHPHealth\CDA\Traits\RepresentedOrganizationTrait;
-use PHPHealth\CDA\Traits\TelecomsTrait;
+use i3Soft\CDA\Elements\Address\Addr;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\RIM\Entity\AssignedPerson;
+use i3Soft\CDA\Traits\AddrsTrait;
+use i3Soft\CDA\Traits\AsEntityIdentifierTrait;
+use i3Soft\CDA\Traits\AssignedPersonTrait;
+use i3Soft\CDA\Traits\AuthoringDeviceTrait;
+use i3Soft\CDA\Traits\OccupationTrait;
+use i3Soft\CDA\Traits\RepresentedOrganizationTrait;
+use i3Soft\CDA\Traits\TelecomsTrait;
 
 /**
  * Class AssignedAuthor
  *
- * @package PHPHealth\CDA\RIM\Role
+ * @package i3Soft\CDA\RIM\Role
  */
 class AssignedAuthor extends Role
 {

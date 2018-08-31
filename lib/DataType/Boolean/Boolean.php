@@ -23,10 +23,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Boolean;
+namespace i3Soft\CDA\DataType\Boolean;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\DataType\AnyType;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\DataType\AnyType;
 
 /**
  * Boolean attribute

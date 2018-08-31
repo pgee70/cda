@@ -23,8 +23,7 @@
  * THE SOFTWARE.
  */
 
-
-namespace PHPHealth\tests;
+namespace i3Soft\CDA\tests;
 use PHPUnit\Framework\TestCase;
 
 

@@ -25,25 +25,25 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\DataType\Code\CodedWithEquivalents;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Traits\CodeTrait;
+use i3Soft\CDA\DataType\Code\CodedWithEquivalents;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Traits\CodeTrait;
 
 /**
  * Class ManufacturedMaterial
  *
- * @package PHPHealth\CDA\RIM\Entity
+ * @package i3Soft\CDA\RIM\Entity
  */
 class ManufacturedMaterial extends DrugOrMaterial
 {

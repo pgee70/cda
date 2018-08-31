@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests;
+namespace i3Soft\CDA\tests;
 
 /**
  * @author     Julien Fastré <julien.fastre@champs-libres.coop>
@@ -36,57 +36,57 @@ namespace PHPHealth\tests;
  *
  */
 
-use PHPHealth\CDA\ClinicalDocument;
-use PHPHealth\CDA\Component\NonXMLBodyComponent;
-use PHPHealth\CDA\Component\SingleComponent;
-use PHPHealth\CDA\Component\SingleComponent\Section;
-use PHPHealth\CDA\Component\XMLBodyComponent;
-use PHPHealth\CDA\DataType\Code\CodedSimple;
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\DataType\Code\ConfidentialityCode as ConfidentialityCodeType;
-use PHPHealth\CDA\DataType\Code\LoincCode;
-use PHPHealth\CDA\DataType\Code\SnomedCTCode;
-use PHPHealth\CDA\DataType\Collection\Interval\IntervalOfTime;
-use PHPHealth\CDA\DataType\Collection\Interval\PeriodicIntervalOfTime;
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
-use PHPHealth\CDA\DataType\Name\EntityName;
-use PHPHealth\CDA\DataType\Name\PersonName;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\DataType\Quantity\PhysicalQuantity\PhysicalQuantity;
-use PHPHealth\CDA\DataType\TextAndMultimedia\CharacterString;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\ConfidentialityCode;
-use PHPHealth\CDA\Elements\EffectiveTime;
-use PHPHealth\CDA\Elements\Html\Table;
-use PHPHealth\CDA\Elements\Html\Text;
-use PHPHealth\CDA\Elements\Html\Title;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\Elements\LanguageCode;
-use PHPHealth\CDA\Elements\StatusCodeElement;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\RIM\Act\Observation;
-use PHPHealth\CDA\RIM\Act\SubstanceAdministration;
-use PHPHealth\CDA\RIM\Entity\AssignedCustodian;
-use PHPHealth\CDA\RIM\Entity\AssignedPerson;
-use PHPHealth\CDA\RIM\Entity\InformationRecipientPerson;
-use PHPHealth\CDA\RIM\Entity\ManufacturedLabeledDrug;
-use PHPHealth\CDA\RIM\Entity\Organization;
-use PHPHealth\CDA\RIM\Entity\Patient;
-use PHPHealth\CDA\RIM\Entity\ReceivedOrganization;
-use PHPHealth\CDA\RIM\Entity\RepresentedCustodianOrganization;
-use PHPHealth\CDA\RIM\Participation\Author;
-use PHPHealth\CDA\RIM\Participation\Consumable;
-use PHPHealth\CDA\RIM\Participation\Custodian;
-use PHPHealth\CDA\RIM\Participation\InformationRecipient;
-use PHPHealth\CDA\RIM\Participation\RecordTarget;
-use PHPHealth\CDA\RIM\Role\AssignedAuthor;
-use PHPHealth\CDA\RIM\Role\IntendedRecipient;
-use PHPHealth\CDA\RIM\Role\ManufacturedProduct;
-use PHPHealth\CDA\RIM\Role\PatientRole;
-use PHPHealth\tests\classes\CDA\Component\XMLBodyComponent_test;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\ClinicalDocument;
+use i3Soft\CDA\Component\NonXMLBodyComponent;
+use i3Soft\CDA\Component\SingleComponent;
+use i3Soft\CDA\Component\SingleComponent\Section;
+use i3Soft\CDA\Component\XMLBodyComponent;
+use i3Soft\CDA\DataType\Code\CodedSimple;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\DataType\Code\ConfidentialityCode as ConfidentialityCodeType;
+use i3Soft\CDA\DataType\Code\LoincCode;
+use i3Soft\CDA\DataType\Code\SnomedCTCode;
+use i3Soft\CDA\DataType\Collection\Interval\IntervalOfTime;
+use i3Soft\CDA\DataType\Collection\Interval\PeriodicIntervalOfTime;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\DataType\Name\EntityName;
+use i3Soft\CDA\DataType\Name\PersonName;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\DataType\Quantity\PhysicalQuantity\PhysicalQuantity;
+use i3Soft\CDA\DataType\TextAndMultimedia\CharacterString;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\ConfidentialityCode;
+use i3Soft\CDA\Elements\EffectiveTime;
+use i3Soft\CDA\Elements\Html\Table;
+use i3Soft\CDA\Elements\Html\Text;
+use i3Soft\CDA\Elements\Html\Title;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\Elements\LanguageCode;
+use i3Soft\CDA\Elements\StatusCodeElement;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\RIM\Act\Observation;
+use i3Soft\CDA\RIM\Act\SubstanceAdministration;
+use i3Soft\CDA\RIM\Entity\AssignedCustodian;
+use i3Soft\CDA\RIM\Entity\AssignedPerson;
+use i3Soft\CDA\RIM\Entity\InformationRecipientPerson;
+use i3Soft\CDA\RIM\Entity\ManufacturedLabeledDrug;
+use i3Soft\CDA\RIM\Entity\Organization;
+use i3Soft\CDA\RIM\Entity\Patient;
+use i3Soft\CDA\RIM\Entity\ReceivedOrganization;
+use i3Soft\CDA\RIM\Entity\RepresentedCustodianOrganization;
+use i3Soft\CDA\RIM\Participation\Author;
+use i3Soft\CDA\RIM\Participation\Consumable;
+use i3Soft\CDA\RIM\Participation\Custodian;
+use i3Soft\CDA\RIM\Participation\InformationRecipient;
+use i3Soft\CDA\RIM\Participation\RecordTarget;
+use i3Soft\CDA\RIM\Role\AssignedAuthor;
+use i3Soft\CDA\RIM\Role\IntendedRecipient;
+use i3Soft\CDA\RIM\Role\ManufacturedProduct;
+use i3Soft\CDA\RIM\Role\PatientRole;
+use i3Soft\CDA\tests\Component\XMLBodyComponent_test;
+use i3Soft\CDA\tests\MyTestCase;
 
 class ClinicalDocument_test extends MyTestCase
 {

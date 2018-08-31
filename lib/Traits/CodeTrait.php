@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\Code;
+use i3Soft\CDA\Elements\Code;
 
 
 trait CodeTrait

@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\RIM\Extensions;
+namespace i3Soft\CDA\tests\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  *
  * @group       CDA
@@ -43,9 +43,9 @@ namespace PHPHealth\tests\classes\CDA\RIM\Extensions;
  */
 
 
-use PHPHealth\CDA\Elements\OriginalText;
-use PHPHealth\CDA\RIM\Extensions\ExtCode;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\Elements\OriginalText;
+use i3Soft\CDA\RIM\Extensions\ExtCode;
+use i3Soft\CDA\tests\MyTestCase;
 
 class ExtCode_test extends MyTestCase
 {

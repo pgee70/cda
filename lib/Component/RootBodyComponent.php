@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Component;
+namespace i3Soft\CDA\Component;
 
 /**
  * Component which contains the body of the document
@@ -35,7 +35,7 @@ namespace PHPHealth\CDA\Component;
 /**
  * Class RootBodyComponent
  *
- * @package PHPHealth\CDA\Component
+ * @package i3Soft\CDA\Component
  */
 class RootBodyComponent extends AbstractComponent
 {

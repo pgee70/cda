@@ -25,28 +25,28 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Code;
+namespace i3Soft\CDA\DataType\Code;
 
 /**
  *
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\ClinicalDocument as CDA;
 
 /**
  * This is used for tags with the type of type="SC"
  *
  * Class CharacterStringWithCode
  *
- * @package PHPHealth\CDA\DataType\Code
+ * @package i3Soft\CDA\DataType\Code
  */
 
 /**
  * Class CharacterStringWithCode
  *
- * @package PHPHealth\CDA\DataType\Code
+ * @package i3Soft\CDA\DataType\Code
  */
 class CharacterStringWithCode extends ConceptDescriptor
 {

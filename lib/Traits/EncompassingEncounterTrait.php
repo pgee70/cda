@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Act\EncompassingEncounter;
+use i3Soft\CDA\RIM\Act\EncompassingEncounter;
 
 trait EncompassingEncounterTrait
 {

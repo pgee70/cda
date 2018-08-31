@@ -25,14 +25,14 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
-use PHPHealth\CDA\DataType\IntegerType;
+use i3Soft\CDA\DataType\IntegerType;
 
 /**
  * Class VersionNumber
  *
- * @package PHPHealth\CDA\Elements
+ * @package i3Soft\CDA\Elements
  */
 class VersionNumber extends AbstractElement
 {

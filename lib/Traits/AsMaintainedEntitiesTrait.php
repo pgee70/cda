@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Entity\MaintainedEntity;
+use i3Soft\CDA\RIM\Entity\MaintainedEntity;
 
 /**
  * Trait AsMaintainedEntitiesTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait AsMaintainedEntitiesTrait
 {

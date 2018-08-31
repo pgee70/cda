@@ -26,24 +26,24 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Role;
+namespace i3Soft\CDA\RIM\Role;
 
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\RIM\Entity\WholeOrganisation;
-use PHPHealth\CDA\Traits\WholeOrganisationTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\RIM\Entity\WholeOrganisation;
+use i3Soft\CDA\Traits\WholeOrganisationTrait;
 
 /**
  * Class AsOrganizationPartOf
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class AsOrganizationPartOf extends AbstractElement
 {

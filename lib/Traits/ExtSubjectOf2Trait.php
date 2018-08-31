@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Extensions\Subject2;
+use i3Soft\CDA\RIM\Extensions\Subject2;
 
 /**
  * Trait ExtSubjectOf2Trait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ExtSubjectOf2Trait
 {

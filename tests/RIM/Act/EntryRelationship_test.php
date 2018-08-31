@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\RIM\Act;
+namespace i3Soft\CDA\tests\RIM\Act;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_RIM
@@ -41,14 +41,14 @@ namespace PHPHealth\tests\RIM\Act;
  *
  */
 
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\Elements\Value;
-use PHPHealth\CDA\Interfaces\MoodCodeInterface;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\RIM\Act\EntryRelationship;
-use PHPHealth\CDA\RIM\Act\Observation;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\Elements\Value;
+use i3Soft\CDA\Interfaces\MoodCodeInterface;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\RIM\Act\EntryRelationship;
+use i3Soft\CDA\RIM\Act\Observation;
+use i3Soft\CDA\tests\MyTestCase;
 
 class EntryRelationship_test extends MyTestCase
 {

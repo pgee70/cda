@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\RIM\Extensions;
+namespace i3Soft\CDA\tests\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_RIM
@@ -42,12 +42,12 @@ namespace PHPHealth\tests\classes\CDA\RIM\Extensions;
  */
 
 
-use PHPHealth\CDA\DataType\Collection\Interval\IntervalOfTime;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\Elements\EffectiveTime;
-use PHPHealth\CDA\RIM\Act\ComponentOf;
-use PHPHealth\CDA\RIM\Act\EncompassingEncounter;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Collection\Interval\IntervalOfTime;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\Elements\EffectiveTime;
+use i3Soft\CDA\RIM\Act\ComponentOf;
+use i3Soft\CDA\RIM\Act\EncompassingEncounter;
+use i3Soft\CDA\tests\MyTestCase;
 
 class ComponentOf_test extends MyTestCase
 {

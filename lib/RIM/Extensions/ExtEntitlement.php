@@ -25,31 +25,31 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\MoodCodeInterface;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\ExtCodeTrait;
-use PHPHealth\CDA\Traits\ExtEffectiveTimeTrait;
-use PHPHealth\CDA\Traits\ExtIdTrait;
-use PHPHealth\CDA\Traits\ExtParticipantTrait;
-use PHPHealth\CDA\Traits\MoodCodeTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\MoodCodeInterface;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\ExtCodeTrait;
+use i3Soft\CDA\Traits\ExtEffectiveTimeTrait;
+use i3Soft\CDA\Traits\ExtIdTrait;
+use i3Soft\CDA\Traits\ExtParticipantTrait;
+use i3Soft\CDA\Traits\MoodCodeTrait;
 
 /**
  * Class ExtEntitlement
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class ExtEntitlement extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {

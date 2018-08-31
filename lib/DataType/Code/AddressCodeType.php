@@ -25,16 +25,16 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Code;
+namespace i3Soft\CDA\DataType\Code;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\DataType\AnyType;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\DataType\AnyType;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * implements AS 5017-2006: Health Care Client Electronic Communication Usage Code
  *

@@ -23,16 +23,16 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Participation;
+namespace i3Soft\CDA\RIM\Participation;
 
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\Interfaces\ContextControlCodeInterface;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\RIM\Role\AssignedAuthor;
-use PHPHealth\CDA\Traits\AssignedAuthorTrait;
-use PHPHealth\CDA\Traits\ContextControlCodeTrait;
-use PHPHealth\CDA\Traits\FunctionCodedValueTrait;
-use PHPHealth\CDA\Traits\TimeTrait;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\Interfaces\ContextControlCodeInterface;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\RIM\Role\AssignedAuthor;
+use i3Soft\CDA\Traits\AssignedAuthorTrait;
+use i3Soft\CDA\Traits\ContextControlCodeTrait;
+use i3Soft\CDA\Traits\FunctionCodedValueTrait;
+use i3Soft\CDA\Traits\TimeTrait;
 
 /**
  * @author julien.fastre@champs-libres.coop

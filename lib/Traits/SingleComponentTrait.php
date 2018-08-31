@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Component\SingleComponent;
+use i3Soft\CDA\Component\SingleComponent;
 
 /**
  * Trait SingleComponentTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait SingleComponentTrait
 {

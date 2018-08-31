@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\DataType\Code\CodedValue;
 
 /**
  * Trait CodedValueTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait CodedValueTrait
 {

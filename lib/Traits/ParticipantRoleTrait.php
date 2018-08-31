@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Role\ParticipantRole;
+use i3Soft\CDA\RIM\Role\ParticipantRole;
 
 /**
  * Trait ParticipantRoleTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ParticipantRoleTrait
 {

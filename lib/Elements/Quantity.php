@@ -23,15 +23,15 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
-use PHPHealth\CDA\DataType\Collection\Interval\AbstractInterval;
-use PHPHealth\CDA\DataType\Quantity\PhysicalQuantity\PhysicalQuantity;
+use i3Soft\CDA\DataType\Collection\Interval\AbstractInterval;
+use i3Soft\CDA\DataType\Quantity\PhysicalQuantity\PhysicalQuantity;
 
 /**
  * Class Quantity
  *
- * @package PHPHealth\CDA\Elements
+ * @package i3Soft\CDA\Elements
  */
 class Quantity extends AbstractElement
 {

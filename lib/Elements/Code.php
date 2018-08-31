@@ -23,14 +23,14 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\Interfaces\XSITypeInterface;
-use PHPHealth\CDA\Traits\CodedValueTrait;
-use PHPHealth\CDA\Traits\OriginalTextTrait;
-use PHPHealth\CDA\Traits\TranslationTrait;
-use PHPHealth\CDA\Traits\XSITypeTrait;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\Interfaces\XSITypeInterface;
+use i3Soft\CDA\Traits\CodedValueTrait;
+use i3Soft\CDA\Traits\OriginalTextTrait;
+use i3Soft\CDA\Traits\TranslationTrait;
+use i3Soft\CDA\Traits\XSITypeTrait;
 
 /**
  * Description of Code

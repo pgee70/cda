@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\RIM\Role;
+namespace i3Soft\CDA\tests\RIM\Role;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  *
  * see page 70 of EventSummary_CDAImplementationGuide_v1.3.pdf
@@ -44,9 +44,9 @@ namespace PHPHealth\tests\classes\CDA\RIM\Role;
  */
 
 
-use PHPHealth\CDA\RIM\Extensions\ExtId;
-use PHPHealth\CDA\RIM\Extensions\ExtParticipantRole;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\RIM\Extensions\ExtId;
+use i3Soft\CDA\RIM\Extensions\ExtParticipantRole;
+use i3Soft\CDA\tests\MyTestCase;
 
 class ExtParticipantRole_test extends MyTestCase
 {

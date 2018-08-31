@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\RIM\Participation;
+namespace i3Soft\CDA\tests\RIM\Participation;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_RIM
@@ -42,12 +42,12 @@ namespace PHPHealth\tests\RIM\Participation;
  */
 
 
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\RIM\Participation\Participant;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\RIM\Entity\PlayingEntity;
-use PHPHealth\CDA\RIM\Role\ParticipantRole;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\RIM\Participation\Participant;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\RIM\Entity\PlayingEntity;
+use i3Soft\CDA\RIM\Role\ParticipantRole;
+use i3Soft\CDA\tests\MyTestCase;
 
 
 class Participant_test extends MyTestCase

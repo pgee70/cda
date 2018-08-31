@@ -23,27 +23,27 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\RIM\Participation;
+namespace i3Soft\CDA\tests\RIM\Participation;
 
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\DataType\Name\EntityName;
-use PHPHealth\CDA\DataType\TextAndMultimedia\SimpleString;
-use PHPHealth\CDA\Elements\Address\AdditionalLocator;
-use PHPHealth\CDA\Elements\Address\Addr;
-use PHPHealth\CDA\Elements\Address\City;
-use PHPHealth\CDA\Elements\Address\PostalCode;
-use PHPHealth\CDA\Elements\Address\State;
-use PHPHealth\CDA\Elements\Address\StreetAddressLine;
-use PHPHealth\CDA\Elements\Address\Telecom;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\RIM\Entity\AssignedCustodian;
-use PHPHealth\CDA\RIM\Entity\RepresentedCustodianOrganization;
-use PHPHealth\CDA\RIM\Extensions\AsEntityIdentifier;
-use PHPHealth\CDA\RIM\Extensions\AssigningGeographicArea;
-use PHPHealth\CDA\RIM\Extensions\ExtEntityName;
-use PHPHealth\CDA\RIM\Extensions\ExtId;
-use PHPHealth\CDA\RIM\Participation\Custodian;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\DataType\Name\EntityName;
+use i3Soft\CDA\DataType\TextAndMultimedia\SimpleString;
+use i3Soft\CDA\Elements\Address\AdditionalLocator;
+use i3Soft\CDA\Elements\Address\Addr;
+use i3Soft\CDA\Elements\Address\City;
+use i3Soft\CDA\Elements\Address\PostalCode;
+use i3Soft\CDA\Elements\Address\State;
+use i3Soft\CDA\Elements\Address\StreetAddressLine;
+use i3Soft\CDA\Elements\Address\Telecom;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\RIM\Entity\AssignedCustodian;
+use i3Soft\CDA\RIM\Entity\RepresentedCustodianOrganization;
+use i3Soft\CDA\RIM\Extensions\AsEntityIdentifier;
+use i3Soft\CDA\RIM\Extensions\AssigningGeographicArea;
+use i3Soft\CDA\RIM\Extensions\ExtEntityName;
+use i3Soft\CDA\RIM\Extensions\ExtId;
+use i3Soft\CDA\RIM\Participation\Custodian;
+use i3Soft\CDA\tests\MyTestCase;
 
 /**
  * @author     Julien Fastré <julien.fastre@champs-libres.coop>

@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements\Html;
+namespace i3Soft\CDA\Elements\Html;
 
 /**
  * The MIT License
@@ -51,8 +51,8 @@ namespace PHPHealth\CDA\Elements\Html;
  * THE SOFTWARE.
  */
 
-use PHPHealth\CDA\DataType\ReferenceType;
-use PHPHealth\CDA\Elements\AbstractElement;
+use i3Soft\CDA\DataType\ReferenceType;
+use i3Soft\CDA\Elements\AbstractElement;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

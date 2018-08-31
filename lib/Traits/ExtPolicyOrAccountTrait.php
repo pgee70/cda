@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Extensions\ExtPolicyOrAccount;
+use i3Soft\CDA\RIM\Extensions\ExtPolicyOrAccount;
 
 /**
  * Trait ExtPolicyOrAccountTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ExtPolicyOrAccountTrait
 {

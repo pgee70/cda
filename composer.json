@@ -1,5 +1,5 @@
 {
-  "name": "php-health/cda",
+  "name": "i3Soft/cda",
   "description": "a package to create cda files",
   "type": "library",
   "license": "MIT",

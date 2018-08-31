@@ -23,7 +23,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements\Html;
+namespace i3Soft\CDA\Elements\Html;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>
@@ -32,7 +32,7 @@ namespace PHPHealth\CDA\Elements\Html;
 /**
  * Class TableHead
  *
- * @package PHPHealth\CDA\Elements
+ * @package i3Soft\CDA\Elements
  */
 class TableHead extends AbstractTableSection
 {

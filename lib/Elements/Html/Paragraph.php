@@ -23,12 +23,12 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements\Html;
+namespace i3Soft\CDA\Elements\Html;
 
 /**
  * Class Paragraph
  *
- * @package PHPHealth\CDA\Elements
+ * @package i3Soft\CDA\Elements
  * there can be 0 or 1 caption tags, and 0 or more of the other tags.
  * there can be an optional text element.
  */

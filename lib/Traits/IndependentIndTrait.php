@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\IndependentInd;
+use i3Soft\CDA\Elements\IndependentInd;
 
 /**
  * Trait IndependentIndTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait IndependentIndTrait
 {

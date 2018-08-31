@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Elements;
+namespace i3Soft\CDA\tests\Elements;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  *
  * @group       CDA
@@ -43,10 +43,10 @@ namespace PHPHealth\tests\classes\CDA\Elements;
  */
 
 
-use PHPHealth\CDA\DataType\Code\AddressCodeType;
-use PHPHealth\CDA\DataType\ValueType;
-use PHPHealth\CDA\Elements\Address\Telecom;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\AddressCodeType;
+use i3Soft\CDA\DataType\ValueType;
+use i3Soft\CDA\Elements\Address\Telecom;
+use i3Soft\CDA\tests\MyTestCase;
 
 class Telecom_test extends MyTestCase
 {

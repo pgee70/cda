@@ -25,25 +25,25 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements\Address;
+namespace i3Soft\CDA\Elements\Address;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
 
  */
 
-use PHPHealth\CDA\DataType\Code\AddressCodeType;
-use PHPHealth\CDA\DataType\ValueType;
-use PHPHealth\CDA\Elements\AbstractElement;
+use i3Soft\CDA\DataType\Code\AddressCodeType;
+use i3Soft\CDA\DataType\ValueType;
+use i3Soft\CDA\Elements\AbstractElement;
 
 /**
  * Class Telecom
  *
- * @package PHPHealth\CDA\Elements\Address
+ * @package i3Soft\CDA\Elements\Address
  */
 class Telecom extends AbstractElement
 {

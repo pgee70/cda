@@ -24,39 +24,39 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA;
+namespace i3Soft\CDA;
 
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
-use PHPHealth\CDA\Elements\TypeId;
-use PHPHealth\CDA\Helper\ReferenceManager;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\MoodCodeInterface;
-use PHPHealth\CDA\Traits\AuthenticatorTrait;
-use PHPHealth\CDA\Traits\AuthorizationTrait;
-use PHPHealth\CDA\Traits\AuthorsTrait;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\CodeTrait;
-use PHPHealth\CDA\Traits\CompletionCodeTrait;
-use PHPHealth\CDA\Traits\ConfidentialityCodeTrait;
-use PHPHealth\CDA\Traits\CopyTimeTrait;
-use PHPHealth\CDA\Traits\CustodianTrait;
-use PHPHealth\CDA\Traits\DataEntererTrait;
-use PHPHealth\CDA\Traits\DocumentationOfsTrait;
-use PHPHealth\CDA\Traits\EffectiveTimeTrait;
-use PHPHealth\CDA\Traits\IdTrait;
-use PHPHealth\CDA\Traits\InformantsTrait;
-use PHPHealth\CDA\Traits\InformationRecipientsTrait;
-use PHPHealth\CDA\Traits\LanguageCodeTrait;
-use PHPHealth\CDA\Traits\LegalAuthenticatorTrait;
-use PHPHealth\CDA\Traits\MoodCodeTrait;
-use PHPHealth\CDA\Traits\ParticipantsTrait;
-use PHPHealth\CDA\Traits\RealmCodesTrait;
-use PHPHealth\CDA\Traits\RecordTargetsTrait;
-use PHPHealth\CDA\Traits\SetIdTrait;
-use PHPHealth\CDA\Traits\TemplateIdsTrait;
-use PHPHealth\CDA\Traits\TitleTrait;
-use PHPHealth\CDA\Traits\TypeIdTrait;
-use PHPHealth\CDA\Traits\VersionNumberTrait;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\Elements\TypeId;
+use i3Soft\CDA\Helper\ReferenceManager;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\MoodCodeInterface;
+use i3Soft\CDA\Traits\AuthenticatorTrait;
+use i3Soft\CDA\Traits\AuthorizationTrait;
+use i3Soft\CDA\Traits\AuthorsTrait;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\CodeTrait;
+use i3Soft\CDA\Traits\CompletionCodeTrait;
+use i3Soft\CDA\Traits\ConfidentialityCodeTrait;
+use i3Soft\CDA\Traits\CopyTimeTrait;
+use i3Soft\CDA\Traits\CustodianTrait;
+use i3Soft\CDA\Traits\DataEntererTrait;
+use i3Soft\CDA\Traits\DocumentationOfsTrait;
+use i3Soft\CDA\Traits\EffectiveTimeTrait;
+use i3Soft\CDA\Traits\IdTrait;
+use i3Soft\CDA\Traits\InformantsTrait;
+use i3Soft\CDA\Traits\InformationRecipientsTrait;
+use i3Soft\CDA\Traits\LanguageCodeTrait;
+use i3Soft\CDA\Traits\LegalAuthenticatorTrait;
+use i3Soft\CDA\Traits\MoodCodeTrait;
+use i3Soft\CDA\Traits\ParticipantsTrait;
+use i3Soft\CDA\Traits\RealmCodesTrait;
+use i3Soft\CDA\Traits\RecordTargetsTrait;
+use i3Soft\CDA\Traits\SetIdTrait;
+use i3Soft\CDA\Traits\TemplateIdsTrait;
+use i3Soft\CDA\Traits\TitleTrait;
+use i3Soft\CDA\Traits\TypeIdTrait;
+use i3Soft\CDA\Traits\VersionNumberTrait;
 
 /**
  * Root class for clinical document

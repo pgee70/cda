@@ -24,10 +24,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Quantity\DateAndTime;
+namespace i3Soft\CDA\DataType\Quantity\DateAndTime;
 
-use PHPHealth\CDA\ClinicalDocument as CD;
-use PHPHealth\CDA\DataType\Quantity\AbstractQuantity;
+use i3Soft\CDA\ClinicalDocument as CD;
+use i3Soft\CDA\DataType\Quantity\AbstractQuantity;
 
 /**
  * A quantity specifying a point on the axis of natural time. A point in time is

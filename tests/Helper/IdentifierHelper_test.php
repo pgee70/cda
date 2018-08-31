@@ -23,11 +23,11 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\Helper;
+namespace i3Soft\CDA\tests\Helper;
 
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
-use PHPHealth\CDA\Helper\IdentifierHelper;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\Helper\IdentifierHelper;
+use i3Soft\CDA\tests\MyTestCase;
 
 /**
  * @author     Julien Fastré <julien.fastre@champs-libres.coop>

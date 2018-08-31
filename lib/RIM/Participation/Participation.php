@@ -23,11 +23,11 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Participation;
+namespace i3Soft\CDA\RIM\Participation;
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\Traits\TypeCodeTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\Traits\TypeCodeTrait;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

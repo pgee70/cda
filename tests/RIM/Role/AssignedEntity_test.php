@@ -25,17 +25,17 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\RIM\Role;
+namespace i3Soft\CDA\tests\RIM\Role;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_RIM
@@ -46,28 +46,28 @@ namespace PHPHealth\tests\classes\CDA\RIM\Role;
  */
 
 
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
-use PHPHealth\CDA\DataType\Name\EntityName;
-use PHPHealth\CDA\DataType\Name\PersonName;
-use PHPHealth\CDA\DataType\TextAndMultimedia\SimpleString;
-use PHPHealth\CDA\Elements\Address\AdditionalLocator;
-use PHPHealth\CDA\Elements\Address\Addr;
-use PHPHealth\CDA\Elements\Address\City;
-use PHPHealth\CDA\Elements\Address\PostalCode;
-use PHPHealth\CDA\Elements\Address\State;
-use PHPHealth\CDA\Elements\Address\StreetAddressLine;
-use PHPHealth\CDA\Elements\Address\Telecom;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\RIM\Entity\AssignedEntity;
-use PHPHealth\CDA\RIM\Entity\AssignedPerson;
-use PHPHealth\CDA\RIM\Entity\RepresentedOrganization;
-use PHPHealth\CDA\RIM\Extensions\AsEntityIdentifier;
-use PHPHealth\CDA\RIM\Extensions\AssigningGeographicArea;
-use PHPHealth\CDA\RIM\Extensions\ExtEntityName;
-use PHPHealth\CDA\RIM\Extensions\ExtId;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\DataType\Name\EntityName;
+use i3Soft\CDA\DataType\Name\PersonName;
+use i3Soft\CDA\DataType\TextAndMultimedia\SimpleString;
+use i3Soft\CDA\Elements\Address\AdditionalLocator;
+use i3Soft\CDA\Elements\Address\Addr;
+use i3Soft\CDA\Elements\Address\City;
+use i3Soft\CDA\Elements\Address\PostalCode;
+use i3Soft\CDA\Elements\Address\State;
+use i3Soft\CDA\Elements\Address\StreetAddressLine;
+use i3Soft\CDA\Elements\Address\Telecom;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\RIM\Entity\AssignedEntity;
+use i3Soft\CDA\RIM\Entity\AssignedPerson;
+use i3Soft\CDA\RIM\Entity\RepresentedOrganization;
+use i3Soft\CDA\RIM\Extensions\AsEntityIdentifier;
+use i3Soft\CDA\RIM\Extensions\AssigningGeographicArea;
+use i3Soft\CDA\RIM\Extensions\ExtEntityName;
+use i3Soft\CDA\RIM\Extensions\ExtId;
+use i3Soft\CDA\tests\MyTestCase;
 
 class AssignedEntity_test extends MyTestCase
 {

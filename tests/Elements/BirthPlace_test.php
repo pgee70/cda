@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Elements;
+namespace i3Soft\CDA\tests\Elements;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_Elements
@@ -41,12 +41,12 @@ namespace PHPHealth\tests\classes\CDA\Elements;
  *
  */
 
-use PHPHealth\CDA\Elements\Address\Addr;
-use PHPHealth\CDA\Elements\Address\BirthPlace;
-use PHPHealth\CDA\Elements\Address\Country;
-use PHPHealth\CDA\Elements\Address\Place;
-use PHPHealth\CDA\Elements\Address\State;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\Elements\Address\Addr;
+use i3Soft\CDA\Elements\Address\BirthPlace;
+use i3Soft\CDA\Elements\Address\Country;
+use i3Soft\CDA\Elements\Address\Place;
+use i3Soft\CDA\Elements\Address\State;
+use i3Soft\CDA\tests\MyTestCase;
 
 
 class BirthPlace_test extends MyTestCase

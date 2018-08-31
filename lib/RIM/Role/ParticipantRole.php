@@ -26,25 +26,25 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Role;
+namespace i3Soft\CDA\RIM\Role;
 
 
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\RIM\Entity\PlayingDevice;
-use PHPHealth\CDA\RIM\Entity\PlayingEntity;
-use PHPHealth\CDA\Traits\AddrsTrait;
-use PHPHealth\CDA\Traits\CodeTrait;
-use PHPHealth\CDA\Traits\PlayingDeviceTrait;
-use PHPHealth\CDA\Traits\PlayingEntityTrait;
-use PHPHealth\CDA\Traits\ScopingEntityTrait;
-use PHPHealth\CDA\Traits\TelecomsTrait;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\RIM\Entity\PlayingDevice;
+use i3Soft\CDA\RIM\Entity\PlayingEntity;
+use i3Soft\CDA\Traits\AddrsTrait;
+use i3Soft\CDA\Traits\CodeTrait;
+use i3Soft\CDA\Traits\PlayingDeviceTrait;
+use i3Soft\CDA\Traits\PlayingEntityTrait;
+use i3Soft\CDA\Traits\ScopingEntityTrait;
+use i3Soft\CDA\Traits\TelecomsTrait;
 
 class ParticipantRole extends Role
 {

@@ -25,12 +25,12 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Elements;
+namespace i3Soft\CDA\tests\Elements;
 
 /**
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_Elements
@@ -41,9 +41,9 @@ namespace PHPHealth\tests\classes\CDA\Elements;
  */
 
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\Elements\AdministrativeGenderCode;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\Elements\AdministrativeGenderCode;
+use i3Soft\CDA\tests\MyTestCase;
 
 class AdministrativeGenderCode_test extends MyTestCase
 {

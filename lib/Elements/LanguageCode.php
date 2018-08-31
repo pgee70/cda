@@ -23,9 +23,9 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
-use PHPHealth\CDA\DataType\Code\CodedSimple;
+use i3Soft\CDA\DataType\Code\CodedSimple;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

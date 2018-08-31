@@ -26,18 +26,18 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\Elements\Code;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\Elements\Code;
 
 class ExtJobCode extends Code
 {

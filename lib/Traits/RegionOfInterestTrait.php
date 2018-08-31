@@ -25,13 +25,13 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
 /**
  * Trait RegionOfInterestTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  * @notImplemented
  */
 trait RegionOfInterestTrait

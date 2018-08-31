@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\SetId;
+use i3Soft\CDA\Elements\SetId;
 
 trait SetIdTrait
 {

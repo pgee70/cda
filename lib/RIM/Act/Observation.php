@@ -23,25 +23,25 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Act;
+namespace i3Soft\CDA\RIM\Act;
 
-use PHPHealth\CDA\DataType\NullType;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\Value;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\MoodCodeInterface;
-use PHPHealth\CDA\Traits\DerivationExprTrait;
-use PHPHealth\CDA\Traits\InterpretationCodesTrait;
-use PHPHealth\CDA\Traits\MethodCodesTrait;
-use PHPHealth\CDA\Traits\ReferenceRangesTrait;
-use PHPHealth\CDA\Traits\RepeatNumberTrait;
-use PHPHealth\CDA\Traits\TargetSiteCodesTrait;
-use PHPHealth\CDA\Traits\ValuesTrait;
+use i3Soft\CDA\DataType\NullType;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\Value;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\MoodCodeInterface;
+use i3Soft\CDA\Traits\DerivationExprTrait;
+use i3Soft\CDA\Traits\InterpretationCodesTrait;
+use i3Soft\CDA\Traits\MethodCodesTrait;
+use i3Soft\CDA\Traits\ReferenceRangesTrait;
+use i3Soft\CDA\Traits\RepeatNumberTrait;
+use i3Soft\CDA\Traits\TargetSiteCodesTrait;
+use i3Soft\CDA\Traits\ValuesTrait;
 
 /**
  * Class Observation
  *
- * @package PHPHealth\CDA\RIM\Act
+ * @package i3Soft\CDA\RIM\Act
  */
 class Observation extends Act
 {
@@ -79,7 +79,7 @@ class Observation extends Act
      *
      * @param string $flavour
      *
-     * @return \PHPHealth\CDA\RIM\Act\Observation
+     * @return \i3Soft\CDA\RIM\Act\Observation
      */
     public static function nullObservation($flavour = null): Observation
     {

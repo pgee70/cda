@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Interfaces\ContextControlCodeInterface;
+use i3Soft\CDA\Interfaces\ContextControlCodeInterface;
 
 /**
  * Trait ContextControlCodeTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ContextControlCodeTrait
 {

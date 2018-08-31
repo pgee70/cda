@@ -26,14 +26,14 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_Elements
@@ -44,13 +44,13 @@
  */
 
 
-use PHPHealth\CDA\DataType\Code\CharacterStringWithCode;
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\Elements\AuthoringDevice;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\ManufacturerModelName;
-use PHPHealth\CDA\Elements\SoftwareName;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\CharacterStringWithCode;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\Elements\AuthoringDevice;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\ManufacturerModelName;
+use i3Soft\CDA\Elements\SoftwareName;
+use i3Soft\CDA\tests\MyTestCase;
 
 class AuthoringDevice_test extends MyTestCase
 {

@@ -23,12 +23,12 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Collection\Interval;
+namespace i3Soft\CDA\DataType\Collection\Interval;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\Interfaces\XSITypeInterface;
-use PHPHealth\CDA\Traits\XSITypeTrait;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\Interfaces\XSITypeInterface;
+use i3Soft\CDA\Traits\XSITypeTrait;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

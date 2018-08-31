@@ -23,7 +23,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Code;
+namespace i3Soft\CDA\DataType\Code;
 
 /**
  * @author julien
@@ -46,7 +46,7 @@ class ConfidentialityCode
      * @param $key
      * @param $displayName
      *
-     * @return \PHPHealth\CDA\DataType\Code\CodedValue
+     * @return \i3Soft\CDA\DataType\Code\CodedValue
      */
     public static function create($key, $displayName): CodedValue
     {

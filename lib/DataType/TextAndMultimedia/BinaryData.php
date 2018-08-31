@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\TextAndMultimedia;
+namespace i3Soft\CDA\DataType\TextAndMultimedia;
 
-use PHPHealth\CDA\DataType\AnyType;
+use i3Soft\CDA\DataType\AnyType;
 
 /**
  *

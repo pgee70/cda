@@ -25,36 +25,36 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\DataType\Name\EntityName;
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Elements\StandardIndustryClassCode;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\DeterminerCodeInterface;
-use PHPHealth\CDA\RIM\Extensions\AsEntityIdentifier;
-use PHPHealth\CDA\RIM\Role\AsOrganizationPartOf;
-use PHPHealth\CDA\Traits\AddrsTrait;
-use PHPHealth\CDA\Traits\AsEntityIdentifierTrait;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\DeterminerCodeTrait;
-use PHPHealth\CDA\Traits\IdsTrait;
-use PHPHealth\CDA\Traits\NamesTrait;
-use PHPHealth\CDA\Traits\TelecomsTrait;
+use i3Soft\CDA\DataType\Name\EntityName;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Elements\StandardIndustryClassCode;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\DeterminerCodeInterface;
+use i3Soft\CDA\RIM\Extensions\AsEntityIdentifier;
+use i3Soft\CDA\RIM\Role\AsOrganizationPartOf;
+use i3Soft\CDA\Traits\AddrsTrait;
+use i3Soft\CDA\Traits\AsEntityIdentifierTrait;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\DeterminerCodeTrait;
+use i3Soft\CDA\Traits\IdsTrait;
+use i3Soft\CDA\Traits\NamesTrait;
+use i3Soft\CDA\Traits\TelecomsTrait;
 
 
 /**
  * Class RepresentedOrganization
  *
- * @package PHPHealth\CDA\RIM\Entity
+ * @package i3Soft\CDA\RIM\Entity
  */
 class RepresentedOrganization extends AbstractElement implements ClassCodeInterface, DeterminerCodeInterface
 {

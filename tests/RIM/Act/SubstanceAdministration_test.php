@@ -23,18 +23,18 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\RIM\Act;
+namespace i3Soft\CDA\tests\RIM\Act;
 
-use PHPHealth\CDA\DataType\Code\SnomedCTCode;
-use PHPHealth\CDA\DataType\Collection\Interval\PeriodicIntervalOfTime;
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
-use PHPHealth\CDA\DataType\Quantity\PhysicalQuantity\PhysicalQuantity;
-use PHPHealth\CDA\Elements\Html\Text;
-use PHPHealth\CDA\RIM\Act\SubstanceAdministration;
-use PHPHealth\CDA\RIM\Entity\ManufacturedLabeledDrug;
-use PHPHealth\CDA\RIM\Participation\Consumable;
-use PHPHealth\CDA\RIM\Role\ManufacturedProduct;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\SnomedCTCode;
+use i3Soft\CDA\DataType\Collection\Interval\PeriodicIntervalOfTime;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\DataType\Quantity\PhysicalQuantity\PhysicalQuantity;
+use i3Soft\CDA\Elements\Html\Text;
+use i3Soft\CDA\RIM\Act\SubstanceAdministration;
+use i3Soft\CDA\RIM\Entity\ManufacturedLabeledDrug;
+use i3Soft\CDA\RIM\Participation\Consumable;
+use i3Soft\CDA\RIM\Role\ManufacturedProduct;
+use i3Soft\CDA\tests\MyTestCase;
 
 /**
  * @author     Julien Fastré <julien.fastre@champs-libres.coop>

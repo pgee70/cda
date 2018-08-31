@@ -25,16 +25,16 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\Code\CodedWithEquivalents;
-use PHPHealth\CDA\Elements\DischargeDispositionCode;
+use i3Soft\CDA\DataType\Code\CodedWithEquivalents;
+use i3Soft\CDA\Elements\DischargeDispositionCode;
 
 /**
  * Trait DischargeDispositionCodeTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait DischargeDispositionCodeTrait
 {

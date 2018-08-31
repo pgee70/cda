@@ -24,37 +24,37 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\DataType\Boolean\Boolean;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\ContextConductionIndInterface;
-use PHPHealth\CDA\Interfaces\ContextControlCodeInterface;
-use PHPHealth\CDA\Interfaces\DeterminerCodeInterface;
-use PHPHealth\CDA\Interfaces\ElementInterface;
-use PHPHealth\CDA\Interfaces\InversionIndInterface;
-use PHPHealth\CDA\Interfaces\MediaTypeInterface;
-use PHPHealth\CDA\Interfaces\MoodCodeInterface;
-use PHPHealth\CDA\Interfaces\NegationInterface;
-use PHPHealth\CDA\Interfaces\NullFlavourInterface;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\Interfaces\UseAttributeInterface;
-use PHPHealth\CDA\Interfaces\XSITypeInterface;
-use PHPHealth\CDA\RIM\Act\Observation;
-use PHPHealth\CDA\RIM\Act\SubstanceAdministration;
-use PHPHealth\CDA\RIM\Act\Supply;
-use PHPHealth\CDA\RIM\Entity\AssignedPerson;
-use PHPHealth\CDA\RIM\Entity\SpecimenPlayingEntity;
-use PHPHealth\CDA\RIM\Extensions\ExtParticipantRole;
-use PHPHealth\CDA\RIM\Participation\Consumable;
-use PHPHealth\CDA\RIM\Participation\Performer;
-use PHPHealth\CDA\RIM\Role\ManufacturedProduct;
-use PHPHealth\CDA\RIM\Role\SpecimenRole;
-use PHPHealth\CDA\Traits\NullFlavourTrait;
-use PHPHealth\CDA\Traits\RealmCodesTrait;
-use PHPHealth\CDA\Traits\TemplateIdsTrait;
-use PHPHealth\CDA\Traits\TypeIdTrait;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\DataType\Boolean\Boolean;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\ContextConductionIndInterface;
+use i3Soft\CDA\Interfaces\ContextControlCodeInterface;
+use i3Soft\CDA\Interfaces\DeterminerCodeInterface;
+use i3Soft\CDA\Interfaces\ElementInterface;
+use i3Soft\CDA\Interfaces\InversionIndInterface;
+use i3Soft\CDA\Interfaces\MediaTypeInterface;
+use i3Soft\CDA\Interfaces\MoodCodeInterface;
+use i3Soft\CDA\Interfaces\NegationInterface;
+use i3Soft\CDA\Interfaces\NullFlavourInterface;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\Interfaces\UseAttributeInterface;
+use i3Soft\CDA\Interfaces\XSITypeInterface;
+use i3Soft\CDA\RIM\Act\Observation;
+use i3Soft\CDA\RIM\Act\SubstanceAdministration;
+use i3Soft\CDA\RIM\Act\Supply;
+use i3Soft\CDA\RIM\Entity\AssignedPerson;
+use i3Soft\CDA\RIM\Entity\SpecimenPlayingEntity;
+use i3Soft\CDA\RIM\Extensions\ExtParticipantRole;
+use i3Soft\CDA\RIM\Participation\Consumable;
+use i3Soft\CDA\RIM\Participation\Performer;
+use i3Soft\CDA\RIM\Role\ManufacturedProduct;
+use i3Soft\CDA\RIM\Role\SpecimenRole;
+use i3Soft\CDA\Traits\NullFlavourTrait;
+use i3Soft\CDA\Traits\RealmCodesTrait;
+use i3Soft\CDA\Traits\TemplateIdsTrait;
+use i3Soft\CDA\Traits\TypeIdTrait;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

@@ -25,41 +25,41 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Act;
+namespace i3Soft\CDA\RIM\Act;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Interfaces\MoodCodeInterface;
-use PHPHealth\CDA\Traits\AuthorsTrait;
-use PHPHealth\CDA\Traits\ClassCodeTrait;
-use PHPHealth\CDA\Traits\CodeTrait;
-use PHPHealth\CDA\Traits\EffectiveTimeTrait;
-use PHPHealth\CDA\Traits\EntryRelationshipsTrait;
-use PHPHealth\CDA\Traits\IdsTrait;
-use PHPHealth\CDA\Traits\InformantsTrait;
-use PHPHealth\CDA\Traits\MoodCodeTrait;
-use PHPHealth\CDA\Traits\ParticipantsTrait;
-use PHPHealth\CDA\Traits\PerformersTrait;
-use PHPHealth\CDA\Traits\PreconditionsTrait;
-use PHPHealth\CDA\Traits\PriorityCodeTrait;
-use PHPHealth\CDA\Traits\ReferencesTrait;
-use PHPHealth\CDA\Traits\SpecimensTrait;
-use PHPHealth\CDA\Traits\StatusCodeTrait;
-use PHPHealth\CDA\Traits\SubjectTrait;
-use PHPHealth\CDA\Traits\TextTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Interfaces\MoodCodeInterface;
+use i3Soft\CDA\Traits\AuthorsTrait;
+use i3Soft\CDA\Traits\ClassCodeTrait;
+use i3Soft\CDA\Traits\CodeTrait;
+use i3Soft\CDA\Traits\EffectiveTimeTrait;
+use i3Soft\CDA\Traits\EntryRelationshipsTrait;
+use i3Soft\CDA\Traits\IdsTrait;
+use i3Soft\CDA\Traits\InformantsTrait;
+use i3Soft\CDA\Traits\MoodCodeTrait;
+use i3Soft\CDA\Traits\ParticipantsTrait;
+use i3Soft\CDA\Traits\PerformersTrait;
+use i3Soft\CDA\Traits\PreconditionsTrait;
+use i3Soft\CDA\Traits\PriorityCodeTrait;
+use i3Soft\CDA\Traits\ReferencesTrait;
+use i3Soft\CDA\Traits\SpecimensTrait;
+use i3Soft\CDA\Traits\StatusCodeTrait;
+use i3Soft\CDA\Traits\SubjectTrait;
+use i3Soft\CDA\Traits\TextTrait;
 
 /**
  * Class Encounter
  *
- * @package PHPHealth\CDA\RIM\Act
+ * @package i3Soft\CDA\RIM\Act
  */
 class Encounter extends AbstractElement implements MoodCodeInterface, ClassCodeInterface
 {

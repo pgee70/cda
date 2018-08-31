@@ -24,10 +24,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Name;
+namespace i3Soft\CDA\DataType\Name;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\Interfaces\UseAttributeInterface;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\Interfaces\UseAttributeInterface;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

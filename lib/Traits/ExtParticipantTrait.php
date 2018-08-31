@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Extensions\ExtParticipant;
+use i3Soft\CDA\RIM\Extensions\ExtParticipant;
 
 /**
  * Trait ExtParticipantTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ExtParticipantTrait
 {

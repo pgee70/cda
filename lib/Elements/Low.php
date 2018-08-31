@@ -26,23 +26,23 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
 
-use PHPHealth\CDA\DataType\ValueType;
-use PHPHealth\CDA\Traits\ValueTypeTrait;
+use i3Soft\CDA\DataType\ValueType;
+use i3Soft\CDA\Traits\ValueTypeTrait;
 
 /**
  * Class Low
  *
- * @package PHPHealth\CDA\Elements
+ * @package i3Soft\CDA\Elements
  */
 class Low extends AbstractElement
 {

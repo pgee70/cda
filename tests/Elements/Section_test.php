@@ -25,14 +25,14 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Elements;
+namespace i3Soft\CDA\tests\Elements;
 
 /**
  * see page 69 of EventSummary_CDAImplementationGuide_v1.3.pdf
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  *
  * @group       CDA
@@ -44,24 +44,24 @@ namespace PHPHealth\tests\classes\CDA\Elements;
  */
 
 
-use PHPHealth\CDA\Component\SingleComponent\Section;
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\DataType\Collection\Interval\IntervalOfTime;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\Html\Table;
-use PHPHealth\CDA\Elements\Html\TableCell;
-use PHPHealth\CDA\Elements\Html\Text;
-use PHPHealth\CDA\Elements\Html\Title;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\RIM\Extensions\ExtCode;
-use PHPHealth\CDA\RIM\Extensions\ExtCoverage2;
-use PHPHealth\CDA\RIM\Extensions\ExtEffectiveTime;
-use PHPHealth\CDA\RIM\Extensions\ExtEntitlement;
-use PHPHealth\CDA\RIM\Extensions\ExtId;
-use PHPHealth\CDA\RIM\Extensions\ExtParticipant;
-use PHPHealth\CDA\RIM\Extensions\ExtParticipantRole;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\Component\SingleComponent\Section;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\DataType\Collection\Interval\IntervalOfTime;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\Html\Table;
+use i3Soft\CDA\Elements\Html\TableCell;
+use i3Soft\CDA\Elements\Html\Text;
+use i3Soft\CDA\Elements\Html\Title;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\RIM\Extensions\ExtCode;
+use i3Soft\CDA\RIM\Extensions\ExtCoverage2;
+use i3Soft\CDA\RIM\Extensions\ExtEffectiveTime;
+use i3Soft\CDA\RIM\Extensions\ExtEntitlement;
+use i3Soft\CDA\RIM\Extensions\ExtId;
+use i3Soft\CDA\RIM\Extensions\ExtParticipant;
+use i3Soft\CDA\RIM\Extensions\ExtParticipantRole;
+use i3Soft\CDA\tests\MyTestCase;
 
 class Section_test extends MyTestCase
 {

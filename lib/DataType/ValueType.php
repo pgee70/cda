@@ -25,22 +25,22 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType;
+namespace i3Soft\CDA\DataType;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\ClinicalDocument as CD;
+use i3Soft\CDA\ClinicalDocument as CD;
 
 /**
  * Class ValueType
  *
- * @package PHPHealth\CDA\DataType
+ * @package i3Soft\CDA\DataType
  */
 class ValueType extends AnyType
 {

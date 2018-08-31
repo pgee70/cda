@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Role\SpecimenRole;
+use i3Soft\CDA\RIM\Role\SpecimenRole;
 
 /**
  * Trait SpecimenRoleTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait SpecimenRoleTrait
 {

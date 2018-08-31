@@ -24,40 +24,40 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\RIM\Participation;
+namespace i3Soft\CDA\tests\RIM\Participation;
 
-use PHPHealth\CDA\DataType\Code\AddressCodeType;
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\DataType\Name\PersonName;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\DataType\TextAndMultimedia\SimpleString;
-use PHPHealth\CDA\DataType\ValueType;
-use PHPHealth\CDA\Elements\Address\AdditionalLocator;
-use PHPHealth\CDA\Elements\Address\Addr;
-use PHPHealth\CDA\Elements\Address\BirthPlace;
-use PHPHealth\CDA\Elements\Address\City;
-use PHPHealth\CDA\Elements\Address\Country;
-use PHPHealth\CDA\Elements\Address\Place;
-use PHPHealth\CDA\Elements\Address\PostalCode;
-use PHPHealth\CDA\Elements\Address\State;
-use PHPHealth\CDA\Elements\Address\StreetAddressLine;
-use PHPHealth\CDA\Elements\Address\Telecom;
-use PHPHealth\CDA\Elements\AdministrativeGenderCode;
-use PHPHealth\CDA\Elements\EthnicGroupCode;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\RIM\Entity\Patient;
-use PHPHealth\CDA\RIM\Extensions\AsEntityIdentifier;
-use PHPHealth\CDA\RIM\Extensions\AssigningGeographicArea;
-use PHPHealth\CDA\RIM\Extensions\DeceasedInd;
-use PHPHealth\CDA\RIM\Extensions\DeceasedTime;
-use PHPHealth\CDA\RIM\Extensions\ExtEntityName;
-use PHPHealth\CDA\RIM\Extensions\ExtId;
-use PHPHealth\CDA\RIM\Extensions\MultipleBirthInd;
-use PHPHealth\CDA\RIM\Extensions\MultipleBirthOrderNumber;
-use PHPHealth\CDA\RIM\Participation\RecordTarget;
-use PHPHealth\CDA\RIM\Role\PatientRole;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\AddressCodeType;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\DataType\Name\PersonName;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\DataType\TextAndMultimedia\SimpleString;
+use i3Soft\CDA\DataType\ValueType;
+use i3Soft\CDA\Elements\Address\AdditionalLocator;
+use i3Soft\CDA\Elements\Address\Addr;
+use i3Soft\CDA\Elements\Address\BirthPlace;
+use i3Soft\CDA\Elements\Address\City;
+use i3Soft\CDA\Elements\Address\Country;
+use i3Soft\CDA\Elements\Address\Place;
+use i3Soft\CDA\Elements\Address\PostalCode;
+use i3Soft\CDA\Elements\Address\State;
+use i3Soft\CDA\Elements\Address\StreetAddressLine;
+use i3Soft\CDA\Elements\Address\Telecom;
+use i3Soft\CDA\Elements\AdministrativeGenderCode;
+use i3Soft\CDA\Elements\EthnicGroupCode;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\RIM\Entity\Patient;
+use i3Soft\CDA\RIM\Extensions\AsEntityIdentifier;
+use i3Soft\CDA\RIM\Extensions\AssigningGeographicArea;
+use i3Soft\CDA\RIM\Extensions\DeceasedInd;
+use i3Soft\CDA\RIM\Extensions\DeceasedTime;
+use i3Soft\CDA\RIM\Extensions\ExtEntityName;
+use i3Soft\CDA\RIM\Extensions\ExtId;
+use i3Soft\CDA\RIM\Extensions\MultipleBirthInd;
+use i3Soft\CDA\RIM\Extensions\MultipleBirthOrderNumber;
+use i3Soft\CDA\RIM\Participation\RecordTarget;
+use i3Soft\CDA\RIM\Role\PatientRole;
+use i3Soft\CDA\tests\MyTestCase;
 
 /**
  * @author     Julien Fastré <julien.fastre@champs-libres.coop>

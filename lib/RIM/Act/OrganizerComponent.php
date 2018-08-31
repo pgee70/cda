@@ -26,33 +26,33 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Act;
+namespace i3Soft\CDA\RIM\Act;
 
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Elements\Procedure;
-use PHPHealth\CDA\Interfaces\ContextConductionIndInterface;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\Traits\ActTrait;
-use PHPHealth\CDA\Traits\ContextConductionIndTrait;
-use PHPHealth\CDA\Traits\EncounterTrait;
-use PHPHealth\CDA\Traits\ObservationMediaTrait;
-use PHPHealth\CDA\Traits\ObservationTrait;
-use PHPHealth\CDA\Traits\OrganizerTrait;
-use PHPHealth\CDA\Traits\ProcedureTrait;
-use PHPHealth\CDA\Traits\RegionOfInterestTrait;
-use PHPHealth\CDA\Traits\SeperatableIndTrait;
-use PHPHealth\CDA\Traits\SequenceNumberTrait;
-use PHPHealth\CDA\Traits\SubstanceAdministrationTrait;
-use PHPHealth\CDA\Traits\SupplyTrait;
-use PHPHealth\CDA\Traits\TypeCodeTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Elements\Procedure;
+use i3Soft\CDA\Interfaces\ContextConductionIndInterface;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\Traits\ActTrait;
+use i3Soft\CDA\Traits\ContextConductionIndTrait;
+use i3Soft\CDA\Traits\EncounterTrait;
+use i3Soft\CDA\Traits\ObservationMediaTrait;
+use i3Soft\CDA\Traits\ObservationTrait;
+use i3Soft\CDA\Traits\OrganizerTrait;
+use i3Soft\CDA\Traits\ProcedureTrait;
+use i3Soft\CDA\Traits\RegionOfInterestTrait;
+use i3Soft\CDA\Traits\SeperatableIndTrait;
+use i3Soft\CDA\Traits\SequenceNumberTrait;
+use i3Soft\CDA\Traits\SubstanceAdministrationTrait;
+use i3Soft\CDA\Traits\SupplyTrait;
+use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class OrganizerComponent extends AbstractElement implements TypeCodeInterface, ContextConductionIndInterface
 {

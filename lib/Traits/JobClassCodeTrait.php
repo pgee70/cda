@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Extensions\JobClassCode;
+use i3Soft\CDA\RIM\Extensions\JobClassCode;
 
 /**
  * Trait JobClassCodeTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait JobClassCodeTrait
 {

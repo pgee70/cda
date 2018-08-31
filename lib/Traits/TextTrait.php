@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\Html\Text;
+use i3Soft\CDA\Elements\Html\Text;
 
 trait TextTrait
 {

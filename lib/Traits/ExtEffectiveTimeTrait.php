@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Extensions\ExtEffectiveTime;
+use i3Soft\CDA\RIM\Extensions\ExtEffectiveTime;
 
 /**
  * Trait ExtEffectiveTimeTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ExtEffectiveTimeTrait
 {

@@ -25,14 +25,14 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\ClinicalDocument as CDA;
 
 /**
  * Trait RealmCodeTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait RealmCodesTrait
 {

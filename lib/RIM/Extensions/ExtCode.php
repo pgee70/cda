@@ -25,24 +25,24 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Extensions;
+namespace i3Soft\CDA\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\OriginalText;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\OriginalText;
 
 /**
  * Class ExtCode
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class ExtCode extends Code
 {

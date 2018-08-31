@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\VersionNumber;
+use i3Soft\CDA\Elements\VersionNumber;
 
 /**
  * Trait VersionNumberTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait VersionNumberTrait
 {

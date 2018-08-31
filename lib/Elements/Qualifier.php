@@ -26,18 +26,18 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
 
-use PHPHealth\CDA\Traits\NameTrait;
-use PHPHealth\CDA\Traits\ValueTrait;
+use i3Soft\CDA\Traits\NameTrait;
+use i3Soft\CDA\Traits\ValueTrait;
 
 class Qualifier extends AbstractElement
 {

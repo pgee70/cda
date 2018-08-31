@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Role\IntendedRecipient;
+use i3Soft\CDA\RIM\Role\IntendedRecipient;
 
 /**
  * Trait IntendedRecipientTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait IntendedRecipientTrait
 {

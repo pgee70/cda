@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\RIM\Extensions;
+namespace i3Soft\CDA\tests\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_RIM
@@ -41,23 +41,23 @@ namespace PHPHealth\tests\classes\CDA\RIM\Extensions;
  *
  */
 
-use PHPHealth\CDA\DataType\Name\EntityName;
-use PHPHealth\CDA\DataType\TextAndMultimedia\SimpleString;
-use PHPHealth\CDA\Elements\Address\Addr;
-use PHPHealth\CDA\Elements\Address\Telecom;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\OriginalText;
-use PHPHealth\CDA\RIM\Entity\WholeOrganisation;
-use PHPHealth\CDA\RIM\Extensions\AsEmployment;
-use PHPHealth\CDA\RIM\Extensions\AsEntityIdentifier;
-use PHPHealth\CDA\RIM\Extensions\AssigningGeographicArea;
-use PHPHealth\CDA\RIM\Extensions\ExtCode;
-use PHPHealth\CDA\RIM\Extensions\ExtEmployerOrganization;
-use PHPHealth\CDA\RIM\Extensions\ExtEntityName;
-use PHPHealth\CDA\RIM\Extensions\ExtId;
-use PHPHealth\CDA\RIM\Extensions\JobClassCode;
-use PHPHealth\CDA\RIM\Role\AsOrganizationPartOf;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Name\EntityName;
+use i3Soft\CDA\DataType\TextAndMultimedia\SimpleString;
+use i3Soft\CDA\Elements\Address\Addr;
+use i3Soft\CDA\Elements\Address\Telecom;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\OriginalText;
+use i3Soft\CDA\RIM\Entity\WholeOrganisation;
+use i3Soft\CDA\RIM\Extensions\AsEmployment;
+use i3Soft\CDA\RIM\Extensions\AsEntityIdentifier;
+use i3Soft\CDA\RIM\Extensions\AssigningGeographicArea;
+use i3Soft\CDA\RIM\Extensions\ExtCode;
+use i3Soft\CDA\RIM\Extensions\ExtEmployerOrganization;
+use i3Soft\CDA\RIM\Extensions\ExtEntityName;
+use i3Soft\CDA\RIM\Extensions\ExtId;
+use i3Soft\CDA\RIM\Extensions\JobClassCode;
+use i3Soft\CDA\RIM\Role\AsOrganizationPartOf;
+use i3Soft\CDA\tests\MyTestCase;
 
 
 class AsEmployment_test extends MyTestCase

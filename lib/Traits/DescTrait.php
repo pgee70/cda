@@ -25,11 +25,11 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\Desc;
-use PHPHealth\CDA\RIM\Entity\PlayingEntity;
+use i3Soft\CDA\Elements\Desc;
+use i3Soft\CDA\RIM\Entity\PlayingEntity;
 
 trait DescTrait
 {

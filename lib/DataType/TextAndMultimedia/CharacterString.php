@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\TextAndMultimedia;
+namespace i3Soft\CDA\DataType\TextAndMultimedia;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

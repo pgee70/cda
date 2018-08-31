@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Act\DocumentationOf;
+use i3Soft\CDA\RIM\Act\DocumentationOf;
 
 /**
  * Trait DocumentationOfsTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait DocumentationOfsTrait
 {

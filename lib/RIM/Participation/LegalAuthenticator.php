@@ -25,26 +25,26 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Participation;
+namespace i3Soft\CDA\RIM\Participation;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\Elements\SignatureCode;
-use PHPHealth\CDA\Elements\Time;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\RIM\Entity\AssignedEntity;
+use i3Soft\CDA\Elements\SignatureCode;
+use i3Soft\CDA\Elements\Time;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\RIM\Entity\AssignedEntity;
 
 
 /**
  * Class LegalAuthenticator
  *
- * @package PHPHealth\CDA\RIM\Participation
+ * @package i3Soft\CDA\RIM\Participation
  */
 class LegalAuthenticator extends Authenticator
 {

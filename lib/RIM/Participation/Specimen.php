@@ -26,26 +26,26 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-namespace PHPHealth\CDA\RIM\Participation;
+namespace i3Soft\CDA\RIM\Participation;
 
 
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\RIM\Role\SpecimenRole;
-use PHPHealth\CDA\Traits\SpecimenRoleTrait;
-use PHPHealth\CDA\Traits\TypeCodeTrait;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\RIM\Role\SpecimenRole;
+use i3Soft\CDA\Traits\SpecimenRoleTrait;
+use i3Soft\CDA\Traits\TypeCodeTrait;
 
 /**
  * Class Specimen
  *
- * @package PHPHealth\CDA\RIM\Participation
+ * @package i3Soft\CDA\RIM\Participation
  */
 class Specimen extends AbstractElement implements TypeCodeInterface
 {

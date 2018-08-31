@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\RIM\Act;
+namespace i3Soft\CDA\tests\RIM\Act;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_RIM
@@ -41,11 +41,11 @@ namespace PHPHealth\tests\RIM\Act;
  *
  */
 
-use PHPHealth\CDA\DataType\Code\CodedValue;
-use PHPHealth\CDA\Elements\StatusCodeElement;
-use PHPHealth\CDA\RIM\Act\Authorization;
-use PHPHealth\CDA\RIM\Act\Consent;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\CodedValue;
+use i3Soft\CDA\Elements\StatusCodeElement;
+use i3Soft\CDA\RIM\Act\Authorization;
+use i3Soft\CDA\RIM\Act\Consent;
+use i3Soft\CDA\tests\MyTestCase;
 
 class Authorization_test extends MyTestCase
 {

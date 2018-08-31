@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Act\Precondition;
+use i3Soft\CDA\RIM\Act\Precondition;
 
 /**
  * Trait PreconditionTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait PreconditionsTrait
 {

@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Interfaces;
+namespace i3Soft\CDA\Interfaces;
 
 /**
  * Single element.

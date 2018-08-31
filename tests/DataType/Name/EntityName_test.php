@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\DataType\Name;
+namespace i3Soft\CDA\tests\DataType\Name;
 
 /**
  * Test EntityName
@@ -38,8 +38,8 @@ namespace PHPHealth\tests\classes\CDA\DataType\Name;
  *
  */
 
-use PHPHealth\CDA\DataType\Name\EntityName;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Name\EntityName;
+use i3Soft\CDA\tests\MyTestCase;
 
 class EntityName_test extends MyTestCase
 {

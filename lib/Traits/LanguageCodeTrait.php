@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\LanguageCode;
+use i3Soft\CDA\Elements\LanguageCode;
 
 /**
  * Trait LanguageCodeTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait LanguageCodeTrait
 {

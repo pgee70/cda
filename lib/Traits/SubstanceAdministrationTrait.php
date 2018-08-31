@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Act\SubstanceAdministration;
+use i3Soft\CDA\RIM\Act\SubstanceAdministration;
 
 trait SubstanceAdministrationTrait
 {

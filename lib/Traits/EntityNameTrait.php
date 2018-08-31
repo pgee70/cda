@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\Name\EntityName;
+use i3Soft\CDA\DataType\Name\EntityName;
 
 /**
  * Trait EntityNameTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait EntityNameTrait
 {

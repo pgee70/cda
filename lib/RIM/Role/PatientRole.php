@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Role;
+namespace i3Soft\CDA\RIM\Role;
 
 /**
  * The MIT License
@@ -52,12 +52,12 @@ namespace PHPHealth\CDA\RIM\Role;
  */
 
 
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\RIM\Entity\Patient;
-use PHPHealth\CDA\Traits\AddrsTrait;
-use PHPHealth\CDA\Traits\PatientTrait;
-use PHPHealth\CDA\Traits\TelecomsTrait;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\RIM\Entity\Patient;
+use i3Soft\CDA\Traits\AddrsTrait;
+use i3Soft\CDA\Traits\PatientTrait;
+use i3Soft\CDA\Traits\TelecomsTrait;
 
 class PatientRole extends Role
 {

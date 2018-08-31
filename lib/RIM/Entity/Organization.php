@@ -23,14 +23,14 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\Traits\AddrsTrait;
-use PHPHealth\CDA\Traits\AsEntityIdentifierTrait;
-use PHPHealth\CDA\Traits\TelecomsTrait;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\Traits\AddrsTrait;
+use i3Soft\CDA\Traits\AsEntityIdentifierTrait;
+use i3Soft\CDA\Traits\TelecomsTrait;
 
 /**
  * @author julien

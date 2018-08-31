@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\Elements;
+namespace i3Soft\CDA\tests\Elements;
 
 
 /**
@@ -40,13 +40,13 @@ namespace PHPHealth\tests\classes\CDA\Elements;
  *
  */
 
-use PHPHealth\CDA\Elements\Address\AdditionalLocator;
-use PHPHealth\CDA\Elements\Address\Addr;
-use PHPHealth\CDA\Elements\Address\City;
-use PHPHealth\CDA\Elements\Address\PostalCode;
-use PHPHealth\CDA\Elements\Address\State;
-use PHPHealth\CDA\Elements\Address\StreetAddressLine;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\Elements\Address\AdditionalLocator;
+use i3Soft\CDA\Elements\Address\Addr;
+use i3Soft\CDA\Elements\Address\City;
+use i3Soft\CDA\Elements\Address\PostalCode;
+use i3Soft\CDA\Elements\Address\State;
+use i3Soft\CDA\Elements\Address\StreetAddressLine;
+use i3Soft\CDA\tests\MyTestCase;
 
 class Addr_test extends MyTestCase
 {

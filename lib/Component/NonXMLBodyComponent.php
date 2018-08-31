@@ -24,10 +24,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Component;
+namespace i3Soft\CDA\Component;
 
-use PHPHealth\CDA\ClinicalDocument as CD;
-use PHPHealth\CDA\DataType\TextAndMultimedia\EncapsuledData;
+use i3Soft\CDA\ClinicalDocument as CD;
+use i3Soft\CDA\DataType\TextAndMultimedia\EncapsuledData;
 
 /**
  * Component which contains unstructured content

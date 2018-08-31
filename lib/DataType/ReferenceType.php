@@ -23,9 +23,9 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType;
+namespace i3Soft\CDA\DataType;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\ClinicalDocument as CDA;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

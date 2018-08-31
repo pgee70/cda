@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Entity\WholeOrganisation;
+use i3Soft\CDA\RIM\Entity\WholeOrganisation;
 
 trait WholeOrganisationTrait
 {

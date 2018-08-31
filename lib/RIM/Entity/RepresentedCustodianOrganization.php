@@ -25,7 +25,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
 /**
  * The MIT License
@@ -51,9 +51,9 @@ namespace PHPHealth\CDA\RIM\Entity;
  * THE SOFTWARE.
  */
 
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
 
 /**
  * @author julien
@@ -84,7 +84,7 @@ class RepresentedCustodianOrganization extends Organization
         }
 
         foreach ($this->getNames()->get() as $name) {
-            /* @var $name \PHPHealth\CDA\DataType\Name\EntityName */
+            /* @var $name \i3Soft\CDA\DataType\Name\EntityName */
             $name->setValueToElement($el, $doc);
         }
         if ($this->hasTelecoms()) {

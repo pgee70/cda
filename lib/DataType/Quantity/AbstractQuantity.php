@@ -24,9 +24,9 @@
  */
 
 
-namespace PHPHealth\CDA\DataType\Quantity;
+namespace i3Soft\CDA\DataType\Quantity;
 
-use PHPHealth\CDA\DataType\AnyType;
+use i3Soft\CDA\DataType\AnyType;
 
 /**
  * The quantity data type is an abstract generalization for all data types (1)

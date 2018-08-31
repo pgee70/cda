@@ -25,11 +25,11 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\DataType\Name\PersonName;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\DataType\Name\PersonName;
 
 trait NamesTrait
 {

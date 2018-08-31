@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPHealth\tests\classes\CDA\Component;
+namespace i3Soft\CDA\tests\Component;
 
 /**
  * The MIT License
@@ -26,16 +26,16 @@ namespace PHPHealth\tests\classes\CDA\Component;
  * THE SOFTWARE.
  */
 
-use PHPHealth\CDA\Component\SingleComponent;
-use PHPHealth\CDA\Component\SingleComponent\Section;
-use PHPHealth\CDA\Component\XMLBodyComponent;
-use PHPHealth\CDA\DataType\Code\LoincCode;
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\Html\Text;
-use PHPHealth\CDA\Elements\Html\Title;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\Component\SingleComponent;
+use i3Soft\CDA\Component\SingleComponent\Section;
+use i3Soft\CDA\Component\XMLBodyComponent;
+use i3Soft\CDA\DataType\Code\LoincCode;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\Html\Text;
+use i3Soft\CDA\Elements\Html\Title;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\tests\MyTestCase;
 
 /**
  * @author     Julien Fastré <julien.fastre@champs-libres.coop>

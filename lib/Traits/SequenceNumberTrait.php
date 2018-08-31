@@ -25,11 +25,11 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\IntegerType;
-use PHPHealth\CDA\Elements\SequenceNumber;
+use i3Soft\CDA\DataType\IntegerType;
+use i3Soft\CDA\Elements\SequenceNumber;
 
 trait SequenceNumberTrait
 {

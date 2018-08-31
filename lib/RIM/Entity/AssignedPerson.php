@@ -25,20 +25,20 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\RIM\Extensions\AsEmployment;
-use PHPHealth\CDA\RIM\Extensions\AsQualifications;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\RIM\Extensions\AsEmployment;
+use i3Soft\CDA\RIM\Extensions\AsQualifications;
 
 class AssignedPerson extends Person
 {

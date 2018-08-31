@@ -24,11 +24,11 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Participation;
+namespace i3Soft\CDA\RIM\Participation;
 
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\RIM\Role\PatientRole;
-use PHPHealth\CDA\Traits\PatientRoleTrait;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\RIM\Role\PatientRole;
+use i3Soft\CDA\Traits\PatientRoleTrait;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

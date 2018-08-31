@@ -25,10 +25,10 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\Id;
+use i3Soft\CDA\Elements\Id;
 
 trait IdsTrait
 {

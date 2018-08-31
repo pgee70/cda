@@ -23,17 +23,17 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Role;
+namespace i3Soft\CDA\RIM\Role;
 
-use PHPHealth\CDA\Interfaces\ClassCodeInterface;
-use PHPHealth\CDA\RIM\Entity\ManufacturedLabeledDrug;
-use PHPHealth\CDA\RIM\Entity\ManufacturedMaterial;
-use PHPHealth\CDA\RIM\Entity\Organization;
+use i3Soft\CDA\Interfaces\ClassCodeInterface;
+use i3Soft\CDA\RIM\Entity\ManufacturedLabeledDrug;
+use i3Soft\CDA\RIM\Entity\ManufacturedMaterial;
+use i3Soft\CDA\RIM\Entity\Organization;
 
 /**
  * Class ManufacturedProduct
  *
- * @package PHPHealth\CDA\RIM\Role
+ * @package i3Soft\CDA\RIM\Role
  */
 class ManufacturedProduct extends Role
 {

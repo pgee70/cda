@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\ManufacturerModelName;
+use i3Soft\CDA\Elements\ManufacturerModelName;
 
 /**
  * Trait ManufacturerModelNameTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ManufacturerModelNameTrait
 {

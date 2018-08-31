@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
-use PHPHealth\CDA\DataType\Boolean\Boolean;
-use PHPHealth\CDA\Elements\SeperatableInd;
+use i3Soft\CDA\DataType\Boolean\Boolean;
+use i3Soft\CDA\Elements\SeperatableInd;
 
 /**
  * Trait SeperatableIndTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait SeperatableIndTrait
 {

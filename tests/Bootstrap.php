@@ -35,8 +35,8 @@ ini_set('display_errors', 1);
 
 spl_autoload_register(function ($className)
 {
-    if (strpos($className, 'PHPHealth\tests') === 0) {
-        $className = str_replace(["PHPHealth\\tests\\", "\\"], ['', DIRECTORY_SEPARATOR], $className);
+    if (strpos($className, 'i3Soft\CDA\tests') === 0) {
+        $className = str_replace(["i3Soft\\CDA\\tests\\", "\\"], ['', DIRECTORY_SEPARATOR], $className);
         $filename = './' . $className . '.php';
         if (file_exists($filename)) {
             include_once $filename;
@@ -46,7 +46,7 @@ spl_autoload_register(function ($className)
         }
 
     } else {
-        $className = str_replace(["PHPHealth\\CDA\\", "\\"], ['', DIRECTORY_SEPARATOR], $className);
+        $className = str_replace(["i3Soft\\CDA\\", "\\"], ['', DIRECTORY_SEPARATOR], $className);
         /** @noinspection PhpIncludeInspection */
         $filename = '../lib/' . $className . '.php';
         if (file_exists($filename)) {

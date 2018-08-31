@@ -25,32 +25,32 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\RIM\Entity;
+namespace i3Soft\CDA\RIM\Entity;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  */
 
 
-use PHPHealth\CDA\DataType\Name\EntityName;
-use PHPHealth\CDA\Elements\AbstractElement;
-use PHPHealth\CDA\Elements\Address\Addr;
-use PHPHealth\CDA\Elements\Address\Telecom;
-use PHPHealth\CDA\RIM\Extensions\AsEntityIdentifier;
-use PHPHealth\CDA\Traits\AddrsTrait;
-use PHPHealth\CDA\Traits\AsEntityIdentifierTrait;
-use PHPHealth\CDA\Traits\EntityNameTrait;
-use PHPHealth\CDA\Traits\TelecomsTrait;
+use i3Soft\CDA\DataType\Name\EntityName;
+use i3Soft\CDA\Elements\AbstractElement;
+use i3Soft\CDA\Elements\Address\Addr;
+use i3Soft\CDA\Elements\Address\Telecom;
+use i3Soft\CDA\RIM\Extensions\AsEntityIdentifier;
+use i3Soft\CDA\Traits\AddrsTrait;
+use i3Soft\CDA\Traits\AsEntityIdentifierTrait;
+use i3Soft\CDA\Traits\EntityNameTrait;
+use i3Soft\CDA\Traits\TelecomsTrait;
 
 
 /**
  * Class WholeOrganisation
  *
- * @package PHPHealth\CDA\RIM\Extensions
+ * @package i3Soft\CDA\RIM\Extensions
  */
 class WholeOrganisation extends AbstractElement
 {

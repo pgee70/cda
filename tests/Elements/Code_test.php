@@ -23,13 +23,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\TemplateCode;
+namespace i3Soft\CDA\tests\TemplateCode;
 
-use PHPHealth\CDA\DataType\Code\LoincCode;
-use PHPHealth\CDA\Elements\Code;
-use PHPHealth\CDA\Elements\OriginalText;
-use PHPHealth\CDA\Elements\Translation;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\LoincCode;
+use i3Soft\CDA\Elements\Code;
+use i3Soft\CDA\Elements\OriginalText;
+use i3Soft\CDA\Elements\Translation;
+use i3Soft\CDA\tests\MyTestCase;
 
 /**
  * Test Loinc Code

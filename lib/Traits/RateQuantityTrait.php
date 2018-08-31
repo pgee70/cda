@@ -25,16 +25,16 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\Collection\Interval\AbstractInterval;
-use PHPHealth\CDA\DataType\Quantity\PhysicalQuantity\PhysicalQuantity;
+use i3Soft\CDA\DataType\Collection\Interval\AbstractInterval;
+use i3Soft\CDA\DataType\Quantity\PhysicalQuantity\PhysicalQuantity;
 
 /**
  * Trait RateQuantityTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait RateQuantityTrait
 {

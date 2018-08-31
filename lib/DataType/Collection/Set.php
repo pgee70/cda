@@ -24,13 +24,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Collection;
+namespace i3Soft\CDA\DataType\Collection;
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\DataType\AnyType;
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
-use PHPHealth\CDA\Interfaces\ElementInterface;
-use PHPHealth\CDA\Interfaces\UseAttributeInterface;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\DataType\AnyType;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\Interfaces\ElementInterface;
+use i3Soft\CDA\Interfaces\UseAttributeInterface;
 
 /**
  * Set of elements.
@@ -41,7 +41,7 @@ use PHPHealth\CDA\Interfaces\UseAttributeInterface;
  * Example of initializsation :
  *
  * ```
- * use PHPHealth\CDA\DataType\Name\PersonName;
+ * use i3Soft\CDA\DataType\Name\PersonName;
  *
  * new Set(PersonName::class);
  * ```

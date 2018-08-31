@@ -25,10 +25,10 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\Boolean\Boolean;
+use i3Soft\CDA\DataType\Boolean\Boolean;
 
 trait ContextConductionIndTrait
 {

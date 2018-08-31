@@ -25,12 +25,12 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Interfaces;
+namespace i3Soft\CDA\Interfaces;
 
 /**
  * Interface ContextControlCodeInterface
  *
- * @package PHPHealth\CDA
+ * @package i3Soft\CDA
  * @link    https://www.hl7.org/documentcenter/public_temp_9577B56D-1C23-BA17-0CCEC6F5EEE9E169/standards/vocabulary/vocabulary_tables/infrastructure/vocabulary/ContextControl.html
  */
 interface ContextControlCodeInterface

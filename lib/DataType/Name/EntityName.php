@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType\Name;
+namespace i3Soft\CDA\DataType\Name;
 
 /**
  * A name for a person, organization, place or thing. A sequence of name parts,
@@ -41,9 +41,9 @@ namespace PHPHealth\CDA\DataType\Name;
  * @author Julien Fastré <julien.fastre@champs-libres.coop>
  */
 
-use PHPHealth\CDA\ClinicalDocument as CDA;
-use PHPHealth\CDA\DataType\AnyType;
-use PHPHealth\CDA\Interfaces\UseAttributeInterface;
+use i3Soft\CDA\ClinicalDocument as CDA;
+use i3Soft\CDA\DataType\AnyType;
+use i3Soft\CDA\Interfaces\UseAttributeInterface;
 
 class EntityName extends AnyType implements UseAttributeInterface
 {

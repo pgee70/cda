@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\RIM\Extensions;
+namespace i3Soft\CDA\tests\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  *
  * @group       CDA
@@ -43,8 +43,8 @@ namespace PHPHealth\tests\RIM\Extensions;
  */
 
 
-use PHPHealth\CDA\RIM\Extensions\MultipleBirthOrderNumber;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\RIM\Extensions\MultipleBirthOrderNumber;
+use i3Soft\CDA\tests\MyTestCase;
 
 class MultipleBirthOrderNumber_test extends MyTestCase
 {

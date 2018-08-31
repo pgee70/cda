@@ -23,9 +23,9 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Helper;
+namespace i3Soft\CDA\Helper;
 
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>

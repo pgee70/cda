@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\RIM\Entity\SpecimenPlayingEntity;
+use i3Soft\CDA\RIM\Entity\SpecimenPlayingEntity;
 
 /**
  * Trait SpecimenPlayingEntityTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait SpecimenPlayingEntityTrait
 {

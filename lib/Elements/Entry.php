@@ -23,30 +23,30 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\Elements;
+namespace i3Soft\CDA\Elements;
 
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\RIM\Act\Act;
-use PHPHealth\CDA\RIM\Act\Encounter;
-use PHPHealth\CDA\RIM\Act\Observation;
-use PHPHealth\CDA\RIM\Act\SubstanceAdministration;
-use PHPHealth\CDA\Traits\ActTrait;
-use PHPHealth\CDA\Traits\ContextConductionIndTrait;
-use PHPHealth\CDA\Traits\EncounterTrait;
-use PHPHealth\CDA\Traits\IdsTrait;
-use PHPHealth\CDA\Traits\ObservationMediaTrait;
-use PHPHealth\CDA\Traits\ObservationTrait;
-use PHPHealth\CDA\Traits\OrganizerTrait;
-use PHPHealth\CDA\Traits\ProcedureTrait;
-use PHPHealth\CDA\Traits\RegionOfInterestTrait;
-use PHPHealth\CDA\Traits\SubstanceAdministrationTrait;
-use PHPHealth\CDA\Traits\SupplyTrait;
-use PHPHealth\CDA\Traits\TypeCodeTrait;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\RIM\Act\Act;
+use i3Soft\CDA\RIM\Act\Encounter;
+use i3Soft\CDA\RIM\Act\Observation;
+use i3Soft\CDA\RIM\Act\SubstanceAdministration;
+use i3Soft\CDA\Traits\ActTrait;
+use i3Soft\CDA\Traits\ContextConductionIndTrait;
+use i3Soft\CDA\Traits\EncounterTrait;
+use i3Soft\CDA\Traits\IdsTrait;
+use i3Soft\CDA\Traits\ObservationMediaTrait;
+use i3Soft\CDA\Traits\ObservationTrait;
+use i3Soft\CDA\Traits\OrganizerTrait;
+use i3Soft\CDA\Traits\ProcedureTrait;
+use i3Soft\CDA\Traits\RegionOfInterestTrait;
+use i3Soft\CDA\Traits\SubstanceAdministrationTrait;
+use i3Soft\CDA\Traits\SupplyTrait;
+use i3Soft\CDA\Traits\TypeCodeTrait;
 
 /**
  * Class Entry
  *
- * @package PHPHealth\CDA\Elements
+ * @package i3Soft\CDA\Elements
  */
 class Entry extends AbstractElement implements TypeCodeInterface
 {

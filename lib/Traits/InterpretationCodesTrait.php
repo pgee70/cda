@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\Elements\InterpretationCode;
+use i3Soft\CDA\Elements\InterpretationCode;
 
 /**
  * Trait IntepretationCodesTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait InterpretationCodesTrait
 {

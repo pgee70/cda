@@ -25,13 +25,13 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\tests\classes\CDA\RIM\Extensions;
+namespace i3Soft\CDA\tests\RIM\Extensions;
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_RIM
@@ -42,10 +42,10 @@ namespace PHPHealth\tests\classes\CDA\RIM\Extensions;
  */
 
 
-use PHPHealth\CDA\DataType\TextAndMultimedia\SimpleString;
-use PHPHealth\CDA\RIM\Extensions\AssigningGeographicArea;
-use PHPHealth\CDA\RIM\Extensions\ExtEntityName;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\TextAndMultimedia\SimpleString;
+use i3Soft\CDA\RIM\Extensions\AssigningGeographicArea;
+use i3Soft\CDA\RIM\Extensions\ExtEntityName;
+use i3Soft\CDA\tests\MyTestCase;
 
 class AssigningGeographicArea_test extends MyTestCase
 {

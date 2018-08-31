@@ -25,15 +25,15 @@
  */
 
 
-namespace PHPHealth\CDA\Traits;
+namespace i3Soft\CDA\Traits;
 
 
-use PHPHealth\CDA\DataType\Code\CodedWithEquivalents;
+use i3Soft\CDA\DataType\Code\CodedWithEquivalents;
 
 /**
  * Trait ApproachSiteCodesTrait
  *
- * @package PHPHealth\CDA\Traits
+ * @package i3Soft\CDA\Traits
  */
 trait ApproachSiteCodesTrait
 {

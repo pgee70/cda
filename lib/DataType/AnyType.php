@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace PHPHealth\CDA\DataType;
+namespace i3Soft\CDA\DataType;
 
 /**
  * @author Julien Fastré <julien.fastre@champs-libres.coop>
@@ -33,7 +33,7 @@ namespace PHPHealth\CDA\DataType;
 /**
  * Class AnyType
  *
- * @package PHPHealth\CDA\DataType
+ * @package i3Soft\CDA\DataType
  */
 abstract class AnyType
 {

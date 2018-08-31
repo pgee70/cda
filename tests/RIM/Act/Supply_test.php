@@ -26,9 +26,9 @@
 
 /**
  *
- * @package     PHPHealth\CDA
+ * @package     i3Soft\CDA
  * @author      Peter Gee <https://github.com/pgee70>
- * @link        https://framagit.org/php-health/cda
+ * @link        https://github.com/pgee70/cda
  *
  * @group       CDA
  * @group       CDA_RIM
@@ -38,28 +38,28 @@
  *
  */
 
-use PHPHealth\CDA\DataType\Code\AddressCodeType;
-use PHPHealth\CDA\DataType\Collection\Set;
-use PHPHealth\CDA\DataType\Identifier\InstanceIdentifier;
-use PHPHealth\CDA\DataType\Name\EntityName;
-use PHPHealth\CDA\DataType\Name\PersonName;
-use PHPHealth\CDA\DataType\Quantity\DateAndTime\TimeStamp;
-use PHPHealth\CDA\Elements\Address\Addr;
-use PHPHealth\CDA\Elements\Address\Telecom;
-use PHPHealth\CDA\Elements\Id;
-use PHPHealth\CDA\Elements\Quantity;
-use PHPHealth\CDA\Elements\RepeatNumber;
-use PHPHealth\CDA\Interfaces\TypeCodeInterface;
-use PHPHealth\CDA\Interfaces\UseAttributeInterface;
-use PHPHealth\CDA\RIM\Act\EntryRelationship;
-use PHPHealth\CDA\RIM\Act\Supply;
-use PHPHealth\CDA\RIM\Entity\AssignedEntity;
-use PHPHealth\CDA\RIM\Entity\AssignedPerson;
-use PHPHealth\CDA\RIM\Entity\RepresentedOrganization;
-use PHPHealth\CDA\RIM\Participation\Author;
-use PHPHealth\CDA\RIM\Participation\Performer;
-use PHPHealth\CDA\RIM\Role\AssignedAuthor;
-use PHPHealth\tests\MyTestCase;
+use i3Soft\CDA\DataType\Code\AddressCodeType;
+use i3Soft\CDA\DataType\Collection\Set;
+use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
+use i3Soft\CDA\DataType\Name\EntityName;
+use i3Soft\CDA\DataType\Name\PersonName;
+use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
+use i3Soft\CDA\Elements\Address\Addr;
+use i3Soft\CDA\Elements\Address\Telecom;
+use i3Soft\CDA\Elements\Id;
+use i3Soft\CDA\Elements\Quantity;
+use i3Soft\CDA\Elements\RepeatNumber;
+use i3Soft\CDA\Interfaces\TypeCodeInterface;
+use i3Soft\CDA\Interfaces\UseAttributeInterface;
+use i3Soft\CDA\RIM\Act\EntryRelationship;
+use i3Soft\CDA\RIM\Act\Supply;
+use i3Soft\CDA\RIM\Entity\AssignedEntity;
+use i3Soft\CDA\RIM\Entity\AssignedPerson;
+use i3Soft\CDA\RIM\Entity\RepresentedOrganization;
+use i3Soft\CDA\RIM\Participation\Author;
+use i3Soft\CDA\RIM\Participation\Performer;
+use i3Soft\CDA\RIM\Role\AssignedAuthor;
+use i3Soft\CDA\tests\MyTestCase;
 
 class Supply_test extends MyTestCase
 {
@@ -116,7 +116,7 @@ class Supply_test extends MyTestCase
 
 CDA;
         $tag      = (new Supply())
-          ->setMoodCode(\PHPHealth\CDA\Interfaces\MoodCodeInterface::INTENT)
+          ->setMoodCode(\i3Soft\CDA\Interfaces\MoodCodeInterface::INTENT)
           ->addTemplateId(new InstanceIdentifier('2.16.840.1.113883.10.20.1.34'))
           ->addTemplateId(new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.4.7.3'))
           ->returnSupply()
