@@ -36,22 +36,32 @@ $text->setText($refManager->getReferenceElement('my_reference'));
 // will create <text><reference value="my_reference" /></text>
 
 ```
-## Run tests
+## Getting started
 
-1. Run composer to load phpunit and build autoload :
+1. Download the package:
 
 ```
-composer install
+git clone https://github.com/pgee70/cda cda
+cd cda/tests
 ```
 
 2. Run tests
 
-```
+you will need to install <https://phpunit.de/> and have `phpunit` available on your $PATH environment variable.
 you might see the the file phpunit-debug in the tests, the file sets up command line debugging for intellij:
+
+```
 export XDEBUG_CONFIG="idekey=phpstorm-xdebug";
 phpunit $@
+```
+Tests are structured so you can run the tests per group.  look for the @group docblock in each test file.
 
-tests are structured so you can run the tests per group.  look for the @group docblock in each test file.
+```
+// run all the tests
+phpunit 
+
+// run one test:
+phpunit --no-coverage --group CDA_RIM_Authorization
 
 ```
 
