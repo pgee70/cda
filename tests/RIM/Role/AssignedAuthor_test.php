@@ -85,7 +85,7 @@ class AssignedAuthor_test extends MyTestCase
   <code code="253111" codeSystem="2.16.840.1.113883.13.62" codeSystemName="1220.0 - ANZSCO -- Australian and New Zealand Standard Classification of Occupations, 2013, Version 1.2" displayName="General Practitioner"/>
   <!-- Address -->
   <addr use="WP">
-    <streetAddressLine>1 Clinician Street</streetAddressLine>
+    <streetAddressLine>1 Clinician street</streetAddressLine>
     <city>Nehtaville</city>
     <state>QLD</state>
     <postalCode>5555</postalCode>
@@ -131,7 +131,7 @@ class AssignedAuthor_test extends MyTestCase
                   </ext:asEntityIdentifier>
               <!-- Address -->
                   <addr use="WP">
-                      <streetAddressLine>1 Clinician Street</streetAddressLine>
+                      <streetAddressLine>1 Clinician street</streetAddressLine>
                       <city>Nehtaville</city>
                       <state>QLD</state>
                       <postalCode>5555</postalCode>
@@ -161,7 +161,7 @@ CDA;
           Id::fromString('7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085'),
           Code::Occupation(253111),
           (new Addr(
-            '1 Clinician Street',
+            '1 Clinician street',
             'Nehtaville',
             'QLD',
             '5555',
@@ -189,7 +189,7 @@ CDA;
                       new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
                     ),
                     (new Addr(
-                      '1 clinician street',
+                      '1 Clinician street',
                       'Nehtaville',
                       'QLD',
                       '5555',

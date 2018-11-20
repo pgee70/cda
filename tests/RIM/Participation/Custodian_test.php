@@ -100,7 +100,7 @@ CDA;
       <name>Custodian</name>
       <telecom use="WP" value="tel:0712341234"/>
       <addr>
-        <streetAddressLine>1 clinician street</streetAddressLine>
+        <streetAddressLine>1 Clinician street</streetAddressLine>
         <city>Nethaville</city>
         <state>QLD</state>
         <postalCode>5555</postalCode>
@@ -123,7 +123,7 @@ XML;
         );
         $rep_cust_org->addTelecom(new Telecom('WP', 'tel:0712341234'))
           ->addAddr(new Addr(
-            new StreetAddressLine('1 clinician street'),
+            new StreetAddressLine('1 Clinician street'),
             new City('Nethaville'),
             new State('QLD'),
             new PostalCode('5555'),

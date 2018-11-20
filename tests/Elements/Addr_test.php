@@ -55,7 +55,7 @@ class Addr_test extends MyTestCase
         $expected = <<< XML
 <?xml version="1.0" encoding="UTF-8"?>
 <addr use="WP">
-  <streetAddressLine>1 clinician street</streetAddressLine>
+  <streetAddressLine>1 Clinician street</streetAddressLine>
   <city>Nethaville</city>
   <state>QLD</state>
   <postalCode>5555</postalCode>
@@ -64,7 +64,7 @@ class Addr_test extends MyTestCase
 
 XML;
         $address  = new Addr(
-          new StreetAddressLine('1 clinician street'),
+          new StreetAddressLine('1 Clinician street'),
           new City('Nethaville'),
           new State('QLD'),
           new PostalCode('5555'),

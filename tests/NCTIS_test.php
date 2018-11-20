@@ -1829,7 +1829,7 @@ CDA;
 									<observation classCode="OBS" moodCode="EVN">
 										<id root="060588DE-F2F9-11E0-ABE7-C7CE4824019B" />
 										<code code="386344002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="laboratory findings data interpretation" />
-										<value xsi:type="ST">Chronic problems.</value>
+										<value xsi:type="ST">Chronic Problems.</value>
 									</observation>
 								</entryRelationship>
 								<!-- End Pathology Test Conclusion -->
@@ -3947,7 +3947,7 @@ CDA;
 						<id root="40dd5b94-9b84-4389-aad5-0bded41b12c2" />
 						<!-- Detailed Clinical Model Identifier -->
 						<code code="101.20158" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Requested Service" />
-						<title>Requested Service</title>
+						<title>Requested service</title>
 						<text>
 							<table>
 								<thead>

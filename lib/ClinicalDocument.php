@@ -69,6 +69,7 @@ class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
     const NS_CDA     = '';
     const NS_CDA_URI = 'urn:hl7-org:v3';
     const NS_XSI_URI = 'http://www.w3.org/2001/XMLSchema-instance';
+    const VERSION = '1.0.3';
 
     use RealmCodesTrait;
     use TypeIdTrait;
@@ -158,7 +159,7 @@ class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
         $el->setAttributeNS(
           self::NS_XSI_URI,
           'xsi:schemaLocation',
-          'CDA-ES-V1_3.xsd'
+          'CDA-ES-v1_3.xsd'
         );
         $el->setAttribute('xmlns:ext', 'http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0');
         $el->setAttribute('xmlns:xs', 'http://www.w3.org/2001/XMLSchema');

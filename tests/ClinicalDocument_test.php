@@ -90,7 +90,7 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class ClinicalDocument_test extends MyTestCase
 {
-    const CLINICAL_DOCUMENT_AUSTRALIAN_EXTENSION = '<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:ext="http://ns.electronichealth.net.au/ci/cda/extensions/3.0" xmlns:xs="http://www.w3.org/2001/xmlschema" xmlns:xsi="http://www.w3.org/2001/xmlschema-instance" xsi:schemalocation="cda-es-v1_3.xsd">';
+    const CLINICAL_DOCUMENT_AUSTRALIAN_EXTENSION = '<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:ext="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="CDA-ES-v1_3.xsd">';
     const CLINICAL_DOCUMENT_REGULAR              = '<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">';
     private $clinical_document_tag;
 
@@ -376,7 +376,7 @@ CDA;
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
           <id root="430ADCD7-4481-DC0F-181D-2398F930B220"/>
           <code code="42349-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="REASON FOR REFERRAL"/>
-          <title>Reason for referral</title>
+          <title>REASON FOR REFERRAL</title>
           <text>Robert Hunter is a patient.</text>
         </section>
       </component>
@@ -418,7 +418,7 @@ CDA;
           [
             '1.3.6.1.4.1.19376.1.5.3.1.3.1', // templateId of section
             'BF2FA954-F43B-11E6-9397-EBC69C88DB61', //id of section
-            new LoincCode('42349-1', 'Reason for referral'), // code for section
+            new LoincCode('42349-1', 'REASON FOR REFERRAL'), // code for section
             'Robert Hunter is a patient.', // text for section
             array() // no acts
           ],
@@ -519,7 +519,7 @@ CDA;
           [
             '1.3.6.1.4.1.19376.1.5.3.1.3.13', // templateId of section
             'BF31B4D8-F43B-11E6-B02B-B711B1E5184B', //id of section
-            new LoincCode('48765-2', 'allergies and Other Adverse Reactions Section'), // code for section
+            new LoincCode('48765-2', 'Allergies and Other Adverse Reactions Section'), // code for section
             'No statement.', // text for section
             array(Observation::nullObservation())
           ],
@@ -610,7 +610,7 @@ CDA;
           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
           <id root="BF2FA954-F43B-11E6-9397-EBC69C88DB61"/>
           <code code="42349-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="REASON FOR REFERRAL"/>
-          <title>Reason for referral</title>
+          <title>REASON FOR REFERRAL</title>
           <text>Robert Hunter is a patient.</text>
         </section>
       </component>
@@ -718,7 +718,7 @@ CDA;
           <id root="BF31B4D8-F43B-11E6-B02B-B711B1E5184B"/>
           <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies and Other Adverse Reactions Section"/>
           <title>Allergies and Other Adverse Reactions Section</title>
-          <text>no statement.</text>
+          <text>No statement.</text>
           <entry typeCode="COMP">
             <observation classCode="OBS" moodCode="DEF">
             <code nullFlavor="NI" />
@@ -761,7 +761,7 @@ CDA;
     <author typeCode="AUT">
      <time value="2000040714"/>
      <assignedAuthor classCode="ASSIGNED">
-       <id extension="kp00017" root="2.16.840.1.113883.19.5"/>
+       <id extension="KP00017" root="2.16.840.1.113883.19.5"/>
        <assignedPerson classCode="PSN">
          <name>
            <given>Robert</given>
@@ -794,7 +794,7 @@ CDA;
       </intendedRecipient>
     </informationRecipient>
     <component>
-      <structuredbody classCode="DOCBODY"/>
+      <structuredBody classCode="DOCBODY"/>
     </component>
 </ClinicalDocument>
 CDA;

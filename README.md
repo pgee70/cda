@@ -37,12 +37,34 @@ $text->setText($refManager->getReferenceElement('my_reference'));
 
 ```
 ## Getting started
+1. Quickstart
 
-1. Download the package:
+make sure you have [composer](https://getcomposer.org/download/) set up in your path.
 
 ```
-git clone https://github.com/pgee70/cda cda
-cd cda/tests
+composer clearcache
+mkdir cda
+mkdir cda/vendor
+cd cda
+composer require i3soft/cda
+nano test.php
+
+```
+enter:
+```
+<?php
+use i3Soft\CDA\ClinicalDocument;
+use i3Soft\CDA\Elements\Html\Title;
+require 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+$doc = new ClinicalDocument();
+$doc->setTitle(
+  new Title('Good Health Clinic Consultation Note')
+);
+echo $doc->toDOMDocument()->saveXML();
+```
+run the code:
+```
+php test.php
 ```
 
 2. Run tests
@@ -58,6 +80,7 @@ Tests are structured so you can run the tests per group.  look for the @group do
 
 ```
 // run all the tests
+cd vendor/i3soft/cda/tests/
 phpunit 
 
 // run one test:
@@ -66,6 +89,13 @@ phpunit --no-coverage --group CDA_RIM_Authorization
 ```
 
 ## Version History
+### Version 1.0.3
+Updated documentation.
+
+had some weird case-errors on the text that made unit tests fail.
+
+### Version 1.0.2
+Getting autoload to work properly.
 
 ### Version 1.0.0
 This version has undergone significant refactoring and has had many more tags implemented. There has been some 

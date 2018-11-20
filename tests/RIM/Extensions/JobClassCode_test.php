@@ -66,7 +66,7 @@ XML;
     {
         $expected          = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
-<ext:jobclasscode code="PT" codesystem="2.16.840.1.113883.5.1059" codesystemname="HL7:EmployeeJobClass" displayname="part-time"/>
+<ext:jobClassCode code="PT" codeSystem="2.16.840.1.113883.5.1059" codeSystemName="HL7:EmployeeJobClass" displayName="part-time"/>
 
 XML;
         $job_class_code    = new JobClassCode(JobClassCode::CODE_PART_TIME);

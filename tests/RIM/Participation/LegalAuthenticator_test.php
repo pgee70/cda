@@ -83,7 +83,7 @@ class LegalAuthenticator_test extends MyTestCase
     <id root="123F9366-78EC-11DF-861B-EE24DFD72085"/>
     <code code="253111" displayName="General Practitioner" codeSystem="2.16.840.1.113883.13.62" codeSystemName="1220.0 - ANZSCO -- Australian and New Zealand Standard Classification of Occupations, 2013, Version 1.2"/>
     <addr use="WP">
-      <streetAddressLine>1 clinician street</streetAddressLine>
+      <streetAddressLine>1 Clinician street</streetAddressLine>
       <city>Nethaville</city>
       <state>QLD</state>
       <postalCode>5555</postalCode>
@@ -123,7 +123,7 @@ XML;
           ->addPart(PersonName::LAST_NAME, 'Doctor')
         );
         $addr = new Addr(
-          new StreetAddressLine('1 clinician street'),
+          new StreetAddressLine('1 Clinician street'),
           new City('Nethaville'),
           new State('QLD'),
           new PostalCode('5555'),

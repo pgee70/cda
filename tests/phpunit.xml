@@ -30,7 +30,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="PHPHealth CDA testing library">
+        <testsuite name="i3Soft CDA testing library">
             <directory suffix="test.php">./</directory>
         </testsuite>
     </testsuites>

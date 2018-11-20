@@ -72,7 +72,7 @@ class AsOrganizationPartOf_test extends MyTestCase
       </ext:asEntityIdentifier>
   <!-- Address -->
       <addr use="WP">
-          <streetAddressLine>1 Clinician Street</streetAddressLine>
+          <streetAddressLine>1 Clinician street</streetAddressLine>
           <city>Nehtaville</city>
           <state>QLD</state>
           <postalCode>5555</postalCode>
@@ -92,7 +92,7 @@ CDA;
               new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
             ),
             (new Addr(
-              '1 clinician street',
+              '1 Clinician street',
               'Nehtaville',
               'QLD',
               '5555',
