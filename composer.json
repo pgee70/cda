@@ -1,6 +1,7 @@
 {
   "name": "i3soft/cda",
   "description": "a package to create cda files",
+  "homepage": "https://github.com/pgee70/cda",
   "type": "library",
   "license": "MIT",
   "authors": [
