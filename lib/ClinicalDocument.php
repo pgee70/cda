@@ -66,150 +66,229 @@ use i3Soft\CDA\Traits\VersionNumberTrait;
  */
 class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
 {
-    const NS_CDA     = '';
-    const NS_CDA_URI = 'urn:hl7-org:v3';
-    const NS_XSI_URI = 'http://www.w3.org/2001/XMLSchema-instance';
-    const VERSION = '1.0.3';
+  const NS_CDA     = '';
+  const NS_CDA_URI = 'urn:hl7-org:v3';
+  const NS_XSI_URI = 'http://www.w3.org/2001/XMLSchema-instance';
+  const VERSION    = '1.0.4';
 
-    use RealmCodesTrait;
-    use TypeIdTrait;
-    use TemplateIdsTrait;
-    use IdTrait;
-    use CodeTrait;
-    use TitleTrait;
-    use EffectiveTimeTrait;
-    use ConfidentialityCodeTrait;
-    use LanguageCodeTrait;
-    use SetIdTrait;
-    use VersionNumberTrait;
-    use CompletionCodeTrait;
-    use CopyTimeTrait;
-    use RecordTargetsTrait;
-    use AuthorsTrait;
-    use DataEntererTrait;
-    use InformantsTrait;
-    use CustodianTrait;
-    use InformationRecipientsTrait;
-    use legalAuthenticatorTrait;
-    use AuthenticatorTrait;
-    use ParticipantsTrait;
-    // use InFulfillmentOfsTrait;
-    use DocumentationOfsTrait;
-    // use RelatedDocumentsTrait;
-    use AuthorizationTrait;
+  use RealmCodesTrait;
+  use TypeIdTrait;
+  use TemplateIdsTrait;
+  use IdTrait;
+  use CodeTrait;
+  use TitleTrait;
+  use EffectiveTimeTrait;
+  use ConfidentialityCodeTrait;
+  use LanguageCodeTrait;
+  use SetIdTrait;
+  use VersionNumberTrait;
+  use CompletionCodeTrait;
+  use CopyTimeTrait;
+  use RecordTargetsTrait;
+  use AuthorsTrait;
+  use DataEntererTrait;
+  use InformantsTrait;
+  use CustodianTrait;
+  use InformationRecipientsTrait;
+  use legalAuthenticatorTrait;
+  use AuthenticatorTrait;
+  use ParticipantsTrait;
+  // use InFulfillmentOfsTrait;
+  use DocumentationOfsTrait;
+  // use RelatedDocumentsTrait;
+  use AuthorizationTrait;
 
-    // use ComponentOfTrait;
-    // use ComponentTrait;
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  // use ComponentOfTrait;
+  // use ComponentTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    /**
-     * Refeger assigned to this document  *
-     *
-     * @var ReferenceManager
-     */
-    private $referenceManager;
-    /**
-     * the root component
-     *
-     * @var Component\RootBodyComponent
-     */
-    private $rootComponent;
-    private $informationRecipient;
-    private $inFulfillmentOf;
-    private $documentationOf;
-    private $relatedDocument;
+  /**
+   * Referer assigned to this document  *
+   *
+   * @var ReferenceManager
+   */
+  private $referenceManager;
+  /**
+   * the root component
+   *
+   * @var Component\RootBodyComponent
+   */
+  private $rootComponent;
+  private $informationRecipient;
+  private $inFulfillmentOf;
+  private $documentationOf;
+  private $relatedDocument;
 
-    /**
-     * ClinicalDocument constructor.
-     */
-    public function __construct()
+  /** @var string  the xmlns:ext attribute - leave empty string to not render.*/
+  private $attributeXmlnsExt;
+  /** @var string the xmlns:xs attribute - leave as empty string to not render*/
+  private $attributeXmlNsXs;
+  /** @var array the three parameters of the attribute Namespace*/
+  private $attributeNs;
+
+  /**
+   * ClinicalDocument constructor.
+   */
+  public function __construct ()
+  {
+    $this->rootComponent    = new Component\RootBodyComponent();
+    $this->referenceManager = new ReferenceManager();
+    $this->setTypeId(new TypeId(new InstanceIdentifier('2.16.840.1.113883.1.3', 'POCD_HD000040')))
+      ->setAttributeNs(self::NS_XSI_URI, 'xsi:schemaLocation', 'CDA-ES-v1_3.xsd')
+      ->setAttributeXmlnsExt('http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0')
+      ->setAttributeXmlNsXs('http://www.w3.org/2001/XMLSchema')
+      ->setAcceptableClassCodes(['', ClassCodeInterface::CLINICAL_DOCUMENT])
+      ->setClassCode('')
+      ->setAcceptableMoodCodes(['', MoodCodeInterface::EVENT])
+      ->setMoodCode('');
+  }
+
+  /**
+   *
+   * @return ReferenceManager
+   */
+  public function getReferenceManager (): ReferenceManager
+  {
+    return $this->referenceManager;
+  }
+
+  /**
+   *
+   * @param \DOMDocument|null $doc
+   *
+   * @return \DOMDocument
+   */
+  public function toDOMDocument (\DOMDocument $doc = NULL): \DOMDocument
+  {
+    $doc = $doc ?? new \DOMDocument('1.0', 'UTF-8');
+    $el  = $doc->createElementNS(self::NS_CDA_URI, 'ClinicalDocument');
+    $doc->appendChild($el);
+    // set the NS
+    if (implode('',$this->getAttributeNs()))
     {
-        $this->rootComponent    = new Component\RootBodyComponent();
-        $this->referenceManager = new ReferenceManager();
-        $this->setTypeId(new TypeId(new InstanceIdentifier('2.16.840.1.113883.1.3', 'POCD_HD000040')))
-          ->setAcceptableClassCodes(['', ClassCodeInterface::CLINICAL_DOCUMENT])
-          ->setClassCode('')
-          ->setAcceptableMoodCodes(['', MoodCodeInterface::EVENT])
-          ->setMoodCode('');
+      $el->setAttributeNS(
+        $this->getAttributeNs()[0],
+        $this->getAttributeNs()[1],
+        $this->getAttributeNs()[2]
+      );
     }
-
-    /**
-     *
-     * @return ReferenceManager
-     */
-    public function getReferenceManager(): ReferenceManager
+    if ($xmlNsExt = $this->getAttributeXmlnsExt())
     {
-        return $this->referenceManager;
+      $el->setAttribute('xmlns:ext', $xmlNsExt);
     }
-
-
-    /**
-     *
-     * @param \DOMDocument|null $doc
-     *
-     * @return \DOMDocument
-     */
-    public function toDOMDocument(\DOMDocument $doc = null): \DOMDocument
+    if ($xmlNsXs = $this->getAttributeXmlNsXs())
     {
-        $doc = $doc ?? new \DOMDocument('1.0', 'UTF-8');
-        $el  = $doc->createElementNS(self::NS_CDA_URI, 'ClinicalDocument');
-        $doc->appendChild($el);
-        // set the NS
-        $el->setAttributeNS(
-          self::NS_XSI_URI,
-          'xsi:schemaLocation',
-          'CDA-ES-v1_3.xsd'
-        );
-        $el->setAttribute('xmlns:ext', 'http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0');
-        $el->setAttribute('xmlns:xs', 'http://www.w3.org/2001/XMLSchema');
-        if ($this->hasClassCode()) {
-            $el->setAttribute('classCode', $this->getClassCode());
-        }
-        if ($this->hasMoodCode()) {
-            $el->setAttribute('moodCode', $this->getMoodCode());
-        }
-        $this->renderRealmCodes($el, $doc)
-          ->renderTypeId($el, $doc)
-          ->renderTemplateIds($el, $doc)
-          ->renderId($el, $doc)
-          ->renderCode($el, $doc)
-          ->renderTitle($el, $doc)
-          ->renderEffectiveTime($el, $doc)
-          ->renderConfidentialityCode($el, $doc)
-          ->renderLanguageCode($el, $doc)
-          ->renderSetId($el, $doc)
-          ->renderVersionNumber($el, $doc)
-          ->renderCopyTime($el, $doc)
-          ->renderCompletionCode($el, $doc)
-          ->renderRecordTargets($el, $doc)
-          ->renderAuthors($el, $doc)
-          ->renderDataEnter($el, $doc)
-          ->renderInformants($el, $doc)
-          ->renderCustodian($el, $doc)
-          ->renderInformationRecipients($el, $doc)
-          ->renderLegalAuthenticator($el, $doc)
-          ->renderAuthenticator($el, $doc)
-          ->renderParticipants($el, $doc)
-          // todo inFulfillmentOf
-          ->renderDocumentationOfs($el, $doc)
-          // todo relatedDocument
-          ->renderAuthorization($el, $doc);
-        // todo componentOf
-        // add components
-        if (false === $this->getRootComponent()->isEmpty()) {
-            $el->appendChild($this->getRootComponent()->toDOMElement($doc));
-        }
-        return $doc;
+      $el->setAttribute('xmlns:xs', $xmlNsXs);
     }
-
-    /**
-     *
-     * @return Component\RootBodyComponent
-     */
-    public function getRootComponent(): Component\RootBodyComponent
+    if ($this->hasClassCode())
     {
-        return $this->rootComponent;
+      $el->setAttribute('classCode', $this->getClassCode());
     }
+    if ($this->hasMoodCode())
+    {
+      $el->setAttribute('moodCode', $this->getMoodCode());
+    }
+    $this->renderRealmCodes($el, $doc)
+      ->renderTypeId($el, $doc)
+      ->renderTemplateIds($el, $doc)
+      ->renderId($el, $doc)
+      ->renderCode($el, $doc)
+      ->renderTitle($el, $doc)
+      ->renderEffectiveTime($el, $doc)
+      ->renderConfidentialityCode($el, $doc)
+      ->renderLanguageCode($el, $doc)
+      ->renderSetId($el, $doc)
+      ->renderVersionNumber($el, $doc)
+      ->renderCopyTime($el, $doc)
+      ->renderCompletionCode($el, $doc)
+      ->renderRecordTargets($el, $doc)
+      ->renderAuthors($el, $doc)
+      ->renderDataEnter($el, $doc)
+      ->renderInformants($el, $doc)
+      ->renderCustodian($el, $doc)
+      ->renderInformationRecipients($el, $doc)
+      ->renderLegalAuthenticator($el, $doc)
+      ->renderAuthenticator($el, $doc)
+      ->renderParticipants($el, $doc)
+      // todo inFulfillmentOf
+      ->renderDocumentationOfs($el, $doc)
+      // todo relatedDocument
+      ->renderAuthorization($el, $doc);
+    // todo componentOf
+    // add components
+    if (FALSE === $this->getRootComponent()->isEmpty())
+    {
+      $el->appendChild($this->getRootComponent()->toDOMElement($doc));
+    }
+    return $doc;
+  }
 
+  /**
+   *
+   * @return Component\RootBodyComponent
+   */
+  public function getRootComponent (): Component\RootBodyComponent
+  {
+    return $this->rootComponent;
+  }
+
+  /**
+   * @return string
+   */
+  public function getAttributeXmlnsExt (): string
+  {
+    return $this->attributeXmlnsExt;
+  }
+
+  /**
+   * @param string $attributeXmlnsExt
+   *
+   * @return self
+   */
+  public function setAttributeXmlnsExt (string $attributeXmlnsExt): self
+  {
+    $this->attributeXmlnsExt = $attributeXmlnsExt;
+    return $this;
+  }
+
+  /**
+   * @return string
+   */
+  public function getAttributeXmlNsXs (): string
+  {
+    return $this->attributeXmlNsXs;
+  }
+
+  /**
+   * @param string $attributeXmlNsXs
+   *
+   * @return self
+   */
+  public function setAttributeXmlNsXs (string $attributeXmlNsXs): self
+  {
+    $this->attributeXmlNsXs = $attributeXmlNsXs;
+    return $this;
+  }
+
+  /**
+   * @param string $namespaceUri
+   * @param string $qualifiedName
+   * @param string $value
+   *
+   * @return ClinicalDocument
+   */
+  public function setAttributeNs (string $namespaceUri, string $qualifiedName, string $value): self
+  {
+    $this->attributeNs = [$namespaceUri, $qualifiedName, $value];
+    return $this;
+  }
+
+  /**
+   * @return array
+   */
+  public function getAttributeNs (): array
+  {
+    return $this->attributeNs;
+  }
 }
