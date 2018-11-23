@@ -35,64 +35,89 @@ use i3Soft\CDA\Interfaces\UseAttributeInterface;
 class PersonName extends EntityName
 {
 
-    const HONORIFIC  = 'prefix';
-    const FIRST_NAME = 'given';
-    const LAST_NAME  = 'family';
-    const SUFFIX     = 'suffix';
-    protected $parts      = array();
-    protected $qualifiers = array();
+  const HONORIFIC      = 'prefix';
+  const FIRST_NAME     = 'given';
+  const LAST_NAME      = 'family';
+  const SUFFIX         = 'suffix';
+  const possible_parts = [
+    self::HONORIFIC,
+    self::FIRST_NAME,
+    self::LAST_NAME,
+    self::SUFFIX
+  ];
+  protected $name_tuples = array();  // tuples is an array of addPart values.
 
-    /**
-     * PersonName constructor.
-     */
-    public function __construct()
+  /**
+   * PersonName constructor.
+   */
+  public function __construct ()
+  {
+    parent::__construct(NULL);
+    $this->name_tuples =[];
+    // use name attributes must conform to: AS 5017-2006: Health Care Client Name Usage
+    $this->acceptable_use_attributes = UseAttributeInterface::NameValues;
+  }
+
+  /**
+   * @param      $part
+   * @param      $value
+   * @param null $qualifier
+   *
+   * @return self
+   */
+  public function addPart ($part, $value, $qualifier = NULL): self
+  {
+    if (\in_array($part, self::possible_parts, TRUE) === FALSE)
     {
-        parent::__construct(null);
-        // use name attributes must conform to: AS 5017-2006: Health Care Client Name Usage
-        $this->acceptable_use_attributes = UseAttributeInterface::NameValues;
+      return $this;
+    }
+    $this->name_tuples[] = ['part' => $part, 'value' => $value, 'qualifier' => $qualifier];
+    return $this;
+  }
+
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    if (\count($this->name_tuples) > 0)
+    {
+      $name = $doc->createElement(CDA::NS_CDA . 'name');
+      if (FALSE === empty($this->getUseAttribute()))
+      {
+        $name->setAttribute(CDA::NS_CDA . 'use', $this->getUseAttribute());
+      }
+      $el->appendChild($name);
+      foreach ($this->name_tuples as $tuple)
+      {
+        $partElement = $doc->createElement(CDA::NS_CDA . $tuple['part'], $tuple['value']);
+        if ($tuple['qualifier'])
+        {
+          $partElement->setAttribute('qualifier', $tuple['qualifier']);
+        }
+        $name->appendChild($partElement);
+      }
+      return;
     }
 
-    /**
-     * @param      $part
-     * @param      $value
-     * @param null $qualifier
-     *
-     * @return self
-     */
-    public function addPart($part, $value, $qualifier = null): self
+    if ($this->string !== NULL)
     {
-        $this->parts[$part] = $value;
-
-        if ($qualifier !== null) {
-            $this->qualifiers[$part] = $qualifier;
-        }
-
-        return $this;
+      parent::setValueToElement($el, $doc);
     }
-
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
+    else
     {
-        if (\count($this->parts) > 0) {
-            $name = $doc->createElement(CDA::NS_CDA . 'name');
-            if (false === empty($this->getUseAttribute())) {
-                $name->setAttribute(CDA::NS_CDA . 'use', $this->getUseAttribute());
-            }
-            $el->appendChild($name);
-            foreach ($this->parts as $part => $value) {
-                $partElement = $doc->createElement(CDA::NS_CDA . $part, $value);
-                $name->appendChild($partElement);
-            }
-            return;
-        }
-
-        if ($this->string !== null) {
-            parent::setValueToElement($el, $doc);
-        } else {
-            throw new \InvalidArgumentException('the element does not contains any parts nor string');
-        }
+      throw new \InvalidArgumentException('the element does not contains any parts nor string');
     }
+  }
+
+  /**
+   * @return PersonName
+   */
+  public function resetNameTuples ():self
+  {
+    $this->name_tuples = [];
+  }
+
+
 }

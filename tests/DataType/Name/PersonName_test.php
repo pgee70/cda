@@ -40,87 +40,116 @@ use i3Soft\CDA\tests\MyTestCase;
  */
 class PersonName_test extends MyTestCase
 {
-    public function test_PersonName()
-    {
-        $n = new PersonName();
-        $n->addPart(PersonName::FIRST_NAME, 'Quick');
-        $n->addPart(PersonName::LAST_NAME, 'Flupke');
+  public function test_PersonName ()
+  {
+    $n = new PersonName();
+    $n->addPart(PersonName::FIRST_NAME, 'Quick');
+    $n->addPart(PersonName::LAST_NAME, 'Flupke');
 
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $el  = $dom->createElement('el');
-        $dom->appendChild($el);
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $el  = $dom->createElement('el');
+    $dom->appendChild($el);
 
-        $n->setValueToElement($el, $dom);
+    $n->setValueToElement($el, $dom);
 
-        $expected    = <<<'CDA'
+    $expected    = <<<'CDA'
 <el><name><given>Quick</given><family>Flupke</family></name></el>
 CDA;
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
-        $expectedEl = $expectedDoc
-          ->getElementsByTagName('el')
-          ->item(0);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedEl = $expectedDoc
+      ->getElementsByTagName('el')
+      ->item(0);
 
-        $this->assertEqualXMLStructure($expectedEl, $el, true);
-    }
+    $this->assertEqualXMLStructure($expectedEl, $el, TRUE);
+  }
 
-    public function test_PersonNameSingle()
-    {
-        $n = new PersonName();
-        $n->setString('test');
+  public function test_PersonNameSingle ()
+  {
+    $n = new PersonName();
+    $n->setString('test');
 
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $el  = $dom->createElement('el');
-        $dom->appendChild($el);
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $el  = $dom->createElement('el');
+    $dom->appendChild($el);
 
-        $n->setValueToElement($el, $dom);
+    $n->setValueToElement($el, $dom);
 
-        $expected    = <<<'CDA'
+    $expected    = <<<'CDA'
 <el><name>test</name></el>
 CDA;
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
-        $expectedEl = $expectedDoc
-          ->getElementsByTagName('el')
-          ->item(0);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedEl = $expectedDoc
+      ->getElementsByTagName('el')
+      ->item(0);
 
-        $this->assertEqualXMLStructure($expectedEl, $el, true);
-    }
+    $this->assertEqualXMLStructure($expectedEl, $el, TRUE);
+  }
 
-    /**
-     * @throws \InvalidArgumentException
-     */
-    public function test_PersonNameEmpty()
-    {
-        $n = new PersonName();
-        $n->setString('test');
+  /**
+   * @throws \InvalidArgumentException
+   */
+  public function test_PersonNameEmpty ()
+  {
+    $n = new PersonName();
+    $n->setString('test');
 
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $el  = $dom->createElement('el');
-        $dom->appendChild($el);
-        $n->setValueToElement($el, $dom);
-        $expected    = <<<'CDA'
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $el  = $dom->createElement('el');
+    $dom->appendChild($el);
+    $n->setValueToElement($el, $dom);
+    $expected    = <<<'CDA'
 <el><name>test</name></el>
 CDA;
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
-        $expectedEl = $expectedDoc
-          ->getElementsByTagName('el')
-          ->item(0);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedEl = $expectedDoc
+      ->getElementsByTagName('el')
+      ->item(0);
 
-        $this->assertEqualXMLStructure($expectedEl, $el, true);
-    }
+    $this->assertEqualXMLStructure($expectedEl, $el, TRUE);
+  }
 
-    public function test_PersonNameNULL()
-    {
-        $n = new PersonName();
+  public function test_PersonNameNULL ()
+  {
+    $n = new PersonName();
 
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $el  = $dom->createElement('el');
-        $dom->appendChild($el);
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('the element does not contains any parts nor string');
-        $n->setValueToElement($el, $dom);
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $el  = $dom->createElement('el');
+    $dom->appendChild($el);
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('the element does not contains any parts nor string');
+    $n->setValueToElement($el, $dom);
 
-    }
+  }
+
+  public function test_PersonNameMultipleFamilyNames ()
+  {
+    $expected    = <<<'CDA'
+<el>
+  <name>
+   <given>Ella</given>
+   <family qualifier="SP">PADEBEAUL</family>
+   <family qualifier="BR">PADECHENSE</family>
+  </name>
+</el>
+CDA;
+
+    $person = (new PersonName())
+      ->addPart(PersonName::FIRST_NAME,'Ella')
+      ->addPart(PersonName::LAST_NAME,'PADEBEAUL','SP')
+      ->addPart(PersonName::LAST_NAME,'PADECHENSE','BR');
+
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $el  = $dom->createElement('el');
+    $dom->appendChild($el);
+    $person->setValueToElement($el, $dom);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedEl = $expectedDoc
+      ->getElementsByTagName('el')
+      ->item(0);
+    $this->assertEqualXMLStructure($expectedEl, $el, TRUE);
+  }
 }

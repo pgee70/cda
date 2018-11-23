@@ -69,7 +69,7 @@ class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
   const NS_CDA     = '';
   const NS_CDA_URI = 'urn:hl7-org:v3';
   const NS_XSI_URI = 'http://www.w3.org/2001/XMLSchema-instance';
-  const VERSION    = '1.0.4';
+  const VERSION    = '1.0.5';
 
   use RealmCodesTrait;
   use TypeIdTrait;
