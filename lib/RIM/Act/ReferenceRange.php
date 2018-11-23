@@ -43,32 +43,32 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class ReferenceRange extends AbstractElement implements TypeCodeInterface
 {
-    use ObservationRangeTrait;
-    use TypeCodeTrait;
+  use ObservationRangeTrait;
+  use TypeCodeTrait;
 
-    public function __construct(ObservationRange $observation_range)
-    {
-        $this->setObservationRange($observation_range)
-          ->setAcceptableTypeCodes(['', TypeCodeInterface::HAS_REFERENCE_VALUES])
-          ->setTypeCode('');
-    }
+  public function __construct (ObservationRange $observation_range)
+  {
+    $this->setObservationRange($observation_range)
+      ->setAcceptableTypeCodes(['', TypeCodeInterface::HAS_REFERENCE_VALUES])
+      ->setTypeCode('');
+  }
 
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getObservationRange()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getObservationRange()->toDOMElement($doc));
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'referenceRange';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'referenceRange';
+  }
 }

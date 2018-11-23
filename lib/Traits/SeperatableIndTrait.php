@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\SeperatableInd;
  */
 trait SeperatableIndTrait
 {
-    /** @var SeperatableInd */
-    private $seperatableInd;
+  /** @var SeperatableInd */
+  private $seperatableInd;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderSeperatableInd(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderSeperatableInd (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasSeperatableInd())
     {
-        if ($this->hasSeperatableInd()) {
-            $el->appendChild($this->getSeperatableInd()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getSeperatableInd()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasSeperatableInd(): bool
-    {
-        return null !== $this->seperatableInd;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSeperatableInd (): bool
+  {
+    return NULL !== $this->seperatableInd;
+  }
 
-    /**
-     * @return SeperatableInd
-     */
-    public function getSeperatableInd(): SeperatableInd
-    {
-        return $this->seperatableInd;
-    }
+  /**
+   * @return SeperatableInd
+   */
+  public function getSeperatableInd (): SeperatableInd
+  {
+    return $this->seperatableInd;
+  }
 
-    /**
-     * @param Boolean $boolean
-     *
-     * @return self
-     */
-    public function setSeperatableInd(Boolean $boolean): self
-    {
-        $this->seperatableInd = new SeperatableInd($boolean);
-        return $this;
-    }
+  /**
+   * @param Boolean $boolean
+   *
+   * @return self
+   */
+  public function setSeperatableInd (Boolean $boolean): self
+  {
+    $this->seperatableInd = new SeperatableInd($boolean);
+    return $this;
+  }
 }

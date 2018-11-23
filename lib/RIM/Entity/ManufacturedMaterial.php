@@ -47,41 +47,42 @@ use i3Soft\CDA\Traits\CodeTrait;
  */
 class ManufacturedMaterial extends DrugOrMaterial
 {
-    use CodeTrait;
+  use CodeTrait;
 
-    /**
-     * ManufacturedLabeledDrug constructor.
-     *
-     * @param CodedWithEquivalents $code
-     */
-    public function __construct($code = null)
+  /**
+   * ManufacturedLabeledDrug constructor.
+   *
+   * @param CodedWithEquivalents $code
+   */
+  public function __construct ($code = NULL)
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassManufacturedMaterial)
+      ->setClassCode(ClassCodeInterface::MANUFACTURED_MATERIAL);
+    if ($code && $code instanceof Code)
     {
-        $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassManufacturedMaterial)
-          ->setClassCode(ClassCodeInterface::MANUFACTURED_MATERIAL);
-        if ($code && $code instanceof Code) {
-            $this->setCode($code);
-        }
+      $this->setCode($code);
     }
+  }
 
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderCode($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderCode($el, $doc);
+    return $el;
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'manufacturedMaterial';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'manufacturedMaterial';
+  }
 }

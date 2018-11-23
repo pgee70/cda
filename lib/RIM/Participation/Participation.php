@@ -34,5 +34,5 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
  */
 abstract class Participation extends AbstractElement implements TypeCodeInterface
 {
-    use TypeCodeTrait;
+  use TypeCodeTrait;
 }

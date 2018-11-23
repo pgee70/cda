@@ -52,54 +52,54 @@ use i3Soft\CDA\Traits\QualifierTrait;
  */
 class TargetSiteCode Extends Code
 {
-    use QualifierTrait;
+  use QualifierTrait;
 
-    /** @noinspection ReturnTypeCanBeDeclaredInspection */
+  /** @noinspection ReturnTypeCanBeDeclaredInspection */
 
-    /**
-     * @param string $code
-     * @param string $displayName
-     *
-     * @return self
-     */
-    public static function NCTIS(string $code, string $displayName)
-    {
-        return new self(new CodedValue($code, $displayName, '1.2.36.1.2001.1001.101', 'NCTIS Data Components'));
-    }
+  /**
+   * @param string $code
+   * @param string $displayName
+   *
+   * @return self
+   */
+  public static function NCTIS (string $code, string $displayName)
+  {
+    return new self(new CodedValue($code, $displayName, '1.2.36.1.2001.1001.101', 'NCTIS Data Components'));
+  }
 
-    /** @noinspection ReturnTypeCanBeDeclaredInspection */
+  /** @noinspection ReturnTypeCanBeDeclaredInspection */
 
-    /**
-     * @param string $code
-     * @param string $displayName
-     *
-     * @return self
-     */
-    public static function SNOMED(string $code, string $displayName)
-    {
-        return new self(new CodedValue($code, $displayName, '2.16.840.1.113883.6.96', 'SNOMED CT'));
-    }
+  /**
+   * @param string $code
+   * @param string $displayName
+   *
+   * @return self
+   */
+  public static function SNOMED (string $code, string $displayName)
+  {
+    return new self(new CodedValue($code, $displayName, '2.16.840.1.113883.6.96', 'SNOMED CT'));
+  }
 
-    public function getElementTag(): string
-    {
-        return 'targetSiteCode';
-    }
+  public function getElementTag (): string
+  {
+    return 'targetSiteCode';
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $parameters = $this->codedValue
-          ? ['codedValue']
-          : [];
-        $el         = $this->createElement($doc, $parameters);
-        $this->renderQualifier($el, $doc)
-          ->renderOriginalText($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $parameters = $this->codedValue
+      ? ['codedValue']
+      : [];
+    $el         = $this->createElement($doc, $parameters);
+    $this->renderQualifier($el, $doc)
+      ->renderOriginalText($el, $doc);
+    return $el;
+  }
 
 
 }

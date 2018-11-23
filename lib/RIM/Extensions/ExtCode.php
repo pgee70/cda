@@ -47,37 +47,39 @@ use i3Soft\CDA\Elements\OriginalText;
 class ExtCode extends Code
 {
 
-    /** @noinspection PhpMissingParentConstructorInspection */
-    /** @noinspection MagicMethodsValidityInspection */
-    public function __construct($original_text = null, $coded_value = null)
+  /** @noinspection PhpMissingParentConstructorInspection */
+  /** @noinspection MagicMethodsValidityInspection */
+  public function __construct ($original_text = NULL, $coded_value = NULL)
+  {
+    if ($original_text && $original_text instanceof OriginalText)
     {
-        if ($original_text && $original_text instanceof OriginalText) {
-            $this->setOriginalText($original_text);
-        }
-        if ($coded_value && $coded_value instanceof CodedValue) {
-            $this->setCodedValue($coded_value);
-        }
+      $this->setOriginalText($original_text);
     }
+    if ($coded_value && $coded_value instanceof CodedValue)
+    {
+      $this->setCodedValue($coded_value);
+    }
+  }
 
-    /**
-     * @return string
-     */
-    public function getElementTag(): string
-    {
-        return 'ext:code';
-    }
+  /**
+   * @return string
+   */
+  public function getElementTag (): string
+  {
+    return 'ext:code';
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderCodedValue($el, $doc)
-          ->renderOriginalText($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderCodedValue($el, $doc)
+      ->renderOriginalText($el, $doc);
+    return $el;
+  }
 
 }

@@ -48,10 +48,10 @@ use i3Soft\CDA\tests\MyTestCase;
 class PatientRole_test extends MyTestCase
 {
 
-    public function test_PatientRole()
-    {
-        $pr       = new PatientRole($this->getId(), $this->getPatient());
-        $expected = <<<'CDA'
+  public function test_PatientRole ()
+  {
+    $pr       = new PatientRole($this->getId(), $this->getPatient());
+    $expected = <<<'CDA'
 <patientRole classCode="PAT">
   <id extension="12345" root="2.16.840.1.113883.19.5"/>
   <patient classCode="PSN">
@@ -66,34 +66,34 @@ class PatientRole_test extends MyTestCase
 </patientRole>                
 CDA;
 
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
-        $expectedPatientRole = $expectedDoc
-          ->getElementsByTagName('patientRole')
-          ->item(0);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedPatientRole = $expectedDoc
+      ->getElementsByTagName('patientRole')
+      ->item(0);
 
-        $this->assertEqualXMLStructure($expectedPatientRole,
-          $pr->toDOMElement(new \DOMDocument()), true);
-    }
+    $this->assertEqualXMLStructure($expectedPatientRole,
+      $pr->toDOMElement(new \DOMDocument()), TRUE);
+  }
 
-    protected function getId(): Id
-    {
-        return Id::fromString('2.16.840.1.113883.19.5', '12345');
-    }
+  protected function getId (): Id
+  {
+    return Id::fromString('2.16.840.1.113883.19.5', '12345');
+  }
 
-    protected function getPatient(): Patient
-    {
-        $names = new Set(PersonName::class);
-        $names->add((new PersonName())
-          ->addPart(PersonName::FIRST_NAME, 'Henry')
-          ->addPart(PersonName::LAST_NAME, 'Levin')
-          ->addPart('suffix', 'the 7th'));
-        $patient = new Patient(
-          $names,
-          new TimeStamp(\DateTime::createFromFormat('Y-m-d', '1932-09-24')),
-          new CodedValue('M', '', '2.16.840.1.113883.5.1', '')
-        );
+  protected function getPatient (): Patient
+  {
+    $names = new Set(PersonName::class);
+    $names->add((new PersonName())
+      ->addPart(PersonName::FIRST_NAME, 'Henry')
+      ->addPart(PersonName::LAST_NAME, 'Levin')
+      ->addPart('suffix', 'the 7th'));
+    $patient = new Patient(
+      $names,
+      new TimeStamp(\DateTime::createFromFormat('Y-m-d', '1932-09-24')),
+      new CodedValue('M', '', '2.16.840.1.113883.5.1', '')
+    );
 
-        return $patient;
-    }
+    return $patient;
+  }
 }

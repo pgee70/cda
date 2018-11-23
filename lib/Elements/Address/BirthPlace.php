@@ -45,36 +45,36 @@ use i3Soft\CDA\Traits\PlaceTrait;
  */
 class BirthPlace extends AbstractElement
 {
-    use PlaceTrait;
+  use PlaceTrait;
 
-    /**
-     * BirthPlace constructor.
-     *
-     * @param Place $place
-     */
-    public function __construct(Place $place)
-    {
-        $this->setPlace($place);
-    }
+  /**
+   * BirthPlace constructor.
+   *
+   * @param Place $place
+   */
+  public function __construct (Place $place)
+  {
+    $this->setPlace($place);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getPlace()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getPlace()->toDOMElement($doc));
+    return $el;
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'birthplace';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'birthplace';
+  }
 }

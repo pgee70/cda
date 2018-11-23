@@ -38,16 +38,16 @@ use i3Soft\CDA\DataType\Code\CodedSimple;
  */
 class StatusCodeElement extends Code
 {
-    public static function Completed(): StatusCodeElement
-    {
-        return new self(new CodedSimple('completed'));
-    }
+  public static function Completed (): StatusCodeElement
+  {
+    return new self(new CodedSimple('completed'));
+  }
 
-    /**
-     * @return string
-     */
-    public function getElementTag(): string
-    {
-        return 'statusCode';
-    }
+  /**
+   * @return string
+   */
+  public function getElementTag (): string
+  {
+    return 'statusCode';
+  }
 }

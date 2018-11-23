@@ -40,53 +40,53 @@ use i3Soft\CDA\DataType\Code\CodedWithEquivalents;
 
 class DischargeDispositionCode extends AbstractElement
 {
-    /** @var CodedWithEquivalents */
-    protected $coded_with_equivalents;
+  /** @var CodedWithEquivalents */
+  protected $coded_with_equivalents;
 
-    /**
-     * DischargeDispositionCode constructor.
-     *
-     * @param CodedWithEquivalents $coded_with_equivalents
-     */
-    public function __construct(CodedWithEquivalents $coded_with_equivalents)
-    {
-        $this->setCodedWithEquivalents($coded_with_equivalents);
-    }
+  /**
+   * DischargeDispositionCode constructor.
+   *
+   * @param CodedWithEquivalents $coded_with_equivalents
+   */
+  public function __construct (CodedWithEquivalents $coded_with_equivalents)
+  {
+    $this->setCodedWithEquivalents($coded_with_equivalents);
+  }
 
-    /**
-     * @return CodedWithEquivalents
-     */
-    public function getCodedWithEquivalents(): CodedWithEquivalents
-    {
-        return $this->coded_with_equivalents;
-    }
+  /**
+   * @return CodedWithEquivalents
+   */
+  public function getCodedWithEquivalents (): CodedWithEquivalents
+  {
+    return $this->coded_with_equivalents;
+  }
 
-    /**
-     * @param CodedWithEquivalents $coded_with_equivalents
-     *
-     * @return DischargeDispositionCode
-     */
-    public function setCodedWithEquivalents(CodedWithEquivalents $coded_with_equivalents): self
-    {
-        $this->coded_with_equivalents = $coded_with_equivalents;
-        return $this;
-    }
+  /**
+   * @param CodedWithEquivalents $coded_with_equivalents
+   *
+   * @return DischargeDispositionCode
+   */
+  public function setCodedWithEquivalents (CodedWithEquivalents $coded_with_equivalents): self
+  {
+    $this->coded_with_equivalents = $coded_with_equivalents;
+    return $this;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, array('coded_with_equivalents'));
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, array('coded_with_equivalents'));
+  }
 
-    /**
-     * @return string
-     */
-    public function getElementTag(): string
-    {
-        return 'dischargeDispositionCode';
-    }
+  /**
+   * @return string
+   */
+  public function getElementTag (): string
+  {
+    return 'dischargeDispositionCode';
+  }
 }

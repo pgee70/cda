@@ -54,81 +54,90 @@ use i3Soft\CDA\Traits\TelecomsTrait;
  */
 class AssignedAuthor extends Role
 {
-    use AddrsTrait;
-    use TelecomsTrait;
-    use AssignedPersonTrait;
-    use RepresentedOrganizationTrait;
-    use AsEntityIdentifierTrait;
-    use OccupationTrait;
-    use AuthoringDeviceTrait;
+  use AddrsTrait;
+  use TelecomsTrait;
+  use AssignedPersonTrait;
+  use RepresentedOrganizationTrait;
+  use AsEntityIdentifierTrait;
+  use OccupationTrait;
+  use AuthoringDeviceTrait;
 
-    /**
-     *
-     * @param Id        $id
-     * @param Code      $occupation
-     * @param Addr|null $addr
-     * @param array     $telecoms
-     * @param null      $assigned_person
-     */
-    public function __construct(
-      $id = null,
-      $occupation = null,
-      $addr = null,
-      array $telecoms = [],
-      $assigned_person = null
-    ) {
-        if ($id instanceof Id) {
-            $this->addId($id);
-        }
-
-        if ($occupation instanceof Code) {
-            $this->setOccupation($occupation);
-        }
-
-        if ($addr instanceof Addr) {
-            $this->addAddr($addr);
-        }
-
-        if ($telecoms) {
-            $this->setTelecoms($telecoms);
-        }
-        if ($assigned_person instanceof AssignedPerson) {
-            $this->setAssignedPerson($assigned_person);
-        }
-        $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassAssociative)
-          ->setClassCode(ClassCodeInterface::ASSIGNED);
-    }
-
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   *
+   * @param Id        $id
+   * @param Code      $occupation
+   * @param Addr|null $addr
+   * @param array     $telecoms
+   * @param null      $assigned_person
+   */
+  public function __construct (
+    $id = NULL,
+    $occupation = NULL,
+    $addr = NULL,
+    array $telecoms = [],
+    $assigned_person = NULL
+  ) {
+    if ($id instanceof Id)
     {
-        $el = $this->createElement($doc);
-
-        $this->renderIds($el, $doc);
-        $this->renderOccupation($el, $doc);
-        $this->renderAddrs($el, $doc);
-        $this->renderTelecoms($el, $doc);
-        if ($this->hasAssignedPerson()) {
-            $this->renderAssignedPerson($el, $doc);
-        } elseif ($this->hasAssignedAuthoringDevice()) {
-            $this->renderAssignedAuthoringDevice($el, $doc);
-        }
-        if ($this->hasRepresentedOrganization()) {
-            $this->renderRepresentedOrganization($el, $doc);
-        }
-        return $el;
+      $this->addId($id);
     }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
+    if ($occupation instanceof Code)
     {
-        return 'assignedAuthor';
+      $this->setOccupation($occupation);
     }
+
+    if ($addr instanceof Addr)
+    {
+      $this->addAddr($addr);
+    }
+
+    if ($telecoms)
+    {
+      $this->setTelecoms($telecoms);
+    }
+    if ($assigned_person instanceof AssignedPerson)
+    {
+      $this->setAssignedPerson($assigned_person);
+    }
+    $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassAssociative)
+      ->setClassCode(ClassCodeInterface::ASSIGNED);
+  }
+
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    $this->renderIds($el, $doc);
+    $this->renderOccupation($el, $doc);
+    $this->renderAddrs($el, $doc);
+    $this->renderTelecoms($el, $doc);
+    if ($this->hasAssignedPerson())
+    {
+      $this->renderAssignedPerson($el, $doc);
+    }
+    elseif ($this->hasAssignedAuthoringDevice())
+    {
+      $this->renderAssignedAuthoringDevice($el, $doc);
+    }
+    if ($this->hasRepresentedOrganization())
+    {
+      $this->renderRepresentedOrganization($el, $doc);
+    }
+    return $el;
+  }
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'assignedAuthor';
+  }
 }

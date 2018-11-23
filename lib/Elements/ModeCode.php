@@ -38,12 +38,12 @@ namespace i3Soft\CDA\Elements;
 
 class ModeCode extends Code
 {
-    /**
-     * @inheritDoc
-     */
-    public function getElementTag(): string
-    {
-        return 'modeCode';
-    }
+  /**
+   * @inheritDoc
+   */
+  public function getElementTag (): string
+  {
+    return 'modeCode';
+  }
 
 }

@@ -38,143 +38,150 @@ use i3Soft\CDA\RIM\Entity\Organization;
 class ManufacturedProduct extends Role
 {
 
-    /** @var ManufacturedLabeledDrug */
-    protected $manufacturedLabeledDrug;
-    /** @var ManufacturedMaterial */
-    protected $manufacturedMaterial;
+  /** @var ManufacturedLabeledDrug */
+  protected $manufacturedLabeledDrug;
+  /** @var ManufacturedMaterial */
+  protected $manufacturedMaterial;
 
-    /** @var Organization */
-    protected $manufacturerOrganization;
-    protected $manufacturedDrugOrOther;
+  /** @var Organization */
+  protected $manufacturerOrganization;
+  protected $manufacturedDrugOrOther;
 
-    /**
-     * ManufacturedProduct constructor.
-     *
-     * @param null $drug
-     */
-    public function __construct($drug = null)
+  /**
+   * ManufacturedProduct constructor.
+   *
+   * @param null $drug
+   */
+  public function __construct ($drug = NULL)
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassManufacturedProduct)
+      ->setClassCode(ClassCodeInterface::MANUFACTURED_PRODUCT);
+    if ($drug instanceof ManufacturedLabeledDrug)
     {
-        $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassManufacturedProduct)
-          ->setClassCode(ClassCodeInterface::MANUFACTURED_PRODUCT);
-        if ($drug instanceof ManufacturedLabeledDrug) {
-            $this->setManufacturedLabeledDrug($drug);
-        } elseif ($drug instanceof ManufacturedMaterial) {
-            $this->setManufacturedMaterial($drug);
-        }
+      $this->setManufacturedLabeledDrug($drug);
     }
-
-
-    /**
-     * @return bool
-     */
-    public function hasManufacturedDrugOrOther(): bool
+    elseif ($drug instanceof ManufacturedMaterial)
     {
-        return null !== $this->manufacturedDrugOrOther;
+      $this->setManufacturedMaterial($drug);
     }
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        if ($this->hasManufacturedLabeledDrug()) {
-            $el->appendChild($this->getManufacturedLabeledDrug()->toDOMElement($doc));
-        } elseif ($this->hasManufacturedMaterial()) {
-            $el->appendChild($this->getManufacturedMaterial()->toDOMElement($doc));
-        }
-        if ($this->hasManufacturerOrganization()) {
-            $el->appendChild($this->getManufacturerOrganization()->toDOMElement($doc));
-        }
-        return $el;
-    }
 
-    /**
-     * @return bool
-     */
-    public function hasManufacturedLabeledDrug(): bool
-    {
-        return null !== $this->manufacturedLabeledDrug;
-    }
+  /**
+   * @return bool
+   */
+  public function hasManufacturedDrugOrOther (): bool
+  {
+    return NULL !== $this->manufacturedDrugOrOther;
+  }
 
-    /**
-     * @return ManufacturedLabeledDrug
-     */
-    public function getManufacturedLabeledDrug(): ManufacturedLabeledDrug
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    if ($this->hasManufacturedLabeledDrug())
     {
-        return $this->manufacturedLabeledDrug;
+      $el->appendChild($this->getManufacturedLabeledDrug()->toDOMElement($doc));
     }
+    elseif ($this->hasManufacturedMaterial())
+    {
+      $el->appendChild($this->getManufacturedMaterial()->toDOMElement($doc));
+    }
+    if ($this->hasManufacturerOrganization())
+    {
+      $el->appendChild($this->getManufacturerOrganization()->toDOMElement($doc));
+    }
+    return $el;
+  }
 
-    /**
-     * @param ManufacturedLabeledDrug $manufacturedLabeledDrug
-     *
-     * @return ManufacturedProduct
-     */
-    public function setManufacturedLabeledDrug(ManufacturedLabeledDrug $manufacturedLabeledDrug): self
-    {
-        $this->manufacturedLabeledDrug = $manufacturedLabeledDrug;
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasManufacturedLabeledDrug (): bool
+  {
+    return NULL !== $this->manufacturedLabeledDrug;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasManufacturedMaterial(): bool
-    {
-        return null !== $this->manufacturedMaterial;
-    }
+  /**
+   * @return ManufacturedLabeledDrug
+   */
+  public function getManufacturedLabeledDrug (): ManufacturedLabeledDrug
+  {
+    return $this->manufacturedLabeledDrug;
+  }
 
-    /**
-     * @return ManufacturedMaterial
-     */
-    public function getManufacturedMaterial(): ManufacturedMaterial
-    {
-        return $this->manufacturedMaterial;
-    }
+  /**
+   * @param ManufacturedLabeledDrug $manufacturedLabeledDrug
+   *
+   * @return ManufacturedProduct
+   */
+  public function setManufacturedLabeledDrug (ManufacturedLabeledDrug $manufacturedLabeledDrug): self
+  {
+    $this->manufacturedLabeledDrug = $manufacturedLabeledDrug;
+    return $this;
+  }
 
-    /**
-     * @param ManufacturedMaterial $manufacturedMaterial
-     *
-     * @return ManufacturedProduct
-     */
-    public function setManufacturedMaterial(ManufacturedMaterial $manufacturedMaterial): self
-    {
-        $this->manufacturedMaterial = $manufacturedMaterial;
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasManufacturedMaterial (): bool
+  {
+    return NULL !== $this->manufacturedMaterial;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasManufacturerOrganization(): bool
-    {
-        return null !== $this->manufacturerOrganization;
-    }
+  /**
+   * @return ManufacturedMaterial
+   */
+  public function getManufacturedMaterial (): ManufacturedMaterial
+  {
+    return $this->manufacturedMaterial;
+  }
 
-    /**
-     * @return Organization
-     */
-    public function getManufacturerOrganization(): Organization
-    {
-        return $this->manufacturerOrganization;
-    }
+  /**
+   * @param ManufacturedMaterial $manufacturedMaterial
+   *
+   * @return ManufacturedProduct
+   */
+  public function setManufacturedMaterial (ManufacturedMaterial $manufacturedMaterial): self
+  {
+    $this->manufacturedMaterial = $manufacturedMaterial;
+    return $this;
+  }
 
-    /**
-     * @param Organization $manufacturerOrganization
-     */
-    public function setManufacturerOrganization(Organization $manufacturerOrganization)
-    {
-        $this->manufacturerOrganization = $manufacturerOrganization;
-    }
+  /**
+   * @return bool
+   */
+  public function hasManufacturerOrganization (): bool
+  {
+    return NULL !== $this->manufacturerOrganization;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'manufacturedProduct';
-    }
+  /**
+   * @return Organization
+   */
+  public function getManufacturerOrganization (): Organization
+  {
+    return $this->manufacturerOrganization;
+  }
+
+  /**
+   * @param Organization $manufacturerOrganization
+   */
+  public function setManufacturerOrganization (Organization $manufacturerOrganization)
+  {
+    $this->manufacturerOrganization = $manufacturerOrganization;
+  }
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'manufacturedProduct';
+  }
 }

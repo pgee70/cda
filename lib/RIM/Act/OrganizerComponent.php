@@ -56,82 +56,114 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class OrganizerComponent extends AbstractElement implements TypeCodeInterface, ContextConductionIndInterface
 {
-    use TypeCodeTrait;
-    use ActTrait;
-    use SequenceNumberTrait;
-    use SeperatableIndTrait;
-    use EncounterTrait;
-    use ObservationTrait;
-    use ObservationMediaTrait;
-    use OrganizerTrait;
-    use ProcedureTrait;
-    use RegionOfInterestTrait;
-    use SubstanceAdministrationTrait;
-    use SupplyTrait;
-    use ContextConductionIndTrait;
+  use TypeCodeTrait;
+  use ActTrait;
+  use SequenceNumberTrait;
+  use SeperatableIndTrait;
+  use EncounterTrait;
+  use ObservationTrait;
+  use ObservationMediaTrait;
+  use OrganizerTrait;
+  use ProcedureTrait;
+  use RegionOfInterestTrait;
+  use SubstanceAdministrationTrait;
+  use SupplyTrait;
+  use ContextConductionIndTrait;
 
-    public function __construct($choice = null)
+  public function __construct ($choice = NULL)
+  {
+    $this->setAcceptableTypeCodes(TypeCodeInterface::ActRelationshipHasComponent)
+      ->setTypeCode('');
+    if ($choice instanceOf Act)
     {
-        $this->setAcceptableTypeCodes(TypeCodeInterface::ActRelationshipHasComponent)
-          ->setTypeCode('');
-        if ($choice instanceOf Act) {
-            $this->setAct($choice);
-        } elseif ($choice instanceOf Encounter) {
-            $this->setEncounter($choice);
-        } elseif ($choice instanceOf Observation) {
-            $this->setObservation($choice);
-        } elseif ($choice instanceOf ObservationMedia) {
-            $this->setObservationMedia($choice);
-        } elseif ($choice instanceOf Organizer) {
-            $this->setOrganizer($choice);
-        } elseif ($choice instanceOf Procedure) {
-            $this->setProcedure($choice);
-        } elseif ($choice instanceOf SubstanceAdministration) {
-            $this->setSubstanceAdministration($choice);
-        }
+      $this->setAct($choice);
+    }
+    elseif ($choice instanceOf Encounter)
+    {
+      $this->setEncounter($choice);
+    }
+    elseif ($choice instanceOf Observation)
+    {
+      $this->setObservation($choice);
+    }
+    elseif ($choice instanceOf ObservationMedia)
+    {
+      $this->setObservationMedia($choice);
+    }
+    elseif ($choice instanceOf Organizer)
+    {
+      $this->setOrganizer($choice);
+    }
+    elseif ($choice instanceOf Procedure)
+    {
+      $this->setProcedure($choice);
+    }
+    elseif ($choice instanceOf SubstanceAdministration)
+    {
+      $this->setSubstanceAdministration($choice);
+    }
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    if ($this->hasSequenceNumber())
+    {
+      $el->appendChild($this->getSequenceNumber()->toDOMElement($doc));
+    }
+    if ($this->hasSeperatableInd())
+    {
+      $el->appendChild($this->getSeperatableInd()->toDOMElement($doc));
+    }
+    if ($this->hasAct())
+    {
+      $el->appendChild($this->getAct()->toDOMElement($doc));
+    }
+    elseif ($this->hasEncounter())
+    {
+      $el->appendChild($this->getEncounter()->toDOMElement($doc));
+    }
+    elseif ($this->hasObservation())
+    {
+      $el->appendChild($this->getObservation()->toDOMElement($doc));
+    }
+    elseif ($this->hasObservationMedia())
+    {
+      $el->appendChild($this->getObservationMedia()->toDOMElement($doc));
+    }
+    elseif ($this->hasOrganizer())
+    {
+      $el->appendChild($this->getOrganizer()->toDOMElement($doc));
+    }
+    elseif ($this->hasProcedure())
+    {
+      $el->appendChild($this->getProcedure()->toDOMElement($doc));
+    }
+    elseif ($this->hasRegionOfInterest())
+    {
+      $el->appendChild($this->getRegionOfInterest()->toDOMElement($doc));
+    }
+    elseif ($this->hasSubstanceAdministration())
+    {
+      $el->appendChild($this->getSubstanceAdministration()->toDOMElement($doc));
+    }
+    elseif ($this->hasSupply())
+    {
+      $el->appendChild($this->getSupply()->toDOMElement($doc));
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        if ($this->hasSequenceNumber()) {
-            $el->appendChild($this->getSequenceNumber()->toDOMElement($doc));
-        }
-        if ($this->hasSeperatableInd()) {
-            $el->appendChild($this->getSeperatableInd()->toDOMElement($doc));
-        }
-        if ($this->hasAct()) {
-            $el->appendChild($this->getAct()->toDOMElement($doc));
-        } elseif ($this->hasEncounter()) {
-            $el->appendChild($this->getEncounter()->toDOMElement($doc));
-        } elseif ($this->hasObservation()) {
-            $el->appendChild($this->getObservation()->toDOMElement($doc));
-        } elseif ($this->hasObservationMedia()) {
-            $el->appendChild($this->getObservationMedia()->toDOMElement($doc));
-        } elseif ($this->hasOrganizer()) {
-            $el->appendChild($this->getOrganizer()->toDOMElement($doc));
-        } elseif ($this->hasProcedure()) {
-            $el->appendChild($this->getProcedure()->toDOMElement($doc));
-        } elseif ($this->hasRegionOfInterest()) {
-            $el->appendChild($this->getRegionOfInterest()->toDOMElement($doc));
-        } elseif ($this->hasSubstanceAdministration()) {
-            $el->appendChild($this->getSubstanceAdministration()->toDOMElement($doc));
-        } elseif ($this->hasSupply()) {
-            $el->appendChild($this->getSupply()->toDOMElement($doc));
-        }
-
-        return $el;
-    }
+    return $el;
+  }
 
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'component';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'component';
+  }
 }

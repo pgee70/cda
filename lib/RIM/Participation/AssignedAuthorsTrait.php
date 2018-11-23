@@ -36,51 +36,53 @@ use i3Soft\CDA\RIM\Role\AssignedAuthor;
  */
 trait AssignedAuthorsTrait
 {
-    /** @var AssignedAuthor[] */
-    private $assignedAuthors = array();
+  /** @var AssignedAuthor[] */
+  private $assignedAuthors = array();
 
-    /**
-     * @return array
-     */
-    public function getAssignedAuthors(): array
+  /**
+   * @return array
+   */
+  public function getAssignedAuthors (): array
+  {
+    return $this->assignedAuthors;
+  }
+
+  /**
+   * @param $assignedAuthors
+   *
+   * @return self
+   */
+  public function setAssignedAuthors ($assignedAuthors): self
+  {
+    foreach ($assignedAuthors as $assigned_author)
     {
-        return $this->assignedAuthors;
+      if ($assigned_author instanceof AssignedAuthor)
+      {
+        $this->addAssignedAuthor($assigned_author);
+      }
     }
 
-    /**
-     * @param $assignedAuthors
-     *
-     * @return self
-     */
-    public function setAssignedAuthors($assignedAuthors): self
-    {
-        foreach ($assignedAuthors as $assigned_author) {
-            if ($assigned_author instanceof AssignedAuthor) {
-                $this->addAssignedAuthor($assigned_author);
-            }
-        }
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * @param AssignedAuthor $assigned_author
+   *
+   * @return AssignedAuthorsTrait
+   */
+  public function addAssignedAuthor (AssignedAuthor $assigned_author): self
+  {
+    $this->assignedAuthors[] = $assigned_author;
+    return $this;
+  }
 
-    /**
-     * @param AssignedAuthor $assigned_author
-     *
-     * @return AssignedAuthorsTrait
-     */
-    public function addAssignedAuthor(AssignedAuthor $assigned_author): self
-    {
-        $this->assignedAuthors[] = $assigned_author;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasAssignedAuthors(): bool
-    {
-        return \count($this->assignedAuthors) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAssignedAuthors (): bool
+  {
+    return \count($this->assignedAuthors) > 0;
+  }
 
 
 }

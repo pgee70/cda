@@ -52,50 +52,50 @@ use i3Soft\CDA\Traits\SoftwareNameTrait;
  */
 class AuthoringDevice extends AbstractElement implements ClassCodeInterface, DeterminerCodeInterface
 {
-    use CodeTrait;
-    use ManufacturerModelNameTrait;
-    use SoftwareNameTrait;
-    use AsMaintainedEntitiesTrait;
-    use DeterminerCodeTrait;
-    use ClassCodeTrait;
+  use CodeTrait;
+  use ManufacturerModelNameTrait;
+  use SoftwareNameTrait;
+  use AsMaintainedEntitiesTrait;
+  use DeterminerCodeTrait;
+  use ClassCodeTrait;
 
-    /**
-     * AuthoringDevice constructor.
-     */
-    public function __construct()
-    {
-        $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassDevice)
-          ->setClassCode(ClassCodeInterface::CLASS_DEVICE)
-          ->setDeterminerCode(DeterminerCodeInterface::INSTANCE_);
-    }
-
-
-    /**
-     * Transforms the element into a DOMElement, which will be included
-     * into the final CDA XML
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderCode($el, $doc)
-          ->renderManufacturerModelName($el, $doc)
-          ->renderSoftwareName($el, $doc)
-          ->renderAsMaintainedEntity($el, $doc);
-        return $el;
-    }
+  /**
+   * AuthoringDevice constructor.
+   */
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassDevice)
+      ->setClassCode(ClassCodeInterface::CLASS_DEVICE)
+      ->setDeterminerCode(DeterminerCodeInterface::INSTANCE_);
+  }
 
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'authoringDevice';
-    }
+  /**
+   * Transforms the element into a DOMElement, which will be included
+   * into the final CDA XML
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderCode($el, $doc)
+      ->renderManufacturerModelName($el, $doc)
+      ->renderSoftwareName($el, $doc)
+      ->renderAsMaintainedEntity($el, $doc);
+    return $el;
+  }
+
+
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'authoringDevice';
+  }
 }

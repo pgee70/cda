@@ -31,24 +31,24 @@ namespace i3Soft\CDA\Elements\Html;
  */
 class Title extends AbstractHtmlElement
 {
-    public static function fromString(string $content): Title
-    {
-        return new self($content);
-    }
+  public static function fromString (string $content): Title
+  {
+    return new self($content);
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'title';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'title';
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function canAddTag($choice): bool
-    {
-        return false;
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function canAddTag ($choice): bool
+  {
+    return FALSE;
+  }
 }

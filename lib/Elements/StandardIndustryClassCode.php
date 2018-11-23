@@ -38,12 +38,12 @@ namespace i3Soft\CDA\Elements;
 
 class StandardIndustryClassCode extends Code
 {
-    /**
-     * @inheritDoc
-     */
-    public function getElementTag(): string
-    {
-        return 'standardIndustryClassCode';
-    }
+  /**
+   * @inheritDoc
+   */
+  public function getElementTag (): string
+  {
+    return 'standardIndustryClassCode';
+  }
 
 }

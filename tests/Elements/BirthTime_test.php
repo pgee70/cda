@@ -47,19 +47,19 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class BirthTime_test extends MyTestCase
 {
-    public function test_Code()
-    {
-        $expected = <<<XML
+  public function test_Code ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <birthTime value="20100101000000"/>
 
 XML;
 
-        $birth_time = new BirthTime(new TimeStamp(new \DateTime('2010-01-01', new \DateTimeZone('Australia/Hobart'))));
-        $dom        = new \DOMDocument('1.0', 'UTF-8');
-        $doc        = $birth_time->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $birth_time = new BirthTime(new TimeStamp(new \DateTime('2010-01-01', new \DateTimeZone('Australia/Hobart'))));
+    $dom        = new \DOMDocument('1.0', 'UTF-8');
+    $doc        = $birth_time->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

@@ -46,40 +46,41 @@ use i3Soft\CDA\Traits\ExtCodeTrait;
  */
 class AsQualifications extends Entity
 {
-    use ExtCodeTrait;
+  use ExtCodeTrait;
 
-    /**
-     * AsQualifications constructor.
-     *
-     * @param null $ext_code
-     */
-    public function __construct($ext_code = null)
+  /**
+   * AsQualifications constructor.
+   *
+   * @param null $ext_code
+   */
+  public function __construct ($ext_code = NULL)
+  {
+    $this->setAcceptableClassCodes(array('', ClassCodeInterface::QUALIFICATION))
+      ->setClassCode(ClassCodeInterface::QUALIFICATION);
+    if ($ext_code)
     {
-        $this->setAcceptableClassCodes(array('', ClassCodeInterface::QUALIFICATION))
-          ->setClassCode(ClassCodeInterface::QUALIFICATION);
-        if ($ext_code) {
-            $this->setExtCode($ext_code);
-        }
+      $this->setExtCode($ext_code);
     }
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderExtCode($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderExtCode($el, $doc);
+    return $el;
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:asQualifications';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:asQualifications';
+  }
 }

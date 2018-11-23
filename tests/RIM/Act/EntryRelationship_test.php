@@ -52,12 +52,12 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class EntryRelationship_test extends MyTestCase
 {
-    /**
-     * see page 118 of EventSummary_CDAImplementationGuide_v1.3.pdf
-     */
-    public function test_tag()
-    {
-        $expected = <<<'CDA'
+  /**
+   * see page 118 of EventSummary_CDAImplementationGuide_v1.3.pdf
+   */
+  public function test_tag ()
+  {
+    $expected = <<<'CDA'
 <entryRelationship inversionInd="true" typeCode="MFST">
     <observation classCode="OBS" moodCode="EVN">
       <id root="547FF5C0-7F8A-11E0-AE79-EE2B4924019B" />
@@ -69,22 +69,22 @@ class EntryRelationship_test extends MyTestCase
 </entryRelationship>
 
 CDA;
-        $tag      = (new EntryRelationship(
-          (new Observation(
-            Code::SNOMED('39579001', 'Anaphylaxis'),
-            Value::SNOMED('419076005', 'Allergic reaction')
-          ))
-            ->setMoodCode(MoodCodeInterface::EVENT)
-            ->addId(Id::fromString('547FF5C0-7F8A-11E0-AE79-EE2B4924019B'))
-        ))->setTypeCode(TypeCodeInterface::MANIFESTATION)
-          ->setInversionInd(true);
+    $tag      = (new EntryRelationship(
+      (new Observation(
+        Code::SNOMED('39579001', 'Anaphylaxis'),
+        Value::SNOMED('419076005', 'Allergic reaction')
+      ))
+        ->setMoodCode(MoodCodeInterface::EVENT)
+        ->addId(Id::fromString('547FF5C0-7F8A-11E0-AE79-EE2B4924019B'))
+    ))->setTypeCode(TypeCodeInterface::MANIFESTATION)
+      ->setInversionInd(TRUE);
 
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $tag->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $tag->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }
 

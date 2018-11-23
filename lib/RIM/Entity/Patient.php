@@ -31,11 +31,11 @@ namespace i3Soft\CDA\RIM\Entity;
  */
 class Patient extends Person
 {
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'patient';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'patient';
+  }
 }

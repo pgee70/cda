@@ -32,65 +32,69 @@ use i3Soft\CDA\Elements\TargetSiteCode;
 
 trait TargetSiteCodesTrait
 {
-    /** @var array */
-    private $targetSiteCodes = [];
+  /** @var array */
+  private $targetSiteCodes = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderTargetSiteCodes(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderTargetSiteCodes (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasTargetSiteCodes())
     {
-        if ($this->hasTargetSiteCodes()) {
-            foreach ($this->getTargetSiteCodes() as $target_site_code) {
-                $el->appendChild($target_site_code->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getTargetSiteCodes() as $target_site_code)
+      {
+        $el->appendChild($target_site_code->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasTargetSiteCodes(): bool
-    {
-        return \count($this->targetSiteCodes) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasTargetSiteCodes (): bool
+  {
+    return \count($this->targetSiteCodes) > 0;
+  }
 
-    /**
-     * @return TargetSiteCode[]
-     */
-    public function getTargetSiteCodes(): array
-    {
-        return $this->targetSiteCodes;
-    }
+  /**
+   * @return TargetSiteCode[]
+   */
+  public function getTargetSiteCodes (): array
+  {
+    return $this->targetSiteCodes;
+  }
 
-    /**
-     * @param TargetSiteCode[] $targetSiteCodes
-     *
-     * @return self
-     */
-    public function setTargetSiteCodes(array $targetSiteCodes): self
+  /**
+   * @param TargetSiteCode[] $targetSiteCodes
+   *
+   * @return self
+   */
+  public function setTargetSiteCodes (array $targetSiteCodes): self
+  {
+    foreach ($targetSiteCodes as $target_site_code)
     {
-        foreach ($targetSiteCodes as $target_site_code) {
-            if ($target_site_code instanceof TargetSiteCode) {
-                $this->addTargetSiteCode($target_site_code);
-            }
-        }
-        $this->targetSiteCodes = $targetSiteCodes;
-        return $this;
+      if ($target_site_code instanceof TargetSiteCode)
+      {
+        $this->addTargetSiteCode($target_site_code);
+      }
     }
+    $this->targetSiteCodes = $targetSiteCodes;
+    return $this;
+  }
 
-    /**
-     * @param TargetSiteCode $target_site_code
-     *
-     * @return self
-     */
-    public function addTargetSiteCode(TargetSiteCode $target_site_code): self
-    {
-        $this->targetSiteCodes[] = $target_site_code;
-        return $this;
-    }
+  /**
+   * @param TargetSiteCode $target_site_code
+   *
+   * @return self
+   */
+  public function addTargetSiteCode (TargetSiteCode $target_site_code): self
+  {
+    $this->targetSiteCodes[] = $target_site_code;
+    return $this;
+  }
 }

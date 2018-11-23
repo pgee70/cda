@@ -40,75 +40,82 @@ use i3Soft\CDA\Elements\EffectiveTime;
  */
 trait EffectiveTimesTrait
 {
-    /** @var  EffectiveTime[] */
-    private $effectiveTimes = [];
+  /** @var  EffectiveTime[] */
+  private $effectiveTimes = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderEffectiveTimes(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderEffectiveTimes (\DOMElement $el, \DOMDocument $doc): self
+  {
+    $first = TRUE;
+    if ($this->hasEffectiveTimes())
     {
-        $first = true;
-        if ($this->hasEffectiveTimes()) {
-            foreach ($this->getEffectiveTimes() as $effective_time) {
-                if (!$first) {
-                    $effective_time->setOperatorAppend();
-                }
-
-                $el->appendChild($effective_time->toDOMElement($doc));
-
-                $first = false;
-            }
+      foreach ($this->getEffectiveTimes() as $effective_time)
+      {
+        if (!$first)
+        {
+          $effective_time->setOperatorAppend();
         }
-        return $this;
-    }
 
-    /**
-     * @return bool
-     */
-    public function hasEffectiveTimes(): bool
-    {
-        return \count($this->effectiveTimes) > 0;
-    }
+        $el->appendChild($effective_time->toDOMElement($doc));
 
-    /**
-     * @return EffectiveTime[]
-     */
-    public function getEffectiveTimes(): array
-    {
-        return $this->effectiveTimes;
+        $first = FALSE;
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param EffectiveTime[] $effectiveTimes
-     *
-     * @return self
-     */
-    public function setEffectiveTimes(array $effectiveTimes): self
-    {
-        foreach ($effectiveTimes as $effective_time) {
-            $this->addEffectiveTime($effective_time);
-        }
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasEffectiveTimes (): bool
+  {
+    return \count($this->effectiveTimes) > 0;
+  }
 
-    /**
-     * @param $in
-     *
-     * @return EffectiveTimesTrait
-     */
-    public function addEffectiveTime($in): self
+  /**
+   * @return EffectiveTime[]
+   */
+  public function getEffectiveTimes (): array
+  {
+    return $this->effectiveTimes;
+  }
+
+  /**
+   * @param EffectiveTime[] $effectiveTimes
+   *
+   * @return self
+   */
+  public function setEffectiveTimes (array $effectiveTimes): self
+  {
+    foreach ($effectiveTimes as $effective_time)
     {
-        if ($in instanceof TimeStamp
-            || $in instanceof PeriodicIntervalOfTime
-            || $in instanceof IntervalOfTime) {
-            $this->effectiveTimes[] = new EffectiveTime($in);
-        } elseif ($in instanceof EffectiveTime) {
-            $this->effectiveTimes[] = $in;
-        }
-        return $this;
+      $this->addEffectiveTime($effective_time);
     }
+    return $this;
+  }
+
+  /**
+   * @param $in
+   *
+   * @return EffectiveTimesTrait
+   */
+  public function addEffectiveTime ($in): self
+  {
+    if ($in instanceof TimeStamp
+        || $in instanceof PeriodicIntervalOfTime
+        || $in instanceof IntervalOfTime)
+    {
+      $this->effectiveTimes[] = new EffectiveTime($in);
+    }
+    elseif ($in instanceof EffectiveTime)
+    {
+      $this->effectiveTimes[] = $in;
+    }
+    return $this;
+  }
 }

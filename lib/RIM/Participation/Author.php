@@ -39,52 +39,54 @@ use i3Soft\CDA\Traits\TimeTrait;
  */
 class Author extends Participation implements ContextControlCodeInterface
 {
-    use FunctionCodedValueTrait;
-    use AssignedAuthorTrait;
-    use TimeTrait;
+  use FunctionCodedValueTrait;
+  use AssignedAuthorTrait;
+  use TimeTrait;
 
-    use ContextControlCodeTrait;
+  use ContextControlCodeTrait;
 
-    /**
-     * Author constructor.
-     *
-     * @param TimeStamp      $time_stamp
-     * @param AssignedAuthor $assignedAuthor
-     */
-    public function __construct(
-      $time_stamp = null,
-      $assignedAuthor = null
-    ) {
-        $this->setAcceptableTypeCodes(['', TypeCodeInterface::AUTHOR])
-          ->setTypeCode(TypeCodeInterface::AUTHOR);
-        if ($time_stamp && $time_stamp instanceof TimeStamp) {
-            $this->setTime($time_stamp);
-        }
-        if ($assignedAuthor && $assignedAuthor instanceof AssignedAuthor) {
-            $this->setAssignedAuthor($assignedAuthor);
-        }
-    }
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   * Author constructor.
+   *
+   * @param TimeStamp      $time_stamp
+   * @param AssignedAuthor $assignedAuthor
+   */
+  public function __construct (
+    $time_stamp = NULL,
+    $assignedAuthor = NULL
+  ) {
+    $this->setAcceptableTypeCodes(['', TypeCodeInterface::AUTHOR])
+      ->setTypeCode(TypeCodeInterface::AUTHOR);
+    if ($time_stamp && $time_stamp instanceof TimeStamp)
     {
-        $el = $this->createElement($doc);
-        $this->renderFunctionCodedValue($el, $doc)
-          ->renderTime($el, $doc)
-          ->renderAssignedAuthor($el, $doc);
-        return $el;
+      $this->setTime($time_stamp);
     }
-
-
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
+    if ($assignedAuthor && $assignedAuthor instanceof AssignedAuthor)
     {
-        return 'author';
+      $this->setAssignedAuthor($assignedAuthor);
     }
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderFunctionCodedValue($el, $doc)
+      ->renderTime($el, $doc)
+      ->renderAssignedAuthor($el, $doc);
+    return $el;
+  }
+
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'author';
+  }
 }

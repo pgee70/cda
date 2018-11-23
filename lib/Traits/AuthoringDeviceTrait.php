@@ -37,48 +37,49 @@ use i3Soft\CDA\Elements\AuthoringDevice;
  */
 trait AuthoringDeviceTrait
 {
-    /** @var AuthoringDevice */
-    private $assignedAuthoringDevice;
+  /** @var AuthoringDevice */
+  private $assignedAuthoringDevice;
 
-    /**
-     * @return bool
-     */
-    public function hasAssignedAuthoringDevice(): bool
-    {
-        return null !== $this->assignedAuthoringDevice;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAssignedAuthoringDevice (): bool
+  {
+    return NULL !== $this->assignedAuthoringDevice;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAssignedAuthoringDevice(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAssignedAuthoringDevice (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAssignedEntity())
     {
-        if ($this->hasAssignedEntity()) {
-            $el->appendChild($this->getAssignedAuthoringDevice()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getAssignedAuthoringDevice()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return AuthoringDevice
-     */
-    public function getAssignedAuthoringDevice(): AuthoringDevice
-    {
-        return $this->assignedAuthoringDevice;
-    }
+  /**
+   * @return AuthoringDevice
+   */
+  public function getAssignedAuthoringDevice (): AuthoringDevice
+  {
+    return $this->assignedAuthoringDevice;
+  }
 
-    /**
-     * @param AuthoringDevice $assignedAuthoringDevice
-     *
-     * @return self
-     */
-    public function setAssignedAuthoringDevice(AuthoringDevice $assignedAuthoringDevice): self
-    {
-        $this->assignedAuthoringDevice = $assignedAuthoringDevice;
-        return $this;
-    }
+  /**
+   * @param AuthoringDevice $assignedAuthoringDevice
+   *
+   * @return self
+   */
+  public function setAssignedAuthoringDevice (AuthoringDevice $assignedAuthoringDevice): self
+  {
+    $this->assignedAuthoringDevice = $assignedAuthoringDevice;
+    return $this;
+  }
 
 }

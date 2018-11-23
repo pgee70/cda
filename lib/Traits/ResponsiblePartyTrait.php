@@ -35,48 +35,49 @@ namespace i3Soft\CDA\Traits;
  */
 trait ResponsiblePartyTrait
 {
-    // todo implement ResponsibleParty
-    /** @var ResponsibleParty */
-    private $responsible_party;
+  // todo implement ResponsibleParty
+  /** @var ResponsibleParty */
+  private $responsible_party;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderResponsibleParty(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderResponsibleParty (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasResponsibleParty())
     {
-        if ($this->hasResponsibleParty()) {
-            $el->appendChild($this->getResponsibleParty()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getResponsibleParty()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasResponsibleParty(): bool
-    {
-        return null !== $this->responsible_party;
-    }
+  /**
+   * @return bool
+   */
+  public function hasResponsibleParty (): bool
+  {
+    return NULL !== $this->responsible_party;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getResponsibleParty()
-    {
-        return $this->responsible_party;
-    }
+  /**
+   * @return mixed
+   */
+  public function getResponsibleParty ()
+  {
+    return $this->responsible_party;
+  }
 
-    /**
-     * @param mixed $responsible_party
-     *
-     * @return self
-     */
-    public function setResponsibleParty($responsible_party): self
-    {
-        $this->responsible_party = $responsible_party;
-        return $this;
-    }
+  /**
+   * @param mixed $responsible_party
+   *
+   * @return self
+   */
+  public function setResponsibleParty ($responsible_party): self
+  {
+    $this->responsible_party = $responsible_party;
+    return $this;
+  }
 }

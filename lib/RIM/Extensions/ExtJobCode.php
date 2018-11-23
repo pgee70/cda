@@ -41,17 +41,17 @@ use i3Soft\CDA\Elements\Code;
 
 class ExtJobCode extends Code
 {
-    public static function Occupation(int $code = 0): Code
-    {
-        $profession = self::get_profession($code);
-        return new self(new CodedValue($code, $profession, self::OCCUPATION_CODE_SYSTEM, self::OCCUPATION_DISPLAY_NAME));
-    }
+  public static function Occupation (int $code = 0): Code
+  {
+    $profession = self::get_profession($code);
+    return new self(new CodedValue($code, $profession, self::OCCUPATION_CODE_SYSTEM, self::OCCUPATION_DISPLAY_NAME));
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function getElementTag(): string
-    {
-        return 'ext:jobCode';
-    }
+  /**
+   * @inheritDoc
+   */
+  public function getElementTag (): string
+  {
+    return 'ext:jobCode';
+  }
 }

@@ -37,48 +37,49 @@ use i3Soft\CDA\DataType\Code\CodedValue;
  */
 trait CodedValueTrait
 {
-    /** @var CodedValue */
-    protected $codedValue;
+  /** @var CodedValue */
+  protected $codedValue;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderCodedValue(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderCodedValue (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasCodedValue())
     {
-        if ($this->hasCodedValue()) {
-            $this->getCodedValue()->setValueToElement($el, $doc);
-        }
-        return $this;
+      $this->getCodedValue()->setValueToElement($el, $doc);
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasCodedValue(): bool
-    {
-        return null !== $this->codedValue;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCodedValue (): bool
+  {
+    return NULL !== $this->codedValue;
+  }
 
-    /**
-     * @return CodedValue
-     */
-    public function getCodedValue(): CodedValue
-    {
-        return $this->codedValue;
-    }
+  /**
+   * @return CodedValue
+   */
+  public function getCodedValue (): CodedValue
+  {
+    return $this->codedValue;
+  }
 
-    /**
-     * @param CodedValue $codedValue
-     *
-     * @return self
-     */
-    public function setCodedValue(CodedValue $codedValue): self
-    {
-        $this->codedValue = $codedValue;
-        return $this;
-    }
+  /**
+   * @param CodedValue $codedValue
+   *
+   * @return self
+   */
+  public function setCodedValue (CodedValue $codedValue): self
+  {
+    $this->codedValue = $codedValue;
+    return $this;
+  }
 
 }

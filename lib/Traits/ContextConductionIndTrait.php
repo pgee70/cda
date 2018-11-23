@@ -32,40 +32,41 @@ use i3Soft\CDA\DataType\Boolean\Boolean;
 
 trait ContextConductionIndTrait
 {
-    /** @var Boolean */
-    private $contextConductionInd;
+  /** @var Boolean */
+  private $contextConductionInd;
 
-    /**
-     * @return bool
-     */
-    public function hasContextConductionInd(): bool
+  /**
+   * @return bool
+   */
+  public function hasContextConductionInd (): bool
+  {
+    return NULL !== $this->contextConductionInd;
+  }
+
+  /**
+   * @return bool
+   */
+  public function getContextConductionInd (): Boolean
+  {
+    /** @noinspection PhpIncompatibleReturnTypeInspection */
+    return $this->contextConductionInd;
+  }
+
+  /** @noinspection ReturnTypeCanBeDeclaredInspection */
+
+  /**
+   * @param bool $contextConductionInd
+   *
+   * @return self
+   */
+  public function setContextConductionInd (bool $contextConductionInd)
+  {
+    if ($contextConductionInd !== TRUE)
     {
-        return null !== $this->contextConductionInd;
+      throw new \InvalidArgumentException('The ContextConditionInd value can only be TRUE!');
     }
+    $this->contextConductionInd = new Boolean('contextConductionInd', $contextConductionInd);
+    return $this;
 
-    /**
-     * @return bool
-     */
-    public function getContextConductionInd(): Boolean
-    {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
-        return $this->contextConductionInd;
-    }
-
-    /** @noinspection ReturnTypeCanBeDeclaredInspection */
-
-    /**
-     * @param bool $contextConductionInd
-     *
-     * @return self
-     */
-    public function setContextConductionInd(bool $contextConductionInd)
-    {
-        if ($contextConductionInd !== true) {
-            throw new \InvalidArgumentException('The ContextConditionInd value can only be TRUE!');
-        }
-        $this->contextConductionInd = new Boolean('contextConductionInd', $contextConductionInd);
-        return $this;
-
-    }
+  }
 }

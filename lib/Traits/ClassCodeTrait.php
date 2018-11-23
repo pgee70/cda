@@ -30,58 +30,59 @@ namespace i3Soft\CDA\Traits;
 
 trait ClassCodeTrait
 {
-    /** @var string */
-    private $class_code = '';
-    /** @var string[] */
-    private $acceptable_class_codes = array('');
+  /** @var string */
+  private $class_code = '';
+  /** @var string[] */
+  private $acceptable_class_codes = array('');
 
-    /**
-     * @return string
-     */
-    public function getClassCode(): string
-    {
-        return $this->class_code;
-    }
+  /**
+   * @return string
+   */
+  public function getClassCode (): string
+  {
+    return $this->class_code;
+  }
 
-    /**
-     * @param string $class_code
-     *
-     * @return self
-     */
-    public function setClassCode(string $class_code): self
+  /**
+   * @param string $class_code
+   *
+   * @return self
+   */
+  public function setClassCode (string $class_code): self
+  {
+    if (\in_array($class_code, $this->getAcceptableClassCodes(), TRUE) === FALSE)
     {
-        if (\in_array($class_code, $this->getAcceptableClassCodes(), true) === false) {
-            throw new \InvalidArgumentException("The class code {$class_code} is not valid!");
-        }
-        $this->class_code = $class_code;
-        return $this;
+      throw new \InvalidArgumentException("The class code {$class_code} is not valid!");
     }
+    $this->class_code = $class_code;
+    return $this;
+  }
 
-    /**
-     * @return array
-     */
-    public function getAcceptableClassCodes(): array
-    {
-        return $this->acceptable_class_codes;
-    }
+  /**
+   * @return array
+   */
+  public function getAcceptableClassCodes (): array
+  {
+    return $this->acceptable_class_codes;
+  }
 
-    /**
-     * @param string[] $acceptable_class_codes
-     *
-     * @return self
-     */
-    public function setAcceptableClassCodes(array $acceptable_class_codes): self
-    {
-        $this->acceptable_class_codes = $acceptable_class_codes;
-        return $this;
-    }
+  /**
+   * @param string[] $acceptable_class_codes
+   *
+   * @return self
+   */
+  public function setAcceptableClassCodes (array $acceptable_class_codes): self
+  {
+    $this->acceptable_class_codes = $acceptable_class_codes;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasClassCode(): bool
-    {
-        return empty($this->class_code) === false;
-    }
+  /**
+   * @return bool
+   */
+  public function hasClassCode (): bool
+  {
+    return empty($this->class_code) === FALSE;
+  }
 
 }

@@ -47,79 +47,80 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 class JobClassCode extends AbstractElement
 {
-    /** CodedValue */
-    const CODE_FULL_TIME   = 'FT';
-    const CODE_PART_TIME   = 'PT';
-    const DESC_FULL_TIME   = 'full-time';
-    const DESC_PART_TIME   = 'part-time';
-    const CODE_SYSTEM      = '2.16.840.1.113883.5.1059';
-    const CODE_SYSTEM_DESC = 'HL7:EmployeeJobClass';
-    protected $coded_value;
+  /** CodedValue */
+  const CODE_FULL_TIME   = 'FT';
+  const CODE_PART_TIME   = 'PT';
+  const DESC_FULL_TIME   = 'full-time';
+  const DESC_PART_TIME   = 'part-time';
+  const CODE_SYSTEM      = '2.16.840.1.113883.5.1059';
+  const CODE_SYSTEM_DESC = 'HL7:EmployeeJobClass';
+  protected $coded_value;
 
-    /**
-     * JobClassCode constructor.
-     *
-     * @param string $code
-     */
-    public function __construct(string $code)
+  /**
+   * JobClassCode constructor.
+   *
+   * @param string $code
+   */
+  public function __construct (string $code)
+  {
+    switch (strtoupper($code))
     {
-        switch (strtoupper($code)) {
-            case self::CODE_FULL_TIME:
-                $this->setCodedValue(new CodedValue(
-                  self::CODE_FULL_TIME,
-                  self::DESC_FULL_TIME,
-                  self::CODE_SYSTEM,
-                  self::CODE_SYSTEM_DESC
-                ));
-            break;
-            case self::CODE_PART_TIME:
-                $this->setCodedValue(new CodedValue(
-                  self::CODE_PART_TIME,
-                  self::DESC_PART_TIME,
-                  self::CODE_SYSTEM,
-                  self::CODE_SYSTEM_DESC
-                ));
-            break;
-            default:
-                throw new \InvalidArgumentException("The code {$code} is not valid!");
-        }
-
+      case self::CODE_FULL_TIME:
+        $this->setCodedValue(new CodedValue(
+          self::CODE_FULL_TIME,
+          self::DESC_FULL_TIME,
+          self::CODE_SYSTEM,
+          self::CODE_SYSTEM_DESC
+        ));
+      break;
+      case self::CODE_PART_TIME:
+        $this->setCodedValue(new CodedValue(
+          self::CODE_PART_TIME,
+          self::DESC_PART_TIME,
+          self::CODE_SYSTEM,
+          self::CODE_SYSTEM_DESC
+        ));
+      break;
+      default:
+        throw new \InvalidArgumentException("The code {$code} is not valid!");
     }
 
-    /**
-     * @return CodedValue
-     */
-    public function getCodedValue(): CodedValue
-    {
-        return $this->coded_value;
-    }
+  }
 
-    /**
-     * @param CodedValue $coded_value
-     *
-     * @return JobClassCode
-     */
-    public function setCodedValue(CodedValue $coded_value): self
-    {
-        $this->coded_value = $coded_value;
-        return $this;
-    }
+  /**
+   * @return CodedValue
+   */
+  public function getCodedValue (): CodedValue
+  {
+    return $this->coded_value;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, ['coded_value']);
-    }
+  /**
+   * @param CodedValue $coded_value
+   *
+   * @return JobClassCode
+   */
+  public function setCodedValue (CodedValue $coded_value): self
+  {
+    $this->coded_value = $coded_value;
+    return $this;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:jobClassCode';
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, ['coded_value']);
+  }
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:jobClassCode';
+  }
 }

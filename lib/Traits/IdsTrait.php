@@ -32,64 +32,68 @@ use i3Soft\CDA\Elements\Id;
 
 trait IdsTrait
 {
-    /** @var Id[] */
-    protected $ids = [];
+  /** @var Id[] */
+  protected $ids = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderIds(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderIds (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasIds())
     {
-        if ($this->hasIds()) {
-            foreach ($this->getIds() as $id) {
-                $el->appendChild($id->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getIds() as $id)
+      {
+        $el->appendChild($id->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasIds(): bool
-    {
-        return \count($this->ids) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasIds (): bool
+  {
+    return \count($this->ids) > 0;
+  }
 
-    /**
-     * @return Id[]
-     */
-    public function getIds(): array
-    {
-        return $this->ids;
-    }
+  /**
+   * @return Id[]
+   */
+  public function getIds (): array
+  {
+    return $this->ids;
+  }
 
-    /**
-     * @param Id[]
-     *
-     * @return self
-     */
-    public function setIds(array $ids): self
+  /**
+   * @param Id[]
+   *
+   * @return self
+   */
+  public function setIds (array $ids): self
+  {
+    foreach ($ids as $id)
     {
-        foreach ($ids as $id) {
-            if ($id instanceof Id) {
-                $this->addId($id);
-            }
-        }
-        return $this;
+      if ($id instanceof Id)
+      {
+        $this->addId($id);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param Id $id
-     *
-     * @return self
-     */
-    public function addId(Id $id): self
-    {
-        $this->ids[] = $id;
-        return $this;
-    }
+  /**
+   * @param Id $id
+   *
+   * @return self
+   */
+  public function addId (Id $id): self
+  {
+    $this->ids[] = $id;
+    return $this;
+  }
 }

@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Act\Authorization;
  */
 trait AuthorizationTrait
 {
-    /** @var Authorization */
-    private $authorization;
+  /** @var Authorization */
+  private $authorization;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return AuthorizationTrait
-     */
-    public function renderAuthorization(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return AuthorizationTrait
+   */
+  public function renderAuthorization (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAuthorization())
     {
-        if ($this->hasAuthorization()) {
-            $el->appendChild($this->getAuthorization()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getAuthorization()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAuthorization(): bool
-    {
-        return null !== $this->authorization;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAuthorization (): bool
+  {
+    return NULL !== $this->authorization;
+  }
 
-    /**
-     * @return Authorization
-     */
-    public function getAuthorization(): Authorization
-    {
-        return $this->authorization;
-    }
+  /**
+   * @return Authorization
+   */
+  public function getAuthorization (): Authorization
+  {
+    return $this->authorization;
+  }
 
-    /**
-     * @param Authorization $authorization
-     *
-     * @return self
-     */
-    public function setAuthorization(Authorization $authorization): self
-    {
-        $this->authorization = $authorization;
-        return $this;
-    }
+  /**
+   * @param Authorization $authorization
+   *
+   * @return self
+   */
+  public function setAuthorization (Authorization $authorization): self
+  {
+    $this->authorization = $authorization;
+    return $this;
+  }
 }

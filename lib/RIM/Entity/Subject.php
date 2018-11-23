@@ -38,11 +38,11 @@ namespace i3Soft\CDA\RIM\Entity;
 
 class Subject extends Person
 {
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'subject';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'subject';
+  }
 }

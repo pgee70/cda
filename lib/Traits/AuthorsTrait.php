@@ -37,65 +37,69 @@ use i3Soft\CDA\RIM\Participation\Author;
  */
 trait AuthorsTrait
 {
-    /** @var  Author[] */
-    private $authors = [];
+  /** @var  Author[] */
+  private $authors = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAuthors(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAuthors (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAuthors())
     {
-        if ($this->hasAuthors()) {
-            foreach ($this->getAuthors() as $author) {
-                $el->appendChild($author->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getAuthors() as $author)
+      {
+        $el->appendChild($author->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAuthors(): bool
-    {
-        return \count($this->authors) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAuthors (): bool
+  {
+    return \count($this->authors) > 0;
+  }
 
-    /**
-     * @return Author[]
-     */
-    public function getAuthors(): array
-    {
-        return $this->authors;
-    }
+  /**
+   * @return Author[]
+   */
+  public function getAuthors (): array
+  {
+    return $this->authors;
+  }
 
-    /**
-     * @param Author[] $authors
-     *
-     * @return self
-     */
-    public function setAuthors(array $authors): self
+  /**
+   * @param Author[] $authors
+   *
+   * @return self
+   */
+  public function setAuthors (array $authors): self
+  {
+    foreach ($authors as $author)
     {
-        foreach ($authors as $author) {
-            if ($author instanceof Author) {
-                $this->addAuthor($author);
-            }
-        }
-        return $this;
+      if ($author instanceof Author)
+      {
+        $this->addAuthor($author);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param Author $author
-     *
-     * @return self
-     */
-    public function addAuthor(Author $author): self
-    {
-        $this->authors[] = $author;
-        return $this;
-    }
+  /**
+   * @param Author $author
+   *
+   * @return self
+   */
+  public function addAuthor (Author $author): self
+  {
+    $this->authors[] = $author;
+    return $this;
+  }
 
 }

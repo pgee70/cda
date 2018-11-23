@@ -35,123 +35,128 @@ use i3Soft\CDA\Interfaces\XSITypeInterface;
  */
 class IntervalOfTime extends AbstractInterval
 {
-    /** @var TimeStamp */
-    private $low;
+  /** @var TimeStamp */
+  private $low;
 
-    /** @var TimeStamp */
-    private $high;
+  /** @var TimeStamp */
+  private $high;
 
-    /** @var bool */
-    private $showXSIType;
+  /** @var bool */
+  private $showXSIType;
 
-    /**
-     * IntervalOfTime constructor.
-     *
-     * @param TimeStamp $low
-     * @param TimeStamp $high
-     */
-    public function __construct($low = null, $high = null)
+  /**
+   * IntervalOfTime constructor.
+   *
+   * @param TimeStamp $low
+   * @param TimeStamp $high
+   */
+  public function __construct ($low = NULL, $high = NULL)
+  {
+    if ($low instanceof TimeStamp)
     {
-        if ($low instanceof TimeStamp) {
-            $this->setLow($low);
-        }
-        if ($high instanceof TimeStamp) {
-            $this->setHigh($high);
-        }
-        $this->setShowXSIType(true);
+      $this->setLow($low);
     }
-
-    /**
-     * @return TimeStamp
-     */
-    public function getLow(): TimeStamp
+    if ($high instanceof TimeStamp)
     {
-        return $this->low;
+      $this->setHigh($high);
     }
+    $this->setShowXSIType(TRUE);
+  }
 
-    /**
-     * @param TimeStamp $low
-     *
-     * @return self
-     */
-    public function setLow(TimeStamp $low): self
-    {
-        $this->low = $low;
-        return $this;
-    }
+  /**
+   * @return TimeStamp
+   */
+  public function getLow (): TimeStamp
+  {
+    return $this->low;
+  }
 
-    /**
-     * @return TimeStamp
-     */
-    public function getHigh(): TimeStamp
-    {
-        return $this->high;
-    }
+  /**
+   * @param TimeStamp $low
+   *
+   * @return self
+   */
+  public function setLow (TimeStamp $low): self
+  {
+    $this->low = $low;
+    return $this;
+  }
 
-    /**
-     * @param TimeStamp $high
-     *
-     * @return self
-     */
-    public function setHigh(TimeStamp $high): self
-    {
-        $this->high = $high;
-        return $this;
-    }
+  /**
+   * @return TimeStamp
+   */
+  public function getHigh (): TimeStamp
+  {
+    return $this->high;
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
-    {
-        if ($this->hasLow()) {
-            $low = $doc->createElement(CDA::NS_CDA . 'low');
-            $this->low->setValueToElement($low, $doc);
-            $el->appendChild($low);
-        }
-        if ($this->hasHigh()) {
-            $high = $doc->createElement(CDA::NS_CDA . 'high');
-            $this->high->setValueToElement($high, $doc);
-            $el->appendChild($high);
-        }
-        if ($this->isShowXSIType()) {
-            $el->setAttribute('xsi:type', XSITypeInterface::INTERVAL_TIMESTAMP);
-        }
-    }
+  /**
+   * @param TimeStamp $high
+   *
+   * @return self
+   */
+  public function setHigh (TimeStamp $high): self
+  {
+    $this->high = $high;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasLow(): bool
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    if ($this->hasLow())
     {
-        return null !== $this->low;
+      $low = $doc->createElement(CDA::getNS() . 'low');
+      $this->low->setValueToElement($low, $doc);
+      $el->appendChild($low);
     }
+    if ($this->hasHigh())
+    {
+      $high = $doc->createElement(CDA::getNS() . 'high');
+      $this->high->setValueToElement($high, $doc);
+      $el->appendChild($high);
+    }
+    if ($this->isShowXSIType())
+    {
+      $el->setAttribute('xsi:type', XSITypeInterface::INTERVAL_TIMESTAMP);
+    }
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasHigh(): bool
-    {
-        return null !== $this->high;
-    }
+  /**
+   * @return bool
+   */
+  public function hasLow (): bool
+  {
+    return NULL !== $this->low;
+  }
 
-    /**
-     * @return bool
-     */
-    public function isShowXSIType(): bool
-    {
-        return $this->showXSIType;
-    }
+  /**
+   * @return bool
+   */
+  public function hasHigh (): bool
+  {
+    return NULL !== $this->high;
+  }
 
-    /**
-     * @param bool $showXSIType
-     *
-     * @return IntervalOfTime
-     */
-    public function setShowXSIType(bool $showXSIType): IntervalOfTime
-    {
-        $this->showXSIType = $showXSIType;
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function isShowXSIType (): bool
+  {
+    return $this->showXSIType;
+  }
+
+  /**
+   * @param bool $showXSIType
+   *
+   * @return IntervalOfTime
+   */
+  public function setShowXSIType (bool $showXSIType): IntervalOfTime
+  {
+    $this->showXSIType = $showXSIType;
+    return $this;
+  }
 }

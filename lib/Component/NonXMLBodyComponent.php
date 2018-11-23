@@ -36,53 +36,53 @@ use i3Soft\CDA\DataType\TextAndMultimedia\EncapsuledData;
  */
 class NonXMLBodyComponent extends AbstractComponent
 {
-    /**
-     *
-     * @var EncapsuledData
-     */
-    private $content;
+  /**
+   *
+   * @var EncapsuledData
+   */
+  private $content;
 
-    /**
-     * @return EncapsuledData
-     */
-    public function getContent(): EncapsuledData
-    {
-        return $this->content;
-    }
+  /**
+   * @return EncapsuledData
+   */
+  public function getContent (): EncapsuledData
+  {
+    return $this->content;
+  }
 
-    /**
-     * @param EncapsuledData $content
-     *
-     * @return self
-     */
-    public function setContent(EncapsuledData $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
+  /**
+   * @param EncapsuledData $content
+   *
+   * @return self
+   */
+  public function setContent (EncapsuledData $content): self
+  {
+    $this->content = $content;
+    return $this;
+  }
 
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $component = $this->createElement($doc);
-        $text      = $doc->createElement(CD::NS_CDA . 'text');
-        $this->content->setValueToElement($text, $doc);
-        $component->appendChild($text);
-        return $component;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $component = $this->createElement($doc);
+    $text      = $doc->createElement(CD::getNS() . 'text');
+    $this->content->setValueToElement($text, $doc);
+    $component->appendChild($text);
+    return $component;
+  }
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'nonXMLBody';
-    }
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'nonXMLBody';
+  }
 }

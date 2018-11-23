@@ -35,59 +35,60 @@ namespace i3Soft\CDA\Traits;
  */
 trait MoodCodeTrait
 {
-    /** @var string */
-    private $mood_code = '';
-    /** @var string[] */
-    private $acceptable_mood_codes = [''];
+  /** @var string */
+  private $mood_code = '';
+  /** @var string[] */
+  private $acceptable_mood_codes = [''];
 
-    /**
-     * @return string
-     */
-    public function getMoodCode(): string
-    {
-        return $this->mood_code;
-    }
+  /**
+   * @return string
+   */
+  public function getMoodCode (): string
+  {
+    return $this->mood_code;
+  }
 
-    /**
-     * @param string $mood_code
-     *
-     * @return self
-     */
-    public function setMoodCode(string $mood_code): self
+  /**
+   * @param string $mood_code
+   *
+   * @return self
+   */
+  public function setMoodCode (string $mood_code): self
+  {
+    if (\in_array($mood_code, $this->getAcceptableMoodCodes(), TRUE) === FALSE)
     {
-        if (\in_array($mood_code, $this->getAcceptableMoodCodes(), true) === false) {
-            throw new \InvalidArgumentException("The mood code {$mood_code} is not valid!");
-        }
-        $this->mood_code = $mood_code;
-        return $this;
+      throw new \InvalidArgumentException("The mood code {$mood_code} is not valid!");
     }
+    $this->mood_code = $mood_code;
+    return $this;
+  }
 
-    /**
-     * @return array
-     */
-    public function getAcceptableMoodCodes(): array
-    {
-        return $this->acceptable_mood_codes;
-    }
+  /**
+   * @return array
+   */
+  public function getAcceptableMoodCodes (): array
+  {
+    return $this->acceptable_mood_codes;
+  }
 
-    /**
-     * @param string[] $acceptable_mood_codes
-     *
-     * @return self
-     */
-    public function setAcceptableMoodCodes(array $acceptable_mood_codes): self
-    {
-        $this->acceptable_mood_codes = $acceptable_mood_codes;
-        return $this;
-    }
+  /**
+   * @param string[] $acceptable_mood_codes
+   *
+   * @return self
+   */
+  public function setAcceptableMoodCodes (array $acceptable_mood_codes): self
+  {
+    $this->acceptable_mood_codes = $acceptable_mood_codes;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasMoodCode(): bool
-    {
-        return false === empty($this->mood_code);
-    }
+  /**
+   * @return bool
+   */
+  public function hasMoodCode (): bool
+  {
+    return FALSE === empty($this->mood_code);
+  }
 
 
 }

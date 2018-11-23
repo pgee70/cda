@@ -31,22 +31,22 @@ use i3Soft\CDA\DataType\Boolean\Boolean;
 
 interface ContextConductionIndInterface
 {
-    /**
-     * @return bool
-     */
-    public function getContextConductionInd(): Boolean;
+  /**
+   * @return bool
+   */
+  public function getContextConductionInd (): Boolean;
 
-    /**
-     * note that the parameter is bool, but the return type is Boolean - this is intentional!
-     * the setter has new Boolean('contextConductionInd',$contextConductionInd);
-     *
-     * @param bool $contextConductionInd
-     *
-     */
-    public function setContextConductionInd(bool $contextConductionInd);
+  /**
+   * note that the parameter is bool, but the return type is Boolean - this is intentional!
+   * the setter has new Boolean('contextConductionInd',$contextConductionInd);
+   *
+   * @param bool $contextConductionInd
+   *
+   */
+  public function setContextConductionInd (bool $contextConductionInd);
 
-    /**
-     * @return bool
-     */
-    public function hasContextConductionInd(): bool;
+  /**
+   * @return bool
+   */
+  public function hasContextConductionInd (): bool;
 }

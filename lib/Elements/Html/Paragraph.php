@@ -34,89 +34,92 @@ namespace i3Soft\CDA\Elements\Html;
  */
 class Paragraph extends AbstractHtmlElement
 {
-    /** @var Caption */
-    protected $caption;
+  /** @var Caption */
+  protected $caption;
 
-    /**
-     * Paragraph constructor.
-     *
-     * @param null $choice
-     */
-    public function __construct($choice = null)
+  /**
+   * Paragraph constructor.
+   *
+   * @param null $choice
+   */
+  public function __construct ($choice = NULL)
+  {
+    parent::__construct(\is_string($choice)
+      ? $choice
+      : '');
+    $this->addTag($choice);
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    if ($this->hasCaption())
     {
-        parent::__construct(\is_string($choice)
-          ? $choice
-          : '');
-        $this->addTag($choice);
+      $el->appendChild($this->getCaption()->toDOMElement($doc));
     }
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+    foreach ($this->getTags() as $tag)
     {
-        $el = $this->createElement($doc);
-
-        if ($this->hasCaption()) {
-            $el->appendChild($this->getCaption()->toDOMElement($doc));
-        }
-        foreach ($this->getTags() as $tag) {
-            $el->appendChild($tag->toDOMElement($doc));
-        }
-        if ($this->hasContent()) {
-            $el->appendChild($doc->createTextNode($this->getContent()));
-        }
-        return $el;
+      $el->appendChild($tag->toDOMElement($doc));
     }
-
-    /**
-     * @return bool
-     */
-    public function hasCaption(): bool
+    if ($this->hasContent())
     {
-        return null !== $this->caption;
+      $el->appendChild($doc->createTextNode($this->getContent()));
     }
+    return $el;
+  }
 
-    /**
-     * @return Caption
-     */
-    public function getCaption(): Caption
-    {
-        return $this->caption;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCaption (): bool
+  {
+    return NULL !== $this->caption;
+  }
 
-    /**
-     * @param Caption $caption
-     *
-     * @return self
-     */
-    public function setCaption(Caption $caption): self
-    {
-        $this->caption = $caption;
-        return $this;
-    }
+  /**
+   * @return Caption
+   */
+  public function getCaption (): Caption
+  {
+    return $this->caption;
+  }
 
-    protected function canAddTag($choice): bool
-    {
-        return ($choice
-                && ($choice instanceof LinkHtml
-                    || $choice instanceof Sub
-                    || $choice instanceof Sup
-                    || $choice instanceof Br
-                    || $choice instanceof Footnote
-                    || $choice instanceof FootNoteRef
-                    || $choice instanceof RenderMultiMedia));
-    }
+  /**
+   * @param Caption $caption
+   *
+   * @return self
+   */
+  public function setCaption (Caption $caption): self
+  {
+    $this->caption = $caption;
+    return $this;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'paragraph';
-    }
+  protected function canAddTag ($choice): bool
+  {
+    return ($choice
+            && ($choice instanceof LinkHtml
+                || $choice instanceof Sub
+                || $choice instanceof Sup
+                || $choice instanceof Br
+                || $choice instanceof Footnote
+                || $choice instanceof FootNoteRef
+                || $choice instanceof RenderMultiMedia));
+  }
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'paragraph';
+  }
 
 
 }

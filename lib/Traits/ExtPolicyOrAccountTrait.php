@@ -37,48 +37,49 @@ use i3Soft\CDA\RIM\Extensions\ExtPolicyOrAccount;
  */
 trait ExtPolicyOrAccountTrait
 {
-    /** @var ExtPolicyOrAccount */
-    private $extPolicyOrAccount;
+  /** @var ExtPolicyOrAccount */
+  private $extPolicyOrAccount;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return ExtPolicyOrAccountTrait
-     */
-    public function renderExtPolicyOrAccount(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return ExtPolicyOrAccountTrait
+   */
+  public function renderExtPolicyOrAccount (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtPolicyOrAccount())
     {
-        if ($this->hasExtPolicyOrAccount()) {
-            $el->appendChild($this->getExtPolicyOrAccount()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtPolicyOrAccount()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtPolicyOrAccount(): bool
-    {
-        return null !== $this->extPolicyOrAccount;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtPolicyOrAccount (): bool
+  {
+    return NULL !== $this->extPolicyOrAccount;
+  }
 
-    /**
-     * @return ExtPolicyOrAccount
-     */
-    public function getExtPolicyOrAccount(): ExtPolicyOrAccount
-    {
-        return $this->extPolicyOrAccount;
-    }
+  /**
+   * @return ExtPolicyOrAccount
+   */
+  public function getExtPolicyOrAccount (): ExtPolicyOrAccount
+  {
+    return $this->extPolicyOrAccount;
+  }
 
-    /**
-     * @param ExtPolicyOrAccount $extPolicyOrAccount
-     *
-     * @return ExtPolicyOrAccountTrait
-     */
-    public function setExtPolicyOrAccount(ExtPolicyOrAccount $extPolicyOrAccount): ExtPolicyOrAccountTrait
-    {
-        $this->extPolicyOrAccount = $extPolicyOrAccount;
-        return $this;
-    }
+  /**
+   * @param ExtPolicyOrAccount $extPolicyOrAccount
+   *
+   * @return ExtPolicyOrAccountTrait
+   */
+  public function setExtPolicyOrAccount (ExtPolicyOrAccount $extPolicyOrAccount): ExtPolicyOrAccountTrait
+  {
+    $this->extPolicyOrAccount = $extPolicyOrAccount;
+    return $this;
+  }
 
 }

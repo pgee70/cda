@@ -41,50 +41,50 @@ use i3Soft\CDA\tests\MyTestCase;
  */
 class InstanceIdentifier_test extends MyTestCase
 {
-    public function test_RootOnly()
-    {
-        $ii = new InstanceIdentifier('string');
+  public function test_RootOnly ()
+  {
+    $ii = new InstanceIdentifier('string');
 
-        $doc = new \DOMDocument('1.0', 'UTF-8');
+    $doc = new \DOMDocument('1.0', 'UTF-8');
 
-        $el = $doc->createElement('id');
-        $doc->appendChild($el);
+    $el = $doc->createElement('id');
+    $doc->appendChild($el);
 
-        $ii->setValueToElement($el, $doc);
+    $ii->setValueToElement($el, $doc);
 
-        $expected    = <<<'CDA'
+    $expected    = <<<'CDA'
 <id root="string"/>
 CDA;
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
-        $expectedII = $expectedDoc
-          ->getElementsByTagName('id')
-          ->item(0);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedII = $expectedDoc
+      ->getElementsByTagName('id')
+      ->item(0);
 
-        $this->assertEqualXMLStructure($expectedII, $el, true);
-    }
+    $this->assertEqualXMLStructure($expectedII, $el, TRUE);
+  }
 
-    public function test_RootAndExtension()
-    {
-        $ii = new InstanceIdentifier('string');
-        $ii->setExtension('chill/abrumet');
+  public function test_RootAndExtension ()
+  {
+    $ii = new InstanceIdentifier('string');
+    $ii->setExtension('chill/abrumet');
 
-        $doc = new \DOMDocument('1.0', 'UTF-8');
+    $doc = new \DOMDocument('1.0', 'UTF-8');
 
-        $el = $doc->createElement('id');
-        $doc->appendChild($el);
+    $el = $doc->createElement('id');
+    $doc->appendChild($el);
 
-        $ii->setValueToElement($el, $doc);
+    $ii->setValueToElement($el, $doc);
 
-        $expected    = <<<'CDA'
+    $expected    = <<<'CDA'
 <id root="string" extension="chill/abrumet" />
 CDA;
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
-        $expectedII = $expectedDoc
-          ->getElementsByTagName('id')
-          ->item(0);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedII = $expectedDoc
+      ->getElementsByTagName('id')
+      ->item(0);
 
-        $this->assertEqualXMLStructure($expectedII, $el, true);
-    }
+    $this->assertEqualXMLStructure($expectedII, $el, TRUE);
+  }
 }

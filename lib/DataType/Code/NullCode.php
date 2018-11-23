@@ -33,30 +33,31 @@ use i3Soft\CDA\Interfaces\NullFlavourInterface;
  */
 class NullCode extends CodedSimple implements NullFlavourInterface
 {
-    protected $flavor;
-    /** @noinspection MagicMethodsValidityInspection */
-    /** @noinspection PhpMissingParentConstructorInspection */
+  protected $flavor;
+  /** @noinspection MagicMethodsValidityInspection */
+  /** @noinspection PhpMissingParentConstructorInspection */
 
-    /**
-     * NullCode constructor.
-     *
-     * @param $flavour
-     */
-    public function __construct($flavour)
+  /**
+   * NullCode constructor.
+   *
+   * @param $flavour
+   */
+  public function __construct ($flavour)
+  {
+    if (\in_array($flavour, NullFlavourInterface::flavours, TRUE) === FALSE)
     {
-        if (\in_array($flavour, NullFlavourInterface::flavours, true) === false) {
-            throw new \InvalidArgumentException("The flavour attribute {$flavour} is not valid!");
-        }
-        $this->flavor = $flavour;
+      throw new \InvalidArgumentException("The flavour attribute {$flavour} is not valid!");
     }
+    $this->flavor = $flavour;
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
-    {
-        $el->setAttribute(CDA::NS_CDA . 'nullFlavor', $this->flavor);
-    }
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    $el->setAttribute(CDA::getNS() . 'nullFlavor', $this->flavor);
+  }
 
 }

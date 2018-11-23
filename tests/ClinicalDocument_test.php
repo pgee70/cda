@@ -86,49 +86,48 @@ use i3Soft\CDA\RIM\Role\IntendedRecipient;
 use i3Soft\CDA\RIM\Role\ManufacturedProduct;
 use i3Soft\CDA\RIM\Role\PatientRole;
 use i3Soft\CDA\tests\Component\XMLBodyComponent_test;
-use i3Soft\CDA\tests\MyTestCase;
 
 class ClinicalDocument_test extends MyTestCase
 {
-    const CLINICAL_DOCUMENT_AUSTRALIAN_EXTENSION = '<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:ext="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="CDA-ES-v1_3.xsd">';
-    const CLINICAL_DOCUMENT_REGULAR              = '<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">';
-    private $clinical_document_tag;
+  const CLINICAL_DOCUMENT_AUSTRALIAN_EXTENSION = '<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:ext="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="CDA-ES-v1_3.xsd">';
+  const CLINICAL_DOCUMENT_REGULAR              = '<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">';
+  private $clinical_document_tag;
 
-    public static function tearDownAfterClass()
-    {
-        parent::tearDownAfterClass();
-        $_SESSION = array();
-    }
+  public static function tearDownAfterClass ()
+  {
+    parent::tearDownAfterClass();
+    $_SESSION = array();
+  }
 
-    public function setUp()
-    {
-        $this->clinical_document_tag = self::CLINICAL_DOCUMENT_AUSTRALIAN_EXTENSION;
-    }
+  public function setUp ()
+  {
+    $this->clinical_document_tag = self::CLINICAL_DOCUMENT_AUSTRALIAN_EXTENSION;
+  }
 
-    /*
-     * Test that the ClinicalDocument class return a DOMDocument
-     */
+  /*
+   * Test that the ClinicalDocument class return a DOMDocument
+   */
 
-    public function test_ToDocument()
-    {
-        $doc = new ClinicalDocument();
-        $dom = $doc->toDOMDocument();
-        $this->assertInstanceOf(\DOMDocument::class, $dom);
-    }
+  public function test_ToDocument ()
+  {
+    $doc = new ClinicalDocument();
+    $dom = $doc->toDOMDocument();
+    $this->assertInstanceOf(\DOMDocument::class, $dom);
+  }
 
-    public function test_SimplifiedDocument()
-    {
-        // create the initial document
-        $doc = new ClinicalDocument();
-        $doc->setTitle(
-          new Title('Good Health Clinic Consultation Note')
-        );
+  public function test_SimplifiedDocument ()
+  {
+    // create the initial document
+    $doc = new ClinicalDocument();
+    $doc->setTitle(
+      new Title('Good Health Clinic Consultation Note')
+    );
 
-        $clinicalElements = $doc->toDOMDocument()
-          ->getElementsByTagName('ClinicalDocument');
-        $cda              = $doc->toDOMDocument()->saveXML();
-        // create the expected document from XML string
-        $expected = <<<CDA
+    $clinicalElements = $doc->toDOMDocument()
+      ->getElementsByTagName('ClinicalDocument');
+    $cda              = $doc->toDOMDocument()->saveXML();
+    // create the expected document from XML string
+    $expected = <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 {$this->clinical_document_tag}
     <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
@@ -136,47 +135,47 @@ class ClinicalDocument_test extends MyTestCase
 </ClinicalDocument>
 CDA;
 
-        // tests
-        $this->assertEquals(1, $clinicalElements->length,
-          'test that there is only one clinical document');
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    // tests
+    $this->assertEquals(1, $clinicalElements->length,
+      'test that there is only one clinical document');
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_DocumentWithNonXMLBody()
-    {
-        // create the expected document from XML string
-        $expected = $this->DocumentWithNonXMLBodyExpected();
-        // create the initial document
-        $doc = new ClinicalDocument();
-        $doc->setTitle(new Title('Good Health Clinic Consultation Note'));
-        $doc->setEffectiveTime(new EffectiveTime(
-          new TimeStamp(\DateTime::createFromFormat(\DateTime::ATOM, '2014-08-27T01:43:12+0200'))));
-        $doc->setId(new Id(new InstanceIdentifier('1.2.3.4', 'https://mass.chill.pro')));
-        $doc->setCode(Code::LOINC('42349-1', 'REASON FOR REFERRAL'));
-        $doc->setConfidentialityCode(new ConfidentialityCode(ConfidentialityCodeType::create(ConfidentialityCodeType::RESTRICTED_KEY, ConfidentialityCodeType::RESTRICTED)));
-        $doc->addRecordTarget($this->getRecordTarget());
-        $time_stamp = new TimeStamp(\DateTime::createFromFormat('Y-m-d-H:i', '2000-04-07-14:00'));
-        $time_stamp->setPrecision(TimeStamp::PRECISION_HOURS);
-        $doc->addAuthor(new Author($time_stamp, $this->getAssignedAuthor()));
-        $doc->setCustodian($this->getCustodian());
+  public function test_DocumentWithNonXMLBody ()
+  {
+    // create the expected document from XML string
+    $expected = $this->DocumentWithNonXMLBodyExpected();
+    // create the initial document
+    $doc = new ClinicalDocument();
+    $doc->setTitle(new Title('Good Health Clinic Consultation Note'));
+    $doc->setEffectiveTime(new EffectiveTime(
+      new TimeStamp(\DateTime::createFromFormat(\DateTime::ATOM, '2014-08-27T01:43:12+0200'))));
+    $doc->setId(new Id(new InstanceIdentifier('1.2.3.4', 'https://mass.chill.pro')));
+    $doc->setCode(Code::LOINC('42349-1', 'REASON FOR REFERRAL'));
+    $doc->setConfidentialityCode(new ConfidentialityCode(ConfidentialityCodeType::create(ConfidentialityCodeType::RESTRICTED_KEY, ConfidentialityCodeType::RESTRICTED)));
+    $doc->addRecordTarget($this->getRecordTarget());
+    $time_stamp = new TimeStamp(\DateTime::createFromFormat('Y-m-d-H:i', '2000-04-07-14:00'));
+    $time_stamp->setPrecision(TimeStamp::PRECISION_HOURS);
+    $doc->addAuthor(new Author($time_stamp, $this->getAssignedAuthor()));
+    $doc->setCustodian($this->getCustodian());
 
-        $nonXMLBody = new NonXMLBodyComponent();
-        $nonXMLBody->setContent(new CharacterString('This is a narrative text'));
-        $doc->getRootComponent()->addComponent($nonXMLBody);
+    $nonXMLBody = new NonXMLBodyComponent();
+    $nonXMLBody->setContent(new CharacterString('This is a narrative text'));
+    $doc->getRootComponent()->addComponent($nonXMLBody);
 
-        $clinicalElements  = $doc->toDOMDocument()
-          ->getElementsByTagName('ClinicalDocument');
-        $DOM               = $doc->toDOMDocument();
-        $DOM->formatOutput = true;
-        $cda               = $DOM->saveXML();
+    $clinicalElements  = $doc->toDOMDocument()
+      ->getElementsByTagName('ClinicalDocument');
+    $DOM               = $doc->toDOMDocument();
+    $DOM->formatOutput = TRUE;
+    $cda               = $DOM->saveXML();
 
-        $this->assertEquals(1, $clinicalElements->length, 'test that there is only one clinical document');
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $this->assertEquals(1, $clinicalElements->length, 'test that there is only one clinical document');
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    private function DocumentWithNonXMLBodyExpected(): string
-    {
-        return <<<CDA
+  private function DocumentWithNonXMLBodyExpected (): string
+  {
+    return <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 {$this->clinical_document_tag}
     <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
@@ -227,105 +226,105 @@ CDA;
     </component>
 </ClinicalDocument>
 CDA;
-    }
+  }
 
-    protected function getRecordTarget(): RecordTarget
-    {
-        $pr = new PatientRole($this->getPatientId(), $this->getPatient());
+  protected function getRecordTarget (): RecordTarget
+  {
+    $pr = new PatientRole($this->getPatientId(), $this->getPatient());
 
-        return new RecordTarget($pr);
-    }
+    return new RecordTarget($pr);
+  }
 
-    /**
-     *
-     * @return AssignedAuthor
-     */
-    protected function getAssignedAuthor(): AssignedAuthor
-    {
-        $names = new Set(PersonName::class);
-        $names->add((new PersonName())
-          ->addPart(PersonName::FIRST_NAME, 'Robert')
-          ->addPart(PersonName::LAST_NAME, 'Dolin')
-          ->addPart('suffix', 'MD')
-        );
+  /**
+   *
+   * @return AssignedAuthor
+   */
+  protected function getAssignedAuthor (): AssignedAuthor
+  {
+    $names = new Set(PersonName::class);
+    $names->add((new PersonName())
+      ->addPart(PersonName::FIRST_NAME, 'Robert')
+      ->addPart(PersonName::LAST_NAME, 'Dolin')
+      ->addPart('suffix', 'MD')
+    );
 
-        $assignedAuthor = new AssignedAuthor(Id::fromString('2.16.840.1.113883.19.5', 'KP00017'));
-        $assignedAuthor->setAssignedPerson(new AssignedPerson($names));
-        return $assignedAuthor;
-    }
+    $assignedAuthor = new AssignedAuthor(Id::fromString('2.16.840.1.113883.19.5', 'KP00017'));
+    $assignedAuthor->setAssignedPerson(new AssignedPerson($names));
+    return $assignedAuthor;
+  }
 
-    /**
-     *
-     * @return Custodian
-     */
-    protected function getCustodian(): Custodian
-    {
-        $names             = (new Set(EntityName::class))
-          ->add(new EntityName('ABRUMET asbl'));
-        $id                = Id::fromString('82112744-ea24-11e6-95be-17f96f76d55c');
-        $reprCustodian     = new RepresentedCustodianOrganization($names, $id);
-        $assignedCustodian = new AssignedCustodian($reprCustodian);
-        return new Custodian($assignedCustodian);
-    }
+  /**
+   *
+   * @return Custodian
+   */
+  protected function getCustodian (): Custodian
+  {
+    $names             = (new Set(EntityName::class))
+      ->add(new EntityName('ABRUMET asbl'));
+    $id                = Id::fromString('82112744-ea24-11e6-95be-17f96f76d55c');
+    $reprCustodian     = new RepresentedCustodianOrganization($names, $id);
+    $assignedCustodian = new AssignedCustodian($reprCustodian);
+    return new Custodian($assignedCustodian);
+  }
 
-    protected function getPatientId(): Id
-    {
-        return Id::fromString('2.16.840.1.113883.19.5', '12345');
-    }
+  protected function getPatientId (): Id
+  {
+    return Id::fromString('2.16.840.1.113883.19.5', '12345');
+  }
 
-    protected function getPatient(): Patient
-    {
-        $names = new Set(PersonName::class);
-        $names->add((new PersonName())
-          ->addPart(PersonName::FIRST_NAME, 'Henry')
-          ->addPart(PersonName::LAST_NAME, 'Levin')
-          ->addPart('suffix', 'the 7th'));
-        $time_stamp = new TimeStamp(\DateTime::createFromFormat('Y-m-d', '1932-09-24'));
-        $time_stamp->setPrecision(TimeStamp::PRECISION_DAY);
-        $patient = new Patient(
-          $names,
-          $time_stamp,
-          new CodedValue('M', '', '2.16.840.1.113883.5.1', '')
-        );
+  protected function getPatient (): Patient
+  {
+    $names = new Set(PersonName::class);
+    $names->add((new PersonName())
+      ->addPart(PersonName::FIRST_NAME, 'Henry')
+      ->addPart(PersonName::LAST_NAME, 'Levin')
+      ->addPart('suffix', 'the 7th'));
+    $time_stamp = new TimeStamp(\DateTime::createFromFormat('Y-m-d', '1932-09-24'));
+    $time_stamp->setPrecision(TimeStamp::PRECISION_DAY);
+    $patient = new Patient(
+      $names,
+      $time_stamp,
+      new CodedValue('M', '', '2.16.840.1.113883.5.1', '')
+    );
 
-        return $patient;
-    }
+    return $patient;
+  }
 
-    public function test_DocumentWithXMLStructuredBody()
-    {
-        // create the initial document
-        $doc = new ClinicalDocument();
-        $doc->setTitle(new Title('Good Health Clinic Consultation Note'));
-        $effective_time_stamp = new TimeStamp(\DateTime::createFromFormat(\DateTime::ATOM, '2014-08-27T01:43:12+0200'));
-        $effective_time_stamp->setPrecision(TimeStamp::PRECISION_MINUTES);
-        $doc->setEffectiveTime(new EffectiveTime($effective_time_stamp));
-        $doc->setId(new Id(new InstanceIdentifier('1.2.3.4', 'https://mass.chill.pro')));
-        $doc->setCode(new Code(LoincCode::create('42349-1', 'REASON FOR REFERRAL')));
-        $doc->setConfidentialityCode(new ConfidentialityCode(ConfidentialityCodeType::create(ConfidentialityCodeType::RESTRICTED_KEY, ConfidentialityCodeType::RESTRICTED)));
-        $doc->addRecordTarget($this->getRecordTarget());
-        $time_stamp = new TimeStamp(\DateTime::createFromFormat('Y-m-d-H:i', '2000-04-07-14:00'));
-        $time_stamp->setPrecision(TimeStamp::PRECISION_HOURS);
-        $doc->addAuthor(new Author($time_stamp, $this->getAssignedAuthor()));
-        $doc->setCustodian($this->getCustodian());
+  public function test_DocumentWithXMLStructuredBody ()
+  {
+    // create the initial document
+    $doc = new ClinicalDocument();
+    $doc->setTitle(new Title('Good Health Clinic Consultation Note'));
+    $effective_time_stamp = new TimeStamp(\DateTime::createFromFormat(\DateTime::ATOM, '2014-08-27T01:43:12+0200'));
+    $effective_time_stamp->setPrecision(TimeStamp::PRECISION_MINUTES);
+    $doc->setEffectiveTime(new EffectiveTime($effective_time_stamp));
+    $doc->setId(new Id(new InstanceIdentifier('1.2.3.4', 'https://mass.chill.pro')));
+    $doc->setCode(new Code(LoincCode::create('42349-1', 'REASON FOR REFERRAL')));
+    $doc->setConfidentialityCode(new ConfidentialityCode(ConfidentialityCodeType::create(ConfidentialityCodeType::RESTRICTED_KEY, ConfidentialityCodeType::RESTRICTED)));
+    $doc->addRecordTarget($this->getRecordTarget());
+    $time_stamp = new TimeStamp(\DateTime::createFromFormat('Y-m-d-H:i', '2000-04-07-14:00'));
+    $time_stamp->setPrecision(TimeStamp::PRECISION_HOURS);
+    $doc->addAuthor(new Author($time_stamp, $this->getAssignedAuthor()));
+    $doc->setCustodian($this->getCustodian());
 
-        $body = XMLBodyComponent_test::getBody();
-        $doc->getRootComponent()->addComponent($body);
+    $body = XMLBodyComponent_test::getBody();
+    $doc->getRootComponent()->addComponent($body);
 
-        $DOM               = $doc->toDOMDocument();
-        $DOM->formatOutput = true;
-        $clinicalElements  = $DOM->getElementsByTagName('ClinicalDocument');
-        $cda               = $DOM->saveXML();
+    $DOM               = $doc->toDOMDocument();
+    $DOM->formatOutput = TRUE;
+    $clinicalElements  = $DOM->getElementsByTagName('ClinicalDocument');
+    $cda               = $DOM->saveXML();
 
-        $expected = $this->DocumentWithXMLStructuredBodyExpected();
+    $expected = $this->DocumentWithXMLStructuredBodyExpected();
 
-        // tests
-        $this->assertEquals(1, $clinicalElements->length, 'test that there is only one clinical document');
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    // tests
+    $this->assertEquals(1, $clinicalElements->length, 'test that there is only one clinical document');
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    private function DocumentWithXMLStructuredBodyExpected(): string
-    {
-        return <<<CDA
+  private function DocumentWithXMLStructuredBodyExpected (): string
+  {
+    return <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 {$this->clinical_document_tag}
     <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
@@ -384,180 +383,182 @@ CDA;
     </component>
 </ClinicalDocument>
 CDA;
-    }
+  }
 
-    public function test_AbrumetReferralSummary()
-    {
-        $expected = $this->AbrumetReferralSummaryExpected();
-        // create the initial document
-        $doc = new ClinicalDocument();
-        $doc->setTitle(new Title('Good Health Clinic Consultation Note'));
-        $effective_time_stamp = new TimeStamp(\DateTime::createFromFormat(\DateTime::ATOM, '2014-08-27T01:43:12+0200'));
-        $effective_time_stamp->setPrecision(TimeStamp::PRECISION_MINUTES);
-        $doc->setEffectiveTime(new EffectiveTime($effective_time_stamp));
-        $doc->setId(Id::fromString('1.2.3.4', 'https://mass.chill.pro'));
-        // add templateId
-        $doc->addTemplateId(new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.1.3'));
-        $doc->setCode(Code::LOINC('42349-1', 'REASON FOR REFERRAL'));
-        $doc->setConfidentialityCode(
-          new ConfidentialityCode(
-            ConfidentialityCodeType::create(
-              ConfidentialityCodeType::RESTRICTED_KEY,
-              ConfidentialityCodeType::RESTRICTED
-            )
+  public function test_AbrumetReferralSummary ()
+  {
+    $expected = $this->AbrumetReferralSummaryExpected();
+    // create the initial document
+    $doc = new ClinicalDocument();
+    $doc->setTitle(new Title('Good Health Clinic Consultation Note'));
+    $effective_time_stamp = new TimeStamp(\DateTime::createFromFormat(\DateTime::ATOM, '2014-08-27T01:43:12+0200'));
+    $effective_time_stamp->setPrecision(TimeStamp::PRECISION_MINUTES);
+    $doc->setEffectiveTime(new EffectiveTime($effective_time_stamp));
+    $doc->setId(Id::fromString('1.2.3.4', 'https://mass.chill.pro'));
+    // add templateId
+    $doc->addTemplateId(new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.1.3'));
+    $doc->setCode(Code::LOINC('42349-1', 'REASON FOR REFERRAL'));
+    $doc->setConfidentialityCode(
+      new ConfidentialityCode(
+        ConfidentialityCodeType::create(
+          ConfidentialityCodeType::RESTRICTED_KEY,
+          ConfidentialityCodeType::RESTRICTED
+        )
+      )
+    );
+    $doc->setLanguageCode(new LanguageCode(new CodedSimple('fr-FR')));
+    $doc->addRecordTarget($this->getRecordTarget());
+    $author_time_stamp = TimeStamp::fromString('2000-04-07 14:00', 'UTC', TimeStamp::PRECISION_HOURS);
+    $doc->addAuthor(new Author($author_time_stamp, $this->getAssignedAuthor()));
+    $doc->setCustodian($this->getCustodian());
+
+    // create components
+    $components = array(
+      [
+        '1.3.6.1.4.1.19376.1.5.3.1.3.1', // templateId of section
+        'BF2FA954-F43B-11E6-9397-EBC69C88DB61', //id of section
+        new LoincCode('42349-1', 'REASON FOR REFERRAL'), // code for section
+        'Robert Hunter is a patient.', // text for section
+        array() // no acts
+      ],
+      [
+        '1.3.6.1.4.1.19376.1.5.3.1.3.4', // templateId of section
+        'BF303018-F43B-11E6-BDFA-97E99F59C825', //id of section
+        new LoincCode('10164-2', 'History of Present Illness Section'), // code for section
+        'No statement.', // text for section
+        array() // no acts
+      ],
+      [
+        '1.3.6.1.4.1.19376.1.5.3.1.3.6', // templateId of section
+        'BF3085A4-F43B-11E6-A16D-2FE01C50B8F', //id of section
+        new LoincCode('11450-4', 'Active Problems Section'), // code for section
+        'No statement.', // text for section
+        array(Observation::nullObservation())
+      ],
+      [
+        '1.3.6.1.4.1.19376.1.5.3.1.3.19', // templateId of section
+        'BF30FAA2-F43B-11E6-83D6-8F2828CBBC0A', //id of section
+        new LoincCode('10160-0', 'Medication Sections'), // code for section
+        (new Table())
+          ->getThead()
+          ->createRow()
+          ->createCell('Medication')->getRow()
+          ->createCell('Instructions')->getRow()
+          ->createCell('Dosage')->getRow()
+          ->createCell('Effective Date')->getRow()
+          ->createCell('Status')->getRow()
+          ->getSection()
+          ->getTable()
+          ->getTbody()
+          ->createRow()
+          ->setReference(
+            $doc
+              ->getReferenceManager()
+              ->getReferenceType('Medication_1')
           )
-        );
-        $doc->setLanguageCode(new LanguageCode(new CodedSimple('fr-FR')));
-        $doc->addRecordTarget($this->getRecordTarget());
-        $author_time_stamp = TimeStamp::fromString('2000-04-07 14:00', 'UTC', TimeStamp::PRECISION_HOURS);
-        $doc->addAuthor(new Author($author_time_stamp, $this->getAssignedAuthor()));
-        $doc->setCustodian($this->getCustodian());
-
-        // create components
-        $components = array(
-          [
-            '1.3.6.1.4.1.19376.1.5.3.1.3.1', // templateId of section
-            'BF2FA954-F43B-11E6-9397-EBC69C88DB61', //id of section
-            new LoincCode('42349-1', 'REASON FOR REFERRAL'), // code for section
-            'Robert Hunter is a patient.', // text for section
-            array() // no acts
-          ],
-          [
-            '1.3.6.1.4.1.19376.1.5.3.1.3.4', // templateId of section
-            'BF303018-F43B-11E6-BDFA-97E99F59C825', //id of section
-            new LoincCode('10164-2', 'History of Present Illness Section'), // code for section
-            'No statement.', // text for section
-            array() // no acts
-          ],
-          [
-            '1.3.6.1.4.1.19376.1.5.3.1.3.6', // templateId of section
-            'BF3085A4-F43B-11E6-A16D-2FE01C50B8F', //id of section
-            new LoincCode('11450-4', 'Active Problems Section'), // code for section
-            'No statement.', // text for section
-            array(Observation::nullObservation())
-          ],
-          [
-            '1.3.6.1.4.1.19376.1.5.3.1.3.19', // templateId of section
-            'BF30FAA2-F43B-11E6-83D6-8F2828CBBC0A', //id of section
-            new LoincCode('10160-0', 'Medication Sections'), // code for section
-            (new Table())
-              ->getThead()
-              ->createRow()
-              ->createCell('Medication')->getRow()
-              ->createCell('Instructions')->getRow()
-              ->createCell('Dosage')->getRow()
-              ->createCell('Effective Date')->getRow()
-              ->createCell('Status')->getRow()
-              ->getSection()
-              ->getTable()
-              ->getTbody()
-              ->createRow()
-              ->setReference(
-                $doc
-                  ->getReferenceManager()
-                  ->getReferenceType('Medication_1')
+          ->createCell('Theophylline')
+          ->setReference(
+            $doc
+              ->getReferenceManager()
+              ->getReferenceType('MedicationName_1'))
+          ->getRow()
+          ->createCell('deux fois par jour')
+          ->setReference(
+            $doc
+              ->getReferenceManager()
+              ->getReferenceType('MedicationSig_1'))
+          ->getRow()
+          ->createCell('200 mg')
+          ->setReference(
+            $doc
+              ->getReferenceManager()
+              ->getReferenceType('MedicationDosage_1'))
+          ->getRow()
+          ->createCell('9 février 2017')->getRow()
+          ->createCell('Completed')->getRow()
+          ->getSection()
+          ->getTable(), // text for section
+        array(
+          (new SubstanceAdministration)
+            ->setTemplateIds(array(
+              new InstanceIdentifier('2.16.840.1.113883.10.20.1.24'),
+              new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.4.7')
+            ))
+            ->addId(Id::fromString('1BEE9D0C-F43D-11E6-A1A8-23558EA5AEFC'))
+            ->setText(new Text($doc->getReferenceManager()->getReferenceElement('#Medication_1')))
+            ->setStatusCode(StatusCodeElement::Completed())
+            ->returnSubstanceAdministration()
+            ->addEffectiveTime(
+              new IntervalOfTime(
+                (new TimeStamp(
+                  \DateTime::createFromFormat('Y-m-d', '2017-02-09')
+                ))->setPrecision(TimeStamp::PRECISION_DAY),
+                (new TimeStamp(
+                  \DateTime::createFromFormat('Y-m-d', '2017-02-28')
+                ))->setPrecision(TimeStamp::PRECISION_DAY)
               )
-              ->createCell('Theophylline')
-              ->setReference(
-                $doc
-                  ->getReferenceManager()
-                  ->getReferenceType('MedicationName_1'))
-              ->getRow()
-              ->createCell('deux fois par jour')
-              ->setReference(
-                $doc
-                  ->getReferenceManager()
-                  ->getReferenceType('MedicationSig_1'))
-              ->getRow()
-              ->createCell('200 mg')
-              ->setReference(
-                $doc
-                  ->getReferenceManager()
-                  ->getReferenceType('MedicationDosage_1'))
-              ->getRow()
-              ->createCell('9 février 2017')->getRow()
-              ->createCell('Completed')->getRow()
-              ->getSection()
-              ->getTable(), // text for section
-            array(
-              (new SubstanceAdministration)
-                ->setTemplateIds(array(
-                  new InstanceIdentifier('2.16.840.1.113883.10.20.1.24'),
-                  new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.4.7')
-                ))
-                ->addId(Id::fromString('1BEE9D0C-F43D-11E6-A1A8-23558EA5AEFC'))
-                ->setText(new Text($doc->getReferenceManager()->getReferenceElement('#Medication_1')))
-                ->setStatusCode(StatusCodeElement::Completed())
-                ->returnSubstanceAdministration()
-                ->addEffectiveTime(
-                  new IntervalOfTime(
-                    (new TimeStamp(
-                      \DateTime::createFromFormat('Y-m-d', '2017-02-09')
-                    ))->setPrecision(TimeStamp::PRECISION_DAY),
-                    (new TimeStamp(
-                      \DateTime::createFromFormat('Y-m-d', '2017-02-28')
-                    ))->setPrecision(TimeStamp::PRECISION_DAY)
-                  )
-                )
-                ->addEffectiveTime(
-                  (new PeriodicIntervalOfTime(new \DateInterval('PT12H')))
-                    ->setInstitutionSpecified(true)
-                )
-                ->setRouteCode(new SnomedCTCode('20053000', 'Oral Use'))
-                ->setDoseQuantity(new PhysicalQuantity('mg', 200))
-                ->setConsumable(
-                  new Consumable(
-                    new ManufacturedProduct(
-                      new ManufacturedLabeledDrug(
-                        new SnomedCTCode('66493003', 'Theophylline')
-                      )
-                    )
-                  )
-                )
             )
-          ],
-          [
-            '1.3.6.1.4.1.19376.1.5.3.1.3.13', // templateId of section
-            'BF31B4D8-F43B-11E6-B02B-B711B1E5184B', //id of section
-            new LoincCode('48765-2', 'Allergies and Other Adverse Reactions Section'), // code for section
-            'No statement.', // text for section
-            array(Observation::nullObservation())
-          ],
-        );
+            ->addEffectiveTime(
+              (new PeriodicIntervalOfTime(new \DateInterval('PT12H')))
+                ->setInstitutionSpecified(TRUE)
+            )
+            ->setRouteCode(new SnomedCTCode('20053000', 'Oral Use'))
+            ->setDoseQuantity(new PhysicalQuantity('mg', 200))
+            ->setConsumable(
+              new Consumable(
+                new ManufacturedProduct(
+                  new ManufacturedLabeledDrug(
+                    new SnomedCTCode('66493003', 'Theophylline')
+                  )
+                )
+              )
+            )
+        )
+      ],
+      [
+        '1.3.6.1.4.1.19376.1.5.3.1.3.13', // templateId of section
+        'BF31B4D8-F43B-11E6-B02B-B711B1E5184B', //id of section
+        new LoincCode('48765-2', 'Allergies and Other Adverse Reactions Section'), // code for section
+        'No statement.', // text for section
+        array(Observation::nullObservation())
+      ],
+    );
 
-        /* @var $xmlBody XMLBodyComponent the root xml body */
-        $xmlBody = new XMLBodyComponent();
+    /* @var $xmlBody XMLBodyComponent the root xml body */
+    $xmlBody = new XMLBodyComponent();
 
-        /* @var $loinc LoincCode */
-        foreach ($components as list($templateId, $id, $loinc, $text, $acts)) {
-            $section = (new Section())
-              ->setMoodCode('')
-              ->setTitle(new Title($loinc->getDisplayName()))
-              ->setId(Id::fromString($id))
-              ->setCode(new Code($loinc))
-              ->setText(new Text($text))
-              ->addTemplateId(new InstanceIdentifier($templateId));
-            if (\count($acts) > 0) {
-                $entry = $section->createEntry();
-                $entry->setAct($acts[0]);
-            }
-            $component = (new SingleComponent())
-              ->addSection($section);
-            $xmlBody->addComponent($component);
-        }
-
-        $doc->getRootComponent()->addComponent($xmlBody);
-
-        $DOM               = $doc->toDOMDocument();
-        $DOM->formatOutput = true;
-        $cda               = $DOM->saveXML();
-
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
+    /* @var $loinc LoincCode */
+    foreach ($components as list($templateId, $id, $loinc, $text, $acts))
+    {
+      $section = (new Section())
+        ->setMoodCode('')
+        ->setTitle(new Title($loinc->getDisplayName()))
+        ->setId(Id::fromString($id))
+        ->setCode(new Code($loinc))
+        ->setText(new Text($text))
+        ->addTemplateId(new InstanceIdentifier($templateId));
+      if (\count($acts) > 0)
+      {
+        $entry = $section->createEntry();
+        $entry->setAct($acts[0]);
+      }
+      $component = (new SingleComponent())
+        ->addSection($section);
+      $xmlBody->addComponent($component);
     }
 
-    private function AbrumetReferralSummaryExpected(): string
-    {
-        return <<<CDA
+    $doc->getRootComponent()->addComponent($xmlBody);
+
+    $DOM               = $doc->toDOMDocument();
+    $DOM->formatOutput = TRUE;
+    $cda               = $DOM->saveXML();
+
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
+
+  private function AbrumetReferralSummaryExpected (): string
+  {
+    return <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 {$this->clinical_document_tag}
     <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
@@ -730,11 +731,11 @@ CDA;
     </component>
 </ClinicalDocument>
 CDA;
-    }
+  }
 
-    public function test_InformationRecipients()
-    {
-        $expected = <<<CDA
+  public function test_InformationRecipients ()
+  {
+    $expected = <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 {$this->clinical_document_tag}
     <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
@@ -798,54 +799,54 @@ CDA;
     </component>
 </ClinicalDocument>
 CDA;
-        $names    = new Set(PersonName::class);
-        $names->add((new PersonName())
-          ->addPart(PersonName::FIRST_NAME, 'Unit')
-          ->addPart(PersonName::LAST_NAME, 'Tester')
-        );
+    $names    = new Set(PersonName::class);
+    $names->add((new PersonName())
+      ->addPart(PersonName::FIRST_NAME, 'Unit')
+      ->addPart(PersonName::LAST_NAME, 'Tester')
+    );
 
-        $doc = new ClinicalDocument();
-        $doc->setTitle(new Title('information recipient test'))
-          ->setEffectiveTime(new EffectiveTime(TimeStamp::fromString('2014-08-27T01:43:12', '+0200')->setPrecision(TimeStamp::PRECISION_MINUTES)))
-          ->setId(Id::fromString('1.2.3.4', 'https://mass.chill.pro'))
-          ->addTemplateId(new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.1.3'))
-          ->setCode(Code::LOINC('42349-1', 'REASON FOR REFERRAL'))
-          ->setConfidentialityCode(
-            new ConfidentialityCode(
-              ConfidentialityCodeType::create(
-                ConfidentialityCodeType::RESTRICTED_KEY,
-                ConfidentialityCodeType::RESTRICTED
-              )
-            )
+    $doc = new ClinicalDocument();
+    $doc->setTitle(new Title('information recipient test'))
+      ->setEffectiveTime(new EffectiveTime(TimeStamp::fromString('2014-08-27T01:43:12', '+0200')->setPrecision(TimeStamp::PRECISION_MINUTES)))
+      ->setId(Id::fromString('1.2.3.4', 'https://mass.chill.pro'))
+      ->addTemplateId(new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.1.3'))
+      ->setCode(Code::LOINC('42349-1', 'REASON FOR REFERRAL'))
+      ->setConfidentialityCode(
+        new ConfidentialityCode(
+          ConfidentialityCodeType::create(
+            ConfidentialityCodeType::RESTRICTED_KEY,
+            ConfidentialityCodeType::RESTRICTED
           )
-          ->addRecordTarget($this->getRecordTarget())
-          ->addAuthor(new Author(
-            TimeStamp::fromString('2000-04-07 14:00', 'UTC', TimeStamp::PRECISION_HOURS),
-            $this->getAssignedAuthor()))
-          ->setCustodian($this->getCustodian())
-          ->addInformationRecipient(
-            (new InformationRecipient())
-              ->setTypeCode(TypeCodeInterface::PRIMARY_INFORMATION_RECIPIENT)
-              ->setIntendedRecipient(
-                (new IntendedRecipient())
-                  ->setClassCode(ClassCodeInterface::ASSIGNED)
-                  ->addId(Id::fromString('abc', '123'))
-                  ->setInformationRecipientPerson(
-                    (new InformationRecipientPerson())
-                      ->setClassCode(ClassCodeInterface::PERSON)
-                      ->setNames($names)
-                  )
-                  ->setReceivedOrganization(
-                    new ReceivedOrganization(new Set(Organization::class), Id::fromString('qwerty'))
-                  )
+        )
+      )
+      ->addRecordTarget($this->getRecordTarget())
+      ->addAuthor(new Author(
+        TimeStamp::fromString('2000-04-07 14:00', 'UTC', TimeStamp::PRECISION_HOURS),
+        $this->getAssignedAuthor()))
+      ->setCustodian($this->getCustodian())
+      ->addInformationRecipient(
+        (new InformationRecipient())
+          ->setTypeCode(TypeCodeInterface::PRIMARY_INFORMATION_RECIPIENT)
+          ->setIntendedRecipient(
+            (new IntendedRecipient())
+              ->setClassCode(ClassCodeInterface::ASSIGNED)
+              ->addId(Id::fromString('abc', '123'))
+              ->setInformationRecipientPerson(
+                (new InformationRecipientPerson())
+                  ->setClassCode(ClassCodeInterface::PERSON)
+                  ->setNames($names)
               )
-          );
-        $xmlBody = new XMLBodyComponent();
-        $doc->getRootComponent()->addComponent($xmlBody);
+              ->setReceivedOrganization(
+                new ReceivedOrganization(new Set(Organization::class), Id::fromString('qwerty'))
+              )
+          )
+      );
+    $xmlBody = new XMLBodyComponent();
+    $doc->getRootComponent()->addComponent($xmlBody);
 
-        $DOM               = $doc->toDOMDocument();
-        $DOM->formatOutput = true;
-        $cda               = $DOM->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $DOM               = $doc->toDOMDocument();
+    $DOM->formatOutput = TRUE;
+    $cda               = $DOM->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

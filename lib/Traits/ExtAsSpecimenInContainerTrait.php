@@ -38,47 +38,48 @@ use i3Soft\CDA\RIM\Extensions\ExtAsSpecimenInContainer;
 trait ExtAsSpecimenInContainerTrait
 {
 
-    /** @var ExtAsSpecimenInContainer */
-    private $extAsSpecimenInContainer;
+  /** @var ExtAsSpecimenInContainer */
+  private $extAsSpecimenInContainer;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExtAsSpecimenInContainer(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExtAsSpecimenInContainer (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtAsSpecimenInContainer())
     {
-        if ($this->hasExtAsSpecimenInContainer()) {
-            $el->appendChild($this->getExtAsSpecimenInContainer()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtAsSpecimenInContainer()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtAsSpecimenInContainer(): bool
-    {
-        return null !== $this->extAsSpecimenInContainer;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtAsSpecimenInContainer (): bool
+  {
+    return NULL !== $this->extAsSpecimenInContainer;
+  }
 
-    /**
-     * @return ExtAsSpecimenInContainer
-     */
-    public function getExtAsSpecimenInContainer(): ExtAsSpecimenInContainer
-    {
-        return $this->extAsSpecimenInContainer;
-    }
+  /**
+   * @return ExtAsSpecimenInContainer
+   */
+  public function getExtAsSpecimenInContainer (): ExtAsSpecimenInContainer
+  {
+    return $this->extAsSpecimenInContainer;
+  }
 
-    /**
-     * @param ExtAsSpecimenInContainer $extAsSpecimenInContainer
-     *
-     * @return self
-     */
-    public function setExtAsSpecimenInContainer(ExtAsSpecimenInContainer $extAsSpecimenInContainer): self
-    {
-        $this->extAsSpecimenInContainer = $extAsSpecimenInContainer;
-        return $this;
-    }
+  /**
+   * @param ExtAsSpecimenInContainer $extAsSpecimenInContainer
+   *
+   * @return self
+   */
+  public function setExtAsSpecimenInContainer (ExtAsSpecimenInContainer $extAsSpecimenInContainer): self
+  {
+    $this->extAsSpecimenInContainer = $extAsSpecimenInContainer;
+    return $this;
+  }
 }

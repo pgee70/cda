@@ -38,36 +38,37 @@ use i3Soft\CDA\Elements\AbstractSimpleElement;
  */
 class State extends AbstractSimpleElement
 {
-    /**
-     * State constructor.
-     *
-     * @param string $value
-     */
-    public function __construct(string $value)
+  /**
+   * State constructor.
+   *
+   * @param string $value
+   */
+  public function __construct (string $value)
+  {
+    $values = array(
+      'NSW' => 'New South Wales',
+      'VIC' => 'Victoria',
+      'QLD' => 'Queensland',
+      'SA'  => 'South Australia',
+      'WA'  => 'Western Australia',
+      'TAS' => 'Tasmania',
+      'NT'  => 'Northern Territory',
+      'ACT' => 'Australian Capital Territory',
+      'U'   => 'Unknown'
+    );
+    if (array_key_exists($value, $values) === FALSE)
     {
-        $values = array(
-          'NSW' => 'New South Wales',
-          'VIC' => 'Victoria',
-          'QLD' => 'Queensland',
-          'SA'  => 'South Australia',
-          'WA'  => 'Western Australia',
-          'TAS' => 'Tasmania',
-          'NT'  => 'Northern Territory',
-          'ACT' => 'Australian Capital Territory',
-          'U'   => 'Unknown'
-        );
-        if (array_key_exists($value, $values) === false) {
-            throw new \InvalidArgumentException("The state value $value is not valid!");
-        }
-        parent::__construct($value);
+      throw new \InvalidArgumentException("The state value $value is not valid!");
     }
+    parent::__construct($value);
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'state';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'state';
+  }
 
 }

@@ -35,39 +35,39 @@ use i3Soft\CDA\Traits\PatientRoleTrait;
  */
 class RecordTarget extends Participation
 {
-    use PatientRoleTrait;
+  use PatientRoleTrait;
 
-    /**
-     * RecordTarget constructor.
-     *
-     * @param PatientRole $patientRole
-     */
-    public function __construct(PatientRole $patientRole)
-    {
-        $this->setAcceptableTypeCodes(['', TypeCodeInterface::RECORD_TARGET])
-          ->setPatientRole($patientRole)
-          ->setTypeCode(TypeCodeInterface::RECORD_TARGET);
-    }
+  /**
+   * RecordTarget constructor.
+   *
+   * @param PatientRole $patientRole
+   */
+  public function __construct (PatientRole $patientRole)
+  {
+    $this->setAcceptableTypeCodes(['', TypeCodeInterface::RECORD_TARGET])
+      ->setPatientRole($patientRole)
+      ->setTypeCode(TypeCodeInterface::RECORD_TARGET);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
 
-        $el->appendChild($this->patientRole->toDOMElement($doc));
+    $el->appendChild($this->patientRole->toDOMElement($doc));
 
-        return $el;
-    }
+    return $el;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'recordTarget';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'recordTarget';
+  }
 }

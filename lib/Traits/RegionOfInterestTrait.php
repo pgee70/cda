@@ -36,47 +36,48 @@ namespace i3Soft\CDA\Traits;
  */
 trait RegionOfInterestTrait
 {
-    /** @var */
-    private $regionOfInterest;
+  /** @var */
+  private $regionOfInterest;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderRegionOfInterest(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderRegionOfInterest (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasRegionOfInterest())
     {
-        if ($this->hasRegionOfInterest()) {
-            $el->appendChild($this->getRegionOfInterest()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getRegionOfInterest()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasRegionOfInterest(): bool
-    {
-        return null !== $this->regionOfInterest;
-    }
+  /**
+   * @return bool
+   */
+  public function hasRegionOfInterest (): bool
+  {
+    return NULL !== $this->regionOfInterest;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getRegionOfInterest()
-    {
-        return $this->regionOfInterest;
-    }
+  /**
+   * @return mixed
+   */
+  public function getRegionOfInterest ()
+  {
+    return $this->regionOfInterest;
+  }
 
-    /**
-     * @param mixed $regionOfInterest
-     *
-     * @return self
-     */
-    public function setRegionOfInterest($regionOfInterest): self
-    {
-        $this->regionOfInterest = $regionOfInterest;
-        return $this;
-    }
+  /**
+   * @param mixed $regionOfInterest
+   *
+   * @return self
+   */
+  public function setRegionOfInterest ($regionOfInterest): self
+  {
+    $this->regionOfInterest = $regionOfInterest;
+    return $this;
+  }
 }

@@ -37,65 +37,69 @@ use i3Soft\CDA\Elements\InterpretationCode;
  */
 trait InterpretationCodesTrait
 {
-    /** @var InterpretationCode[] */
-    private $interpretationCodes = [];
+  /** @var InterpretationCode[] */
+  private $interpretationCodes = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderInterpretationCodes(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderInterpretationCodes (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasInterpretationCodes())
     {
-        if ($this->hasInterpretationCodes()) {
-            foreach ($this->getInterpretationCodes() as $interpretation_code) {
-                $el->appendChild($interpretation_code->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getInterpretationCodes() as $interpretation_code)
+      {
+        $el->appendChild($interpretation_code->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasInterpretationCodes(): bool
-    {
-        return \count($this->interpretationCodes) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasInterpretationCodes (): bool
+  {
+    return \count($this->interpretationCodes) > 0;
+  }
 
-    /**
-     * @return InterpretationCode[]
-     */
-    public function getInterpretationCodes(): array
-    {
-        return $this->interpretationCodes;
-    }
+  /**
+   * @return InterpretationCode[]
+   */
+  public function getInterpretationCodes (): array
+  {
+    return $this->interpretationCodes;
+  }
 
-    /**
-     * @param InterpretationCode[] $interpretationCodes
-     *
-     * @return self
-     */
-    public function setInterpretationCodes(array $interpretationCodes): self
+  /**
+   * @param InterpretationCode[] $interpretationCodes
+   *
+   * @return self
+   */
+  public function setInterpretationCodes (array $interpretationCodes): self
+  {
+    foreach ($interpretationCodes as $interpretation_code)
     {
-        foreach ($interpretationCodes as $interpretation_code) {
-            if ($interpretation_code instanceof InterpretationCode) {
-                $this->addInterpretationCode($interpretation_code);
-            }
-        }
-        return $this;
+      if ($interpretation_code instanceof InterpretationCode)
+      {
+        $this->addInterpretationCode($interpretation_code);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param InterpretationCode $interpretation_code
-     *
-     * @return InterpretationCodesTrait
-     */
-    public function addInterpretationCode(InterpretationCode $interpretation_code): self
-    {
-        $this->interpretationCodes[] = $interpretation_code;
-        return $this;
-    }
+  /**
+   * @param InterpretationCode $interpretation_code
+   *
+   * @return InterpretationCodesTrait
+   */
+  public function addInterpretationCode (InterpretationCode $interpretation_code): self
+  {
+    $this->interpretationCodes[] = $interpretation_code;
+    return $this;
+  }
 
 }

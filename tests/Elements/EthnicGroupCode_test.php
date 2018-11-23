@@ -46,26 +46,26 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class EthnicGroupCode_test extends MyTestCase
 {
-    public function test_Code()
-    {
-        $expected = <<<XML
+  public function test_Code ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ethnicGroupCode code="4" displayName="Neither Aboriginal nor Torres Strait Islander origin" codeSystem="2.16.840.1.113883.3.879.291036" codeSystemName="METeOR Indigenous Status"/>
 
 XML;
 
-        $ethnic_group_code = new EthnicGroupCode(EthnicGroupCode::status_neither_aboriginal_torres_strait);
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $ethnic_group_code->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $ethnic_group_code = new EthnicGroupCode(EthnicGroupCode::status_neither_aboriginal_torres_strait);
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $ethnic_group_code->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_exception()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The ethnic group code -1 is not allowed!');
-        new EthnicGroupCode(-1);
-    }
+  public function test_exception ()
+  {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The ethnic group code -1 is not allowed!');
+    new EthnicGroupCode(-1);
+  }
 }

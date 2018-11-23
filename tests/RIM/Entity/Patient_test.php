@@ -43,20 +43,20 @@ use i3Soft\CDA\tests\MyTestCase;
  */
 class Patient_test extends MyTestCase
 {
-    public function test_Patient()
-    {
-        $names = new Set(PersonName::class);
-        $names->add((new PersonName())
-          ->addPart(PersonName::FIRST_NAME, 'Henry')
-          ->addPart(PersonName::LAST_NAME, 'Levin')
-          ->addPart('suffix', 'the 7th'));
-        $patient = new Patient(
-          $names,
-          new TimeStamp(\DateTime::createFromFormat('Y-m-d', '1932-09-24')),
-          new CodedValue('M', '', '2.16.840.1.113883.5.1', '')
-        );
+  public function test_Patient ()
+  {
+    $names = new Set(PersonName::class);
+    $names->add((new PersonName())
+      ->addPart(PersonName::FIRST_NAME, 'Henry')
+      ->addPart(PersonName::LAST_NAME, 'Levin')
+      ->addPart('suffix', 'the 7th'));
+    $patient = new Patient(
+      $names,
+      new TimeStamp(\DateTime::createFromFormat('Y-m-d', '1932-09-24')),
+      new CodedValue('M', '', '2.16.840.1.113883.5.1', '')
+    );
 
-        $expected = <<<'CDA'
+    $expected = <<<'CDA'
 <patient classCode="PSN">
     <name>
         <given>Henry</given>
@@ -68,14 +68,14 @@ class Patient_test extends MyTestCase
 </patient>
 CDA;
 
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
-        $expectedPatient = $expectedDoc
-          ->getElementsByTagName('patient')
-          ->item(0);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedPatient = $expectedDoc
+      ->getElementsByTagName('patient')
+      ->item(0);
 
-        $this->assertEqualXMLStructure($expectedPatient,
-          $patient->toDOMElement(new \DOMDocument()), true);
-    }
+    $this->assertEqualXMLStructure($expectedPatient,
+      $patient->toDOMElement(new \DOMDocument()), TRUE);
+  }
 
 }

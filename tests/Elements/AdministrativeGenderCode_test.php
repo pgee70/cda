@@ -47,45 +47,45 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class AdministrativeGenderCode_test extends MyTestCase
 {
-    public function test_coded_value()
-    {
-        $expected = <<<XML
+  public function test_coded_value ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <administrativeGenderCode code="M" displayName="Male" codeSystem="2.16.840.1.113883.13.68" codeSystemName="AS 5017-2006 Health Care Client Identifier Sex" />
 
 XML;
 
-        $tag = new AdministrativeGenderCode(new CodedValue('M', 'Male', '2.16.840.1.113883.13.68', 'AS 5017-2006 Health Care Client Identifier Sex'));
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $doc = $tag->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $dom->formatOutput = true;
-        $cda               = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag = new AdministrativeGenderCode(new CodedValue('M', 'Male', '2.16.840.1.113883.13.68', 'AS 5017-2006 Health Care Client Identifier Sex'));
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $doc = $tag->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $dom->formatOutput = TRUE;
+    $cda               = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_string_overload()
-    {
-        $expected = <<<XML
+  public function test_string_overload ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <administrativeGenderCode code="M" displayName="Male" codeSystem="2.16.840.1.113883.13.68" codeSystemName="AS 5017-2006 Health Care Client Identifier Sex" />
 
 XML;
 
-        $tag = new AdministrativeGenderCode('M');
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $doc = $tag->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $dom->formatOutput = true;
-        $cda               = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag = new AdministrativeGenderCode('M');
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $doc = $tag->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $dom->formatOutput = TRUE;
+    $cda               = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_exception()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The sex value XXX is not valid!');
-        new AdministrativeGenderCode('XXX');
-    }
+  public function test_exception ()
+  {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The sex value XXX is not valid!');
+    new AdministrativeGenderCode('XXX');
+  }
 
 }

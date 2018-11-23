@@ -37,66 +37,70 @@ use i3Soft\CDA\Component\SingleComponent;
  */
 trait SingleComponentTrait
 {
-    /** @var SingleComponent[] */
-    private $components = [];
-    /**
-     * @return bool
-     */
-    /**
-     * @param SingleComponent $component
-     *
-     * @return self
-     */
-    public function addComponent(SingleComponent $component): self
-    {
-        $this->components[] = $component;
-        return $this;
-    }
+  /** @var SingleComponent[] */
+  private $components = [];
+  /**
+   * @return bool
+   */
+  /**
+   * @param SingleComponent $component
+   *
+   * @return self
+   */
+  public function addComponent (SingleComponent $component): self
+  {
+    $this->components[] = $component;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasComponents(): bool
-    {
-        return \count($this->components) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasComponents (): bool
+  {
+    return \count($this->components) > 0;
+  }
 
-    /**
-     * @return SingleComponent[]
-     */
-    public function getComponents(): array
-    {
-        return $this->components;
-    }
+  /**
+   * @return SingleComponent[]
+   */
+  public function getComponents (): array
+  {
+    return $this->components;
+  }
 
-    /**
-     * @param SingleComponent[] $components
-     *
-     * @return self
-     */
-    public function setComponents(array $components): self
+  /**
+   * @param SingleComponent[] $components
+   *
+   * @return self
+   */
+  public function setComponents (array $components): self
+  {
+    foreach ($components as $component)
     {
-        foreach ($components as $component) {
-            if ($component instanceof SingleComponent) {
-                $this->addComponent($component);
-            }
-        }
-        return $this;
+      if ($component instanceof SingleComponent)
+      {
+        $this->addComponent($component);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderComponents(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderComponents (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasComponents())
     {
-        if ($this->hasComponents()) {
-            foreach ($this->getComponents() as $component) {
-                $el->appendChild($component->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getComponents() as $component)
+      {
+        $el->appendChild($component->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 }

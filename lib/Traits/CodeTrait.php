@@ -33,49 +33,51 @@ use i3Soft\CDA\Elements\Code;
 
 trait CodeTrait
 {
-    /** @var Code */
-    protected $code;
+  /** @var Code */
+  protected $code;
 
-    /**
-     * @return bool
-     */
-    public function hasCode(): bool
-    {
-        return null !== $this->code;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCode (): bool
+  {
+    return NULL !== $this->code;
+  }
 
-    /**
-     * @return Code
-     */
-    public function getCode(): Code
-    {
-        return $this->code;
-    }
+  /**
+   * @return Code
+   */
+  public function getCode (): Code
+  {
+    return $this->code;
+  }
 
-    /**
-     * @param Code $code
-     *
-     * @return self
-     */
-    public function setCode($code): self
+  /**
+   * @param Code $code
+   *
+   * @return self
+   */
+  public function setCode ($code): self
+  {
+    if ($code instanceof Code)
     {
-        if ($code instanceof Code) {
-            $this->code = $code;
-        }
-        return $this;
+      $this->code = $code;
     }
+    return $this;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasCode())
     {
-        if ($this->hasCode()) {
-            $el->appendChild($this->getCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 }

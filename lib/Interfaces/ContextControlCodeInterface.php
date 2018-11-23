@@ -36,33 +36,33 @@ namespace i3Soft\CDA\Interfaces;
 interface ContextControlCodeInterface
 {
 
-    const CONTEXT_CONTROL_ADDITIVE        = '_ContextControlAdditive';
-    const ADDITIVE_NON_PROPAGATING        = 'AN';
-    const ADDITIVE_PROPAGATING            = 'AP';
-    const CONTEXT_CONTROL_NON_PROPAGATING = '_ContextControlNonPropagating';
-    const OVERRIDING_NON_PROPAGATING      = 'ON';
-    const CONTEXT_CONTROL_OVERRIDING      = '_ContextControlOverriding';
-    const OVERRIDING_PROPAGATING          = 'OP';
+  const CONTEXT_CONTROL_ADDITIVE        = '_ContextControlAdditive';
+  const ADDITIVE_NON_PROPAGATING        = 'AN';
+  const ADDITIVE_PROPAGATING            = 'AP';
+  const CONTEXT_CONTROL_NON_PROPAGATING = '_ContextControlNonPropagating';
+  const OVERRIDING_NON_PROPAGATING      = 'ON';
+  const CONTEXT_CONTROL_OVERRIDING      = '_ContextControlOverriding';
+  const OVERRIDING_PROPAGATING          = 'OP';
 
-    const ContextControl = array(
-      self::ADDITIVE_NON_PROPAGATING,
-      self::ADDITIVE_PROPAGATING,
-      self::OVERRIDING_NON_PROPAGATING,
-      self::OVERRIDING_PROPAGATING
-    );
+  const ContextControl = array(
+    self::ADDITIVE_NON_PROPAGATING,
+    self::ADDITIVE_PROPAGATING,
+    self::OVERRIDING_NON_PROPAGATING,
+    self::OVERRIDING_PROPAGATING
+  );
 
-    // the only value used in CDAs
-    const CDA = array('', self::OVERRIDING_PROPAGATING);
+  // the only value used in CDAs
+  const CDA = array('', self::OVERRIDING_PROPAGATING);
 
-    /**
-     * @return string
-     */
-    public function getContextControlCode(): string;
+  /**
+   * @return string
+   */
+  public function getContextControlCode (): string;
 
-    /**
-     * @param string $context_control_code
-     *
-     * @return mixed
-     */
-    public function setContextControlCode(string $context_control_code);
+  /**
+   * @param string $context_control_code
+   *
+   * @return mixed
+   */
+  public function setContextControlCode (string $context_control_code);
 }

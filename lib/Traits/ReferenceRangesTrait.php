@@ -37,65 +37,69 @@ use i3Soft\CDA\RIM\Act\ReferenceRange;
  */
 trait ReferenceRangesTrait
 {
-    /** @var ReferenceRange[] */
-    private $referenceRanges = [];
+  /** @var ReferenceRange[] */
+  private $referenceRanges = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderReferenceRanges(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderReferenceRanges (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasReferenceRanges())
     {
-        if ($this->hasReferenceRanges()) {
-            foreach ($this->getReferenceRanges() as $reference_range) {
-                $el->appendChild($reference_range->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getReferenceRanges() as $reference_range)
+      {
+        $el->appendChild($reference_range->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasReferenceRanges(): bool
-    {
-        return \count($this->referenceRanges) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasReferenceRanges (): bool
+  {
+    return \count($this->referenceRanges) > 0;
+  }
 
-    /**
-     * @return ReferenceRange[]
-     */
-    public function getReferenceRanges(): array
-    {
-        return $this->referenceRanges;
-    }
+  /**
+   * @return ReferenceRange[]
+   */
+  public function getReferenceRanges (): array
+  {
+    return $this->referenceRanges;
+  }
 
-    /**
-     * @param ReferenceRange[] $referenceRanges
-     *
-     * @return self
-     */
-    public function setReferenceRanges(array $referenceRanges): self
+  /**
+   * @param ReferenceRange[] $referenceRanges
+   *
+   * @return self
+   */
+  public function setReferenceRanges (array $referenceRanges): self
+  {
+    foreach ($referenceRanges as $reference_range)
     {
-        foreach ($referenceRanges as $reference_range) {
-            if ($reference_range instanceof ReferenceRange) {
-                $this->addReferenceRange($reference_range);
-            }
-        }
-        return $this;
+      if ($reference_range instanceof ReferenceRange)
+      {
+        $this->addReferenceRange($reference_range);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param ReferenceRange $reference_range
-     *
-     * @return self
-     */
-    public function addReferenceRange(ReferenceRange $reference_range): self
-    {
-        $this->referenceRanges[] = $reference_range;
-        return $this;
-    }
+  /**
+   * @param ReferenceRange $reference_range
+   *
+   * @return self
+   */
+  public function addReferenceRange (ReferenceRange $reference_range): self
+  {
+    $this->referenceRanges[] = $reference_range;
+    return $this;
+  }
 
 }

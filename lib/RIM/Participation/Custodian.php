@@ -34,40 +34,40 @@ use i3Soft\CDA\Traits\AssignedCustodianTrait;
  */
 class Custodian extends Participation
 {
-    use AssignedCustodianTrait;
+  use AssignedCustodianTrait;
 
-    /**
-     * Custodian constructor.
-     *
-     * @param AssignedCustodian $assignedCustodian
-     */
-    public function __construct(AssignedCustodian $assignedCustodian)
-    {
-        $this->setAcceptableTypeCodes(['', TypeCodeInterface::CUSTODIAN])
-          ->setAssignedCustodian($assignedCustodian)
-          ->setTypeCode(TypeCodeInterface::CUSTODIAN);
-    }
+  /**
+   * Custodian constructor.
+   *
+   * @param AssignedCustodian $assignedCustodian
+   */
+  public function __construct (AssignedCustodian $assignedCustodian)
+  {
+    $this->setAcceptableTypeCodes(['', TypeCodeInterface::CUSTODIAN])
+      ->setAssignedCustodian($assignedCustodian)
+      ->setTypeCode(TypeCodeInterface::CUSTODIAN);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
 
-        $el->appendChild($this->getAssignedCustodian()->toDOMElement($doc));
+    $el->appendChild($this->getAssignedCustodian()->toDOMElement($doc));
 
-        return $el;
-    }
+    return $el;
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'custodian';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'custodian';
+  }
 }

@@ -37,48 +37,49 @@ use i3Soft\CDA\Elements\Procedure;
  */
 trait ProcedureTrait
 {
-    /** @var Procedure */
-    private $procedure;
+  /** @var Procedure */
+  private $procedure;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderProcedure(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderProcedure (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasProcedure())
     {
-        if ($this->hasProcedure()) {
-            $el->appendChild($this->getProcedure()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getProcedure()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasProcedure(): bool
-    {
-        return null !== $this->procedure;
-    }
+  /**
+   * @return bool
+   */
+  public function hasProcedure (): bool
+  {
+    return NULL !== $this->procedure;
+  }
 
-    /**
-     * @return Procedure
-     */
-    public function getProcedure(): Procedure
-    {
-        return $this->procedure;
-    }
+  /**
+   * @return Procedure
+   */
+  public function getProcedure (): Procedure
+  {
+    return $this->procedure;
+  }
 
-    /**
-     * @param Procedure $procedure
-     *
-     * @return self
-     */
-    public function setProcedure(Procedure $procedure): self
-    {
-        $this->procedure = $procedure;
-        return $this;
-    }
+  /**
+   * @param Procedure $procedure
+   *
+   * @return self
+   */
+  public function setProcedure (Procedure $procedure): self
+  {
+    $this->procedure = $procedure;
+    return $this;
+  }
 
 }

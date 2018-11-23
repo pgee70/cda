@@ -35,64 +35,65 @@ use i3Soft\CDA\Traits\XSITypeTrait;
  */
 class Text extends AbstractHtmlElement implements XSITypeInterface, MediaTypeInterface
 {
-    use XSITypeTrait;
-    /** @var string */
-    private $media_type;
+  use XSITypeTrait;
+  /** @var string */
+  private $media_type;
 
-    /**
-     * Text constructor.
-     *
-     * @param $choice
-     */
-    public function __construct($choice = '')
+  /**
+   * Text constructor.
+   *
+   * @param $choice
+   */
+  public function __construct ($choice = '')
+  {
+    parent::__construct(\is_string($choice)
+      ? $choice
+      : '');
+    $this->setXSIType('')
+      ->setMediaType('');
+    if ($choice && \is_string($choice) === FALSE)
     {
-        parent::__construct(\is_string($choice)
-          ? $choice
-          : '');
-        $this->setXSIType('')
-          ->setMediaType('');
-        if ($choice && \is_string($choice) === false) {
-            $this->addTag($choice);
-        }
-
+      $this->addTag($choice);
     }
 
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function getMediaType(): string
-    {
-        return $this->media_type;
-    }
 
-    public function setMediaType(string $media_type): self
-    {
-        $this->media_type = $media_type;
-        return $this;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function getMediaType (): string
+  {
+    return $this->media_type;
+  }
 
-    protected function canAddTag($choice): bool
-    {
-        return ($choice
-                && ($choice instanceof LinkHtml
-                    || $choice instanceof Sub
-                    || $choice instanceof Sup
-                    || $choice instanceof Br
-                    || $choice instanceof Footnote
-                    || $choice instanceof FootNoteRef
-                    || $choice instanceof Paragraph
-                    || $choice instanceof ReferenceElement
-                    || $choice instanceof ListElement
-                    || $choice instanceof Table
-                    || $choice instanceof RenderMultiMedia));
-    }
+  public function setMediaType (string $media_type): self
+  {
+    $this->media_type = $media_type;
+    return $this;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'text';
-    }
+  protected function canAddTag ($choice): bool
+  {
+    return ($choice
+            && ($choice instanceof LinkHtml
+                || $choice instanceof Sub
+                || $choice instanceof Sup
+                || $choice instanceof Br
+                || $choice instanceof Footnote
+                || $choice instanceof FootNoteRef
+                || $choice instanceof Paragraph
+                || $choice instanceof ReferenceElement
+                || $choice instanceof ListElement
+                || $choice instanceof Table
+                || $choice instanceof RenderMultiMedia));
+  }
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'text';
+  }
 }

@@ -32,59 +32,59 @@ use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
  */
 class TemplateId extends AbstractElement
 {
-    /**
-     *
-     * @var InstanceIdentifier
-     */
-    protected $root;
+  /**
+   *
+   * @var InstanceIdentifier
+   */
+  protected $root;
 
-    /**
-     * TemplateId constructor.
-     *
-     * @param InstanceIdentifier $code
-     */
-    public function __construct(InstanceIdentifier $code)
-    {
-        $this->root = $code;
-    }
+  /**
+   * TemplateId constructor.
+   *
+   * @param InstanceIdentifier $code
+   */
+  public function __construct (InstanceIdentifier $code)
+  {
+    $this->root = $code;
+  }
 
-    /**
-     * @param InstanceIdentifier $code
-     *
-     * @return self
-     */
-    public function setId(InstanceIdentifier $code): self
-    {
-        $this->root = $code;
-        return $this;
-    }
+  /**
+   * @param InstanceIdentifier $code
+   *
+   * @return self
+   */
+  public function setId (InstanceIdentifier $code): self
+  {
+    $this->root = $code;
+    return $this;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->getId()->setValueToElement($el, $doc);
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->getId()->setValueToElement($el, $doc);
 
-        return $el;
-    }
+    return $el;
+  }
 
-    /**
-     * @return InstanceIdentifier
-     */
-    public function getId(): InstanceIdentifier
-    {
-        return $this->root;
-    }
+  /**
+   * @return InstanceIdentifier
+   */
+  public function getId (): InstanceIdentifier
+  {
+    return $this->root;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'templateId';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'templateId';
+  }
 }

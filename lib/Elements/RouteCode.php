@@ -32,59 +32,59 @@ use i3Soft\CDA\DataType\Code\CodedWithEquivalents;
  */
 class RouteCode extends AbstractElement
 {
-    /**
-     *
-     * @var CodedWithEquivalents
-     */
-    protected $code;
+  /**
+   *
+   * @var CodedWithEquivalents
+   */
+  protected $code;
 
-    /**
-     *
-     * @param CodedWithEquivalents $code
-     */
-    public function __construct(CodedWithEquivalents $code)
-    {
-        $this->setCode($code);
-    }
+  /**
+   *
+   * @param CodedWithEquivalents $code
+   */
+  public function __construct (CodedWithEquivalents $code)
+  {
+    $this->setCode($code);
+  }
 
-    /**
-     *
-     * @return CodedWithEquivalents
-     */
-    public function getCode(): CodedWithEquivalents
-    {
-        return $this->code;
-    }
+  /**
+   *
+   * @return CodedWithEquivalents
+   */
+  public function getCode (): CodedWithEquivalents
+  {
+    return $this->code;
+  }
 
-    /**
-     *
-     * @param CodedWithEquivalents $code
-     *
-     * @return self
-     */
-    public function setCode(CodedWithEquivalents $code): self
-    {
-        $this->code = $code;
-        return $this;
-    }
+  /**
+   *
+   * @param CodedWithEquivalents $code
+   *
+   * @return self
+   */
+  public function setCode (CodedWithEquivalents $code): self
+  {
+    $this->code = $code;
+    return $this;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, ['code']);
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, ['code']);
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'routeCode';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'routeCode';
+  }
 
 
 }

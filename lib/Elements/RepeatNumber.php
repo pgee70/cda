@@ -41,31 +41,31 @@ use i3Soft\CDA\Traits\ValueTypeTrait;
 
 class RepeatNumber extends AbstractElement
 {
-    use ValueTypeTrait;
+  use ValueTypeTrait;
 
-    /**
-     * High constructor.
-     *
-     * @param string $value_string
-     */
-    public function __construct(string $value_string)
-    {
-        $this->setValueType(new ValueType($value_string));
-    }
+  /**
+   * High constructor.
+   *
+   * @param string $value_string
+   */
+  public function __construct (string $value_string)
+  {
+    $this->setValueType(new ValueType($value_string));
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, ['value_type']);
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, ['value_type']);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'repeatNumber';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'repeatNumber';
+  }
 }

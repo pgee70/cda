@@ -32,120 +32,121 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 abstract class AbstractTableSection extends AbstractElement
 {
-    /**
-     *
-     * @var TableRow[]
-     */
-    private $rows = array();
+  /**
+   *
+   * @var TableRow[]
+   */
+  private $rows = array();
 
-    /**
-     * A reference to the table where the section is attached to
-     *
-     * @var Table
-     */
-    private $table;
+  /**
+   * A reference to the table where the section is attached to
+   *
+   * @var Table
+   */
+  private $table;
 
-    /**
-     * AbstractTableSection constructor.
-     *
-     * @param Table|NULL $table
-     */
-    public function __construct(Table $table = null)
+  /**
+   * AbstractTableSection constructor.
+   *
+   * @param Table|NULL $table
+   */
+  public function __construct (Table $table = NULL)
+  {
+    $this->table = $table;
+  }
+
+  /**
+   *
+   * @return TableRow
+   */
+  public function createRow (): TableRow
+  {
+    $row = new TableRow($this);
+
+    $this->addRow($row);
+
+    return $row;
+  }
+
+  /**
+   *
+   * @param TableRow $row
+   *
+   * @return self
+   */
+  public function addRow (TableRow $row): self
+  {
+    $this->rows[] = $row;
+
+    return $this;
+  }
+
+  /**
+   *
+   * @return Table
+   */
+  public function getTable (): Table
+  {
+    return $this->table;
+  }
+
+  /**
+   *
+   * @param Table $table
+   *
+   * @return self
+   */
+  public function setTable (Table $table): self
+  {
+    $this->table = $table;
+
+    return $this;
+  }
+
+  /**
+   *
+   * @return boolean
+   */
+  public function isEmpty (): bool
+  {
+    return \count($this->getRows()) === 0;
+  }
+
+  /**
+   *
+   * @return TableRow[]
+   */
+  public function getRows (): array
+  {
+    return $this->rows;
+  }
+
+  /**
+   * @param array $rows
+   *
+   * @return self
+   */
+  public function setRows (array $rows): self
+  {
+    $this->rows = $rows;
+    return $this;
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    foreach ($this->getRows() as $row)
     {
-        $this->table = $table;
+      $el->appendChild($row->toDOMElement($doc));
     }
 
-    /**
-     *
-     * @return TableRow
-     */
-    public function createRow(): TableRow
-    {
-        $row = new TableRow($this);
-
-        $this->addRow($row);
-
-        return $row;
-    }
-
-    /**
-     *
-     * @param TableRow $row
-     *
-     * @return self
-     */
-    public function addRow(TableRow $row): self
-    {
-        $this->rows[] = $row;
-
-        return $this;
-    }
-
-    /**
-     *
-     * @return Table
-     */
-    public function getTable(): Table
-    {
-        return $this->table;
-    }
-
-    /**
-     *
-     * @param Table $table
-     *
-     * @return self
-     */
-    public function setTable(Table $table): self
-    {
-        $this->table = $table;
-
-        return $this;
-    }
-
-    /**
-     *
-     * @return boolean
-     */
-    public function isEmpty(): bool
-    {
-        return \count($this->getRows()) === 0;
-    }
-
-    /**
-     *
-     * @return TableRow[]
-     */
-    public function getRows(): array
-    {
-        return $this->rows;
-    }
-
-    /**
-     * @param array $rows
-     *
-     * @return self
-     */
-    public function setRows(array $rows): self
-    {
-        $this->rows = $rows;
-        return $this;
-    }
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-
-        foreach ($this->getRows() as $row) {
-            $el->appendChild($row->toDOMElement($doc));
-        }
-
-        return $el;
-    }
+    return $el;
+  }
 
 }

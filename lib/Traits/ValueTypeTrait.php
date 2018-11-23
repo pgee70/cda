@@ -32,33 +32,33 @@ use i3Soft\CDA\DataType\ValueType;
 
 trait ValueTypeTrait
 {
-    /** @var ValueType */
-    protected $value_type;
+  /** @var ValueType */
+  protected $value_type;
 
-    /**
-     * @return ValueType
-     */
-    public function getValueType(): ValueType
-    {
-        return $this->value_type;
-    }
+  /**
+   * @return ValueType
+   */
+  public function getValueType (): ValueType
+  {
+    return $this->value_type;
+  }
 
-    /**
-     * @param ValueType $value_type
-     *
-     * @return self
-     */
-    public function setValueType(ValueType $value_type): self
-    {
-        $this->value_type = $value_type;
-        return $this;
-    }
+  /**
+   * @param ValueType $value_type
+   *
+   * @return self
+   */
+  public function setValueType (ValueType $value_type): self
+  {
+    $this->value_type = $value_type;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasValueType(): bool
-    {
-        return null !== $this->value_type;
-    }
+  /**
+   * @return bool
+   */
+  public function hasValueType (): bool
+  {
+    return NULL !== $this->value_type;
+  }
 }

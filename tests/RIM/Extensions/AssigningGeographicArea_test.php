@@ -49,14 +49,14 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class AssigningGeographicArea_test extends MyTestCase
 {
-    public function test_AssigningGeographicArea()
-    {
-        $expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ext:assigningGeographicArea classCode=\"PLC\"><ext:name>National Identifier</ext:name></ext:assigningGeographicArea>\n";
-        $geo      = new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')));
-        $dom      = new \DOMDocument('1.0', 'UTF-8');
-        $doc      = $geo->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+  public function test_AssigningGeographicArea ()
+  {
+    $expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ext:assigningGeographicArea classCode=\"PLC\"><ext:name>National Identifier</ext:name></ext:assigningGeographicArea>\n";
+    $geo      = new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')));
+    $dom      = new \DOMDocument('1.0', 'UTF-8');
+    $doc      = $geo->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

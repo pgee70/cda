@@ -39,17 +39,17 @@ use i3Soft\CDA\tests\MyTestCase;
  */
 class IdentifierHelper_test extends MyTestCase
 {
-    public function test_GenerateUUID()
-    {
-        $uuid = IdentifierHelper::generateUUID();
-        $this->assertRegExp('/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/', $uuid);
-    }
+  public function test_GenerateUUID ()
+  {
+    $uuid = IdentifierHelper::generateUUID();
+    $this->assertRegExp('/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/', $uuid);
+  }
 
-    public function test_GenerateRandomIdentifier()
-    {
-        $ii = IdentifierHelper::generateRandomIdentifier();
+  public function test_GenerateRandomIdentifier ()
+  {
+    $ii = IdentifierHelper::generateRandomIdentifier();
 
-        $this->assertInstanceOf(InstanceIdentifier::class, $ii);
+    $this->assertInstanceOf(InstanceIdentifier::class, $ii);
 
-    }
+  }
 }

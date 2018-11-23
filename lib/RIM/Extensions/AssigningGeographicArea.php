@@ -49,42 +49,42 @@ use i3Soft\CDA\Traits\ExtEntityNameTrait;
  */
 class AssigningGeographicArea extends Entity
 {
-    use EncompassingEncounterTrait;
-    use ExtEntityNameTrait;
-    use AsEntityIdentifierTrait;
+  use EncompassingEncounterTrait;
+  use ExtEntityNameTrait;
+  use AsEntityIdentifierTrait;
 
 
-    /**
-     * AssigningGeographicArea constructor.
-     *
-     * @param ExtEntityName $name
-     */
-    public function __construct(ExtEntityName $name)
-    {
-        $this->setAcceptableClassCodes(array('', ClassCodeInterface::PLACE))
-          ->setClassCode(ClassCodeInterface::PLACE)
-          ->setExtEntityName($name);
-    }
+  /**
+   * AssigningGeographicArea constructor.
+   *
+   * @param ExtEntityName $name
+   */
+  public function __construct (ExtEntityName $name)
+  {
+    $this->setAcceptableClassCodes(array('', ClassCodeInterface::PLACE))
+      ->setClassCode(ClassCodeInterface::PLACE)
+      ->setExtEntityName($name);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderExtEntityName($el, $doc)
-          ->renderEncompassingEncounter($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderExtEntityName($el, $doc)
+      ->renderEncompassingEncounter($el, $doc);
+    return $el;
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:assigningGeographicArea';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:assigningGeographicArea';
+  }
 }

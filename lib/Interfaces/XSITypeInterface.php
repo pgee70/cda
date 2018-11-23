@@ -36,45 +36,45 @@ namespace i3Soft\CDA\Interfaces;
  */
 interface XSITypeInterface
 {
-    // see this ref for examples and definitions of constants
-    // https://www.hl7.org/documentcenter/public_temp_913B5997-1C23-BA17-0C52145C9F9C0422/wg/inm/datatypes-its-xml20050714.htm#dtimpl-PPD
-    // note that not all codes are implemented - as per the specs
+  // see this ref for examples and definitions of constants
+  // https://www.hl7.org/documentcenter/public_temp_913B5997-1C23-BA17-0C52145C9F9C0422/wg/inm/datatypes-its-xml20050714.htm#dtimpl-PPD
+  // note that not all codes are implemented - as per the specs
 
-    const BOOLEAN                             = 'BL';
-    const CHARACTER_STRING                    = 'ST';
-    const CODED_SIMPLE_VALUE                  = 'CS';
-    const CONCEPT_DESCRIPTOR                  = 'CD';
-    const ENCAPSULATED_DATA                   = 'ED';
-    const INTEGER                             = 'INT';
-    const INTERVAL_PHYSICAL_QUANTITY          = 'IVL_PQ';
-    const INTERVAL_TIMESTAMP                  = 'IVL_TS';
-    const PARAMETRIC_PROBABILITY_DISTRIBUTION = 'PPD';
-    const PERSON_NAME                         = 'PN';
-    const PHYSICAL_QUANTITY                   = 'PQ';
-    const RATIO                               = 'RTO';
-    const TIMESTAMP                           = 'TS';
-    const PERIODIC_TIME_INTERVAL              = 'PIVL_TS';
-    const EVENT_RELATED_TIME_INTERVAL         = 'EIVL';
+  const BOOLEAN                             = 'BL';
+  const CHARACTER_STRING                    = 'ST';
+  const CODED_SIMPLE_VALUE                  = 'CS';
+  const CONCEPT_DESCRIPTOR                  = 'CD';
+  const ENCAPSULATED_DATA                   = 'ED';
+  const INTEGER                             = 'INT';
+  const INTERVAL_PHYSICAL_QUANTITY          = 'IVL_PQ';
+  const INTERVAL_TIMESTAMP                  = 'IVL_TS';
+  const PARAMETRIC_PROBABILITY_DISTRIBUTION = 'PPD';
+  const PERSON_NAME                         = 'PN';
+  const PHYSICAL_QUANTITY                   = 'PQ';
+  const RATIO                               = 'RTO';
+  const TIMESTAMP                           = 'TS';
+  const PERIODIC_TIME_INTERVAL              = 'PIVL_TS';
+  const EVENT_RELATED_TIME_INTERVAL         = 'EIVL';
 
-    const xsi_types = array(
-      '',
-      self::BOOLEAN,
-      self::CHARACTER_STRING,
-      self::CODED_SIMPLE_VALUE,
-      self::CONCEPT_DESCRIPTOR,
-      self::ENCAPSULATED_DATA,
-      self::INTEGER,
-      self::INTERVAL_TIMESTAMP,
-      self::INTERVAL_PHYSICAL_QUANTITY,
-      self::PARAMETRIC_PROBABILITY_DISTRIBUTION,
-      self::PERSON_NAME,
-      self::PHYSICAL_QUANTITY,
-      self::TIMESTAMP,
-      self::PERIODIC_TIME_INTERVAL,
-      self::EVENT_RELATED_TIME_INTERVAL,
-      self::RATIO,
-    );
+  const xsi_types = array(
+    '',
+    self::BOOLEAN,
+    self::CHARACTER_STRING,
+    self::CODED_SIMPLE_VALUE,
+    self::CONCEPT_DESCRIPTOR,
+    self::ENCAPSULATED_DATA,
+    self::INTEGER,
+    self::INTERVAL_TIMESTAMP,
+    self::INTERVAL_PHYSICAL_QUANTITY,
+    self::PARAMETRIC_PROBABILITY_DISTRIBUTION,
+    self::PERSON_NAME,
+    self::PHYSICAL_QUANTITY,
+    self::TIMESTAMP,
+    self::PERIODIC_TIME_INTERVAL,
+    self::EVENT_RELATED_TIME_INTERVAL,
+    self::RATIO,
+  );
 
-    public function getXSIType(): string;
+  public function getXSIType (): string;
 
 }

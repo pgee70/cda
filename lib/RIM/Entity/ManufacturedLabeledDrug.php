@@ -34,39 +34,40 @@ use i3Soft\CDA\Traits\CodedWithEquivalentsTrait;
  */
 class ManufacturedLabeledDrug extends DrugOrMaterial
 {
-    use CodedWithEquivalentsTrait;
+  use CodedWithEquivalentsTrait;
 
-    /**
-     * ManufacturedLabeledDrug constructor.
-     *
-     * @param CodedWithEquivalents $code
-     */
-    public function __construct($code = null)
+  /**
+   * ManufacturedLabeledDrug constructor.
+   *
+   * @param CodedWithEquivalents $code
+   */
+  public function __construct ($code = NULL)
+  {
+    if ($code && $code instanceof CodedWithEquivalents)
     {
-        if ($code && $code instanceof CodedWithEquivalents) {
-            $this->setCodedWithEquivalents($code);
-        }
-        $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassManufacturedMaterial)
-          ->setClassCode(ClassCodeInterface::MANUFACTURED_MATERIAL);
+      $this->setCodedWithEquivalents($code);
     }
+    $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassManufacturedMaterial)
+      ->setClassCode(ClassCodeInterface::MANUFACTURED_MATERIAL);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderCodedWithEquivalents($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderCodedWithEquivalents($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'manufacturedLabeledDrug';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'manufacturedLabeledDrug';
+  }
 }

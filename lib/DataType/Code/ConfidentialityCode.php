@@ -30,31 +30,31 @@ namespace i3Soft\CDA\DataType\Code;
  */
 class ConfidentialityCode
 {
-    // 	<confidentialityCode code="R" displayName="Restricted" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality"/>
+  // 	<confidentialityCode code="R" displayName="Restricted" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality"/>
 
-    const CODE_SYSTEM      = '2.16.840.1.113883.5.25';
-    const CODE_SYSTEM_NAME = 'Confidentiality';
+  const CODE_SYSTEM      = '2.16.840.1.113883.5.25';
+  const CODE_SYSTEM_NAME = 'Confidentiality';
 
-    const RESTRICTED          = 'Restricted';
-    const RESTRICTED_KEY      = 'R';
-    const NORMAL              = 'Normal';
-    const NORMAL_KEY          = 'N';
-    const VERY_RESTRICTED     = 'Very Restricted';
-    const VERY_RESTRICTED_KEY = 'V';
+  const RESTRICTED          = 'Restricted';
+  const RESTRICTED_KEY      = 'R';
+  const NORMAL              = 'Normal';
+  const NORMAL_KEY          = 'N';
+  const VERY_RESTRICTED     = 'Very Restricted';
+  const VERY_RESTRICTED_KEY = 'V';
 
-    /**
-     * @param $key
-     * @param $displayName
-     *
-     * @return \i3Soft\CDA\DataType\Code\CodedValue
-     */
-    public static function create($key, $displayName): CodedValue
-    {
-        return new CodedValue(
-          $key,
-          $displayName,
-          self::CODE_SYSTEM,
-          self::CODE_SYSTEM_NAME
-        );
-    }
+  /**
+   * @param $key
+   * @param $displayName
+   *
+   * @return \i3Soft\CDA\DataType\Code\CodedValue
+   */
+  public static function create ($key, $displayName): CodedValue
+  {
+    return new CodedValue(
+      $key,
+      $displayName,
+      self::CODE_SYSTEM,
+      self::CODE_SYSTEM_NAME
+    );
+  }
 }

@@ -33,47 +33,48 @@ use i3Soft\CDA\RIM\Extensions\ExtCode;
 trait ExtCodeTrait
 {
 
-    /** @var ExtCode */
-    private $ext_code;
+  /** @var ExtCode */
+  private $ext_code;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExtCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExtCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtCode())
     {
-        if ($this->hasExtCode()) {
-            $el->appendChild($this->getExtCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtCode(): bool
-    {
-        return null !== $this->ext_code;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtCode (): bool
+  {
+    return NULL !== $this->ext_code;
+  }
 
-    /**
-     * @return ExtCode
-     */
-    public function getExtCode(): ExtCode
-    {
-        return $this->ext_code;
-    }
+  /**
+   * @return ExtCode
+   */
+  public function getExtCode (): ExtCode
+  {
+    return $this->ext_code;
+  }
 
-    /**
-     * @param ExtCode $ext_code
-     *
-     * @return self
-     */
-    public function setExtCode(ExtCode $ext_code): self
-    {
-        $this->ext_code = $ext_code;
-        return $this;
-    }
+  /**
+   * @param ExtCode $ext_code
+   *
+   * @return self
+   */
+  public function setExtCode (ExtCode $ext_code): self
+  {
+    $this->ext_code = $ext_code;
+    return $this;
+  }
 }

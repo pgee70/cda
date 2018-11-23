@@ -43,21 +43,21 @@ namespace i3Soft\CDA\tests\RIM\Participation;
 
 
 use i3Soft\CDA\Elements\Code;
-use i3Soft\CDA\RIM\Participation\Participant;
 use i3Soft\CDA\Interfaces\TypeCodeInterface;
 use i3Soft\CDA\RIM\Entity\PlayingEntity;
+use i3Soft\CDA\RIM\Participation\Participant;
 use i3Soft\CDA\RIM\Role\ParticipantRole;
 use i3Soft\CDA\tests\MyTestCase;
 
 
 class Participant_test extends MyTestCase
 {
-    /**
-     * see page 113 of EventSummary_CDAImplementationGuide_v1.3.pdf
-     */
-    public function test_tag()
-    {
-        $expected = <<<'CDA'
+  /**
+   * see page 113 of EventSummary_CDAImplementationGuide_v1.3.pdf
+   */
+  public function test_tag ()
+  {
+    $expected = <<<'CDA'
 <!-- Begin Substance/Agent -->
 <participant typeCode="CAGNT">
   <participantRole>
@@ -68,20 +68,20 @@ class Participant_test extends MyTestCase
 </participant>
 <!-- End Substance/Agent -->
 CDA;
-        $tag      = new Participant(
-          (new ParticipantRole(
-            (new PlayingEntity(Code::SNOMED('385420005', 'Contrast media')
-            ))->setClassCode('')
-          ))->setClassCode('')
-        );
-        $tag->setTypeCode(TypeCodeInterface::CAUSATIVE_AGENT)
-          ->setContextControlCode('');
+    $tag      = new Participant(
+      (new ParticipantRole(
+        (new PlayingEntity(Code::SNOMED('385420005', 'Contrast media')
+        ))->setClassCode('')
+      ))->setClassCode('')
+    );
+    $tag->setTypeCode(TypeCodeInterface::CAUSATIVE_AGENT)
+      ->setContextControlCode('');
 
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $tag->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $tag->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

@@ -47,47 +47,47 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class SignatureCode_test extends MyTestCase
 {
-    public function test_empty_instantiation()
-    {
-        $expected       = <<<CDA
+  public function test_empty_instantiation ()
+  {
+    $expected       = <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 <signatureCode code="S"/>
 CDA;
-        $signature_code = new SignatureCode();
-        $dom            = new \DOMDocument('1.0', 'UTF-8');
-        $doc            = $signature_code->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $signature_code = new SignatureCode();
+    $dom            = new \DOMDocument('1.0', 'UTF-8');
+    $doc            = $signature_code->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_string_instantiation()
-    {
-        $expected       = <<<CDA
+  public function test_string_instantiation ()
+  {
+    $expected       = <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 <signatureCode code="X"/>
 CDA;
-        $signature_code = new SignatureCode('X');
-        $dom            = new \DOMDocument('1.0', 'UTF-8');
-        $doc            = $signature_code->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $signature_code = new SignatureCode('X');
+    $dom            = new \DOMDocument('1.0', 'UTF-8');
+    $doc            = $signature_code->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_coded_instantiation()
-    {
-        $expected       = <<<CDA
+  public function test_coded_instantiation ()
+  {
+    $expected       = <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 <signatureCode code="Y"/>
 CDA;
-        $signature_code = new SignatureCode(new CodedSimple('Y'));
-        $dom            = new \DOMDocument('1.0', 'UTF-8');
-        $doc            = $signature_code->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $signature_code = new SignatureCode(new CodedSimple('Y'));
+    $dom            = new \DOMDocument('1.0', 'UTF-8');
+    $doc            = $signature_code->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
 
 }

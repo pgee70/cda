@@ -49,43 +49,44 @@ use i3Soft\CDA\Traits\TimeTrait;
 class Performer extends Participation
 {
 
-    use TimeTrait;
-    use ModeCodeTrait;
-    use AssignedEntityTrait;
+  use TimeTrait;
+  use ModeCodeTrait;
+  use AssignedEntityTrait;
 
-    /**
-     * Performer constructor.
-     *
-     * @param null $assignedEntity
-     */
-    public function __construct($assignedEntity = null)
+  /**
+   * Performer constructor.
+   *
+   * @param null $assignedEntity
+   */
+  public function __construct ($assignedEntity = NULL)
+  {
+    $this->setAcceptableTypeCodes(TypeCodeInterface::ParticipationPhysicalPerformer)
+      ->setTypeCode(TypeCodeInterface::PERFORMER);
+    if ($assignedEntity instanceof AssignedEntity)
     {
-        $this->setAcceptableTypeCodes(TypeCodeInterface::ParticipationPhysicalPerformer)
-          ->setTypeCode(TypeCodeInterface::PERFORMER);
-        if ($assignedEntity instanceof AssignedEntity) {
-            $this->setAssignedEntity($assignedEntity);
-        }
+      $this->setAssignedEntity($assignedEntity);
     }
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderTime($el, $doc)
-          ->renderModeCode($el, $doc)
-          ->renderAssignedEntity($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderTime($el, $doc)
+      ->renderModeCode($el, $doc)
+      ->renderAssignedEntity($el, $doc);
+    return $el;
+  }
 
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'performer';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'performer';
+  }
 
 }

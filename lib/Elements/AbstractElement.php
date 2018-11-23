@@ -61,245 +61,271 @@ use i3Soft\CDA\Traits\TypeIdTrait;
  */
 abstract class AbstractElement implements ElementInterface, NullFlavourInterface
 {
-    use NullFlavourTrait;
-    use RealmCodesTrait;
-    use TypeIdTrait;
-    use TemplateIdsTrait;
+  use NullFlavourTrait;
+  use RealmCodesTrait;
+  use TypeIdTrait;
+  use TemplateIdsTrait;
 
-    /**
-     * @var array
-     */
-    protected $attributes = array();
+  /**
+   * @var array
+   */
+  protected $attributes = array();
 
-    /**
-     * this is a total hack to add non-commonly used attributes.
-     * don't use it lazy bones!
-     *
-     * @param $attribute
-     * @param $value
-     *
-     * @return AbstractElement
-     * @deprecated
-     */
-    public function addAttribute($attribute, $value): self
+  /**
+   * this is a total hack to add non-commonly used attributes.
+   * don't use it lazy bones!
+   *
+   * @param $attribute
+   * @param $value
+   *
+   * @return AbstractElement
+   * @deprecated
+   */
+  public function addAttribute ($attribute, $value): self
+  {
+    $this->attributes[$attribute] = $value;
+    return $this;
+  }
+
+  /**
+   * @return TargetSiteCode
+   */
+  public function returnTargetSiteCode (): TargetSiteCode
+  {
+    if ($this instanceof TargetSiteCode)
     {
-        $this->attributes[$attribute] = $value;
-        return $this;
+      return $this;
+    }
+    throw new \RuntimeException('The method must be an instance of TargetSiteCode');
+  }
+
+  /**
+   * @return Observation
+   */
+  public function returnObservation (): Observation
+  {
+    if ($this instanceof Observation)
+    {
+      return $this;
+    }
+    throw new \RuntimeException('The method must be an instance of Observation');
+  }
+
+  /**
+   * @return SubstanceAdministration
+   */
+  public function returnSubstanceAdministration (): SubstanceAdministration
+  {
+    if ($this instanceof SubstanceAdministration)
+    {
+      return $this;
+    }
+    throw new \RuntimeException('The method must be an instance of SubstanceAdministration');
+  }
+
+  /**
+   * @return SpecimenRole
+   */
+  public function returnSpecimenRole (): SpecimenRole
+  {
+    if ($this instanceof SpecimenRole)
+    {
+      return $this;
+    }
+    throw new \RuntimeException('The method must be an instance of SpecimenRole');
+  }
+
+  /**
+   * @return ManufacturedProduct
+   */
+  public function returnManufacturedProduct (): ManufacturedProduct
+  {
+    if ($this instanceof ManufacturedProduct)
+    {
+      return $this;
+    }
+    throw new \RuntimeException('The method must be an instance of ManufacturedProduct');
+  }
+
+  /**
+   * @return SpecimenPlayingEntity
+   */
+  public function returnSpecimenPlayingEntity (): SpecimenPlayingEntity
+  {
+    if ($this instanceof SpecimenPlayingEntity)
+    {
+      return $this;
+    }
+    throw new \RuntimeException('The method must be an instance of SpecimenPlayingEntity');
+  }
+
+  /**
+   * @return Consumable
+   */
+  public function returnConsumable (): Consumable
+  {
+    if ($this instanceof Consumable)
+    {
+      return $this;
+    }
+    throw new \RuntimeException('The method must be an instance of Consumable');
+  }
+
+  /**
+   * @return Performer
+   */
+  public function returnPerformer (): Performer
+  {
+    if ($this instanceof Performer)
+    {
+      return $this;
+    }
+    throw new \RuntimeException('The method must be an instance of Performer');
+  }
+
+  /**
+   * @return AssignedPerson
+   */
+  public function returnAssignedPerson (): AssignedPerson
+  {
+    if ($this instanceof AssignedPerson)
+    {
+      return $this;
+    }
+    throw new \RuntimeException('The method must be an instance of AssignedPerson');
+  }
+
+  /**
+   * @return ExtParticipantRole
+   */
+  public function returnExtParticipantRole (): ExtParticipantRole
+  {
+    if ($this instanceof ExtParticipantRole)
+    {
+      return $this;
+    }
+    throw new \RuntimeException('The method must be an instance of ExtParticipantRole');
+  }
+
+  /**
+   * @return Supply
+   */
+  public function returnSupply (): Supply
+  {
+    if ($this instanceof Supply)
+    {
+      return $this;
+    }
+    throw new \RuntimeException('The method must be an instance of Supply');
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   * @param array        $properties
+   *
+   * @return \DOMElement
+   */
+  protected function createElement (\DOMDocument $doc, array $properties = array()): \DOMElement
+  {
+    /* @var $el \DOMElement */
+    $el = $doc->createElement(CDA::getNS() . $this->getElementTag());
+    if ($this->hasNullFlavour())
+    {
+      $el->setAttribute(CDA::getNS() . 'nullFlavor', $this->getNullFlavour());
+      return $el;
     }
 
-    /**
-     * @return TargetSiteCode
-     */
-    public function returnTargetSiteCode(): TargetSiteCode
+    // tag can have class code or type code, but not both.
+    // can have a class code and a mood code, but not type code and mood code
+    /** @noinspection PhpUndefinedMethodInspection */
+    if ($this instanceof ClassCodeInterface
+        && $this->hasClassCode())
     {
-        if ($this instanceof TargetSiteCode) {
-            return $this;
-        }
-        throw new \RuntimeException('The method must be an instance of TargetSiteCode');
+      $el->setAttribute(CDA::getNS() . 'classCode', $this->getClassCode());
+      /** @noinspection PhpUndefinedMethodInspection */
+      if ($this instanceof MoodCodeInterface
+          && $this->hasMoodCode())
+      {
+        $el->setAttribute(CDA::getNS() . 'moodCode', $this->getMoodCode());
+      }
+    }
+    /** @noinspection PhpUndefinedMethodInspection */
+    elseif ($this instanceof TypeCodeInterface && $this->hasTypeCode())
+    {
+      $el->setAttribute(CDA::getNS() . 'typeCode', $this->getTypeCode());
     }
 
-    /**
-     * @return Observation
-     */
-    public function returnObservation(): Observation
+    if ($this instanceof DeterminerCodeInterface
+        && FALSE === empty($this->getDeterminerCode()))
     {
-        if ($this instanceof Observation) {
-            return $this;
-        }
-        throw new \RuntimeException('The method must be an instance of Observation');
+      $el->setAttribute(CDA::getNS() . 'determinerCode', $this->getDeterminerCode());
     }
 
-    /**
-     * @return SubstanceAdministration
-     */
-    public function returnSubstanceAdministration(): SubstanceAdministration
+    if ($this instanceof MediaTypeInterface && $this->getMediaType())
     {
-        if ($this instanceof SubstanceAdministration) {
-            return $this;
-        }
-        throw new \RuntimeException('The method must be an instance of SubstanceAdministration');
+      $el->setAttribute(CDA::getNS() . 'mediaType', $this->getMediaType());
     }
 
-    /**
-     * @return SpecimenRole
-     */
-    public function returnSpecimenRole(): SpecimenRole
+    if ($this instanceof InversionIndInterface
+        && $this->hasInversionInd())
     {
-        if ($this instanceof SpecimenRole) {
-            return $this;
-        }
-        throw new \RuntimeException('The method must be an instance of SpecimenRole');
+      $negationInd = new Boolean('inversionInd', $this->getInversionInd());
+      $negationInd->setValueToElement($el, $doc);
     }
 
-    /**
-     * @return ManufacturedProduct
-     */
-    public function returnManufacturedProduct(): ManufacturedProduct
+    if ($this instanceof ContextConductionIndInterface
+        && $this->hasContextConductionInd())
     {
-        if ($this instanceof ManufacturedProduct) {
-            return $this;
-        }
-        throw new \RuntimeException('The method must be an instance of ManufacturedProduct');
+      $negationInd = new Boolean('contextConductionInd', $this->getContextConductionInd());
+      $negationInd->setValueToElement($el, $doc);
     }
 
-    /**
-     * @return SpecimenPlayingEntity
-     */
-    public function returnSpecimenPlayingEntity(): SpecimenPlayingEntity
+    if ($this instanceof NegationInterface
+        && $this->hasNegationInd())
     {
-        if ($this instanceof SpecimenPlayingEntity) {
-            return $this;
-        }
-        throw new \RuntimeException('The method must be an instance of SpecimenPlayingEntity');
+      $negationInd = new Boolean('negationInd', $this->getNegationInd());
+      $negationInd->setValueToElement($el, $doc);
+    }
+    if ($this instanceof UseAttributeInterface
+        && FALSE === empty($this->getUseAttribute()))
+    {
+      $el->setAttribute(CDA::getNS() . 'use', $this->getUseAttribute());
     }
 
-    /**
-     * @return Consumable
-     */
-    public function returnConsumable(): Consumable
+    if ($this instanceof ContextControlCodeInterface
+        && FALSE === empty($this->getContextControlCode()))
     {
-        if ($this instanceof Consumable) {
-            return $this;
-        }
-        throw new \RuntimeException('The method must be an instance of Consumable');
+
+      $el->setAttribute(CDA::getNS() . 'contextControlCode', $this->getContextControlCode());
+    }
+    if ($this instanceof XSITypeInterface
+        && FALSE === empty($this->getXSIType()))
+    {
+      $el->setAttribute(CDA::getNS() . 'xsi:type', $this->getXSIType());
     }
 
-    /**
-     * @return Performer
-     */
-    public function returnPerformer(): Performer
+    foreach ($properties as $property)
     {
-        if ($this instanceof Performer) {
-            return $this;
-        }
-        throw new \RuntimeException('The method must be an instance of Performer');
+      $this->{$property}->setValueToElement($el, $doc);
     }
 
-    /**
-     * @return AssignedPerson
-     */
-    public function returnAssignedPerson(): AssignedPerson
+    foreach ($this->attributes as $attribute => $value)
     {
-        if ($this instanceof AssignedPerson) {
-            return $this;
-        }
-        throw new \RuntimeException('The method must be an instance of AssignedPerson');
+      $el->setAttribute($attribute, $value);
     }
+    // attributes have finished, now start adding the elements.
+    // realm codes are used to store data like the organisation/country etc this tag conforms to.
+    $this->renderRealmCodes($el, $doc)
+      ->renderTypeId($el, $doc)
+      ->renderTemplateIds($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @return ExtParticipantRole
-     */
-    public function returnExtParticipantRole(): ExtParticipantRole
-    {
-        if ($this instanceof ExtParticipantRole) {
-            return $this;
-        }
-        throw new \RuntimeException('The method must be an instance of ExtParticipantRole');
-    }
-
-    /**
-     * @return Supply
-     */
-    public function returnSupply(): Supply
-    {
-        if ($this instanceof Supply) {
-            return $this;
-        }
-        throw new \RuntimeException('The method must be an instance of Supply');
-    }
-
-    /**
-     * @param \DOMDocument $doc
-     * @param array        $properties
-     *
-     * @return \DOMElement
-     */
-    protected function createElement(\DOMDocument $doc, array $properties = array()): \DOMElement
-    {
-        /* @var $el \DOMElement */
-        $el = $doc->createElement(CDA::NS_CDA . $this->getElementTag());
-        if ($this->hasNullFlavour()) {
-            $el->setAttribute(CDA::NS_CDA . 'nullFlavor', $this->getNullFlavour());
-            return $el;
-        }
-
-        // tag can have class code or type code, but not both.
-        // can have a class code and a mood code, but not type code and mood code
-        /** @noinspection PhpUndefinedMethodInspection */
-        if ($this instanceof ClassCodeInterface
-            && $this->hasClassCode()) {
-            $el->setAttribute(CDA::NS_CDA . 'classCode', $this->getClassCode());
-            /** @noinspection PhpUndefinedMethodInspection */
-            if ($this instanceof MoodCodeInterface
-                && $this->hasMoodCode()) {
-                $el->setAttribute(CDA::NS_CDA . 'moodCode', $this->getMoodCode());
-            }
-        } /** @noinspection PhpUndefinedMethodInspection */
-        elseif ($this instanceof TypeCodeInterface && $this->hasTypeCode()) {
-            $el->setAttribute(CDA::NS_CDA . 'typeCode', $this->getTypeCode());
-        }
-
-        if ($this instanceof DeterminerCodeInterface
-            && false === empty($this->getDeterminerCode())) {
-            $el->setAttribute(CDA::NS_CDA . 'determinerCode', $this->getDeterminerCode());
-        }
-
-        if ($this instanceof MediaTypeInterface && $this->getMediaType()) {
-            $el->setAttribute(CDA::NS_CDA . 'mediaType', $this->getMediaType());
-        }
-
-        if ($this instanceof InversionIndInterface
-            && $this->hasInversionInd()) {
-            $negationInd = new Boolean('inversionInd', $this->getInversionInd());
-            $negationInd->setValueToElement($el, $doc);
-        }
-
-        if ($this instanceof ContextConductionIndInterface
-            && $this->hasContextConductionInd()) {
-            $negationInd = new Boolean('contextConductionInd', $this->getContextConductionInd());
-            $negationInd->setValueToElement($el, $doc);
-        }
-
-        if ($this instanceof NegationInterface
-            && $this->hasNegationInd()) {
-            $negationInd = new Boolean('negationInd', $this->getNegationInd());
-            $negationInd->setValueToElement($el, $doc);
-        }
-        if ($this instanceof UseAttributeInterface
-            && false === empty($this->getUseAttribute())) {
-            $el->setAttribute(CDA::NS_CDA . 'use', $this->getUseAttribute());
-        }
-
-        if ($this instanceof ContextControlCodeInterface
-            && false === empty($this->getContextControlCode())) {
-
-            $el->setAttribute(CDA::NS_CDA . 'contextControlCode', $this->getContextControlCode());
-        }
-        if ($this instanceof XSITypeInterface
-            && false === empty($this->getXSIType())) {
-            $el->setAttribute(CDA::NS_CDA . 'xsi:type', $this->getXSIType());
-        }
-
-        foreach ($properties as $property) {
-            $this->{$property}->setValueToElement($el, $doc);
-        }
-
-        foreach ($this->attributes as $attribute => $value) {
-            $el->setAttribute($attribute, $value);
-        }
-        // attributes have finished, now start adding the elements.
-        // realm codes are used to store data like the organisation/country etc this tag conforms to.
-        $this->renderRealmCodes($el, $doc)
-          ->renderTypeId($el, $doc)
-          ->renderTemplateIds($el, $doc);
-        return $el;
-    }
-
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    abstract protected function getElementTag(): string;
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  abstract protected function getElementTag (): string;
 
 }

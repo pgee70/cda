@@ -44,166 +44,169 @@ use i3Soft\CDA\DataType\AnyType;
 class ConceptDescriptor extends AnyType
 {
 
-    private $codeSystem;
+  private $codeSystem;
 
-    private $codeSystemName;
+  private $codeSystemName;
 
-    private $displayName;
+  private $displayName;
 
-    private $originalText;
+  private $originalText;
 
-    /**
-     *
-     * @var string
-     */
-    private $code;
+  /**
+   *
+   * @var string
+   */
+  private $code;
 
-    /**
-     * @return bool
-     */
-    public function hasOriginalText(): bool
+  /**
+   * @return bool
+   */
+  public function hasOriginalText (): bool
+  {
+    return !empty($this->getOriginalText());
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getOriginalText ()
+  {
+    return $this->originalText;
+  }
+
+  /**
+   * @param $originalText
+   *
+   * @return self
+   */
+  public function setOriginalText ($originalText): self
+  {
+    $this->originalText = $originalText;
+    return $this;
+  }
+
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    $el->setAttribute(CDA::getNS() . 'code', $this->getCode());
+
+    if ($this->hasDisplayName())
     {
-        return !empty($this->getOriginalText());
+      $el->setAttribute('displayName', $this->getDisplayName());
     }
 
-    /**
-     * @return mixed
-     */
-    public function getOriginalText()
+    if ($this->hasCodeSystem())
     {
-        return $this->originalText;
+      $el->setAttribute('codeSystem', $this->getCodeSystem());
     }
 
-    /**
-     * @param $originalText
-     *
-     * @return self
-     */
-    public function setOriginalText($originalText): self
+    if ($this->hasCodeSystemName())
     {
-        $this->originalText = $originalText;
-        return $this;
+      $el->setAttribute('codeSystemName', $this->getCodeSystemName());
     }
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
-    {
-        $el->setAttribute(CDA::NS_CDA . 'code', $this->getCode());
+  /**
+   * @return string
+   */
+  public function getCode (): string
+  {
+    return $this->code;
+  }
 
-        if ($this->hasDisplayName()) {
-            $el->setAttribute('displayName', $this->getDisplayName());
-        }
+  /**
+   * @param $code
+   *
+   * @return self
+   */
+  public function setCode ($code): self
+  {
+    $this->code = $code;
 
-        if ($this->hasCodeSystem()) {
-            $el->setAttribute('codeSystem', $this->getCodeSystem());
-        }
+    return $this;
+  }
 
-        if ($this->hasCodeSystemName()) {
-            $el->setAttribute('codeSystemName', $this->getCodeSystemName());
-        }
-    }
+  /**
+   * @return bool
+   */
+  public function hasDisplayName (): bool
+  {
+    return !empty($this->getDisplayName());
+  }
 
-    /**
-     * @return string
-     */
-    public function getCode(): string
-    {
-        return $this->code;
-    }
+  /**
+   * @return mixed
+   */
+  public function getDisplayName ()
+  {
+    return $this->displayName;
+  }
 
-    /**
-     * @param $code
-     *
-     * @return self
-     */
-    public function setCode($code): self
-    {
-        $this->code = $code;
+  /**
+   * @param $displayName
+   *
+   * @return self
+   */
+  public function setDisplayName ($displayName): self
+  {
+    $this->displayName = $displayName;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCodeSystem (): bool
+  {
+    return !empty($this->getCodeSystem());
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasDisplayName(): bool
-    {
-        return !empty($this->getDisplayName());
-    }
+  /**
+   * @return mixed
+   */
+  public function getCodeSystem ()
+  {
+    return $this->codeSystem;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getDisplayName()
-    {
-        return $this->displayName;
-    }
+  /**
+   * @param $codeSystem
+   *
+   * @return self
+   */
+  public function setCodeSystem ($codeSystem): self
+  {
+    $this->codeSystem = $codeSystem;
+    return $this;
+  }
 
-    /**
-     * @param $displayName
-     *
-     * @return self
-     */
-    public function setDisplayName($displayName): self
-    {
-        $this->displayName = $displayName;
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCodeSystemName (): bool
+  {
+    return !empty($this->getCodeSystemName());
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasCodeSystem(): bool
-    {
-        return !empty($this->getCodeSystem());
-    }
+  /**
+   * @return mixed
+   */
+  public function getCodeSystemName ()
+  {
+    return $this->codeSystemName;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCodeSystem()
-    {
-        return $this->codeSystem;
-    }
-
-    /**
-     * @param $codeSystem
-     *
-     * @return self
-     */
-    public function setCodeSystem($codeSystem): self
-    {
-        $this->codeSystem = $codeSystem;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasCodeSystemName(): bool
-    {
-        return !empty($this->getCodeSystemName());
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCodeSystemName()
-    {
-        return $this->codeSystemName;
-    }
-
-    /**
-     * @param $codeSystemName
-     *
-     * @return self
-     */
-    public function setCodeSystemName($codeSystemName): self
-    {
-        $this->codeSystemName = $codeSystemName;
-        return $this;
-    }
+  /**
+   * @param $codeSystemName
+   *
+   * @return self
+   */
+  public function setCodeSystemName ($codeSystemName): self
+  {
+    $this->codeSystemName = $codeSystemName;
+    return $this;
+  }
 }

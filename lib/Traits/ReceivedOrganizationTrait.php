@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Entity\ReceivedOrganization;
  */
 trait ReceivedOrganizationTrait
 {
-    /** @var ReceivedOrganization */
-    private $received_organization;
+  /** @var ReceivedOrganization */
+  private $received_organization;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderReceivedOrganization(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderReceivedOrganization (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasReceivedOrganization())
     {
-        if ($this->hasReceivedOrganization()) {
-            $el->appendChild($this->getReceivedOrganization()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getReceivedOrganization()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasReceivedOrganization(): bool
-    {
-        return null !== $this->received_organization;
-    }
+  /**
+   * @return bool
+   */
+  public function hasReceivedOrganization (): bool
+  {
+    return NULL !== $this->received_organization;
+  }
 
-    /**
-     * @return ReceivedOrganization
-     */
-    public function getReceivedOrganization(): ReceivedOrganization
-    {
-        return $this->received_organization;
-    }
+  /**
+   * @return ReceivedOrganization
+   */
+  public function getReceivedOrganization (): ReceivedOrganization
+  {
+    return $this->received_organization;
+  }
 
-    /**
-     * @param ReceivedOrganization $received_organization
-     *
-     * @return self
-     */
-    public function setReceivedOrganization(ReceivedOrganization $received_organization): self
-    {
-        $this->received_organization = $received_organization;
-        return $this;
-    }
+  /**
+   * @param ReceivedOrganization $received_organization
+   *
+   * @return self
+   */
+  public function setReceivedOrganization (ReceivedOrganization $received_organization): self
+  {
+    $this->received_organization = $received_organization;
+    return $this;
+  }
 }

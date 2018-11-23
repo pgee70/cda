@@ -48,50 +48,57 @@ use i3Soft\CDA\Traits\TelecomsTrait;
 
 class ParticipantRole extends Role
 {
-    use CodeTrait;
-    use AddrsTrait;
-    use TelecomsTrait;
-    use PlayingEntityTrait;
-    use PlayingDeviceTrait;
-    use ScopingEntityTrait;
+  use CodeTrait;
+  use AddrsTrait;
+  use TelecomsTrait;
+  use PlayingEntityTrait;
+  use PlayingDeviceTrait;
+  use ScopingEntityTrait;
 
-    public function __construct($entity = null)
+  public function __construct ($entity = NULL)
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassRoot)
+      ->setClassCode(ClassCodeInterface::ROLE);
+    if ($entity)
     {
-        $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassRoot)
-          ->setClassCode(ClassCodeInterface::ROLE);
-        if ($entity) {
-            if ($entity instanceof PlayingEntity) {
-                $this->setPlayingEntity($entity);
-            } elseif ($entity instanceof PlayingDevice) {
-                $this->setPlayingDevice($entity);
-            }
-        }
+      if ($entity instanceof PlayingEntity)
+      {
+        $this->setPlayingEntity($entity);
+      }
+      elseif ($entity instanceof PlayingDevice)
+      {
+        $this->setPlayingDevice($entity);
+      }
     }
+  }
 
 
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    $this->renderCode($el, $doc);
+    $this->renderAddrs($el, $doc);
+    $this->renderTelecoms($el, $doc);
+    if ($this->hasPlayingEntity())
     {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        $this->renderCode($el, $doc);
-        $this->renderAddrs($el, $doc);
-        $this->renderTelecoms($el, $doc);
-        if ($this->hasPlayingEntity()) {
-            $this->renderPlayingEntity($el, $doc);
-        } elseif ($this->hasPlayingDevice()) {
-            $this->renderPlayingDevice($el, $doc);
-        }
-        $this->renderScopingEntity($el, $doc);
-        return $el;
+      $this->renderPlayingEntity($el, $doc);
     }
-
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
+    elseif ($this->hasPlayingDevice())
     {
-        return 'participantRole';
+      $this->renderPlayingDevice($el, $doc);
     }
+    $this->renderScopingEntity($el, $doc);
+    return $el;
+  }
+
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'participantRole';
+  }
 }

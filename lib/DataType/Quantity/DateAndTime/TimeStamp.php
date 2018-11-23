@@ -63,118 +63,120 @@ use i3Soft\CDA\DataType\Quantity\AbstractQuantity;
  */
 class TimeStamp extends AbstractQuantity
 {
-    const DATE_FORMAT       = 'YmdHis';
-    const PRECISION_DAY     = 8;
-    const PRECISION_HOURS   = 10;
-    const PRECISION_MINUTES = 12;
-    const PRECISION_SECONDS = 14;
+  const DATE_FORMAT       = 'YmdHis';
+  const PRECISION_DAY     = 8;
+  const PRECISION_HOURS   = 10;
+  const PRECISION_MINUTES = 12;
+  const PRECISION_SECONDS = 14;
 
-    /** @var \DateTime */
-    private $date;
+  /** @var \DateTime */
+  private $date;
 
-    /** @var int */
-    private $precision;
+  /** @var int */
+  private $precision;
 
-    /** @var bool */
-    private $offset = false;
+  /** @var bool */
+  private $offset = FALSE;
 
-    /**
-     * TimeStamp constructor.
-     *
-     * @param \DateTime|NULL $datetime
-     */
-    public function __construct(\DateTime $datetime = null)
+  /**
+   * TimeStamp constructor.
+   *
+   * @param \DateTime|NULL $datetime
+   */
+  public function __construct (\DateTime $datetime = NULL)
+  {
+    $this->date      = $datetime ?? new \DateTime();
+    $this->precision = self::PRECISION_SECONDS;
+  }
+
+  public static function fromString (string $in, $tz = 'UTC', int $precision = self::PRECISION_MINUTES): TimeStamp
+  {
+    $dt         = new \DateTime($in, new \DateTimeZone($tz));
+    $time_stamp = new self($dt);
+    $time_stamp->setOffset($tz[0] === '+')
+      ->setPrecision($precision);
+    return $time_stamp;
+  }
+
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    if ($this->getDate())
     {
-        $this->date      = $datetime ?? new \DateTime();
-        $this->precision = self::PRECISION_SECONDS;
+      $value = \mb_substr(
+        $this->getDate()->format(self::DATE_FORMAT),
+        0,
+        $this->getPrecision()
+      );
+
+      if ($this->getPrecision() >= self::PRECISION_MINUTES
+          && $this->getOffset() !== FALSE)
+      {
+        $value .= $this->getDate()->format('O');
+      }
+
+      $el->setAttributeNS(CD::getNS(), 'value', $value);
     }
+  }
 
-    public static function fromString(string $in, $tz = 'UTC', int $precision = self::PRECISION_MINUTES): TimeStamp
-    {
-        $dt         = new \DateTime($in, new \DateTimeZone($tz));
-        $time_stamp = new self($dt);
-        $time_stamp->setOffset($tz[0] === '+')
-          ->setPrecision($precision);
-        return $time_stamp;
-    }
+  /**
+   * @return \DateTime|NULL
+   */
+  public function getDate ()
+  {
+    return $this->date;
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
-    {
-        if ($this->getDate()) {
-            $value = \mb_substr(
-              $this->getDate()->format(self::DATE_FORMAT),
-              0,
-              $this->getPrecision()
-            );
+  /**
+   * @param \DateTime $date
+   *
+   * @return TimeStamp
+   */
+  public function setDate (\DateTime $date): self
+  {
+    $this->date = $date;
 
-            if ($this->getPrecision() >= self::PRECISION_MINUTES
-                && $this->getOffset() !== false) {
-                $value .= $this->getDate()->format('O');
-            }
+    return $this;
+  }
 
-            $el->setAttributeNS(CD::NS_CDA, 'value', $value);
-        }
-    }
+  /**
+   * @return int
+   */
+  public function getPrecision (): int
+  {
+    return $this->precision;
+  }
 
-    /**
-     * @return \DateTime|NULL
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
+  /**
+   * @param int $precision
+   *
+   * @return TimeStamp
+   */
+  public function setPrecision (int $precision): self
+  {
+    $this->precision = $precision;
+    return $this;
+  }
 
-    /**
-     * @param \DateTime $date
-     *
-     * @return TimeStamp
-     */
-    public function setDate(\DateTime $date): self
-    {
-        $this->date = $date;
+  /**
+   * @return bool
+   */
+  public function getOffset (): bool
+  {
+    return $this->offset;
+  }
 
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPrecision(): int
-    {
-        return $this->precision;
-    }
-
-    /**
-     * @param int $precision
-     *
-     * @return TimeStamp
-     */
-    public function setPrecision(int $precision): self
-    {
-        $this->precision = $precision;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getOffset(): bool
-    {
-        return $this->offset;
-    }
-
-    /**
-     * @param bool $offset
-     *
-     * @return TimeStamp
-     */
-    public function setOffset(bool $offset): self
-    {
-        $this->offset = $offset;
-        return $this;
-    }
+  /**
+   * @param bool $offset
+   *
+   * @return TimeStamp
+   */
+  public function setOffset (bool $offset): self
+  {
+    $this->offset = $offset;
+    return $this;
+  }
 }

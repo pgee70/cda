@@ -70,12 +70,12 @@ use i3Soft\CDA\tests\MyTestCase;
 class RecordTarget_test extends MyTestCase
 {
 
-    public function test_RecordTarget()
-    {
-        $rt = new RecordTarget($this->getPatientRole());
+  public function test_RecordTarget ()
+  {
+    $rt = new RecordTarget($this->getPatientRole());
 
 
-        $expected = <<<'CDA'
+    $expected = <<<'CDA'
 <recordTarget typeCode="RCT">
     <patientRole classCode="PAT">
         <id extension="12345" root="2.16.840.1.113883.19.5"/>
@@ -92,48 +92,48 @@ class RecordTarget_test extends MyTestCase
 </recordTarget>
 CDA;
 
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
-        $expectedRecordTarget = $expectedDoc
-          ->getElementsByTagName('recordTarget')
-          ->item(0);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedRecordTarget = $expectedDoc
+      ->getElementsByTagName('recordTarget')
+      ->item(0);
 
-        $this->assertEqualXMLStructure($expectedRecordTarget,
-          $rt->toDOMElement(new \DOMDocument()), true);
-    }
+    $this->assertEqualXMLStructure($expectedRecordTarget,
+      $rt->toDOMElement(new \DOMDocument()), TRUE);
+  }
 
-    protected function getPatientRole(): PatientRole
-    {
-        return new PatientRole($this->getId(), $this->getPatient());
-    }
+  protected function getPatientRole (): PatientRole
+  {
+    return new PatientRole($this->getId(), $this->getPatient());
+  }
 
-    protected function getId(): Id
-    {
-        return Id::fromString('2.16.840.1.113883.19.5', '12345');
-    }
+  protected function getId (): Id
+  {
+    return Id::fromString('2.16.840.1.113883.19.5', '12345');
+  }
 
-    protected function getPatient(): Patient
-    {
-        $names = new Set(PersonName::class);
-        $names->add((new PersonName())
-          ->addPart(PersonName::FIRST_NAME, 'Henry')
-          ->addPart(PersonName::LAST_NAME, 'Levin')
-          ->addPart('suffix', 'the 7th'));
-        $patient = new Patient(
-          $names,
-          new TimeStamp(\DateTime::createFromFormat('Y-m-d', '1932-09-24')),
-          new CodedValue('M', '', '2.16.840.1.113883.5.1', '')
-        );
+  protected function getPatient (): Patient
+  {
+    $names = new Set(PersonName::class);
+    $names->add((new PersonName())
+      ->addPart(PersonName::FIRST_NAME, 'Henry')
+      ->addPart(PersonName::LAST_NAME, 'Levin')
+      ->addPart('suffix', 'the 7th'));
+    $patient = new Patient(
+      $names,
+      new TimeStamp(\DateTime::createFromFormat('Y-m-d', '1932-09-24')),
+      new CodedValue('M', '', '2.16.840.1.113883.5.1', '')
+    );
 
-        return $patient;
-    }
+    return $patient;
+  }
 
-    /**
-     * see EventSummary_CDAImplementationGuide_v1.3.pdf page 86 for details.
-     */
-    public function test_australian_extensions()
-    {
-        $expected = <<<XML
+  /**
+   * see EventSummary_CDAImplementationGuide_v1.3.pdf page 86 for details.
+   */
+  public function test_australian_extensions ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <recordTarget typeCode="RCT">
   <patientRole classCode="PAT">
@@ -179,50 +179,50 @@ CDA;
 
 XML;
 
-        $addr = new Addr(
-          new StreetAddressLine('1 Patient Street'),
-          new City('Nehtaville'),
-          new State('QLD'),
-          new PostalCode('5555'),
-          new AdditionalLocator('32568931'));
-        $addr->setUseAttribute(AddressCodeType::HOME);
+    $addr = new Addr(
+      new StreetAddressLine('1 Patient Street'),
+      new City('Nehtaville'),
+      new State('QLD'),
+      new PostalCode('5555'),
+      new AdditionalLocator('32568931'));
+    $addr->setUseAttribute(AddressCodeType::HOME);
 
-        $person_name = (new PersonName())
-          ->addPart(PersonName::HONORIFIC, 'Ms')
-          ->addPart(PersonName::FIRST_NAME, 'Sally')
-          ->addPart(PersonName::LAST_NAME, 'Grant')
-          ->setUseAttribute('L');
+    $person_name = (new PersonName())
+      ->addPart(PersonName::HONORIFIC, 'Ms')
+      ->addPart(PersonName::FIRST_NAME, 'Sally')
+      ->addPart(PersonName::LAST_NAME, 'Grant')
+      ->setUseAttribute('L');
 
-        $names = new Set(PersonName::class);
-        $names->add($person_name);
-        $birth_place_address = new Addr(null, null, 'QLD');
-        $birth_place_address->setCountry(new Country('Australia'));
-        $patient      = (new Patient($names))
-          ->setAdministrativeGenderCode(new AdministrativeGenderCode(new CodedValue(
-            'F',
-            'Female',
-            '2.16.840.1.113883.13.68', 'AS 5017-2006 Health Care Client Sex')))
-          ->setBirthTime(new TimeStamp(new \DateTime('2011-07-12 0:00:00', new \DateTimeZone('UTC'))))
-          ->setEthnicGroupCode(new EthnicGroupCode(EthnicGroupCode::status_neither_aboriginal_torres_strait))
-          ->setMultipleBirthInd(new MultipleBirthInd('true'))
-          ->setMultipleBirthOrderNumber(new MultipleBirthOrderNumber('2'))
-          ->setDeceasedInd(new DeceasedInd('true'))
-          ->setDeceasedTime(new DeceasedTime(new TimeStamp(new \DateTime('2012-11-12 0:00:00', new \DateTimeZone('UTC')))))
-          ->setBirthPlace(new BirthPlace(new Place($birth_place_address)))
-          ->setAsEntityIdentifier(new AsEntityIdentifier(
-            new ExtId('IHI', '1.2.36.1.2001.1003.0', '8003608833357361'),
-            new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
-          ));
-        $patient_role = new PatientRole(Id::fromString('7AA0BAAC-0CD0-11E0-9516-4350DFD72085'), $patient);
-        $patient_role->addAddr($addr)
-          ->addTelecom(new Telecom(new AddressCodeType(AddressCodeType::HOME), new ValueType('tel:0499999999')));
-        $recordTarget = new RecordTarget($patient_role);
+    $names = new Set(PersonName::class);
+    $names->add($person_name);
+    $birth_place_address = new Addr(NULL, NULL, 'QLD');
+    $birth_place_address->setCountry(new Country('Australia'));
+    $patient      = (new Patient($names))
+      ->setAdministrativeGenderCode(new AdministrativeGenderCode(new CodedValue(
+        'F',
+        'Female',
+        '2.16.840.1.113883.13.68', 'AS 5017-2006 Health Care Client Sex')))
+      ->setBirthTime(new TimeStamp(new \DateTime('2011-07-12 0:00:00', new \DateTimeZone('UTC'))))
+      ->setEthnicGroupCode(new EthnicGroupCode(EthnicGroupCode::status_neither_aboriginal_torres_strait))
+      ->setMultipleBirthInd(new MultipleBirthInd('true'))
+      ->setMultipleBirthOrderNumber(new MultipleBirthOrderNumber('2'))
+      ->setDeceasedInd(new DeceasedInd('true'))
+      ->setDeceasedTime(new DeceasedTime(new TimeStamp(new \DateTime('2012-11-12 0:00:00', new \DateTimeZone('UTC')))))
+      ->setBirthPlace(new BirthPlace(new Place($birth_place_address)))
+      ->setAsEntityIdentifier(new AsEntityIdentifier(
+        new ExtId('IHI', '1.2.36.1.2001.1003.0', '8003608833357361'),
+        new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
+      ));
+    $patient_role = new PatientRole(Id::fromString('7AA0BAAC-0CD0-11E0-9516-4350DFD72085'), $patient);
+    $patient_role->addAddr($addr)
+      ->addTelecom(new Telecom(new AddressCodeType(AddressCodeType::HOME), new ValueType('tel:0499999999')));
+    $recordTarget = new RecordTarget($patient_role);
 
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $dom->formatOutput = true;
-        $doc               = $recordTarget->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $dom->formatOutput = TRUE;
+    $doc               = $recordTarget->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

@@ -38,50 +38,51 @@ use i3Soft\CDA\Elements\RouteCode;
  */
 trait RouteCodeTrait
 {
-    /** @var RouteCode */
-    private $routeCode;
+  /** @var RouteCode */
+  private $routeCode;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderRouteCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderRouteCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasRouteCode())
     {
-        if ($this->hasRouteCode()) {
-            $el->appendChild($this->getRouteCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getRouteCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasRouteCode(): bool
-    {
-        return null !== $this->routeCode;
-    }
+  /**
+   * @return bool
+   */
+  public function hasRouteCode (): bool
+  {
+    return NULL !== $this->routeCode;
+  }
 
-    /**
-     *
-     * @return RouteCode
-     */
-    public function getRouteCode(): RouteCode
-    {
-        return $this->routeCode;
-    }
+  /**
+   *
+   * @return RouteCode
+   */
+  public function getRouteCode (): RouteCode
+  {
+    return $this->routeCode;
+  }
 
-    /**
-     *
-     * @param CodedWithEquivalents $routeCode
-     *
-     * @return self
-     */
-    public function setRouteCode(CodedWithEquivalents $routeCode): self
-    {
-        $this->routeCode = new RouteCode($routeCode);
-        return $this;
-    }
+  /**
+   *
+   * @param CodedWithEquivalents $routeCode
+   *
+   * @return self
+   */
+  public function setRouteCode (CodedWithEquivalents $routeCode): self
+  {
+    $this->routeCode = new RouteCode($routeCode);
+    return $this;
+  }
 
 }

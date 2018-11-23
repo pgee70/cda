@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\Qualifier;
  */
 trait QualifierTrait
 {
-    /** @var Qualifier */
-    protected $qualifier;
+  /** @var Qualifier */
+  protected $qualifier;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderQualifier(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderQualifier (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasQualifier())
     {
-        if ($this->hasQualifier()) {
-            $el->appendChild($this->getQualifier()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getQualifier()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasQualifier(): bool
-    {
-        return null !== $this->qualifier;
-    }
+  /**
+   * @return bool
+   */
+  public function hasQualifier (): bool
+  {
+    return NULL !== $this->qualifier;
+  }
 
-    /**
-     * @return Qualifier
-     */
-    public function getQualifier(): Qualifier
-    {
-        return $this->qualifier;
-    }
+  /**
+   * @return Qualifier
+   */
+  public function getQualifier (): Qualifier
+  {
+    return $this->qualifier;
+  }
 
-    /**
-     * @param Qualifier $qualifier
-     *
-     * @return self
-     */
-    public function setQualifier(Qualifier $qualifier): self
-    {
-        $this->qualifier = $qualifier;
-        return $this;
-    }
+  /**
+   * @param Qualifier $qualifier
+   *
+   * @return self
+   */
+  public function setQualifier (Qualifier $qualifier): self
+  {
+    $this->qualifier = $qualifier;
+    return $this;
+  }
 }

@@ -38,48 +38,49 @@ use i3Soft\CDA\Elements\BirthTime;
  */
 trait BirthTimeTrait
 {
-    /** @var BirthTime */
-    private $birth_time;
+  /** @var BirthTime */
+  private $birth_time;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return BirthTimeTrait
-     */
-    public function renderBirthTime(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return BirthTimeTrait
+   */
+  public function renderBirthTime (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasBirthTime())
     {
-        if ($this->hasBirthTime()) {
-            $el->appendChild($this->getBirthTime()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getBirthTime()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasBirthTime(): bool
-    {
-        return null !== $this->birth_time;
-    }
+  /**
+   * @return bool
+   */
+  public function hasBirthTime (): bool
+  {
+    return NULL !== $this->birth_time;
+  }
 
-    /**
-     * @return BirthTime
-     */
-    public function getBirthTime(): BirthTime
-    {
-        return $this->birth_time;
-    }
+  /**
+   * @return BirthTime
+   */
+  public function getBirthTime (): BirthTime
+  {
+    return $this->birth_time;
+  }
 
-    /**
-     * @param TimeStamp $birth_time
-     *
-     * @return self
-     */
-    public function setBirthTime(TimeStamp $birth_time): self
-    {
-        $this->birth_time = new BirthTime($birth_time);
-        return $this;
-    }
+  /**
+   * @param TimeStamp $birth_time
+   *
+   * @return self
+   */
+  public function setBirthTime (TimeStamp $birth_time): self
+  {
+    $this->birth_time = new BirthTime($birth_time);
+    return $this;
+  }
 
 }

@@ -33,55 +33,57 @@ use i3Soft\CDA\DataType\Code\CodedValue;
  */
 class AdministrativeGenderCode extends Code
 {
-    const sex_male                   = 'M';
-    const sex_female                 = 'F';
-    const sex_intersex_indeterminate = 'I';
-    const sex_not_stated_described   = 'N';
+  const sex_male                   = 'M';
+  const sex_female                 = 'F';
+  const sex_intersex_indeterminate = 'I';
+  const sex_not_stated_described   = 'N';
 
-    /**
-     * AdministrativeGenderCode constructor.
-     *
-     * @param $value
-     */
-    public function __construct($value)
+  /**
+   * AdministrativeGenderCode constructor.
+   *
+   * @param $value
+   */
+  public function __construct ($value)
+  {
+    if ($value instanceof CodedValue)
     {
-        if ($value instanceof CodedValue) {
-            parent::__construct($value);
-            return;
-        }
-
-        parent::__construct(self::getCodedValueFromString($value));
+      parent::__construct($value);
+      return;
     }
 
-    /**
-     * @param string $code
-     *
-     * @return CodedValue
-     */
-    public static function getCodedValueFromString(string $code): CodedValue
-    {
-        $uppercase_code = strtoupper($code);
-        $codes          = array(
-          self::sex_male                   => 'Male',
-          self::sex_female                 => 'Female',
-          self::sex_intersex_indeterminate => 'Intersex or Indeterminate',
-          self::sex_not_stated_described   => 'Not Stated/Inadequately Described',
-        );
-        if (array_key_exists($uppercase_code, $codes) === false) {
-            throw new \InvalidArgumentException("The sex value $code is not valid!");
-        }
-        return new CodedValue(
-          $code,
-          $codes[$uppercase_code],
-          '2.16.840.1.113883.13.68',
-          'AS 5017-2006 Health Care Client Identifier Sex');
-    }
+    parent::__construct(self::getCodedValueFromString($value));
+  }
 
-    /**
-     * @return string
-     */
-    public function getElementTag(): string
+  /**
+   * @param string $code
+   *
+   * @return CodedValue
+   */
+  public static function getCodedValueFromString (string $code): CodedValue
+  {
+    $uppercase_code = strtoupper($code);
+    $codes          = array(
+      self::sex_male                   => 'Male',
+      self::sex_female                 => 'Female',
+      self::sex_intersex_indeterminate => 'Intersex or Indeterminate',
+      self::sex_not_stated_described   => 'Not Stated/Inadequately Described',
+    );
+    if (array_key_exists($uppercase_code, $codes) === FALSE)
     {
-        return 'administrativeGenderCode';
+      throw new \InvalidArgumentException("The sex value $code is not valid!");
     }
+    return new CodedValue(
+      $code,
+      $codes[$uppercase_code],
+      '2.16.840.1.113883.13.68',
+      'AS 5017-2006 Health Care Client Identifier Sex');
+  }
+
+  /**
+   * @return string
+   */
+  public function getElementTag (): string
+  {
+    return 'administrativeGenderCode';
+  }
 }

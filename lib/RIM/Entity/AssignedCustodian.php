@@ -33,40 +33,41 @@ use i3Soft\CDA\Traits\RepresentedCustodianOrganizationTrait;
  */
 class AssignedCustodian extends Entity
 {
-    use RepresentedCustodianOrganizationTrait;
+  use RepresentedCustodianOrganizationTrait;
 
-    /**
-     * AssignedCustodian constructor.
-     *
-     * @param RepresentedCustodianOrganization $custodianOrganization
-     */
-    public function __construct($custodianOrganization = null)
+  /**
+   * AssignedCustodian constructor.
+   *
+   * @param RepresentedCustodianOrganization $custodianOrganization
+   */
+  public function __construct ($custodianOrganization = NULL)
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassAssignedEntity)
+      ->setClassCode(ClassCodeInterface::ASSIGNED);
+    if ($custodianOrganization && $custodianOrganization instanceof RepresentedCustodianOrganization)
     {
-        $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassAssignedEntity)
-          ->setClassCode(ClassCodeInterface::ASSIGNED);
-        if ($custodianOrganization && $custodianOrganization instanceof RepresentedCustodianOrganization) {
-            $this->setRepresentedCustodianOrganization($custodianOrganization);
-        }
+      $this->setRepresentedCustodianOrganization($custodianOrganization);
     }
+  }
 
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderRepresentedCustodianOrganization($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderRepresentedCustodianOrganization($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'assignedCustodian';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'assignedCustodian';
+  }
 }

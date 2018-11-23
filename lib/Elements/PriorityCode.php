@@ -38,12 +38,12 @@ namespace i3Soft\CDA\Elements;
 
 class PriorityCode extends Code
 {
-    /**
-     * @inheritDoc
-     */
-    public function getElementTag(): string
-    {
-        return 'priorityCode';
-    }
+  /**
+   * @inheritDoc
+   */
+  public function getElementTag (): string
+  {
+    return 'priorityCode';
+  }
 
 }

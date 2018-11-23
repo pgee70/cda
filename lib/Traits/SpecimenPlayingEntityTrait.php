@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Entity\SpecimenPlayingEntity;
  */
 trait SpecimenPlayingEntityTrait
 {
-    /** @var SpecimenPlayingEntity */
-    private $specimenPlayingEntity;
+  /** @var SpecimenPlayingEntity */
+  private $specimenPlayingEntity;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderSpecimenPlayingEntity(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderSpecimenPlayingEntity (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasSpecimenPlayingEntity())
     {
-        if ($this->hasSpecimenPlayingEntity()) {
-            $el->appendChild($this->getSpecimenPlayingEntity()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getSpecimenPlayingEntity()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasSpecimenPlayingEntity(): bool
-    {
-        return null !== $this->specimenPlayingEntity;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSpecimenPlayingEntity (): bool
+  {
+    return NULL !== $this->specimenPlayingEntity;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getSpecimenPlayingEntity()
-    {
-        return $this->specimenPlayingEntity;
-    }
+  /**
+   * @return mixed
+   */
+  public function getSpecimenPlayingEntity ()
+  {
+    return $this->specimenPlayingEntity;
+  }
 
-    /**
-     * @param mixed $specimenPlayingEntity
-     *
-     * @return self
-     */
-    public function setSpecimenPlayingEntity($specimenPlayingEntity): self
-    {
-        $this->specimenPlayingEntity = $specimenPlayingEntity;
-        return $this;
-    }
+  /**
+   * @param mixed $specimenPlayingEntity
+   *
+   * @return self
+   */
+  public function setSpecimenPlayingEntity ($specimenPlayingEntity): self
+  {
+    $this->specimenPlayingEntity = $specimenPlayingEntity;
+    return $this;
+  }
 }

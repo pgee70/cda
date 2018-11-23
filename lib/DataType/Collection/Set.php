@@ -50,136 +50,148 @@ use i3Soft\CDA\Interfaces\UseAttributeInterface;
  */
 class Set extends AnyType implements \IteratorAggregate
 {
-    /**
-     * The contained elements
-     *
-     * @var mixed[]
-     */
-    protected $elements = array();
+  /**
+   * The contained elements
+   *
+   * @var mixed[]
+   */
+  protected $elements = array();
 
-    /**
-     * @var string
-     */
-    private $elementName;
+  /**
+   * @var string
+   */
+  private $elementName;
 
-    /**
-     *
-     * @param string $elementName the class of the element to restrict
-     */
-    public function __construct($elementName)
+  /**
+   *
+   * @param string $elementName the class of the element to restrict
+   */
+  public function __construct ($elementName)
+  {
+    $this->elementName = $elementName;
+  }
+
+  public static function fromString ($root, $extension = NULL)
+  {
+    $set = new Set(InstanceIdentifier::class);
+    $set->add(new InstanceIdentifier($root, $extension));
+    return $set;
+  }
+
+  /**
+   * @param $el
+   *
+   * @return self
+   */
+  public function add ($el): self
+  {
+    if (!$el instanceof $this->elementName)
     {
-        $this->elementName = $elementName;
+      throw new \InvalidArgumentException(sprintf('The given element should be '
+                                                  . 'an instance of %s, %s given', $this->elementName, \get_class($el)));
     }
 
-    public static function fromString($root, $extension = null)
+    $this->elements[] = $el;
+
+    return $this;
+  }
+
+  /**
+   * check that the Set contains element, or throws an \InvalidArgumentException
+   *
+   * Example usage :
+   *
+   * ```
+   * public function setIds(Set $ids)
+   * {
+   *      $ids->checkContainsOrThrow(InstanceIdentifier::class);
+   *      $this->ids = $ids;
+   *
+   *      return $this;
+   * }
+   * ```
+   *
+   * @param string $name
+   *
+   * @return boolean
+   * @throws \InvalidArgumentException
+   */
+  public function checkContainsOrThrow ($name): bool
+  {
+    if ($name !== $this->getElementName())
     {
-        $set = new Set(InstanceIdentifier::class);
-        $set->add(new InstanceIdentifier($root, $extension));
-        return $set;
+      throw new \InvalidArgumentException(sprintf('The Set should countains %s'
+                                                  . ' but contains %s', $name, $this->getElementName()));
     }
 
-    /**
-     * @param $el
-     *
-     * @return self
-     */
-    public function add($el): self
+    return TRUE;
+  }
+
+  /**
+   * @return string
+   */
+  public function getElementName (): string
+  {
+    return $this->elementName;
+  }
+
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    if (\count($this->elements) === 0)
     {
-        if (!$el instanceof $this->elementName) {
-            throw new \InvalidArgumentException(sprintf('The given element should be '
-                                                        . 'an instance of %s, %s given', $this->elementName, \get_class($el)));
+      return;
+    }
+
+    if ($this->elements[0] instanceof AnyType)
+    {
+      foreach ($this->elements as $sub)
+      {
+        $sub->setValueToElement($el, $doc);
+      }
+    }
+    elseif ($this->elements[0] instanceof ElementInterface)
+    {
+      foreach ($this->elements as $sub)
+      {
+        $el->appendChild($sub->toDOMElement($doc));
+        if ($sub instanceof UseAttributeInterface
+            && FALSE === empty($sub->getUseAttribute()))
+        {
+          $el->setAttribute(CDA::getNS() . 'use', $sub->getUseAttribute());
         }
-
-        $this->elements[] = $el;
-
-        return $this;
+      }
     }
-
-    /**
-     * check that the Set contains element, or throws an \InvalidArgumentException
-     *
-     * Example usage :
-     *
-     * ```
-     * public function setIds(Set $ids)
-     * {
-     *      $ids->checkContainsOrThrow(InstanceIdentifier::class);
-     *      $this->ids = $ids;
-     *
-     *      return $this;
-     * }
-     * ```
-     *
-     * @param string $name
-     *
-     * @return boolean
-     * @throws \InvalidArgumentException
-     */
-    public function checkContainsOrThrow($name): bool
+    else
     {
-        if ($name !== $this->getElementName()) {
-            throw new \InvalidArgumentException(sprintf('The Set should countains %s'
-                                                        . ' but contains %s', $name, $this->getElementName()));
-        }
-
-        return true;
+      throw new \LogicException(sprintf(
+        'the elements added to set are '
+        . 'not instance of %s nor %s',
+        AnyType::class,
+        ElementInterface::class
+      ));
     }
+  }
 
-    /**
-     * @return string
-     */
-    public function getElementName(): string
+  /**
+   * @return \Traversable
+   */
+  public function getIterator (): \Traversable
+  {
+    foreach ($this->get() as $el)
     {
-        return $this->elementName;
+      yield $el;
     }
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
-    {
-        if (\count($this->elements) === 0) {
-            return;
-        }
-
-        if ($this->elements[0] instanceof AnyType) {
-            foreach ($this->elements as $sub) {
-                $sub->setValueToElement($el, $doc);
-            }
-        } elseif ($this->elements[0] instanceof ElementInterface) {
-            foreach ($this->elements as $sub) {
-                $el->appendChild($sub->toDOMElement($doc));
-                if ($sub instanceof UseAttributeInterface
-                    && false === empty($sub->getUseAttribute())) {
-                    $el->setAttribute(CDA::NS_CDA . 'use', $sub->getUseAttribute());
-                }
-            }
-        } else {
-            throw new \LogicException(sprintf(
-              'the elements added to set are '
-              . 'not instance of %s nor %s',
-              AnyType::class,
-              ElementInterface::class
-            ));
-        }
-    }
-
-    /**
-     * @return \Traversable
-     */
-    public function getIterator(): \Traversable
-    {
-        foreach ($this->get() as $el) {
-            yield $el;
-        }
-    }
-
-    /**
-     * @return mixed[]
-     */
-    public function get(): array
-    {
-        return $this->elements;
-    }
+  /**
+   * @return mixed[]
+   */
+  public function get (): array
+  {
+    return $this->elements;
+  }
 }

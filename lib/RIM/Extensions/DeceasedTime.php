@@ -46,59 +46,61 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 class DeceasedTime extends AbstractElement
 {
-    /** @var TimeStamp */
-    protected $value;
+  /** @var TimeStamp */
+  protected $value;
 
-    /**
-     * DeceasedTime constructor.
-     *
-     * @param TimeStamp $value
-     */
-    public function __construct(TimeStamp $value)
-    {
-        $this->setValue($value);
-    }
+  /**
+   * DeceasedTime constructor.
+   *
+   * @param TimeStamp $value
+   */
+  public function __construct (TimeStamp $value)
+  {
+    $this->setValue($value);
+  }
 
-    /**
-     * @return TimeStamp
-     */
-    public function getValue(): TimeStamp
-    {
-        return $this->value;
-    }
+  /**
+   * @return TimeStamp
+   */
+  public function getValue (): TimeStamp
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param TimeStamp $value
-     *
-     * @return DeceasedTime
-     */
-    public function setValue(TimeStamp $value): DeceasedTime
+  /**
+   * @param TimeStamp $value
+   *
+   * @return DeceasedTime
+   */
+  public function setValue (TimeStamp $value): DeceasedTime
+  {
+    if ($value->getDate())
     {
-        if ($value->getDate()) {
-            $now = new \DateTime(null, $value->getDate()->getTimezone());
-            if ($value->getDate() > $now) {
-                throw new \InvalidArgumentException('The deceased date can not be in the future!');
-            }
-            $this->value = $value;
-        }
-        return $this;
+      $now = new \DateTime(NULL, $value->getDate()->getTimezone());
+      if ($value->getDate() > $now)
+      {
+        throw new \InvalidArgumentException('The deceased date can not be in the future!');
+      }
+      $this->value = $value;
     }
+    return $this;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, array('value'));
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, array('value'));
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:deceasedTime';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:deceasedTime';
+  }
 }

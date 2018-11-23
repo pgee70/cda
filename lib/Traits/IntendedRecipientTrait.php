@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Role\IntendedRecipient;
  */
 trait IntendedRecipientTrait
 {
-    /** @var IntendedRecipient */
-    private $intendedRecipient;
+  /** @var IntendedRecipient */
+  private $intendedRecipient;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return IntendedRecipientTrait
-     */
-    public function renderIntendedRecipient(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return IntendedRecipientTrait
+   */
+  public function renderIntendedRecipient (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasIntendedRecipient())
     {
-        if ($this->hasIntendedRecipient()) {
-            $el->appendChild($this->getIntendedRecipient()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getIntendedRecipient()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasIntendedRecipient(): bool
-    {
-        return null !== $this->intendedRecipient;
-    }
+  /**
+   * @return bool
+   */
+  public function hasIntendedRecipient (): bool
+  {
+    return NULL !== $this->intendedRecipient;
+  }
 
-    /**
-     * @return IntendedRecipient
-     */
-    public function getIntendedRecipient(): IntendedRecipient
-    {
-        return $this->intendedRecipient;
-    }
+  /**
+   * @return IntendedRecipient
+   */
+  public function getIntendedRecipient (): IntendedRecipient
+  {
+    return $this->intendedRecipient;
+  }
 
-    /**
-     * @param IntendedRecipient $intendedRecipient
-     *
-     * @return self
-     */
-    public function setIntendedRecipient(IntendedRecipient $intendedRecipient): self
-    {
-        $this->intendedRecipient = $intendedRecipient;
-        return $this;
-    }
+  /**
+   * @param IntendedRecipient $intendedRecipient
+   *
+   * @return self
+   */
+  public function setIntendedRecipient (IntendedRecipient $intendedRecipient): self
+  {
+    $this->intendedRecipient = $intendedRecipient;
+    return $this;
+  }
 }

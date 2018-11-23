@@ -45,9 +45,9 @@ use i3Soft\CDA\tests\MyTestCase;
  */
 class SubstanceAdministration_test extends MyTestCase
 {
-    public function test_GetElement()
-    {
-        $expected = <<<XML
+  public function test_GetElement ()
+  {
+    $expected = <<<XML
 <container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <substanceAdministration classCode="SBADM" moodCode="EVN">
     <templateId root='2.16.840.1.113883.10.20.1.24'/>
@@ -72,56 +72,56 @@ class SubstanceAdministration_test extends MyTestCase
 </container>
 XML;
 
-        $substanceAdministration = new SubstanceAdministration();
-        $substanceAdministration
-          ->setTemplateIds(array(
-            new InstanceIdentifier('2.16.840.1.113883.10.20.1.24'),
-            new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.4.7')
-          ))
-          ->setText(new Text('Theodur 200mg BID'))
-          ->addEffectiveTime(
-            (new PeriodicIntervalOfTime(new \DateInterval('PT12H')))
-              ->setInstitutionSpecified(true)
-          )
-          ->setRouteCode(new SnomedCTCode('20053000', 'Oral Use'))
-          ->setDoseQuantity(new PhysicalQuantity('mg', 200))
-          ->setConsumable(
-            new Consumable(
-              new ManufacturedProduct(
-                new ManufacturedLabeledDrug(
-                  new SnomedCTCode('66493003', 'Theophylline')
-                )
-              )
+    $substanceAdministration = new SubstanceAdministration();
+    $substanceAdministration
+      ->setTemplateIds(array(
+        new InstanceIdentifier('2.16.840.1.113883.10.20.1.24'),
+        new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.4.7')
+      ))
+      ->setText(new Text('Theodur 200mg BID'))
+      ->addEffectiveTime(
+        (new PeriodicIntervalOfTime(new \DateInterval('PT12H')))
+          ->setInstitutionSpecified(TRUE)
+      )
+      ->setRouteCode(new SnomedCTCode('20053000', 'Oral Use'))
+      ->setDoseQuantity(new PhysicalQuantity('mg', 200))
+      ->setConsumable(
+        new Consumable(
+          new ManufacturedProduct(
+            new ManufacturedLabeledDrug(
+              new SnomedCTCode('66493003', 'Theophylline')
             )
-          );
+          )
+        )
+      );
 
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
 
-        // append the substanceAdministration within an container xml
-        // with xmlns declaration
-        $fake = new \DOMDocument;
-        $fake->loadXML('<container '
-                       . 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'
-                       . '</container>');
-        $fake->firstChild->appendChild($substanceAdministration
-          ->toDOMElement($fake));
+    // append the substanceAdministration within an container xml
+    // with xmlns declaration
+    $fake = new \DOMDocument;
+    $fake->loadXML('<container '
+                   . 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'
+                   . '</container>');
+    $fake->firstChild->appendChild($substanceAdministration
+      ->toDOMElement($fake));
 
-        $this->assertEqualXMLStructure($expectedDoc->firstChild,
-          $fake->firstChild, false);
-    }
+    $this->assertEqualXMLStructure($expectedDoc->firstChild,
+      $fake->firstChild, FALSE);
+  }
 
-    /**
-     * test the construction of a whole section.
-     *
-     * From https://github.com/jddamore/HL7-Task-Force-Examples/blob/master/MED_SC_Basal_Insulin.xml
-     * , example referenced by [
-     */
-    public function incomplete_test_InsulineMedication()
-    {
-        $this->markTestIncomplete('some elements are stil missing');
+  /**
+   * test the construction of a whole section.
+   *
+   * From https://github.com/jddamore/HL7-Task-Force-Examples/blob/master/MED_SC_Basal_Insulin.xml
+   * , example referenced by [
+   */
+  public function incomplete_test_InsulineMedication ()
+  {
+    $this->markTestIncomplete('some elements are stil missing');
 
-        $xml = <<<XML
+    $xml = <<<XML
 <section>
   <templateId root="2.16.840.1.113883.10.20.22.2.1.1"/>
   <!-- Medication Section (entries required) -->
@@ -201,5 +201,5 @@ XML;
   </entry>
 </section>
 XML;
-    }
+  }
 }

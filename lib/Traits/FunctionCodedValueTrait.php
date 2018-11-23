@@ -38,48 +38,49 @@ use i3Soft\CDA\Elements\Code;
  */
 trait FunctionCodedValueTrait
 {
-    /** @var CodedValue */
-    private $functionCodeValue;
+  /** @var CodedValue */
+  private $functionCodeValue;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderFunctionCodedValue(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderFunctionCodedValue (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasFunctionCodedValue())
     {
-        if ($this->hasFunctionCodedValue()) {
-            $el->appendChild((new Code($this->getFunctionCodeValue()))->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild((new Code($this->getFunctionCodeValue()))->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasFunctionCodedValue(): bool
-    {
-        return null !== $this->functionCodeValue;
-    }
+  /**
+   * @return bool
+   */
+  public function hasFunctionCodedValue (): bool
+  {
+    return NULL !== $this->functionCodeValue;
+  }
 
-    /**
-     * @return CodedValue
-     */
-    public function getFunctionCodeValue(): CodedValue
-    {
-        return $this->functionCodeValue;
-    }
+  /**
+   * @return CodedValue
+   */
+  public function getFunctionCodeValue (): CodedValue
+  {
+    return $this->functionCodeValue;
+  }
 
-    /**
-     * @param CodedValue $functionCodeValue
-     *
-     * @return self
-     */
-    public function setFunctionCodeValue(CodedValue $functionCodeValue): self
-    {
-        $this->functionCodeValue = $functionCodeValue;
-        return $this;
-    }
+  /**
+   * @param CodedValue $functionCodeValue
+   *
+   * @return self
+   */
+  public function setFunctionCodeValue (CodedValue $functionCodeValue): self
+  {
+    $this->functionCodeValue = $functionCodeValue;
+    return $this;
+  }
 
 }

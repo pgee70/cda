@@ -31,11 +31,11 @@ namespace i3Soft\CDA\Elements;
  */
 class ConfidentialityCode extends Code
 {
-    /**
-     * @return string
-     */
-    public function getElementTag(): string
-    {
-        return 'confidentialityCode';
-    }
+  /**
+   * @return string
+   */
+  public function getElementTag (): string
+  {
+    return 'confidentialityCode';
+  }
 }

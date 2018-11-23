@@ -38,8 +38,8 @@ use i3Soft\CDA\Traits\NamesTrait;
  */
 abstract class Entity extends AbstractElement implements ClassCodeInterface
 {
-    use IdsTrait;
-    use NamesTrait;
-    use ClassCodeTrait;
+  use IdsTrait;
+  use NamesTrait;
+  use ClassCodeTrait;
 
 }

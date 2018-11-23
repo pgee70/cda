@@ -41,33 +41,33 @@ use i3Soft\CDA\Traits\ValueTrait;
 
 class Qualifier extends AbstractElement
 {
-    use NameTrait;
-    use ValueTrait;
+  use NameTrait;
+  use ValueTrait;
 
-    public function __construct(Name $name, Value $value)
-    {
-        $this->setName($name)
-          ->setValue($value);
+  public function __construct (Name $name, Value $value)
+  {
+    $this->setName($name)
+      ->setValue($value);
 
-    }
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getName()->toDOMElement($doc));
-        $el->appendChild($this->getValue()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getName()->toDOMElement($doc));
+    $el->appendChild($this->getValue()->toDOMElement($doc));
+    return $el;
+  }
 
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'qualifier';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'qualifier';
+  }
 }

@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Act\Consent;
  */
 trait ConsentTrait
 {
-    /** @var Consent */
-    private $consent;
+  /** @var Consent */
+  private $consent;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderConsent(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderConsent (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasConsent())
     {
-        if ($this->hasConsent()) {
-            $el->appendChild($this->getConsent()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getConsent()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasConsent(): bool
-    {
-        return null !== $this->consent;
-    }
+  /**
+   * @return bool
+   */
+  public function hasConsent (): bool
+  {
+    return NULL !== $this->consent;
+  }
 
-    /**
-     * @return Consent
-     */
-    public function getConsent(): Consent
-    {
-        return $this->consent;
-    }
+  /**
+   * @return Consent
+   */
+  public function getConsent (): Consent
+  {
+    return $this->consent;
+  }
 
-    /**
-     * @param Consent $consent
-     *
-     * @return self
-     */
-    public function setConsent(Consent $consent): self
-    {
-        $this->consent = $consent;
-        return $this;
-    }
+  /**
+   * @param Consent $consent
+   *
+   * @return self
+   */
+  public function setConsent (Consent $consent): self
+  {
+    $this->consent = $consent;
+    return $this;
+  }
 }

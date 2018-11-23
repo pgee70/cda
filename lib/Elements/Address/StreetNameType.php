@@ -38,77 +38,78 @@ use i3Soft\CDA\Elements\AbstractSimpleElement;
  */
 class StreetNameType extends AbstractSimpleElement
 {
-    const Alley     = 'Ally';
-    const Arcade    = 'Arc';
-    const Avenue    = 'Ave';
-    const Boulevard = 'Bvd';
-    const Bypass    = 'Bypa';
-    const Circuit   = 'Cct';
-    const Close     = 'Cl';
-    const Corner    = 'Crn';
-    const Court     = 'Ct';
-    const Crescent  = 'Cres';
-    const CulDeSac  = 'Cds';
-    const Drive     = 'Dr';
-    const Esplanade = 'Esp';
-    const Green     = 'Grn';
-    const Grove     = 'Gr';
-    const Highway   = 'Hwy';
-    const Junction  = 'Jnc';
-    const Lane      = 'Lane';
-    const Link      = 'Link';
-    const Mews      = 'Mews';
-    const Parade    = 'Pde';
-    const Place     = 'Pl';
-    const Ridge     = 'Rdge';
-    const Road      = 'Rd';
-    const Square    = 'Sq';
-    const Street    = 'St';
-    const Terrace   = 'Tce';
+  const Alley     = 'Ally';
+  const Arcade    = 'Arc';
+  const Avenue    = 'Ave';
+  const Boulevard = 'Bvd';
+  const Bypass    = 'Bypa';
+  const Circuit   = 'Cct';
+  const Close     = 'Cl';
+  const Corner    = 'Crn';
+  const Court     = 'Ct';
+  const Crescent  = 'Cres';
+  const CulDeSac  = 'Cds';
+  const Drive     = 'Dr';
+  const Esplanade = 'Esp';
+  const Green     = 'Grn';
+  const Grove     = 'Gr';
+  const Highway   = 'Hwy';
+  const Junction  = 'Jnc';
+  const Lane      = 'Lane';
+  const Link      = 'Link';
+  const Mews      = 'Mews';
+  const Parade    = 'Pde';
+  const Place     = 'Pl';
+  const Ridge     = 'Rdge';
+  const Road      = 'Rd';
+  const Square    = 'Sq';
+  const Street    = 'St';
+  const Terrace   = 'Tce';
 
 
-    public function __construct(string $value)
+  public function __construct (string $value)
+  {
+    $acceptable_values = array(
+      self::Alley,
+      self::Arcade,
+      self::Avenue,
+      self::Boulevard,
+      self::Bypass,
+      self::Circuit,
+      self::Close,
+      self::Corner,
+      self::Court,
+      self::Crescent,
+      self::CulDeSac,
+      self::Drive,
+      self::Esplanade,
+      self::Green,
+      self::Grove,
+      self::Highway,
+      self::Junction,
+      self::Lane,
+      self::Link,
+      self::Mews,
+      self::Parade,
+      self::Place,
+      self::Ridge,
+      self::Road,
+      self::Square,
+      self::Street,
+      self::Terrace,
+    );
+    if (\in_array($value, $acceptable_values, TRUE) === FALSE)
     {
-        $acceptable_values = array(
-          self::Alley,
-          self::Arcade,
-          self::Avenue,
-          self::Boulevard,
-          self::Bypass,
-          self::Circuit,
-          self::Close,
-          self::Corner,
-          self::Court,
-          self::Crescent,
-          self::CulDeSac,
-          self::Drive,
-          self::Esplanade,
-          self::Green,
-          self::Grove,
-          self::Highway,
-          self::Junction,
-          self::Lane,
-          self::Link,
-          self::Mews,
-          self::Parade,
-          self::Place,
-          self::Ridge,
-          self::Road,
-          self::Square,
-          self::Street,
-          self::Terrace,
-        );
-        if (\in_array($value, $acceptable_values, true) === false) {
-            throw new \InvalidArgumentException("The street type value of $value is not acceptable!");
-        }
-        parent::__construct($value);
+      throw new \InvalidArgumentException("The street type value of $value is not acceptable!");
     }
+    parent::__construct($value);
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'streetNameType';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'streetNameType';
+  }
 }

@@ -47,40 +47,40 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
  */
 class ExtParticipant extends AbstractElement implements TypeCodeInterface
 {
-    use ExtParticipantRoleTrait;
-    use TypeCodeTrait;
+  use ExtParticipantRoleTrait;
+  use TypeCodeTrait;
 
-    /**
-     * ExtParticipant constructor.
-     *
-     * @param ExtParticipantRole $ext_participant_role
-     */
-    public function __construct(ExtParticipantRole $ext_participant_role)
-    {
-        $this->setExtParticipantRole($ext_participant_role)
-          ->setAcceptableTypeCodes(TypeCodeInterface::ParticipationType)
-          ->setTypeCode(TypeCodeInterface::HOLDER);
-    }
+  /**
+   * ExtParticipant constructor.
+   *
+   * @param ExtParticipantRole $ext_participant_role
+   */
+  public function __construct (ExtParticipantRole $ext_participant_role)
+  {
+    $this->setExtParticipantRole($ext_participant_role)
+      ->setAcceptableTypeCodes(TypeCodeInterface::ParticipationType)
+      ->setTypeCode(TypeCodeInterface::HOLDER);
+  }
 
-    /**
-     * @return string
-     */
-    public function getElementTag(): string
-    {
-        return 'ext:participant';
-    }
+  /**
+   * @return string
+   */
+  public function getElementTag (): string
+  {
+    return 'ext:participant';
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderExtParticipantRole($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderExtParticipantRole($el, $doc);
+    return $el;
+  }
 
 
 }

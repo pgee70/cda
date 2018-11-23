@@ -36,61 +36,65 @@ use i3Soft\CDA\ClinicalDocument as CDA;
  */
 trait RealmCodesTrait
 {
-    /** @var string[] */
-    private $realmCodes = [];
+  /** @var string[] */
+  private $realmCodes = [];
 
-    /**
-     * @param array $realm_codes
-     *
-     * @return self
-     */
-    public function setRealmCode(array $realm_codes): self
+  /**
+   * @param array $realm_codes
+   *
+   * @return self
+   */
+  public function setRealmCode (array $realm_codes): self
+  {
+    foreach ($realm_codes as $realm_code)
     {
-        foreach ($realm_codes as $realm_code) {
-            if (\is_string($realm_code)) {
-                $this->addRealmCode($realm_code);
-            }
-        }
-        return $this;
+      if (\is_string($realm_code))
+      {
+        $this->addRealmCode($realm_code);
+      }
     }
+    return $this;
+  }
 
-    public function addRealmCode(string $realm_code): self
-    {
-        $this->realmCodes[] = $realm_code;
-        return $this;
-    }
+  public function addRealmCode (string $realm_code): self
+  {
+    $this->realmCodes[] = $realm_code;
+    return $this;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderRealmCodes(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderRealmCodes (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasRealmCode())
     {
-        if ($this->hasRealmCode()) {
-            foreach ($this->getRealmCodes() as $realm_code) {
-                $realmCodeEl = $doc->createElement(CDA::NS_CDA . 'realmCode');
-                $realmCodeEl->setAttribute('code', $realm_code);
-                $el->appendChild($realmCodeEl);
-            }
-        }
-        return $this;
+      foreach ($this->getRealmCodes() as $realm_code)
+      {
+        $realmCodeEl = $doc->createElement(CDA::getNS() . 'realmCode');
+        $realmCodeEl->setAttribute('code', $realm_code);
+        $el->appendChild($realmCodeEl);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasRealmCode(): bool
-    {
-        return \count($this->realmCodes) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasRealmCode (): bool
+  {
+    return \count($this->realmCodes) > 0;
+  }
 
-    /**
-     * @return string[]
-     */
-    public function getRealmCodes(): array
-    {
-        return $this->realmCodes;
-    }
+  /**
+   * @return string[]
+   */
+  public function getRealmCodes (): array
+  {
+    return $this->realmCodes;
+  }
 }

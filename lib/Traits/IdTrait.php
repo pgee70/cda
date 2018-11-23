@@ -37,49 +37,50 @@ use i3Soft\CDA\Elements\Id;
  */
 trait IdTrait
 {
-    /** @var Id */
-    private $id;
+  /** @var Id */
+  private $id;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderId(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderId (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasId())
     {
-        if ($this->hasId()) {
-            $el->appendChild($this->getId()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getId()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasId(): bool
-    {
-        return null !== $this->id;
-    }
+  /**
+   * @return bool
+   */
+  public function hasId (): bool
+  {
+    return NULL !== $this->id;
+  }
 
-    /**
-     * @return Id
-     */
-    public function getId(): Id
-    {
-        return $this->id;
-    }
+  /**
+   * @return Id
+   */
+  public function getId (): Id
+  {
+    return $this->id;
+  }
 
-    /**
-     * @param Id $id
-     *
-     * @return self
-     */
-    public function setId(Id $id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
+  /**
+   * @param Id $id
+   *
+   * @return self
+   */
+  public function setId (Id $id): self
+  {
+    $this->id = $id;
+    return $this;
+  }
 
 
 }

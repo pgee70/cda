@@ -30,33 +30,33 @@ namespace i3Soft\CDA\Traits;
 
 trait NegationIndTrait
 {
-    /** @var bool */
-    private $negationInd;
+  /** @var bool */
+  private $negationInd;
 
-    /**
-     * @return bool
-     */
-    public function hasNegationInd(): bool
-    {
-        return null !== $this->negationInd;
-    }
+  /**
+   * @return bool
+   */
+  public function hasNegationInd (): bool
+  {
+    return NULL !== $this->negationInd;
+  }
 
-    /**
-     * @return bool
-     */
-    public function getNegationInd(): bool
-    {
-        return $this->negationInd;
-    }
+  /**
+   * @return bool
+   */
+  public function getNegationInd (): bool
+  {
+    return $this->negationInd;
+  }
 
-    /**
-     * @param bool $negationInd
-     *
-     * @return self
-     */
-    public function setNegationInd(bool $negationInd): self
-    {
-        $this->negationInd = $negationInd;
-        return $this;
-    }
+  /**
+   * @param bool $negationInd
+   *
+   * @return self
+   */
+  public function setNegationInd (bool $negationInd): self
+  {
+    $this->negationInd = $negationInd;
+    return $this;
+  }
 }

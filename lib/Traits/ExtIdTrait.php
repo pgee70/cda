@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Extensions\ExtId;
  */
 trait ExtIdTrait
 {
-    /** @var ExtId */
-    private $ext_id;
+  /** @var ExtId */
+  private $ext_id;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExtId(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExtId (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtId())
     {
-        if ($this->hasExtId()) {
-            $el->appendChild($this->getExtId()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtId()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtId(): bool
-    {
-        return null !== $this->ext_id;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtId (): bool
+  {
+    return NULL !== $this->ext_id;
+  }
 
-    /**
-     * @return ExtId
-     */
-    public function getExtId(): ExtId
-    {
-        return $this->ext_id;
-    }
+  /**
+   * @return ExtId
+   */
+  public function getExtId (): ExtId
+  {
+    return $this->ext_id;
+  }
 
-    /**
-     * @param ExtId $ext_id
-     *
-     * @return self
-     */
-    public function setExtId(ExtId $ext_id): self
-    {
-        $this->ext_id = $ext_id;
-        return $this;
-    }
+  /**
+   * @param ExtId $ext_id
+   *
+   * @return self
+   */
+  public function setExtId (ExtId $ext_id): self
+  {
+    $this->ext_id = $ext_id;
+    return $this;
+  }
 }

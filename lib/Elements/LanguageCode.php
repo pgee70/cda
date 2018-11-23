@@ -32,33 +32,33 @@ use i3Soft\CDA\DataType\Code\CodedSimple;
  */
 class LanguageCode extends Code
 {
-    /** @noinspection MagicMethodsValidityInspection */
-    /** @noinspection PhpMissingParentConstructorInspection */
-    /**
-     * LanguageCode constructor.
-     *
-     * @param CodedSimple $coded_value
-     */
-    public function __construct(CodedSimple $coded_value)
-    {
-        $this->setCodedValue($coded_value);
-    }
+  /** @noinspection MagicMethodsValidityInspection */
+  /** @noinspection PhpMissingParentConstructorInspection */
+  /**
+   * LanguageCode constructor.
+   *
+   * @param CodedSimple $coded_value
+   */
+  public function __construct (CodedSimple $coded_value)
+  {
+    $this->setCodedValue($coded_value);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, ['codedValue']);
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, ['codedValue']);
+  }
 
-    /**
-     * @return string
-     */
-    public function getElementTag(): string
-    {
-        return 'languageCode';
-    }
+  /**
+   * @return string
+   */
+  public function getElementTag (): string
+  {
+    return 'languageCode';
+  }
 }

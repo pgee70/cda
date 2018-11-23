@@ -41,74 +41,75 @@ use i3Soft\CDA\DataType\AnyType;
  */
 class AddressCodeType extends AnyType
 {
-    const BUSINESS = 'WP';  // An office address. First choice for business related con- tacts during business hours.
-    const HOME     = 'H';   // A communication address at a home, attempted contacts for business purposes might
-    // intrude privacy and chances are one will contact family or other household members
-    // instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available.
-    const HOME_BUSINESS     = 'WP H';
-    const HOME_PRIMARY      = 'HP';
-    const HOME_VACATION     = 'HV';
-    const ANSWERING_SERVICE = 'AS';
-    const EMERGENCY_CONTACT = 'EC';
-    const MOBILE_CONTACT    = 'MC';
-    const PAGER             = 'PG';
-    const WORKPLACE         = 'WP';
+  const BUSINESS = 'WP';  // An office address. First choice for business related con- tacts during business hours.
+  const HOME     = 'H';   // A communication address at a home, attempted contacts for business purposes might
+  // intrude privacy and chances are one will contact family or other household members
+  // instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available.
+  const HOME_BUSINESS     = 'WP H';
+  const HOME_PRIMARY      = 'HP';
+  const HOME_VACATION     = 'HV';
+  const ANSWERING_SERVICE = 'AS';
+  const EMERGENCY_CONTACT = 'EC';
+  const MOBILE_CONTACT    = 'MC';
+  const PAGER             = 'PG';
+  const WORKPLACE         = 'WP';
 
-    /** @var string */
-    private $code;
+  /** @var string */
+  private $code;
 
-    /**
-     * AddressCodeType constructor.
-     *
-     * @param string $code
-     */
-    public function __construct($code = '')
+  /**
+   * AddressCodeType constructor.
+   *
+   * @param string $code
+   */
+  public function __construct ($code = '')
+  {
+    $this->setCode($code);
+  }
+
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    if ($this->getCode())
     {
-        $this->setCode($code);
+      $el->setAttribute(CDA::getNS() . 'use', $this->getCode());
     }
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
-    {
-        if ($this->getCode()) {
-            $el->setAttribute(CDA::NS_CDA . 'use', $this->getCode());
-        }
-    }
+  /**
+   * @return string
+   */
+  public function getCode (): string
+  {
+    return $this->code;
+  }
 
-    /**
-     * @return string
-     */
-    public function getCode(): string
-    {
-        return $this->code;
-    }
-
-    /**
-     * @param string $code
-     *
-     * @return AddressCodeType
-     */
-    public function setCode(string $code): self
-    {
-        $upper_code = strtoupper($code);
-        $this->code = \in_array($upper_code,
-          array(
-            self::BUSINESS,
-            self::HOME,
-            self::HOME_BUSINESS,
-            self::HOME_PRIMARY,
-            self::HOME_VACATION,
-            self::ANSWERING_SERVICE,
-            self::EMERGENCY_CONTACT,
-            self::MOBILE_CONTACT,
-            self::PAGER,
-            self::WORKPLACE
-          ), true)
-          ? $upper_code
-          : '';
-        return $this;
-    }
+  /**
+   * @param string $code
+   *
+   * @return AddressCodeType
+   */
+  public function setCode (string $code): self
+  {
+    $upper_code = strtoupper($code);
+    $this->code = \in_array($upper_code,
+      array(
+        self::BUSINESS,
+        self::HOME,
+        self::HOME_BUSINESS,
+        self::HOME_PRIMARY,
+        self::HOME_VACATION,
+        self::ANSWERING_SERVICE,
+        self::EMERGENCY_CONTACT,
+        self::MOBILE_CONTACT,
+        self::PAGER,
+        self::WORKPLACE
+      ), TRUE)
+      ? $upper_code
+      : '';
+    return $this;
+  }
 }

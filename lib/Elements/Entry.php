@@ -51,83 +51,109 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 class Entry extends AbstractElement implements TypeCodeInterface
 {
 
-    use IdsTrait;
-    use ActTrait;
-    use EncounterTrait;
-    use ObservationTrait;
-    use ObservationMediaTrait;
-    use OrganizerTrait;
-    use ProcedureTrait;
-    use RegionOfInterestTrait;
-    use SubstanceAdministrationTrait;
-    use SupplyTrait;
-    // <xs:element ref="ext:controlAct"/>
-    use TypeCodeTrait;
-    use ContextConductionIndTrait;
+  use IdsTrait;
+  use ActTrait;
+  use EncounterTrait;
+  use ObservationTrait;
+  use ObservationMediaTrait;
+  use OrganizerTrait;
+  use ProcedureTrait;
+  use RegionOfInterestTrait;
+  use SubstanceAdministrationTrait;
+  use SupplyTrait;
+  // <xs:element ref="ext:controlAct"/>
+  use TypeCodeTrait;
+  use ContextConductionIndTrait;
 
-    /**
-     * Entry constructor.
-     *
-     * @param null $choice
-     */
-    public function __construct($choice = null)
+  /**
+   * Entry constructor.
+   *
+   * @param null $choice
+   */
+  public function __construct ($choice = NULL)
+  {
+    $this->setAcceptableTypeCodes(TypeCodeInterface::x_ActRelationshipEntry)
+      ->setTypeCode(TypeCodeInterface::COMPONENT);
+    if ($choice instanceof Act)
     {
-        $this->setAcceptableTypeCodes(TypeCodeInterface::x_ActRelationshipEntry)
-          ->setTypeCode(TypeCodeInterface::COMPONENT);
-        if ($choice instanceof Act) {
-            $this->setAct($choice);
-        } elseif ($choice instanceof Encounter) {
-            $this->setEncounter($choice);
-        } elseif ($choice instanceof Observation) {
-            $this->setObservation($choice);
-        } elseif ($choice instanceof Procedure) {
-            $this->setProcedure($choice);
-        } elseif ($choice instanceof SubstanceAdministration) {
-            $this->setSubstanceAdministration($choice);
-        }
-
+      $this->setAct($choice);
+    }
+    elseif ($choice instanceof Encounter)
+    {
+      $this->setEncounter($choice);
+    }
+    elseif ($choice instanceof Observation)
+    {
+      $this->setObservation($choice);
+    }
+    elseif ($choice instanceof Procedure)
+    {
+      $this->setProcedure($choice);
+    }
+    elseif ($choice instanceof SubstanceAdministration)
+    {
+      $this->setSubstanceAdministration($choice);
     }
 
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    if ($this->hasAct())
     {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        if ($this->hasAct()) {
-            $this->renderAct($el, $doc);
-        } elseif ($this->hasEncounter()) {
-            $this->renderEncounter($el, $doc);
-        } elseif ($this->hasObservation()) {
-            $this->renderObservation($el, $doc);
-        } elseif ($this->hasObservationMedia()) {
-            $this->renderObservationMedia($el, $doc);
-        } elseif ($this->hasOrganizer()) {
-            $this->renderOrganizer($el, $doc);
-        } elseif ($this->hasProcedure()) {
-            $this->renderProcedure($el, $doc);
-        } elseif ($this->hasRegionOfInterest()) {
-            $this->renderRegionOfInterest($el, $doc);
-        } elseif ($this->hasSubstanceAdministration()) {
-            $this->renderSubstanceAdministration($el, $doc);
-        } elseif ($this->hasSupply()) {
-            $this->renderSupply($el, $doc);
-        }
-
-        return $el;
+      $this->renderAct($el, $doc);
+    }
+    elseif ($this->hasEncounter())
+    {
+      $this->renderEncounter($el, $doc);
+    }
+    elseif ($this->hasObservation())
+    {
+      $this->renderObservation($el, $doc);
+    }
+    elseif ($this->hasObservationMedia())
+    {
+      $this->renderObservationMedia($el, $doc);
+    }
+    elseif ($this->hasOrganizer())
+    {
+      $this->renderOrganizer($el, $doc);
+    }
+    elseif ($this->hasProcedure())
+    {
+      $this->renderProcedure($el, $doc);
+    }
+    elseif ($this->hasRegionOfInterest())
+    {
+      $this->renderRegionOfInterest($el, $doc);
+    }
+    elseif ($this->hasSubstanceAdministration())
+    {
+      $this->renderSubstanceAdministration($el, $doc);
+    }
+    elseif ($this->hasSupply())
+    {
+      $this->renderSupply($el, $doc);
     }
 
+    return $el;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'entry';
-    }
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'entry';
+  }
 
 }

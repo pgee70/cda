@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Entity\DataEnterer;
  */
 trait DataEntererTrait
 {
-    /** @var DataEnterer */
-    private $dataEnterer;
+  /** @var DataEnterer */
+  private $dataEnterer;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return DataEntererTrait
-     */
-    public function renderDataEnter(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return DataEntererTrait
+   */
+  public function renderDataEnter (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasDataEnterer())
     {
-        if ($this->hasDataEnterer()) {
-            $el->appendChild($this->getDataEnterer()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getDataEnterer()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasDataEnterer(): bool
-    {
-        return null !== $this->dataEnterer;
-    }
+  /**
+   * @return bool
+   */
+  public function hasDataEnterer (): bool
+  {
+    return NULL !== $this->dataEnterer;
+  }
 
-    /**
-     * @return DataEnterer
-     */
-    public function getDataEnterer(): DataEnterer
-    {
-        return $this->dataEnterer;
-    }
+  /**
+   * @return DataEnterer
+   */
+  public function getDataEnterer (): DataEnterer
+  {
+    return $this->dataEnterer;
+  }
 
-    /**
-     * @param DataEnterer $dataEnterer
-     *
-     * @return self
-     */
-    public function setDataEnterer(DataEnterer $dataEnterer): self
-    {
-        $this->dataEnterer = $dataEnterer;
-        return $this;
-    }
+  /**
+   * @param DataEnterer $dataEnterer
+   *
+   * @return self
+   */
+  public function setDataEnterer (DataEnterer $dataEnterer): self
+  {
+    $this->dataEnterer = $dataEnterer;
+    return $this;
+  }
 }

@@ -37,48 +37,49 @@ use i3Soft\CDA\Elements\IndependentInd;
  */
 trait IndependentIndTrait
 {
-    /** @var IndependentInd */
-    private $independentInd;
+  /** @var IndependentInd */
+  private $independentInd;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderIndependentInd(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderIndependentInd (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasIndependentInd())
     {
-        if ($this->hasIndependentInd()) {
-            $el->appendChild($this->getIndependentInd()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getIndependentInd()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasIndependentInd(): bool
-    {
-        return null !== $this->independentInd;
-    }
+  /**
+   * @return bool
+   */
+  public function hasIndependentInd (): bool
+  {
+    return NULL !== $this->independentInd;
+  }
 
-    /**
-     * @return IndependentInd
-     */
-    public function getIndependentInd(): IndependentInd
-    {
-        return $this->independentInd;
-    }
+  /**
+   * @return IndependentInd
+   */
+  public function getIndependentInd (): IndependentInd
+  {
+    return $this->independentInd;
+  }
 
-    /**
-     * @param IndependentInd $independentInd
-     *
-     * @return self
-     */
-    public function setIndependentInd(IndependentInd $independentInd): self
-    {
-        $this->independentInd = $independentInd;
-        return $this;
-    }
+  /**
+   * @param IndependentInd $independentInd
+   *
+   * @return self
+   */
+  public function setIndependentInd (IndependentInd $independentInd): self
+  {
+    $this->independentInd = $independentInd;
+    return $this;
+  }
 
 }

@@ -71,9 +71,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class AssignedEntity_test extends MyTestCase
 {
-    public function test_tag()
-    {
-        $expected = <<<XML
+  public function test_tag ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <assignedEntity>
   <id root="123F9366-78EC-11DF-861B-EE24DFD72085"/>
@@ -111,41 +111,41 @@ class AssignedEntity_test extends MyTestCase
 </assignedEntity>
 
 XML;
-        $names    = new Set(PersonName::class);
-        $names->add((new PersonName())
-          ->addPart('prefix', 'Dr.')
-          ->addPart(PersonName::FIRST_NAME, 'General')
-          ->addPart(PersonName::LAST_NAME, 'Doctor')
-        );
-        $addr = new Addr(
-          new StreetAddressLine('1 Clinician street'),
-          new City('Nethaville'),
-          new State('QLD'),
-          new PostalCode('5555'),
-          new AdditionalLocator('32568931')
-        );
-        $addr->setUseAttribute('WP');
-        $tag               = new AssignedEntity(
-          new Id(new InstanceIdentifier('123F9366-78EC-11DF-861B-EE24DFD72085')),
-          Code::Occupation('253111'),
-          $addr,
-          new Telecom('WP', 'tel:0712341234'),
-          new AssignedPerson($names),
-          new AsEntityIdentifier(
-            new ExtId('HPI-I', '1.2.36.1.2001.1003.0', '8003611566682112'),
-            new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
-          ),
-          new RepresentedOrganization(
-            new EntityName('Good Health Clinic'),
-            new AsEntityIdentifier(
-              new ExtId('HPI-O', '1.2.36.1.2001.1003.0', '8003621566684455'),
-              new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))))
-        );
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $tag->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $names    = new Set(PersonName::class);
+    $names->add((new PersonName())
+      ->addPart('prefix', 'Dr.')
+      ->addPart(PersonName::FIRST_NAME, 'General')
+      ->addPart(PersonName::LAST_NAME, 'Doctor')
+    );
+    $addr = new Addr(
+      new StreetAddressLine('1 Clinician street'),
+      new City('Nethaville'),
+      new State('QLD'),
+      new PostalCode('5555'),
+      new AdditionalLocator('32568931')
+    );
+    $addr->setUseAttribute('WP');
+    $tag               = new AssignedEntity(
+      new Id(new InstanceIdentifier('123F9366-78EC-11DF-861B-EE24DFD72085')),
+      Code::Occupation('253111'),
+      $addr,
+      new Telecom('WP', 'tel:0712341234'),
+      new AssignedPerson($names),
+      new AsEntityIdentifier(
+        new ExtId('HPI-I', '1.2.36.1.2001.1003.0', '8003611566682112'),
+        new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
+      ),
+      new RepresentedOrganization(
+        new EntityName('Good Health Clinic'),
+        new AsEntityIdentifier(
+          new ExtId('HPI-O', '1.2.36.1.2001.1003.0', '8003621566684455'),
+          new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))))
+    );
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $tag->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

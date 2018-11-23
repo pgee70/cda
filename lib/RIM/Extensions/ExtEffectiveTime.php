@@ -48,67 +48,69 @@ use i3Soft\CDA\Traits\XSITypeTrait;
  */
 class ExtEffectiveTime extends AbstractElement implements XSITypeInterface
 {
-    use XSITypeTrait;
-    /** @var IntervalOfTime */
-    protected $interval_of_time;
+  use XSITypeTrait;
+  /** @var IntervalOfTime */
+  protected $interval_of_time;
 
 
-    /**
-     * ExtEffectiveTime constructor.
-     *
-     * @param IntervalOfTime $interval_of_time
-     */
-    public function __construct(IntervalOfTime $interval_of_time)
+  /**
+   * ExtEffectiveTime constructor.
+   *
+   * @param IntervalOfTime $interval_of_time
+   */
+  public function __construct (IntervalOfTime $interval_of_time)
+  {
+    $this->setIntervalOfTime($interval_of_time)
+      ->setXSIType(XSITypeInterface::INTERVAL_TIMESTAMP);
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    if ($this->getIntervalOfTime()->hasLow())
     {
-        $this->setIntervalOfTime($interval_of_time)
-          ->setXSIType(XSITypeInterface::INTERVAL_TIMESTAMP);
+      $low_el = $doc->createElement(CDA::getNS() . 'low');
+      $this->getIntervalOfTime()->getLow()->setValueToElement($low_el, $doc);
+      $el->appendChild($low_el);
     }
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+    if ($this->getIntervalOfTime()->hasHigh())
     {
-        $el = $this->createElement($doc);
-        if ($this->getIntervalOfTime()->hasLow()) {
-            $low_el = $doc->createElement(CDA::NS_CDA . 'low');
-            $this->getIntervalOfTime()->getLow()->setValueToElement($low_el, $doc);
-            $el->appendChild($low_el);
-        }
-        if ($this->getIntervalOfTime()->hasHigh()) {
-            $high_el = $doc->createElement(CDA::NS_CDA . 'high');
-            $this->getIntervalOfTime()->getHigh()->setValueToElement($high_el, $doc);
-            $el->appendChild($high_el);
-        }
-        return $el;
+      $high_el = $doc->createElement(CDA::getNS() . 'high');
+      $this->getIntervalOfTime()->getHigh()->setValueToElement($high_el, $doc);
+      $el->appendChild($high_el);
     }
+    return $el;
+  }
 
-    /**
-     * @return IntervalOfTime
-     */
-    public function getIntervalOfTime(): IntervalOfTime
-    {
-        return $this->interval_of_time;
-    }
+  /**
+   * @return IntervalOfTime
+   */
+  public function getIntervalOfTime (): IntervalOfTime
+  {
+    return $this->interval_of_time;
+  }
 
-    /**
-     * @param IntervalOfTime $interval_of_time
-     *
-     * @return ExtEffectiveTime
-     */
-    public function setIntervalOfTime(IntervalOfTime $interval_of_time): self
-    {
-        $this->interval_of_time = $interval_of_time;
-        return $this;
-    }
+  /**
+   * @param IntervalOfTime $interval_of_time
+   *
+   * @return ExtEffectiveTime
+   */
+  public function setIntervalOfTime (IntervalOfTime $interval_of_time): self
+  {
+    $this->interval_of_time = $interval_of_time;
+    return $this;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:effectiveTime';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:effectiveTime';
+  }
 }

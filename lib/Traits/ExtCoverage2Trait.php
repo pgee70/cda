@@ -32,47 +32,48 @@ use i3Soft\CDA\RIM\Extensions\ExtCoverage2;
 
 trait ExtCoverage2Trait
 {
-    /** @var ExtCoverage2 */
-    private $ext_coverage2;
+  /** @var ExtCoverage2 */
+  private $ext_coverage2;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return ExtCoverage2Trait
-     */
-    public function renderExtCoverage2(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return ExtCoverage2Trait
+   */
+  public function renderExtCoverage2 (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtCoverage2())
     {
-        if ($this->hasExtCoverage2()) {
-            $el->appendChild($this->getExtCoverage2()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtCoverage2()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtCoverage2(): bool
-    {
-        return null !== $this->ext_coverage2;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtCoverage2 (): bool
+  {
+    return NULL !== $this->ext_coverage2;
+  }
 
-    /**
-     * @return ExtCoverage2
-     */
-    public function getExtCoverage2(): ExtCoverage2
-    {
-        return $this->ext_coverage2;
-    }
+  /**
+   * @return ExtCoverage2
+   */
+  public function getExtCoverage2 (): ExtCoverage2
+  {
+    return $this->ext_coverage2;
+  }
 
-    /**
-     * @param ExtCoverage2 $ext_coverage2
-     *
-     * @return self
-     */
-    public function setExtCoverage2(ExtCoverage2 $ext_coverage2): self
-    {
-        $this->ext_coverage2 = $ext_coverage2;
-        return $this;
-    }
+  /**
+   * @param ExtCoverage2 $ext_coverage2
+   *
+   * @return self
+   */
+  public function setExtCoverage2 (ExtCoverage2 $ext_coverage2): self
+  {
+    $this->ext_coverage2 = $ext_coverage2;
+    return $this;
+  }
 }

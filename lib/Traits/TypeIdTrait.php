@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\TypeId;
  */
 trait TypeIdTrait
 {
-    /** @var TypeId */
-    protected $typeId;
+  /** @var TypeId */
+  protected $typeId;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderTypeId(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderTypeId (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasTypeId())
     {
-        if ($this->hasTypeId()) {
-            $el->appendChild($this->getTypeId()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getTypeId()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasTypeId(): bool
-    {
-        return null !== $this->typeId;
-    }
+  /**
+   * @return bool
+   */
+  public function hasTypeId (): bool
+  {
+    return NULL !== $this->typeId;
+  }
 
-    /**
-     * @return TypeId
-     */
-    public function getTypeId(): TypeId
-    {
-        return $this->typeId;
-    }
+  /**
+   * @return TypeId
+   */
+  public function getTypeId (): TypeId
+  {
+    return $this->typeId;
+  }
 
-    /**
-     * @param TypeId $typeId
-     *
-     * @return self
-     */
-    public function setTypeId(TypeId $typeId): self
-    {
-        $this->typeId = $typeId;
-        return $this;
-    }
+  /**
+   * @param TypeId $typeId
+   *
+   * @return self
+   */
+  public function setTypeId (TypeId $typeId): self
+  {
+    $this->typeId = $typeId;
+    return $this;
+  }
 }

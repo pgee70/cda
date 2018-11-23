@@ -38,78 +38,79 @@ use i3Soft\CDA\Traits\XSITypeTrait;
  */
 class Desc extends AbstractElement implements XSITypeInterface
 {
-    use XSITypeTrait;
-    /** @var EncapsuledData */
-    private $content;
+  use XSITypeTrait;
+  /** @var EncapsuledData */
+  private $content;
 
 
-    /**
-     * Text constructor.
-     *
-     * @param EncapsuledData $content
-     */
-    public function __construct(EncapsuledData $content)
+  /**
+   * Text constructor.
+   *
+   * @param EncapsuledData $content
+   */
+  public function __construct (EncapsuledData $content)
+  {
+
+    $this->setXSIType('');
+    $this->setContent($content);
+  }
+
+  /**
+   * @param string $content
+   * @param string $xsi_type
+   *
+   * @return Desc
+   */
+  public static function fromString (string $content, string $xsi_type = ''): Desc
+  {
+    $desc = new Desc((new EncapsuledData())->setContent($content)->returnEncapsuledData());
+    if ($xsi_type)
     {
-
-        $this->setXSIType('');
-        $this->setContent($content);
+      $desc->setXSIType($xsi_type);
     }
+    return $desc;
+  }
 
-    /**
-     * @param string $content
-     * @param string $xsi_type
-     *
-     * @return Desc
-     */
-    public static function fromString(string $content, string $xsi_type = ''): Desc
-    {
-        $desc = new Desc((new EncapsuledData())->setContent($content)->returnEncapsuledData());
-        if ($xsi_type) {
-            $desc->setXSIType($xsi_type);
-        }
-        return $desc;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
+    $this->getContent()->setValueToElement($el, $doc);
 
-        $this->getContent()->setValueToElement($el, $doc);
+    return $el;
+  }
 
-        return $el;
-    }
+  /**
+   *
+   * @return EncapsuledData
+   */
+  public function getContent (): EncapsuledData
+  {
+    return $this->content;
+  }
 
-    /**
-     *
-     * @return EncapsuledData
-     */
-    public function getContent(): EncapsuledData
-    {
-        return $this->content;
-    }
-
-    /**
-     * @param EncapsuledData $content
-     *
-     * @return self
-     */
-    public function setContent(EncapsuledData $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
+  /**
+   * @param EncapsuledData $content
+   *
+   * @return self
+   */
+  public function setContent (EncapsuledData $content): self
+  {
+    $this->content = $content;
+    return $this;
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'desc';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'desc';
+  }
 }

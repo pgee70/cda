@@ -48,19 +48,19 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class MultipleBirthOrderNumber_test extends MyTestCase
 {
-    public function test_2()
-    {
-        $expected = <<<XML
+  public function test_2 ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:multipleBirthOrderNumber value="2"/>
 
 XML;
 
-        $mult_birth_order_number = new MultipleBirthOrderNumber(2);
-        $dom                     = new \DOMDocument('1.0', 'UTF-8');
-        $doc                     = $mult_birth_order_number->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $mult_birth_order_number = new MultipleBirthOrderNumber(2);
+    $dom                     = new \DOMDocument('1.0', 'UTF-8');
+    $doc                     = $mult_birth_order_number->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

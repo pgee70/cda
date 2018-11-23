@@ -37,64 +37,68 @@ use i3Soft\CDA\RIM\Extensions\ExtCoverage;
  */
 trait ExtCoveragesTrait
 {
-    /** @var ExtCoverage[] */
-    private $extCoverages = [];
+  /** @var ExtCoverage[] */
+  private $extCoverages = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExtCoverages(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExtCoverages (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtCoverages())
     {
-        if ($this->hasExtCoverages()) {
-            foreach ($this->getExtCoverages() as $extCoverage) {
-                $el->appendChild($extCoverage->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getExtCoverages() as $extCoverage)
+      {
+        $el->appendChild($extCoverage->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtCoverages(): bool
-    {
-        return \count($this->extCoverages) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtCoverages (): bool
+  {
+    return \count($this->extCoverages) > 0;
+  }
 
-    /**
-     * @return ExtCoverage[]
-     */
-    public function getExtCoverages(): array
-    {
-        return $this->extCoverages;
-    }
+  /**
+   * @return ExtCoverage[]
+   */
+  public function getExtCoverages (): array
+  {
+    return $this->extCoverages;
+  }
 
-    /**
-     * @param ExtCoverage[] $extCoverages
-     *
-     * @return self
-     */
-    public function setExtCoverages(array $extCoverages): self
+  /**
+   * @param ExtCoverage[] $extCoverages
+   *
+   * @return self
+   */
+  public function setExtCoverages (array $extCoverages): self
+  {
+    foreach ($extCoverages as $coverage)
     {
-        foreach ($extCoverages as $coverage) {
-            if ($coverage instanceof ExtCoverage) {
-                $this->addExtCoverage($coverage);
-            }
-        }
-        return $this;
+      if ($coverage instanceof ExtCoverage)
+      {
+        $this->addExtCoverage($coverage);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param ExtCoverage $coverage
-     *
-     * @return ExtCoveragesTrait
-     */
-    public function addExtCoverage(ExtCoverage $coverage): self
-    {
-        $this->extCoverages[] = $coverage;
-        return $this;
-    }
+  /**
+   * @param ExtCoverage $coverage
+   *
+   * @return ExtCoveragesTrait
+   */
+  public function addExtCoverage (ExtCoverage $coverage): self
+  {
+    $this->extCoverages[] = $coverage;
+    return $this;
+  }
 }

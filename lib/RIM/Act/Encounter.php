@@ -63,74 +63,74 @@ use i3Soft\CDA\Traits\TextTrait;
  */
 class Encounter extends AbstractElement implements MoodCodeInterface, ClassCodeInterface
 {
-    use IdsTrait;
-    use CodeTrait;
-    use TextTrait;
-    use StatusCodeTrait;
-    use EffectiveTimeTrait;
-    use PriorityCodeTrait;
-    use SubjectTrait;
-    use SpecimensTrait;
-    use PerformersTrait;
-    use AuthorsTrait;
-    use InformantsTrait;
-    use ParticipantsTrait;
-    use EntryRelationshipsTrait;
-    use ReferencesTrait;
-    use PreconditionsTrait;
+  use IdsTrait;
+  use CodeTrait;
+  use TextTrait;
+  use StatusCodeTrait;
+  use EffectiveTimeTrait;
+  use PriorityCodeTrait;
+  use SubjectTrait;
+  use SpecimensTrait;
+  use PerformersTrait;
+  use AuthorsTrait;
+  use InformantsTrait;
+  use ParticipantsTrait;
+  use EntryRelationshipsTrait;
+  use ReferencesTrait;
+  use PreconditionsTrait;
 
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    /**
-     * Encounter constructor.
-     */
-    public function __construct()
-    {
-        // class code and mood care are required.
-        $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
-          ->setAcceptableMoodCodes(MoodCodeInterface::x_DocumentEncounterMood)
-          ->setClassCode('')
-          ->setMoodCode('');
-    }
+  /**
+   * Encounter constructor.
+   */
+  public function __construct ()
+  {
+    // class code and mood care are required.
+    $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
+      ->setAcceptableMoodCodes(MoodCodeInterface::x_DocumentEncounterMood)
+      ->setClassCode('')
+      ->setMoodCode('');
+  }
 
-    /**
-     * Transforms the element into a DOMElement, which will be included
-     * into the final CDA XML
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        $this->renderCode($el, $doc);
-        $this->renderText($el, $doc);
-        $this->renderStatusCode($el, $doc);
-        $this->renderEffectiveTime($el, $doc);
-        $this->renderPriorityCode($el, $doc);
-        $this->renderSubject($el, $doc);
-        $this->renderSpecimens($el, $doc);
-        $this->renderPerformers($el, $doc);
-        $this->renderAuthors($el, $doc);
-        $this->renderInformants($el, $doc);
-        $this->renderParticipants($el, $doc);
-        $this->renderEntryRelationships($el, $doc);
-        $this->renderReferences($el, $doc);
-        $this->renderPreconditions($el, $doc);
+  /**
+   * Transforms the element into a DOMElement, which will be included
+   * into the final CDA XML
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    $this->renderCode($el, $doc);
+    $this->renderText($el, $doc);
+    $this->renderStatusCode($el, $doc);
+    $this->renderEffectiveTime($el, $doc);
+    $this->renderPriorityCode($el, $doc);
+    $this->renderSubject($el, $doc);
+    $this->renderSpecimens($el, $doc);
+    $this->renderPerformers($el, $doc);
+    $this->renderAuthors($el, $doc);
+    $this->renderInformants($el, $doc);
+    $this->renderParticipants($el, $doc);
+    $this->renderEntryRelationships($el, $doc);
+    $this->renderReferences($el, $doc);
+    $this->renderPreconditions($el, $doc);
 
-        return $el;
-    }
+    return $el;
+  }
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'encounter';
-    }
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'encounter';
+  }
 }

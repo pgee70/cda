@@ -36,64 +36,68 @@ use i3Soft\CDA\RIM\Participation\InformationRecipient;
  */
 trait InformationRecipientsTrait
 {
-    /** @var InformationRecipient[] */
-    private $information_recipients = [];
+  /** @var InformationRecipient[] */
+  private $information_recipients = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderInformationRecipients(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderInformationRecipients (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasInformationRecipient())
     {
-        if ($this->hasInformationRecipient()) {
-            foreach ($this->getInformationRecipients() as $information_recipient) {
-                $el->appendChild($information_recipient->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getInformationRecipients() as $information_recipient)
+      {
+        $el->appendChild($information_recipient->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasInformationRecipient(): bool
-    {
-        return \count($this->information_recipients) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasInformationRecipient (): bool
+  {
+    return \count($this->information_recipients) > 0;
+  }
 
-    /**
-     * @return InformationRecipient[]
-     */
-    public function getInformationRecipients(): array
-    {
-        return $this->information_recipients;
-    }
+  /**
+   * @return InformationRecipient[]
+   */
+  public function getInformationRecipients (): array
+  {
+    return $this->information_recipients;
+  }
 
-    /**
-     * @param InformationRecipient[] $information_recipients
-     *
-     * @return self
-     */
-    public function setInformationRecipients(array $information_recipients): self
+  /**
+   * @param InformationRecipient[] $information_recipients
+   *
+   * @return self
+   */
+  public function setInformationRecipients (array $information_recipients): self
+  {
+    foreach ($information_recipients as $information_recipient)
     {
-        foreach ($information_recipients as $information_recipient) {
-            if ($information_recipient instanceof InformationRecipient) {
-                $this->addInformationRecipient($information_recipient);
-            }
-        }
-        return $this;
+      if ($information_recipient instanceof InformationRecipient)
+      {
+        $this->addInformationRecipient($information_recipient);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param InformationRecipient $information_recipient
-     *
-     * @return self
-     */
-    public function addInformationRecipient(InformationRecipient $information_recipient): self
-    {
-        $this->information_recipients[] = $information_recipient;
-        return $this;
-    }
+  /**
+   * @param InformationRecipient $information_recipient
+   *
+   * @return self
+   */
+  public function addInformationRecipient (InformationRecipient $information_recipient): self
+  {
+    $this->information_recipients[] = $information_recipient;
+    return $this;
+  }
 }

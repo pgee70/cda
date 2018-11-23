@@ -38,12 +38,12 @@ namespace i3Soft\CDA\Elements;
 
 class InterpretationCode extends Code
 {
-    /**
-     * @inheritDoc
-     */
-    public function getElementTag(): string
-    {
-        return 'interpretationCode';
-    }
+  /**
+   * @inheritDoc
+   */
+  public function getElementTag (): string
+  {
+    return 'interpretationCode';
+  }
 
 }

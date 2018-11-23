@@ -57,39 +57,39 @@ use i3Soft\CDA\Traits\PerformersTrait;
 
 class ServiceEvent extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {
-    use IdsTrait;
-    use CodeTrait;
-    use EffectiveTimeTrait;
-    use PerformersTrait;
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  use IdsTrait;
+  use CodeTrait;
+  use EffectiveTimeTrait;
+  use PerformersTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    public function __construct()
-    {
-        $this->setAcceptableClassCodes(ClassCodeInterface::ActClassRoot)
-          ->setClassCode('')
-          ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
-          ->setMoodCode(MoodCodeInterface::EVENT);
-    }
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::ActClassRoot)
+      ->setClassCode('')
+      ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
+      ->setMoodCode(MoodCodeInterface::EVENT);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc)
-          ->renderCode($el, $doc)
-          ->renderEffectiveTime($el, $doc)
-          ->renderPerformers($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc)
+      ->renderCode($el, $doc)
+      ->renderEffectiveTime($el, $doc)
+      ->renderPerformers($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'serviceEvent';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'serviceEvent';
+  }
 }

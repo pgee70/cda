@@ -33,13 +33,13 @@ namespace i3Soft\CDA\Interfaces;
  */
 interface ElementInterface
 {
-    /**
-     * Transforms the element into a DOMElement, which will be included
-     * into the final CDA XML
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement;
+  /**
+   * Transforms the element into a DOMElement, which will be included
+   * into the final CDA XML
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement;
 }

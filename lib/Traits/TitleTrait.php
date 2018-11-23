@@ -37,48 +37,49 @@ use i3Soft\CDA\Elements\Html\Title;
  */
 trait TitleTrait
 {
-    /** @var Title */
-    private $title;
+  /** @var Title */
+  private $title;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderTitle(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderTitle (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasTitle())
     {
-        if ($this->hasTitle()) {
-            $el->appendChild($this->getTitle()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getTitle()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasTitle(): bool
-    {
-        return null !== $this->title;
-    }
+  /**
+   * @return bool
+   */
+  public function hasTitle (): bool
+  {
+    return NULL !== $this->title;
+  }
 
-    /**
-     * @return Title
-     */
-    public function getTitle(): Title
-    {
-        return $this->title;
-    }
+  /**
+   * @return Title
+   */
+  public function getTitle (): Title
+  {
+    return $this->title;
+  }
 
-    /**
-     * @param Title $title
-     *
-     * @return self
-     */
-    public function setTitle(Title $title): self
-    {
-        $this->title = $title;
-        return $this;
-    }
+  /**
+   * @param Title $title
+   *
+   * @return self
+   */
+  public function setTitle (Title $title): self
+  {
+    $this->title = $title;
+    return $this;
+  }
 
 }

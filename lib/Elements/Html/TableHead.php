@@ -36,11 +36,11 @@ namespace i3Soft\CDA\Elements\Html;
  */
 class TableHead extends AbstractTableSection
 {
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'thead';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'thead';
+  }
 }

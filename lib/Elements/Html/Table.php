@@ -32,72 +32,74 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 class Table extends AbstractElement
 {
-    /**
-     *
-     * @var TableHead
-     */
-    private $thead;
+  /**
+   *
+   * @var TableHead
+   */
+  private $thead;
 
-    /**
-     *
-     * @var TableBody
-     */
-    private $tbody;
+  /**
+   *
+   * @var TableBody
+   */
+  private $tbody;
 
-    /**
-     * Table constructor.
-     *
-     */
-    public function __construct()
+  /**
+   * Table constructor.
+   *
+   */
+  public function __construct ()
+  {
+    $this->tbody = new TableBody($this);
+    $this->thead = new TableHead($this);
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    if (!$this->getThead()->isEmpty())
     {
-        $this->tbody = new TableBody($this);
-        $this->thead = new TableHead($this);
+      $el->appendChild($this->getThead()->toDOMElement($doc));
     }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+    if (!$this->getTbody()->isEmpty())
     {
-        $el = $this->createElement($doc);
-
-        if (!$this->getThead()->isEmpty()) {
-            $el->appendChild($this->getThead()->toDOMElement($doc));
-        }
-
-        if (!$this->getTbody()->isEmpty()) {
-            $el->appendChild($this->getTbody()->toDOMElement($doc));
-        }
-
-        return $el;
-
+      $el->appendChild($this->getTbody()->toDOMElement($doc));
     }
 
-    /**
-     *
-     * @return TableHead
-     */
-    public function getThead(): TableHead
-    {
-        return $this->thead;
-    }
+    return $el;
 
-    /**
-     *
-     * @return TableBody
-     */
-    public function getTbody(): TableBody
-    {
-        return $this->tbody;
-    }
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'table';
-    }
+  /**
+   *
+   * @return TableHead
+   */
+  public function getThead (): TableHead
+  {
+    return $this->thead;
+  }
+
+  /**
+   *
+   * @return TableBody
+   */
+  public function getTbody (): TableBody
+  {
+    return $this->tbody;
+  }
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'table';
+  }
 }

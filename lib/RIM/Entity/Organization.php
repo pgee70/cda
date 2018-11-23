@@ -37,45 +37,45 @@ use i3Soft\CDA\Traits\TelecomsTrait;
  */
 abstract class Organization extends Entity
 {
-    use TelecomsTrait;
-    use AddrsTrait;
-    use AsEntityIdentifierTrait;
+  use TelecomsTrait;
+  use AddrsTrait;
+  use AsEntityIdentifierTrait;
 
 
-    /**
-     * Organization constructor.
-     *
-     * @param Set $names
-     * @param Id  $id
-     */
-    public function __construct(Set $names, Id $id)
-    {
-        $this->setNames($names)
-          ->addId($id)
-          ->setAcceptableClassCodes(ClassCodeInterface::EntityClassOrganization)
-          ->setClassCode(ClassCodeInterface::ORGANISATION);
-    }
+  /**
+   * Organization constructor.
+   *
+   * @param Set $names
+   * @param Id  $id
+   */
+  public function __construct (Set $names, Id $id)
+  {
+    $this->setNames($names)
+      ->addId($id)
+      ->setAcceptableClassCodes(ClassCodeInterface::EntityClassOrganization)
+      ->setClassCode(ClassCodeInterface::ORGANISATION);
+  }
 
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        $this->renderNames($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    $this->renderNames($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @return bool
-     */
-    protected function hasAsEntityIdentifier(): bool
-    {
-        return null !== $this->as_entity_identifier;
-    }
+  /**
+   * @return bool
+   */
+  protected function hasAsEntityIdentifier (): bool
+  {
+    return NULL !== $this->as_entity_identifier;
+  }
 
 }

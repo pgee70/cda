@@ -44,26 +44,26 @@ use i3Soft\CDA\tests\MyTestCase;
  */
 class Code_test extends MyTestCase
 {
-    public function test_Code()
-    {
-        $code = new Code(LoincCode::create("57133-1", "REASON FOR REFERRAL"));
+  public function test_Code ()
+  {
+    $code = new Code(LoincCode::create("57133-1", "REASON FOR REFERRAL"));
 
-        $expected    = <<<'XML'
+    $expected    = <<<'XML'
 <code code="57133-1" displayName="REASON FOR REFERRAL" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
 XML;
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
-        $expectedCode = $expectedDoc
-          ->getElementsByTagName('code')
-          ->item(0);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedCode = $expectedDoc
+      ->getElementsByTagName('code')
+      ->item(0);
 
-        $this->assertEqualXMLStructure($expectedCode,
-          $code->toDOMElement(new \DOMDocument()), true);
-    }
+    $this->assertEqualXMLStructure($expectedCode,
+      $code->toDOMElement(new \DOMDocument()), TRUE);
+  }
 
-    public function test_code_translation()
-    {
-        $expected = <<<CDA
+  public function test_code_translation ()
+  {
+    $expected = <<<CDA
 <!-- Alternate code system in use and a translation into the specified code system is available -->
 <code code="J45.9" codeSystem="2.16.840.1.113883.6.135" codeSystemName="ICD10AM" displayName="Asthma, unspecified">
     <originalText>Asthma</originalText>
@@ -71,34 +71,34 @@ XML;
 </code>
 CDA;
 
-        $tag = Code::ICD10AM('J45.9', 'Asthma, unspecified')
-          ->setOriginalText(new OriginalText('Asthma'))
-          ->setTranslation(Translation::SNOMED('195967001', 'Asthma'));
+    $tag = Code::ICD10AM('J45.9', 'Asthma, unspecified')
+      ->setOriginalText(new OriginalText('Asthma'))
+      ->setTranslation(Translation::SNOMED('195967001', 'Asthma'));
 
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $doc = $tag->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $dom->formatOutput = true;
-        $cda               = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $doc = $tag->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $dom->formatOutput = TRUE;
+    $cda               = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_orignal_text_only()
-    {
-        $expected = <<<CDA
+  public function test_orignal_text_only ()
+  {
+    $expected = <<<CDA
 <code>
     <originalText>Asthma</originalText>
 </code>
 CDA;
 
-        $tag = (new Code())
-          ->setOriginalText(new OriginalText('Asthma'));
+    $tag = (new Code())
+      ->setOriginalText(new OriginalText('Asthma'));
 
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $doc = $tag->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $dom->formatOutput = true;
-        $cda               = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $doc = $tag->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $dom->formatOutput = TRUE;
+    $cda               = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

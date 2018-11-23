@@ -37,64 +37,68 @@ use i3Soft\CDA\RIM\Act\EntryRelationship;
  */
 trait EntryRelationshipsTrait
 {
-    /** @var EntryRelationship[] */
-    private $entryRelationships = [];
+  /** @var EntryRelationship[] */
+  private $entryRelationships = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderEntryRelationships(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderEntryRelationships (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasEntryRelationships())
     {
-        if ($this->hasEntryRelationships()) {
-            foreach ($this->getEntryRelationships() as $entry_relationship) {
-                $el->appendChild($entry_relationship->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getEntryRelationships() as $entry_relationship)
+      {
+        $el->appendChild($entry_relationship->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasEntryRelationships(): bool
-    {
-        return \count($this->entryRelationships) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasEntryRelationships (): bool
+  {
+    return \count($this->entryRelationships) > 0;
+  }
 
-    /**
-     * @return EntryRelationship[]
-     */
-    public function getEntryRelationships(): array
-    {
-        return $this->entryRelationships;
-    }
+  /**
+   * @return EntryRelationship[]
+   */
+  public function getEntryRelationships (): array
+  {
+    return $this->entryRelationships;
+  }
 
-    /**
-     * @param EntryRelationship[] $entryRelationships
-     *
-     * @return self
-     */
-    public function setEntryRelationships(array $entryRelationships): self
+  /**
+   * @param EntryRelationship[] $entryRelationships
+   *
+   * @return self
+   */
+  public function setEntryRelationships (array $entryRelationships): self
+  {
+    foreach ($entryRelationships as $entry_relationship)
     {
-        foreach ($entryRelationships as $entry_relationship) {
-            if ($entry_relationship instanceof EntryRelationship) {
-                $this->addEntryRelationship($entry_relationship);
-            }
-        }
-        return $this;
+      if ($entry_relationship instanceof EntryRelationship)
+      {
+        $this->addEntryRelationship($entry_relationship);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param EntryRelationship $entry_relationship
-     *
-     * @return self
-     */
-    public function addEntryRelationship(EntryRelationship $entry_relationship): self
-    {
-        $this->entryRelationships[] = $entry_relationship;
-        return $this;
-    }
+  /**
+   * @param EntryRelationship $entry_relationship
+   *
+   * @return self
+   */
+  public function addEntryRelationship (EntryRelationship $entry_relationship): self
+  {
+    $this->entryRelationships[] = $entry_relationship;
+    return $this;
+  }
 }

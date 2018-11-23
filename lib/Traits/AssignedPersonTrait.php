@@ -37,48 +37,49 @@ use i3Soft\CDA\RIM\Entity\AssignedPerson;
  */
 trait AssignedPersonTrait
 {
-    /** @var AssignedPerson */
-    private $assigned_person;
+  /** @var AssignedPerson */
+  private $assigned_person;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAssignedPerson(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAssignedPerson (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAssignedPerson())
     {
-        if ($this->hasAssignedPerson()) {
-            $el->appendChild($this->getAssignedPerson()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getAssignedPerson()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAssignedPerson(): bool
-    {
-        return null !== $this->assigned_person;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAssignedPerson (): bool
+  {
+    return NULL !== $this->assigned_person;
+  }
 
-    /**
-     * @return AssignedPerson
-     */
-    public function getAssignedPerson(): AssignedPerson
-    {
-        return $this->assigned_person;
-    }
+  /**
+   * @return AssignedPerson
+   */
+  public function getAssignedPerson (): AssignedPerson
+  {
+    return $this->assigned_person;
+  }
 
-    /**
-     * @param AssignedPerson $assigned_person
-     *
-     * @return self
-     */
-    public function setAssignedPerson(AssignedPerson $assigned_person): self
-    {
-        $this->assigned_person = $assigned_person;
-        return $this;
-    }
+  /**
+   * @param AssignedPerson $assigned_person
+   *
+   * @return self
+   */
+  public function setAssignedPerson (AssignedPerson $assigned_person): self
+  {
+    $this->assigned_person = $assigned_person;
+    return $this;
+  }
 
 }

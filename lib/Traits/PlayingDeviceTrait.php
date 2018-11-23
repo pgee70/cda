@@ -37,48 +37,49 @@ use i3Soft\CDA\RIM\Entity\PlayingDevice;
  */
 trait PlayingDeviceTrait
 {
-    /** @var PlayingDevice */
-    protected $playingDevice;
+  /** @var PlayingDevice */
+  protected $playingDevice;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderPlayingDevice(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderPlayingDevice (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasPlayingDevice())
     {
-        if ($this->hasPlayingDevice()) {
-            $el->appendChild($this->getPlayingDevice()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getPlayingDevice()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasPlayingDevice(): bool
-    {
-        return null !== $this->playingDevice;
-    }
+  /**
+   * @return bool
+   */
+  public function hasPlayingDevice (): bool
+  {
+    return NULL !== $this->playingDevice;
+  }
 
-    /**
-     * @return PlayingDevice
-     */
-    public function getPlayingDevice(): PlayingDevice
-    {
-        return $this->playingDevice;
-    }
+  /**
+   * @return PlayingDevice
+   */
+  public function getPlayingDevice (): PlayingDevice
+  {
+    return $this->playingDevice;
+  }
 
-    /**
-     * @param mixed $playingDevice
-     *
-     * @return self
-     */
-    public function setPlayingDevice($playingDevice): self
-    {
-        $this->playingDevice = $playingDevice;
-        return $this;
-    }
+  /**
+   * @param mixed $playingDevice
+   *
+   * @return self
+   */
+  public function setPlayingDevice ($playingDevice): self
+  {
+    $this->playingDevice = $playingDevice;
+    return $this;
+  }
 
 }

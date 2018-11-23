@@ -38,90 +38,96 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
  */
 class SingleComponent extends AbstractComponent implements TypeCodeInterface
 {
-    use TypeCodeTrait;
+  use TypeCodeTrait;
 
-    /** @var Section[] */
-    private $sections;
+  /** @var Section[] */
+  private $sections;
 
-    /**
-     * SingleComponent constructor.
-     *
-     * @param null $sections
-     */
-    public function __construct($sections = null)
+  /**
+   * SingleComponent constructor.
+   *
+   * @param null $sections
+   */
+  public function __construct ($sections = NULL)
+  {
+    $this->setAcceptableTypeCodes(['', TypeCodeInterface::COMPONENT])
+      ->setTypeCode(TypeCodeInterface::COMPONENT);
+    $this->sections = array();
+    if (\is_array($sections))
     {
-        $this->setAcceptableTypeCodes(['', TypeCodeInterface::COMPONENT])
-          ->setTypeCode(TypeCodeInterface::COMPONENT);
-        $this->sections = array();
-        if (\is_array($sections)) {
-            $this->setSections($sections);
-        } elseif ($sections instanceof Section) {
-            $this->addSection($sections);
-        }
+      $this->setSections($sections);
+    }
+    elseif ($sections instanceof Section)
+    {
+      $this->addSection($sections);
+    }
+  }
+
+  /**
+   *
+   * @param Section $section
+   *
+   * @return self
+   */
+  public function addSection (Section $section): self
+  {
+    $this->sections[] = $section;
+
+    return $this;
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $component = $this->createElement($doc);
+    foreach ($this->getSections() as $section)
+    {
+      $component->appendChild($section->toDOMElement($doc));
+    }
+    return $component;
+  }
+
+  /**
+   *
+   * @return Section[]
+   */
+  public function getSections (): array
+  {
+    return $this->sections;
+  }
+
+  /**
+   *
+   * @param Section[] $sections
+   *
+   * @return self
+   */
+  public function setSections ($sections): self
+  {
+    $this->sections = array();
+
+    foreach ($sections as $section)
+    {
+      if ($section instanceof Section)
+      {
+        $this->addSection($section);
+      }
     }
 
-    /**
-     *
-     * @param Section $section
-     *
-     * @return self
-     */
-    public function addSection(Section $section): self
-    {
-        $this->sections[] = $section;
+    return $this;
+  }
 
-        return $this;
-    }
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $component = $this->createElement($doc);
-        foreach ($this->getSections() as $section) {
-            $component->appendChild($section->toDOMElement($doc));
-        }
-        return $component;
-    }
-
-    /**
-     *
-     * @return Section[]
-     */
-    public function getSections(): array
-    {
-        return $this->sections;
-    }
-
-    /**
-     *
-     * @param Section[] $sections
-     *
-     * @return self
-     */
-    public function setSections($sections): self
-    {
-        $this->sections = array();
-
-        foreach ($sections as $section) {
-            if ($section instanceof Section) {
-                $this->addSection($section);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'component';
-    }
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'component';
+  }
 }

@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Act\ServiceEvent;
  */
 trait ServiceEventTrait
 {
-    /** @var ServiceEvent */
-    private $service_event;
+  /** @var ServiceEvent */
+  private $service_event;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderServiceEvent(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderServiceEvent (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasServiceEvent())
     {
-        if ($this->hasServiceEvent()) {
-            $el->appendChild($this->getServiceEvent()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getServiceEvent()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasServiceEvent(): bool
-    {
-        return null !== $this->service_event;
-    }
+  /**
+   * @return bool
+   */
+  public function hasServiceEvent (): bool
+  {
+    return NULL !== $this->service_event;
+  }
 
-    /**
-     * @return ServiceEvent
-     */
-    public function getServiceEvent(): ServiceEvent
-    {
-        return $this->service_event;
-    }
+  /**
+   * @return ServiceEvent
+   */
+  public function getServiceEvent (): ServiceEvent
+  {
+    return $this->service_event;
+  }
 
-    /**
-     * @param ServiceEvent $service_event
-     *
-     * @return self
-     */
-    public function setServiceEvent(ServiceEvent $service_event): self
-    {
-        $this->service_event = $service_event;
-        return $this;
-    }
+  /**
+   * @param ServiceEvent $service_event
+   *
+   * @return self
+   */
+  public function setServiceEvent (ServiceEvent $service_event): self
+  {
+    $this->service_event = $service_event;
+    return $this;
+  }
 }

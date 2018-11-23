@@ -34,52 +34,54 @@ use i3Soft\CDA\DataType\Name\PersonName;
 trait NamesTrait
 {
 
-    /**
-     *
-     * @var Set|PersonName[]
-     */
-    private $names = array();
+  /**
+   *
+   * @var Set|PersonName[]
+   */
+  private $names = array();
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderNames(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderNames (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasNames())
     {
-        if ($this->hasNames()) {
-            foreach ($this->getNames() as $name) {
-                $name->setValueToElement($el, $doc);
-            }
-        }
-        return $this;
+      foreach ($this->getNames() as $name)
+      {
+        $name->setValueToElement($el, $doc);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasNames(): bool
-    {
-        return false === empty($this->names);
-    }
+  /**
+   * @return bool
+   */
+  public function hasNames (): bool
+  {
+    return FALSE === empty($this->names);
+  }
 
-    /**
-     * @return Set|PersonName[]
-     */
-    public function getNames()
-    {
-        return $this->names;
-    }
+  /**
+   * @return Set|PersonName[]
+   */
+  public function getNames ()
+  {
+    return $this->names;
+  }
 
-    /**
-     * @param Set $names
-     *
-     * @return self
-     */
-    public function setNames(Set $names): self
-    {
-        $this->names = $names;
-        return $this;
-    }
+  /**
+   * @param Set $names
+   *
+   * @return self
+   */
+  public function setNames (Set $names): self
+  {
+    $this->names = $names;
+    return $this;
+  }
 }

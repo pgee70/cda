@@ -34,19 +34,19 @@ namespace i3Soft\CDA\Interfaces;
  */
 interface NegationInterface
 {
-    /**
-     * @return bool
-     */
-    public function getNegationInd(): bool;
+  /**
+   * @return bool
+   */
+  public function getNegationInd (): bool;
 
-    /**
-     * @param bool $negationInd
-     *
-     */
-    public function setNegationInd(bool $negationInd);
+  /**
+   * @param bool $negationInd
+   *
+   */
+  public function setNegationInd (bool $negationInd);
 
-    /**
-     * @return bool
-     */
-    public function hasNegationInd(): bool;
+  /**
+   * @return bool
+   */
+  public function hasNegationInd (): bool;
 }

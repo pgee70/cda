@@ -37,33 +37,33 @@ use i3Soft\CDA\Elements\Address\Place;
  */
 trait PlaceTrait
 {
-    /** @var Place */
-    protected $place;
+  /** @var Place */
+  protected $place;
 
-    /**
-     * @return Place
-     */
-    public function getPlace(): Place
-    {
-        return $this->place;
-    }
+  /**
+   * @return Place
+   */
+  public function getPlace (): Place
+  {
+    return $this->place;
+  }
 
-    /**
-     * @param Place $place
-     *
-     * @return self
-     */
-    public function setPlace(Place $place): self
-    {
-        $this->place = $place;
-        return $this;
-    }
+  /**
+   * @param Place $place
+   *
+   * @return self
+   */
+  public function setPlace (Place $place): self
+  {
+    $this->place = $place;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasPlace(): bool
-    {
-        return null !== $this->place;
-    }
+  /**
+   * @return bool
+   */
+  public function hasPlace (): bool
+  {
+    return NULL !== $this->place;
+  }
 }

@@ -47,41 +47,41 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
  */
 class Authorization extends AbstractElement implements TypeCodeInterface
 {
-    use TypeCodeTrait;
-    use ConsentTrait;
+  use TypeCodeTrait;
+  use ConsentTrait;
 
-    /**
-     * get the element tag name
-     *
-     * @param Consent $consent
-     */
-    public function __construct(Consent $consent)
-    {
-        $this->setAcceptableTypeCodes(TypeCodeInterface::ActRelationshipType)
-          ->setTypeCode(TypeCodeInterface::AUTHORIZED_BY);
-        $this->setConsent($consent);
-    }
+  /**
+   * get the element tag name
+   *
+   * @param Consent $consent
+   */
+  public function __construct (Consent $consent)
+  {
+    $this->setAcceptableTypeCodes(TypeCodeInterface::ActRelationshipType)
+      ->setTypeCode(TypeCodeInterface::AUTHORIZED_BY);
+    $this->setConsent($consent);
+  }
 
-    /**
-     * Transforms the element into a DOMElement, which will be included
-     * into the final CDA XML
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getConsent()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * Transforms the element into a DOMElement, which will be included
+   * into the final CDA XML
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getConsent()->toDOMElement($doc));
+    return $el;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'authorization';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'authorization';
+  }
 }

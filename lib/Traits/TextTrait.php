@@ -32,47 +32,48 @@ use i3Soft\CDA\Elements\Html\Text;
 
 trait TextTrait
 {
-    /** @var  Text */
-    private $text;
+  /** @var  Text */
+  private $text;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderText(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderText (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasText())
     {
-        if ($this->hasText()) {
-            $el->appendChild($this->getText()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getText()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasText(): bool
-    {
-        return null !== $this->text;
-    }
+  /**
+   * @return bool
+   */
+  public function hasText (): bool
+  {
+    return NULL !== $this->text;
+  }
 
-    /**
-     * @return Text
-     */
-    public function getText(): Text
-    {
-        return $this->text;
-    }
+  /**
+   * @return Text
+   */
+  public function getText (): Text
+  {
+    return $this->text;
+  }
 
-    /**
-     * @param Text $text
-     *
-     * @return self
-     */
-    public function setText(Text $text): self
-    {
-        $this->text = $text;
-        return $this;
-    }
+  /**
+   * @param Text $text
+   *
+   * @return self
+   */
+  public function setText (Text $text): self
+  {
+    $this->text = $text;
+    return $this;
+  }
 }

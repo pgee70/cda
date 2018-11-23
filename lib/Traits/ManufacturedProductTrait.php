@@ -37,48 +37,49 @@ use i3Soft\CDA\RIM\Role\ManufacturedProduct;
  */
 trait ManufacturedProductTrait
 {
-    /** @var ManufacturedProduct */
-    private $manufacturedProduct;
+  /** @var ManufacturedProduct */
+  private $manufacturedProduct;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderManufacturedProduct(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderManufacturedProduct (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasManufacturedProduct())
     {
-        if ($this->hasManufacturedProduct()) {
-            $el->appendChild($this->getManufacturedProduct()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getManufacturedProduct()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasManufacturedProduct(): bool
-    {
-        return null !== $this->manufacturedProduct;
-    }
+  /**
+   * @return bool
+   */
+  public function hasManufacturedProduct (): bool
+  {
+    return NULL !== $this->manufacturedProduct;
+  }
 
-    /**
-     * @return ManufacturedProduct
-     */
-    public function getManufacturedProduct(): ManufacturedProduct
-    {
-        return $this->manufacturedProduct;
-    }
+  /**
+   * @return ManufacturedProduct
+   */
+  public function getManufacturedProduct (): ManufacturedProduct
+  {
+    return $this->manufacturedProduct;
+  }
 
-    /**
-     * @param ManufacturedProduct $manufacturedProduct
-     *
-     * @return self
-     */
-    public function setManufacturedProduct(ManufacturedProduct $manufacturedProduct): self
-    {
-        $this->manufacturedProduct = $manufacturedProduct;
-        return $this;
-    }
+  /**
+   * @param ManufacturedProduct $manufacturedProduct
+   *
+   * @return self
+   */
+  public function setManufacturedProduct (ManufacturedProduct $manufacturedProduct): self
+  {
+    $this->manufacturedProduct = $manufacturedProduct;
+    return $this;
+  }
 
 }

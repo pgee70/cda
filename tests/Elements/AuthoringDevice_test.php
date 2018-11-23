@@ -54,9 +54,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class AuthoringDevice_test extends MyTestCase
 {
-    public function test_tag()
-    {
-        $expected = <<<CDA
+  public function test_tag ()
+  {
+    $expected = <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 <authoringDevice classCode="DEV" determinerCode="INSTANCE">
     <code code="Code" displayName="unit-tester-code" codeSystem="codeSystem" codeSystemName="codeSystemName" />
@@ -75,46 +75,46 @@ class AuthoringDevice_test extends MyTestCase
 </authoringDevice>
 CDA;
 
-        $tag = (new AuthoringDevice())
-          ->setCode(new Code(new CodedValue('Code', 'unit-tester-code', 'codeSystem', 'codeSystemName')))
-          ->setManufacturerModelName(
-            new ManufacturerModelName(
-              (new CharacterStringWithCode())
-                ->setCode('unit-tester')
-                ->setDisplayName('unit-tester-model')
-                ->setCodeSystem('abc')
-                ->setCodeSystemVersion('1.2.3')
-                ->setCodeSystemName('unit-tester-system')
-            ))
-          ->setSoftwareName(
-            new SoftwareName(
-              (new CharacterStringWithCode())
-                ->setCode('unit-tester')
-                ->setDisplayName('unit-tester-software')
-                ->setCodeSystem('def')
-                ->setCodeSystemVersion('4.5.6')
-                ->setCodeSystemName('unit-tester-system')
-            ));
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $doc = $tag->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $dom->formatOutput = true;
-        $cda               = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag = (new AuthoringDevice())
+      ->setCode(new Code(new CodedValue('Code', 'unit-tester-code', 'codeSystem', 'codeSystemName')))
+      ->setManufacturerModelName(
+        new ManufacturerModelName(
+          (new CharacterStringWithCode())
+            ->setCode('unit-tester')
+            ->setDisplayName('unit-tester-model')
+            ->setCodeSystem('abc')
+            ->setCodeSystemVersion('1.2.3')
+            ->setCodeSystemName('unit-tester-system')
+        ))
+      ->setSoftwareName(
+        new SoftwareName(
+          (new CharacterStringWithCode())
+            ->setCode('unit-tester')
+            ->setDisplayName('unit-tester-software')
+            ->setCodeSystem('def')
+            ->setCodeSystemVersion('4.5.6')
+            ->setCodeSystemName('unit-tester-system')
+        ));
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $doc = $tag->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $dom->formatOutput = TRUE;
+    $cda               = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
 
-    public function test_bad_determiner()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The determiner code xxx is not an acceptable value!');
-        (new AuthoringDevice())->setDeterminerCode('xxx');
-    }
+  public function test_bad_determiner ()
+  {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The determiner code xxx is not an acceptable value!');
+    (new AuthoringDevice())->setDeterminerCode('xxx');
+  }
 
-    public function test_bad_class()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The class code xxx is not valid!');
-        (new AuthoringDevice())->setClassCode('xxx');
-    }
+  public function test_bad_class ()
+  {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The class code xxx is not valid!');
+    (new AuthoringDevice())->setClassCode('xxx');
+  }
 }

@@ -37,47 +37,48 @@ use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
  */
 trait TimestampTrait
 {
-    /** @var TimeStamp */
-    private $timestamp;
+  /** @var TimeStamp */
+  private $timestamp;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderTimestamp(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderTimestamp (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasTimestamp())
     {
-        if ($this->hasTimestamp()) {
-            $this->getTimestamp()->setValueToElement($el, $doc);
-        }
-        return $this;
+      $this->getTimestamp()->setValueToElement($el, $doc);
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasTimestamp(): bool
-    {
-        return null !== $this->timestamp;
-    }
+  /**
+   * @return bool
+   */
+  public function hasTimestamp (): bool
+  {
+    return NULL !== $this->timestamp;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getTimestamp(): TimeStamp
-    {
-        return $this->timestamp;
-    }
+  /**
+   * @return mixed
+   */
+  public function getTimestamp (): TimeStamp
+  {
+    return $this->timestamp;
+  }
 
-    /**
-     * @param TimeStamp $timestamp
-     *
-     * @return self
-     */
-    public function setTimestamp(TimeStamp $timestamp): self
-    {
-        $this->timestamp = $timestamp;
-        return $this;
-    }
+  /**
+   * @param TimeStamp $timestamp
+   *
+   * @return self
+   */
+  public function setTimestamp (TimeStamp $timestamp): self
+  {
+    $this->timestamp = $timestamp;
+    return $this;
+  }
 }

@@ -46,35 +46,35 @@ use i3Soft\CDA\Traits\MoodCodeTrait;
 
 class SubstitutionPermission extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {
-    use CodeTrait;
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  use CodeTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    public function __construct(Code $code)
-    {
-        $this->setAcceptableClassCodes([ClassCodeInterface::SUBSTITUTION])
-          ->setClassCode(ClassCodeInterface::SUBSTITUTION)
-          ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
-          ->setMoodCode(MoodCodeInterface::PERMISSION)
-          ->setCode($code);
-    }
+  public function __construct (Code $code)
+  {
+    $this->setAcceptableClassCodes([ClassCodeInterface::SUBSTITUTION])
+      ->setClassCode(ClassCodeInterface::SUBSTITUTION)
+      ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
+      ->setMoodCode(MoodCodeInterface::PERMISSION)
+      ->setCode($code);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getCode()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getCode()->toDOMElement($doc));
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:substitutionPermission';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:substitutionPermission';
+  }
 
 }

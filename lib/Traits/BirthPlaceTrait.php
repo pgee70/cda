@@ -32,41 +32,42 @@ use i3Soft\CDA\Elements\Address\BirthPlace;
 
 trait BirthPlaceTrait
 {
-    /** @var BirthPlace */
-    private $birth_place;
+  /** @var BirthPlace */
+  private $birth_place;
 
-    public function renderBirthPlace(\DOMElement $el, \DOMDocument $doc): self
+  public function renderBirthPlace (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasBirthPlace())
     {
-        if ($this->hasBirthPlace()) {
-            $el->appendChild($this->getBirthPlace()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getBirthPlace()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasBirthPlace(): bool
-    {
-        return null !== $this->birth_place;
-    }
+  /**
+   * @return bool
+   */
+  public function hasBirthPlace (): bool
+  {
+    return NULL !== $this->birth_place;
+  }
 
-    /**
-     * @return BirthPlace
-     */
-    public function getBirthPlace(): BirthPlace
-    {
-        return $this->birth_place;
-    }
+  /**
+   * @return BirthPlace
+   */
+  public function getBirthPlace (): BirthPlace
+  {
+    return $this->birth_place;
+  }
 
-    /**
-     * @param BirthPlace $birth_place
-     *
-     * @return self
-     */
-    public function setBirthPlace(BirthPlace $birth_place): self
-    {
-        $this->birth_place = $birth_place;
-        return $this;
-    }
+  /**
+   * @param BirthPlace $birth_place
+   *
+   * @return self
+   */
+  public function setBirthPlace (BirthPlace $birth_place): self
+  {
+    $this->birth_place = $birth_place;
+    return $this;
+  }
 }

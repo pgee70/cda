@@ -39,20 +39,20 @@ namespace i3Soft\CDA\Elements\Html;
 class Sub Extends AbstractHtmlElement
 {
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'sub';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'sub';
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function canAddTag($choice): bool
-    {
-        return false;
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function canAddTag ($choice): bool
+  {
+    return FALSE;
+  }
 
 }

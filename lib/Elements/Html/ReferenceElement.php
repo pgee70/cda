@@ -34,53 +34,53 @@ use i3Soft\CDA\DataType\ValueType;
  */
 class ReferenceElement extends AbstractHtmlElement
 {
-    /** @var ValueType */
-    protected $value;
+  /** @var ValueType */
+  protected $value;
 
-    /**
-     * ReferenceElement constructor.
-     *
-     * @param string $value
-     */
-    public function __construct(string $value = '')
-    {
-        parent::__construct('');
-        $this->tag_attributes = array('value');
-        $this->setValue($value);
-    }
+  /**
+   * ReferenceElement constructor.
+   *
+   * @param string $value
+   */
+  public function __construct (string $value = '')
+  {
+    parent::__construct('');
+    $this->tag_attributes = array('value');
+    $this->setValue($value);
+  }
 
-    /**
-     * @return ValueType
-     */
-    public function getValue(): ValueType
-    {
-        return $this->value;
-    }
+  /**
+   * @return ValueType
+   */
+  public function getValue (): ValueType
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param string $value
-     *
-     * @return ReferenceElement
-     */
-    public function setValue(string $value): self
-    {
-        $this->value = new ValueType($value, 'value');
-        return $this;
-    }
+  /**
+   * @param string $value
+   *
+   * @return ReferenceElement
+   */
+  public function setValue (string $value): self
+  {
+    $this->value = new ValueType($value, 'value');
+    return $this;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function canAddTag($choice): bool
-    {
-        return false;
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function canAddTag ($choice): bool
+  {
+    return FALSE;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'reference';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'reference';
+  }
 }

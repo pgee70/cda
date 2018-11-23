@@ -40,48 +40,48 @@ use i3Soft\CDA\DataType\Boolean\Boolean;
 
 class IndependentInd extends AbstractElement
 {
-    /** @var Boolean */
-    protected $value;
+  /** @var Boolean */
+  protected $value;
 
-    public function __construct(bool $value)
-    {
-        $this->setValue($value);
-    }
+  public function __construct (bool $value)
+  {
+    $this->setValue($value);
+  }
 
-    /**
-     * @param bool $value
-     *
-     * @return self
-     */
-    public function setValue(bool $value): self
-    {
-        $this->value = new Boolean('value', $value);
-        return $this;
-    }
+  /**
+   * @param bool $value
+   *
+   * @return self
+   */
+  public function setValue (bool $value): self
+  {
+    $this->value = new Boolean('value', $value);
+    return $this;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, ['value']);
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, ['value']);
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasValue(): bool
-    {
-        return null !== $this->value;
-    }
+  /**
+   * @return bool
+   */
+  public function hasValue (): bool
+  {
+    return NULL !== $this->value;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'independentInd';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'independentInd';
+  }
 
 
 }

@@ -35,36 +35,36 @@ namespace i3Soft\CDA\Traits;
  */
 trait DerivationExprTrait
 {
-    /**
-     * @var
-     */
-    private $derivationExpr;
+  /**
+   * @var
+   */
+  private $derivationExpr;
 
-    /**
-     * @return mixed
-     */
-    public function getDerivationExpr()
-    {
-        return $this->derivationExpr;
-    }
+  /**
+   * @return mixed
+   */
+  public function getDerivationExpr ()
+  {
+    return $this->derivationExpr;
+  }
 
-    /**
-     * @param mixed $derivationExpr
-     *
-     * @return self
-     */
-    public function setDerivationExpr($derivationExpr): self
-    {
-        $this->derivationExpr = $derivationExpr;
-        return $this;
-    }
+  /**
+   * @param mixed $derivationExpr
+   *
+   * @return self
+   */
+  public function setDerivationExpr ($derivationExpr): self
+  {
+    $this->derivationExpr = $derivationExpr;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasDerivationExpr(): bool
-    {
-        return null !== $this->derivationExpr;
-    }
+  /**
+   * @return bool
+   */
+  public function hasDerivationExpr (): bool
+  {
+    return NULL !== $this->derivationExpr;
+  }
 
 }

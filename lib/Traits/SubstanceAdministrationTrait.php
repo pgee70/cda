@@ -32,47 +32,48 @@ use i3Soft\CDA\RIM\Act\SubstanceAdministration;
 
 trait SubstanceAdministrationTrait
 {
-    /** @var SubstanceAdministration */
-    private $substanceAdministration;
+  /** @var SubstanceAdministration */
+  private $substanceAdministration;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderSubstanceAdministration(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderSubstanceAdministration (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasSubstanceAdministration())
     {
-        if ($this->hasSubstanceAdministration()) {
-            $el->appendChild($this->getSubstanceAdministration()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getSubstanceAdministration()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasSubstanceAdministration(): bool
-    {
-        return null !== $this->substanceAdministration;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSubstanceAdministration (): bool
+  {
+    return NULL !== $this->substanceAdministration;
+  }
 
-    /**
-     * @return SubstanceAdministration
-     */
-    public function getSubstanceAdministration(): SubstanceAdministration
-    {
-        return $this->substanceAdministration;
-    }
+  /**
+   * @return SubstanceAdministration
+   */
+  public function getSubstanceAdministration (): SubstanceAdministration
+  {
+    return $this->substanceAdministration;
+  }
 
-    /**
-     * @param SubstanceAdministration $substanceAdministration
-     *
-     * @return self
-     */
-    public function setSubstanceAdministration(SubstanceAdministration $substanceAdministration): self
-    {
-        $this->substanceAdministration = $substanceAdministration;
-        return $this;
-    }
+  /**
+   * @param SubstanceAdministration $substanceAdministration
+   *
+   * @return self
+   */
+  public function setSubstanceAdministration (SubstanceAdministration $substanceAdministration): self
+  {
+    $this->substanceAdministration = $substanceAdministration;
+    return $this;
+  }
 }

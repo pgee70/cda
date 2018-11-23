@@ -46,43 +46,43 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class JobClassCode_test extends MyTestCase
 {
-    public function test_full_time()
-    {
-        $expected          = <<<XML
+  public function test_full_time ()
+  {
+    $expected          = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:jobClassCode code="FT" codeSystem="2.16.840.1.113883.5.1059" codeSystemName="HL7:EmployeeJobClass" displayName="full-time"/>
 
 XML;
-        $job_class_code    = new JobClassCode(JobClassCode::CODE_FULL_TIME);
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $job_class_code->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $job_class_code    = new JobClassCode(JobClassCode::CODE_FULL_TIME);
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $job_class_code->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_part_time()
-    {
-        $expected          = <<<XML
+  public function test_part_time ()
+  {
+    $expected          = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:jobClassCode code="PT" codeSystem="2.16.840.1.113883.5.1059" codeSystemName="HL7:EmployeeJobClass" displayName="part-time"/>
 
 XML;
-        $job_class_code    = new JobClassCode(JobClassCode::CODE_PART_TIME);
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $job_class_code->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $job_class_code    = new JobClassCode(JobClassCode::CODE_PART_TIME);
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $job_class_code->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_exception()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The code bad-value is not valid!');
-        new JobClassCode('bad-value');
-    }
+  public function test_exception ()
+  {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The code bad-value is not valid!');
+    new JobClassCode('bad-value');
+  }
 
 }

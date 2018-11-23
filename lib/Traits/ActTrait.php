@@ -35,48 +35,49 @@ use i3Soft\CDA\RIM\Act\Act;
  */
 trait ActTrait
 {
-    /** @var Act */
-    private $act;
+  /** @var Act */
+  private $act;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAct(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAct (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAct())
     {
-        if ($this->hasAct()) {
-            $el->appendChild($this->getAct()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getAct()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAct(): bool
-    {
-        return null !== $this->act;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAct (): bool
+  {
+    return NULL !== $this->act;
+  }
 
-    /**
-     * @return Act
-     */
-    public function getAct(): Act
-    {
-        return $this->act;
-    }
+  /**
+   * @return Act
+   */
+  public function getAct (): Act
+  {
+    return $this->act;
+  }
 
-    /**
-     * @param mixed $act
-     *
-     * @return self
-     */
-    public function setAct(Act $act): self
-    {
-        $this->act = $act;
-        return $this;
-    }
+  /**
+   * @param mixed $act
+   *
+   * @return self
+   */
+  public function setAct (Act $act): self
+  {
+    $this->act = $act;
+    return $this;
+  }
 
 }

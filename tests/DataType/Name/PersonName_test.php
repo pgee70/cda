@@ -113,8 +113,7 @@ CDA;
 
   public function test_PersonNameNULL ()
   {
-    $n = new PersonName();
-
+    $n   = new PersonName();
     $dom = new \DOMDocument('1.0', 'UTF-8');
     $el  = $dom->createElement('el');
     $dom->appendChild($el);
@@ -126,7 +125,7 @@ CDA;
 
   public function test_PersonNameMultipleFamilyNames ()
   {
-    $expected    = <<<'CDA'
+    $expected = <<<'CDA'
 <el>
   <name>
    <given>Ella</given>
@@ -137,9 +136,9 @@ CDA;
 CDA;
 
     $person = (new PersonName())
-      ->addPart(PersonName::FIRST_NAME,'Ella')
-      ->addPart(PersonName::LAST_NAME,'PADEBEAUL','SP')
-      ->addPart(PersonName::LAST_NAME,'PADECHENSE','BR');
+      ->addPart(PersonName::FIRST_NAME, 'Ella')
+      ->addPart(PersonName::LAST_NAME, 'PADEBEAUL', 'SP')
+      ->addPart(PersonName::LAST_NAME, 'PADECHENSE', 'BR');
 
     $dom = new \DOMDocument('1.0', 'UTF-8');
     $el  = $dom->createElement('el');

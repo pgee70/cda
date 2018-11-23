@@ -37,48 +37,49 @@ use i3Soft\CDA\RIM\Extensions\SubstitutionPermission;
  */
 trait SubstitutionPermissionTrait
 {
-    /** @var SubstitutionPermission */
-    private $substitutionPermission;
+  /** @var SubstitutionPermission */
+  private $substitutionPermission;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderSubstitutionPermission(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderSubstitutionPermission (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasSubstitutionPermission())
     {
-        if ($this->hasSubstitutionPermission()) {
-            $el->appendChild($this->getSubstitutionPermission()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getSubstitutionPermission()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasSubstitutionPermission(): bool
-    {
-        return null !== $this->substitutionPermission;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSubstitutionPermission (): bool
+  {
+    return NULL !== $this->substitutionPermission;
+  }
 
-    /**
-     * @return SubstitutionPermission
-     */
-    public function getSubstitutionPermission(): SubstitutionPermission
-    {
-        return $this->substitutionPermission;
-    }
+  /**
+   * @return SubstitutionPermission
+   */
+  public function getSubstitutionPermission (): SubstitutionPermission
+  {
+    return $this->substitutionPermission;
+  }
 
-    /**
-     * @param SubstitutionPermission $substitutionPermission
-     *
-     * @return SubstitutionPermissionTrait
-     */
-    public function setSubstitutionPermission(SubstitutionPermission $substitutionPermission): SubstitutionPermissionTrait
-    {
-        $this->substitutionPermission = $substitutionPermission;
-        return $this;
-    }
+  /**
+   * @param SubstitutionPermission $substitutionPermission
+   *
+   * @return SubstitutionPermissionTrait
+   */
+  public function setSubstitutionPermission (SubstitutionPermission $substitutionPermission): SubstitutionPermissionTrait
+  {
+    $this->substitutionPermission = $substitutionPermission;
+    return $this;
+  }
 
 }

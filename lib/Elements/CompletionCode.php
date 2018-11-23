@@ -42,11 +42,11 @@ namespace i3Soft\CDA\Elements;
 class CompletionCode extends Code
 {
 
-    /**
-     * @return string
-     */
-    public function getElementTag(): string
-    {
-        return 'ext:completionCode';
-    }
+  /**
+   * @return string
+   */
+  public function getElementTag (): string
+  {
+    return 'ext:completionCode';
+  }
 }

@@ -40,14 +40,14 @@ use i3Soft\CDA\Elements\AbstractElement;
 
 class ExtPolicyOrAccount extends AbstractElement
 {
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc);
-    }
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc);
+  }
 
-    protected function getElementTag(): string
-    {
-        return 'extPolicyOrAccount';
-    }
+  protected function getElementTag (): string
+  {
+    return 'extPolicyOrAccount';
+  }
 
 }

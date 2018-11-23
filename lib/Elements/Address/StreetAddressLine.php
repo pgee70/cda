@@ -38,11 +38,11 @@ use i3Soft\CDA\Elements\AbstractSimpleElement;
  */
 class StreetAddressLine extends AbstractSimpleElement
 {
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'streetAddressLine';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'streetAddressLine';
+  }
 }

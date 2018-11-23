@@ -30,6 +30,6 @@ namespace i3Soft\CDA\DataType;
  */
 class NullType
 {
-    const NOT_HERE = 'NI';
-    const UNKNOWN  = 'UNK';
+  const NOT_HERE = 'NI';
+  const UNKNOWN  = 'UNK';
 }

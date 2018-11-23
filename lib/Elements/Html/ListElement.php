@@ -39,21 +39,21 @@ namespace i3Soft\CDA\Elements\Html;
 class ListElement extends AbstractHtmlElement
 {
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'footNote';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'footNote';
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function canAddTag($choice): bool
-    {
-        return ($choice
-                && ($choice instanceof Caption
-                    || $choice instanceof Item));
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function canAddTag ($choice): bool
+  {
+    return ($choice
+            && ($choice instanceof Caption
+                || $choice instanceof Item));
+  }
 }

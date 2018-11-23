@@ -53,44 +53,44 @@ use i3Soft\CDA\Traits\TelecomsTrait;
  */
 class IntendedRecipient extends AbstractElement implements ClassCodeInterface
 {
-    use IdsTrait;
-    use ExtCodeTrait;
-    use AddrsTrait;
-    use TelecomsTrait;
-    use InformationRecipientPersonTrait;
-    use ReceivedOrganizationTrait;
-    use ClassCodeTrait;
+  use IdsTrait;
+  use ExtCodeTrait;
+  use AddrsTrait;
+  use TelecomsTrait;
+  use InformationRecipientPersonTrait;
+  use ReceivedOrganizationTrait;
+  use ClassCodeTrait;
 
-    /**
-     * IntendedRecipient constructor.
-     */
-    public function __construct()
-    {
-        $this->setAcceptableClassCodes(ClassCodeInterface::x_InformationRecipientRole)
-          ->setClassCode('');
-    }
+  /**
+   * IntendedRecipient constructor.
+   */
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::x_InformationRecipientRole)
+      ->setClassCode('');
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc)
-          ->renderExtCode($el, $doc)
-          ->renderAddrs($el, $doc)
-          ->renderTelecoms($el, $doc)
-          ->renderInformationRecipientPerson($el, $doc)
-          ->renderReceivedOrganization($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc)
+      ->renderExtCode($el, $doc)
+      ->renderAddrs($el, $doc)
+      ->renderTelecoms($el, $doc)
+      ->renderInformationRecipientPerson($el, $doc)
+      ->renderReceivedOrganization($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'intendedRecipient';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'intendedRecipient';
+  }
 
 }

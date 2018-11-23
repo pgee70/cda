@@ -38,48 +38,49 @@ use i3Soft\CDA\RIM\Participation\Author;
 trait AuthorTrait
 {
 
-    /** @var Author */
-    private $author;
+  /** @var Author */
+  private $author;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAuthor(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAuthor (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAuthor())
     {
-        if ($this->hasAuthor()) {
-            $el->appendChild($this->getAuthor()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getAuthor()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAuthor(): bool
-    {
-        return null !== $this->author;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAuthor (): bool
+  {
+    return NULL !== $this->author;
+  }
 
-    /**
-     * @return Author
-     */
-    public function getAuthor(): Author
-    {
-        return $this->author;
-    }
+  /**
+   * @return Author
+   */
+  public function getAuthor (): Author
+  {
+    return $this->author;
+  }
 
-    /**
-     * @param Author $author
-     *
-     * @return self
-     */
-    public function setAuthor(Author $author): self
-    {
-        $this->author = $author;
-        return $this;
-    }
+  /**
+   * @param Author $author
+   *
+   * @return self
+   */
+  public function setAuthor (Author $author): self
+  {
+    $this->author = $author;
+    return $this;
+  }
 
 }

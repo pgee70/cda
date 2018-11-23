@@ -37,49 +37,50 @@ use i3Soft\CDA\RIM\Entity\AssignedCustodian;
  */
 trait AssignedCustodianTrait
 {
-    /** @var AssignedCustodian */
-    private $assignedCustodian;
+  /** @var AssignedCustodian */
+  private $assignedCustodian;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAssignedCustodian(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAssignedCustodian (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAssignedCustodian())
     {
-        if ($this->hasAssignedCustodian()) {
-            $el->appendChild($this->getAssignedCustodian()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getAssignedCustodian()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAssignedCustodian(): bool
-    {
-        return null !== $this->assignedCustodian;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAssignedCustodian (): bool
+  {
+    return NULL !== $this->assignedCustodian;
+  }
 
-    /**
-     *
-     * @return AssignedCustodian
-     */
-    public function getAssignedCustodian(): AssignedCustodian
-    {
-        return $this->assignedCustodian;
-    }
+  /**
+   *
+   * @return AssignedCustodian
+   */
+  public function getAssignedCustodian (): AssignedCustodian
+  {
+    return $this->assignedCustodian;
+  }
 
-    /**
-     *
-     * @param AssignedCustodian $assignedCustodian
-     *
-     * @return self
-     */
-    public function setAssignedCustodian(AssignedCustodian $assignedCustodian): self
-    {
-        $this->assignedCustodian = $assignedCustodian;
-        return $this;
-    }
+  /**
+   *
+   * @param AssignedCustodian $assignedCustodian
+   *
+   * @return self
+   */
+  public function setAssignedCustodian (AssignedCustodian $assignedCustodian): self
+  {
+    $this->assignedCustodian = $assignedCustodian;
+    return $this;
+  }
 }

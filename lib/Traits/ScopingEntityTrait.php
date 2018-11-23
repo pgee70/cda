@@ -32,47 +32,48 @@ use i3Soft\CDA\RIM\Entity\Entity;
 
 trait ScopingEntityTrait
 {
-    /** @var Entity */
-    private $scopingEntity;
+  /** @var Entity */
+  private $scopingEntity;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderScopingEntity(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderScopingEntity (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasScopingEntity())
     {
-        if ($this->hasScopingEntity()) {
-            $el->appendChild($this->getScopingEntity()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getScopingEntity()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasScopingEntity(): bool
-    {
-        return null !== $this->scopingEntity;
-    }
+  /**
+   * @return bool
+   */
+  public function hasScopingEntity (): bool
+  {
+    return NULL !== $this->scopingEntity;
+  }
 
-    /**
-     * @return Entity
-     */
-    public function getScopingEntity(): Entity
-    {
-        return $this->scopingEntity;
-    }
+  /**
+   * @return Entity
+   */
+  public function getScopingEntity (): Entity
+  {
+    return $this->scopingEntity;
+  }
 
-    /**
-     * @param Entity $scopingEntity
-     *
-     * @return self
-     */
-    public function setScopingEntity(Entity $scopingEntity): self
-    {
-        $this->scopingEntity = $scopingEntity;
-        return $this;
-    }
+  /**
+   * @param Entity $scopingEntity
+   *
+   * @return self
+   */
+  public function setScopingEntity (Entity $scopingEntity): self
+  {
+    $this->scopingEntity = $scopingEntity;
+    return $this;
+  }
 }

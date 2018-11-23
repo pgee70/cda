@@ -38,11 +38,11 @@ namespace i3Soft\CDA\Elements;
 
 class ExpectedUseTime extends EffectiveTime
 {
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'expectedUseTime';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'expectedUseTime';
+  }
 }

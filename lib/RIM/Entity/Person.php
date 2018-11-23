@@ -37,60 +37,64 @@ use i3Soft\CDA\Traits\DeceasedPersonTrait;
  */
 abstract class Person extends LivingSubject
 {
-    use DeceasedPersonTrait;
+  use DeceasedPersonTrait;
 
-    /**
-     * Person constructor.
-     *
-     * @param Set|NULL        $names
-     * @param TimeStamp|NULL  $birth_time
-     * @param CodedValue|NULL $administrativeGenderCode
-     */
-    public function __construct(
-      Set $names = null,
-      TimeStamp $birth_time = null,
-      CodedValue $administrativeGenderCode = null
-    ) {
-        if ($names) {
-            $this->setNames($names);
-        }
-        if ($birth_time) {
-            $this->setBirthTime($birth_time);
-        }
-        if ($administrativeGenderCode) {
-            $this->setAdministrativeGenderCode($administrativeGenderCode);
-        }
-        $this->setAcceptableClassCodes(ClassCodeInterface::EntityClass)
-          ->setClassCode(ClassCodeInterface::PERSON);
-    }
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   * Person constructor.
+   *
+   * @param Set|NULL        $names
+   * @param TimeStamp|NULL  $birth_time
+   * @param CodedValue|NULL $administrativeGenderCode
+   */
+  public function __construct (
+    Set $names = NULL,
+    TimeStamp $birth_time = NULL,
+    CodedValue $administrativeGenderCode = NULL
+  ) {
+    if ($names)
     {
-        $el = $this->createElement($doc);
-        if ($this->hasNames()) {
-            $this->getNames()->setValueToElement($el, $doc);
-        }
-        $this->renderAdministrativeGenderCode($el, $doc)
-          ->renderBirthTime($el, $doc)
-          ->renderEthnicGroup($el, $doc)
-          ->renderMultipleBirths($el, $doc)
-          ->renderDeceasedPerson($el, $doc)
-          ->renderBirthPlace($el, $doc)
-          ->renderAsEntityIdentifier($el, $doc);
-        return $el;
+      $this->setNames($names);
     }
-
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
+    if ($birth_time)
     {
-        return 'person';
+      $this->setBirthTime($birth_time);
     }
+    if ($administrativeGenderCode)
+    {
+      $this->setAdministrativeGenderCode($administrativeGenderCode);
+    }
+    $this->setAcceptableClassCodes(ClassCodeInterface::EntityClass)
+      ->setClassCode(ClassCodeInterface::PERSON);
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    if ($this->hasNames())
+    {
+      $this->getNames()->setValueToElement($el, $doc);
+    }
+    $this->renderAdministrativeGenderCode($el, $doc)
+      ->renderBirthTime($el, $doc)
+      ->renderEthnicGroup($el, $doc)
+      ->renderMultipleBirths($el, $doc)
+      ->renderDeceasedPerson($el, $doc)
+      ->renderBirthPlace($el, $doc)
+      ->renderAsEntityIdentifier($el, $doc);
+    return $el;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'person';
+  }
 
 }

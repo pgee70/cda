@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Entity\PlayingEntity;
  */
 trait PlayingEntityTrait
 {
-    /** @var PlayingEntity */
-    private $playingEntity;
+  /** @var PlayingEntity */
+  private $playingEntity;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderPlayingEntity(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderPlayingEntity (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasPlayingEntity())
     {
-        if ($this->hasPlayingEntity()) {
-            $el->appendChild($this->getPlayingEntity()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getPlayingEntity()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasPlayingEntity(): bool
-    {
-        return null !== $this->playingEntity;
-    }
+  /**
+   * @return bool
+   */
+  public function hasPlayingEntity (): bool
+  {
+    return NULL !== $this->playingEntity;
+  }
 
-    /**
-     * @return PlayingEntity
-     */
-    public function getPlayingEntity(): PlayingEntity
-    {
-        return $this->playingEntity;
-    }
+  /**
+   * @return PlayingEntity
+   */
+  public function getPlayingEntity (): PlayingEntity
+  {
+    return $this->playingEntity;
+  }
 
-    /**
-     * @param PlayingEntity $playingEntity
-     *
-     * @return self
-     */
-    public function setPlayingEntity(PlayingEntity $playingEntity): self
-    {
-        $this->playingEntity = $playingEntity;
-        return $this;
-    }
+  /**
+   * @param PlayingEntity $playingEntity
+   *
+   * @return self
+   */
+  public function setPlayingEntity (PlayingEntity $playingEntity): self
+  {
+    $this->playingEntity = $playingEntity;
+    return $this;
+  }
 }

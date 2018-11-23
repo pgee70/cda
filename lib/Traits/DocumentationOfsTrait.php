@@ -37,65 +37,69 @@ use i3Soft\CDA\RIM\Act\DocumentationOf;
  */
 trait DocumentationOfsTrait
 {
-    /** @var DocumentationOf[] */
-    private $documentationOfs = [];
+  /** @var DocumentationOf[] */
+  private $documentationOfs = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderDocumentationOfs(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderDocumentationOfs (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasDocumentationOfs())
     {
-        if ($this->hasDocumentationOfs()) {
-            foreach ($this->getDocumentationOfs() as $documentation_of) {
-                $el->appendChild($documentation_of->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getDocumentationOfs() as $documentation_of)
+      {
+        $el->appendChild($documentation_of->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasDocumentationOfs(): bool
-    {
-        return \count($this->documentationOfs) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasDocumentationOfs (): bool
+  {
+    return \count($this->documentationOfs) > 0;
+  }
 
-    /**
-     * @return DocumentationOf[]
-     */
-    public function getDocumentationOfs(): array
-    {
-        return $this->documentationOfs;
-    }
+  /**
+   * @return DocumentationOf[]
+   */
+  public function getDocumentationOfs (): array
+  {
+    return $this->documentationOfs;
+  }
 
-    /**
-     * @param DocumentationOf[] $documentationOfs
-     *
-     * @return self
-     */
-    public function setDocumentationOfs(array $documentationOfs): self
+  /**
+   * @param DocumentationOf[] $documentationOfs
+   *
+   * @return self
+   */
+  public function setDocumentationOfs (array $documentationOfs): self
+  {
+    foreach ($documentationOfs as $documentation_of)
     {
-        foreach ($documentationOfs as $documentation_of) {
-            if ($documentation_of instanceof DocumentationOf) {
-                $this->addDocumentationOf($documentation_of);
-            }
-        }
-        return $this;
+      if ($documentation_of instanceof DocumentationOf)
+      {
+        $this->addDocumentationOf($documentation_of);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param DocumentationOf $documentation_of
-     *
-     * @return self
-     */
-    public function addDocumentationOf(DocumentationOf $documentation_of): self
-    {
-        $this->documentationOfs[] = $documentation_of;
-        return $this;
-    }
+  /**
+   * @param DocumentationOf $documentation_of
+   *
+   * @return self
+   */
+  public function addDocumentationOf (DocumentationOf $documentation_of): self
+  {
+    $this->documentationOfs[] = $documentation_of;
+    return $this;
+  }
 
 }

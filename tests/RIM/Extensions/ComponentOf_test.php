@@ -51,9 +51,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class ComponentOf_test extends MyTestCase
 {
-    public function test_tag()
-    {
-        $expected = <<<XML
+  public function test_tag ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8" ?>
 <componentOf>
   <encompassingEncounter classCode="ENC">
@@ -66,25 +66,25 @@ class ComponentOf_test extends MyTestCase
   </encompassingEncounter>
 </componentOf>
 XML;
-        $tag      = new ComponentOf(
-          new EncompassingEncounter(
-            new EffectiveTime(
-              new IntervalOfTime(
-                (new TimeStamp(
-                  new \DateTime('2011-12-14 11:00:00', new \DateTimeZone('+1000'))))
-                  ->setOffset(true)
-                  ->setPrecision(TimeStamp::PRECISION_MINUTES),
-                (new TimeStamp(new \DateTime('2011-12-14 11:30:00', new \DateTimeZone('+1000'))))
-                  ->setOffset(true)
-                  ->setPrecision(TimeStamp::PRECISION_MINUTES))
-            )
-          )
-        );
+    $tag      = new ComponentOf(
+      new EncompassingEncounter(
+        new EffectiveTime(
+          new IntervalOfTime(
+            (new TimeStamp(
+              new \DateTime('2011-12-14 11:00:00', new \DateTimeZone('+1000'))))
+              ->setOffset(TRUE)
+              ->setPrecision(TimeStamp::PRECISION_MINUTES),
+            (new TimeStamp(new \DateTime('2011-12-14 11:30:00', new \DateTimeZone('+1000'))))
+              ->setOffset(TRUE)
+              ->setPrecision(TimeStamp::PRECISION_MINUTES))
+        )
+      )
+    );
 
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $doc = $tag->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $doc = $tag->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

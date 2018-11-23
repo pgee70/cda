@@ -30,20 +30,20 @@ namespace i3Soft\CDA\DataType\Code;
  */
 class SnomedCTCode extends CodedValue
 {
-    const CODE_SYSTEM      = '2.16.840.1.113883.6.96';
-    const CODE_SYSTEM_NAME = 'SNOMED CT';
+  const CODE_SYSTEM      = '2.16.840.1.113883.6.96';
+  const CODE_SYSTEM_NAME = 'SNOMED CT';
 
-    /**
-     * SnomedCTCode constructor.
-     *
-     * @param $code
-     * @param $displayName
-     */
-    public function __construct($code, $displayName)
-    {
-        parent::__construct($code,
-          $displayName,
-          self::CODE_SYSTEM,
-          self::CODE_SYSTEM_NAME);
-    }
+  /**
+   * SnomedCTCode constructor.
+   *
+   * @param $code
+   * @param $displayName
+   */
+  public function __construct ($code, $displayName)
+  {
+    parent::__construct($code,
+      $displayName,
+      self::CODE_SYSTEM,
+      self::CODE_SYSTEM_NAME);
+  }
 }

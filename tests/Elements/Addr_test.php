@@ -50,9 +50,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class Addr_test extends MyTestCase
 {
-    public function test_street_address_line()
-    {
-        $expected = <<< XML
+  public function test_street_address_line ()
+  {
+    $expected = <<< XML
 <?xml version="1.0" encoding="UTF-8"?>
 <addr use="WP">
   <streetAddressLine>1 Clinician street</streetAddressLine>
@@ -63,26 +63,26 @@ class Addr_test extends MyTestCase
 </addr>
 
 XML;
-        $address  = new Addr(
-          new StreetAddressLine('1 Clinician street'),
-          new City('Nethaville'),
-          new State('QLD'),
-          new PostalCode('5555'),
-          new AdditionalLocator('xyz')
-        );
-        $address->setUseAttribute('WP');
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $dom->formatOutput = true;
-        $doc               = $address->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $address  = new Addr(
+      new StreetAddressLine('1 Clinician street'),
+      new City('Nethaville'),
+      new State('QLD'),
+      new PostalCode('5555'),
+      new AdditionalLocator('xyz')
+    );
+    $address->setUseAttribute('WP');
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $dom->formatOutput = TRUE;
+    $doc               = $address->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_state_exception()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The state value unit-tester is not valid!');
-        new State('unit-tester');
-    }
+  public function test_state_exception ()
+  {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The state value unit-tester is not valid!');
+    new State('unit-tester');
+  }
 }

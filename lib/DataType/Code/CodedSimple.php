@@ -36,13 +36,13 @@ namespace i3Soft\CDA\DataType\Code;
  */
 class CodedSimple extends CodedValue
 {
-    /**
-     * CodedSimple constructor.
-     *
-     * @param $code
-     */
-    public function __construct($code)
-    {
-        parent::__construct($code, null, null, null);
-    }
+  /**
+   * CodedSimple constructor.
+   *
+   * @param $code
+   */
+  public function __construct ($code)
+  {
+    parent::__construct($code, NULL, NULL, NULL);
+  }
 }

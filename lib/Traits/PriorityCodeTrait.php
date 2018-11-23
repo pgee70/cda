@@ -45,48 +45,49 @@ use i3Soft\CDA\Elements\PriorityCode;
  */
 trait PriorityCodeTrait
 {
-    /** @var PriorityCode */
-    private $priorityCode;
+  /** @var PriorityCode */
+  private $priorityCode;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderPriorityCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderPriorityCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasPriorityCode())
     {
-        if ($this->hasPriorityCode()) {
-            $el->appendChild($this->getPriorityCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getPriorityCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasPriorityCode(): bool
-    {
-        return null !== $this->priorityCode;
-    }
+  /**
+   * @return bool
+   */
+  public function hasPriorityCode (): bool
+  {
+    return NULL !== $this->priorityCode;
+  }
 
-    /**
-     * @return PriorityCode
-     */
-    public function getPriorityCode(): PriorityCode
-    {
-        return $this->priorityCode;
-    }
+  /**
+   * @return PriorityCode
+   */
+  public function getPriorityCode (): PriorityCode
+  {
+    return $this->priorityCode;
+  }
 
-    /**
-     * @param PriorityCode $priorityCode
-     *
-     * @return self
-     */
-    public function setPriorityCode(PriorityCode $priorityCode): self
-    {
-        $this->priorityCode = $priorityCode;
-        return $this;
-    }
+  /**
+   * @param PriorityCode $priorityCode
+   *
+   * @return self
+   */
+  public function setPriorityCode (PriorityCode $priorityCode): self
+  {
+    $this->priorityCode = $priorityCode;
+    return $this;
+  }
 
 }

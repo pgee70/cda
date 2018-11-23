@@ -35,79 +35,80 @@ use i3Soft\CDA\DataType\Quantity\PhysicalQuantity\PhysicalQuantity;
  */
 class Quantity extends AbstractElement
 {
-    /**
-     *
-     * @var AbstractInterval|PhysicalQuantity
-     */
-    protected $quantity;
+  /**
+   *
+   * @var AbstractInterval|PhysicalQuantity
+   */
+  protected $quantity;
 
-    /**
-     * DoseQuantity constructor.
-     *
-     * @param $quantity
-     */
-    public function __construct($quantity)
+  /**
+   * DoseQuantity constructor.
+   *
+   * @param $quantity
+   */
+  public function __construct ($quantity)
+  {
+    $this->setQuantity($quantity);
+  }
+
+  /**
+   * @param string $unit
+   * @param string $value
+   *
+   * @return Quantity
+   */
+  public static function fromString (string $unit, string $value): Quantity
+  {
+    return new Quantity(new PhysicalQuantity($unit, $value));
+  }
+
+  /**
+   *
+   * @return AbstractInterval|PhysicalQuantity
+   */
+  public function getQuantity ()
+  {
+    return $this->quantity;
+  }
+
+  /**
+   * @param $quantity
+   *
+   * @return self
+   */
+  public function setQuantity ($quantity): self
+  {
+    if (!
+    (
+      $quantity instanceof PhysicalQuantity
+      || $quantity instanceof AbstractInterval
+    )
+    )
     {
-        $this->setQuantity($quantity);
+      throw new \UnexpectedValueException(sprintf('The value of quantity should be an instance of %s or %s',
+        PhysicalQuantity::class, AbstractInterval::class));
     }
 
-    /**
-     * @param string $unit
-     * @param string $value
-     *
-     * @return Quantity
-     */
-    public static function fromString(string $unit, string $value): Quantity
-    {
-        return new Quantity(new PhysicalQuantity($unit, $value));
-    }
+    $this->quantity = $quantity;
 
-    /**
-     *
-     * @return AbstractInterval|PhysicalQuantity
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
+    return $this;
+  }
 
-    /**
-     * @param $quantity
-     *
-     * @return self
-     */
-    public function setQuantity($quantity): self
-    {
-        if (!
-        (
-          $quantity instanceof PhysicalQuantity
-          || $quantity instanceof AbstractInterval
-        )
-        ) {
-            throw new \UnexpectedValueException(sprintf('The value of quantity should be an instance of %s or %s',
-              PhysicalQuantity::class, AbstractInterval::class));
-        }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, ['quantity']);
+  }
 
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, ['quantity']);
-    }
-
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'quantity';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'quantity';
+  }
 }

@@ -45,49 +45,50 @@ use i3Soft\CDA\Elements\RepeatNumber;
  */
 trait RepeatNumberTrait
 {
-    /**
-     * @var RepeatNumber
-     */
-    private $repeat_number;
+  /**
+   * @var RepeatNumber
+   */
+  private $repeat_number;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderRepeatNumber(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderRepeatNumber (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasRepeatNumber())
     {
-        if ($this->hasRepeatNumber()) {
-            $el->appendChild($this->getRepeatNumber()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getRepeatNumber()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasRepeatNumber(): bool
-    {
-        return null !== $this->repeat_number;
-    }
+  /**
+   * @return bool
+   */
+  public function hasRepeatNumber (): bool
+  {
+    return NULL !== $this->repeat_number;
+  }
 
-    /**
-     * @return RepeatNumber
-     */
-    public function getRepeatNumber(): RepeatNumber
-    {
-        return $this->repeat_number;
-    }
+  /**
+   * @return RepeatNumber
+   */
+  public function getRepeatNumber (): RepeatNumber
+  {
+    return $this->repeat_number;
+  }
 
-    /**
-     * @param RepeatNumber $repeat_number
-     *
-     * @return self
-     */
-    public function setRepeatNumber(RepeatNumber $repeat_number): self
-    {
-        $this->repeat_number = $repeat_number;
-        return $this;
-    }
+  /**
+   * @param RepeatNumber $repeat_number
+   *
+   * @return self
+   */
+  public function setRepeatNumber (RepeatNumber $repeat_number): self
+  {
+    $this->repeat_number = $repeat_number;
+    return $this;
+  }
 }

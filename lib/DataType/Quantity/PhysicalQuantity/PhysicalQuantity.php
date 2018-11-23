@@ -36,94 +36,98 @@ use i3Soft\CDA\DataType\Quantity\AbstractQuantity;
  */
 class PhysicalQuantity extends AbstractQuantity
 {
-    /** @var string */
-    protected $ucumUnit;
+  /** @var string */
+  protected $ucumUnit;
 
-    /** @var string */
-    protected $value;
+  /** @var string */
+  protected $value;
 
-    /**
-     * PhysicalQuantity constructor.
-     *
-     * @param $ucumUnit
-     * @param $value
-     */
-    public function __construct(string $ucumUnit = '', string $value = '')
+  /**
+   * PhysicalQuantity constructor.
+   *
+   * @param $ucumUnit
+   * @param $value
+   */
+  public function __construct (string $ucumUnit = '', string $value = '')
+  {
+    if ($ucumUnit)
     {
-        if ($ucumUnit) {
-            $this->setUcumUnit($ucumUnit);
-        }
-        if ($value) {
-            $this->setValue($value);
-        }
+      $this->setUcumUnit($ucumUnit);
+    }
+    if ($value)
+    {
+      $this->setValue($value);
+    }
+  }
+
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    if ($this->hasValue())
+    {
+      $el->setAttributeNS(CDA::getNS(), 'value', $this->getValue());
     }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
+    if ($this->hasUcumUnit())
     {
-        if ($this->hasValue()) {
-            $el->setAttributeNS(CDA::NS_CDA, 'value', $this->getValue());
-        }
-
-        if ($this->hasUcumUnit()) {
-            $el->setAttributeNS(CDA::NS_CDA, 'unit', $this->getUcumUnit());
-        }
+      $el->setAttributeNS(CDA::getNS(), 'unit', $this->getUcumUnit());
     }
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasValue(): bool
-    {
-        return empty($this->value) === false;
-    }
+  /**
+   * @return bool
+   */
+  public function hasValue (): bool
+  {
+    return empty($this->value) === FALSE;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
+  /**
+   * @return mixed
+   */
+  public function getValue ()
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param $value
-     *
-     * @return self
-     */
-    public function setValue($value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
+  /**
+   * @param $value
+   *
+   * @return self
+   */
+  public function setValue ($value): self
+  {
+    $this->value = $value;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasUcumUnit(): bool
-    {
-        return empty($this->ucumUnit) === false;
-    }
+  /**
+   * @return bool
+   */
+  public function hasUcumUnit (): bool
+  {
+    return empty($this->ucumUnit) === FALSE;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getUcumUnit()
-    {
-        return $this->ucumUnit;
-    }
+  /**
+   * @return mixed
+   */
+  public function getUcumUnit ()
+  {
+    return $this->ucumUnit;
+  }
 
-    /**
-     * @param $ucumUnit
-     *
-     * @return self
-     */
-    public function setUcumUnit($ucumUnit): self
-    {
-        $this->ucumUnit = $ucumUnit;
-        return $this;
-    }
+  /**
+   * @param $ucumUnit
+   *
+   * @return self
+   */
+  public function setUcumUnit ($ucumUnit): self
+  {
+    $this->ucumUnit = $ucumUnit;
+    return $this;
+  }
 }

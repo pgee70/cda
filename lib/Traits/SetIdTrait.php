@@ -32,49 +32,50 @@ use i3Soft\CDA\Elements\SetId;
 
 trait SetIdTrait
 {
-    /** @var SetId */
-    private $setId;
+  /** @var SetId */
+  private $setId;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderSetId(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderSetId (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasSetId())
     {
-        if ($this->hasSetId()) {
-            $el->appendChild($this->getSetId()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getSetId()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasSetId(): bool
-    {
-        return $this->setId !== null;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSetId (): bool
+  {
+    return $this->setId !== NULL;
+  }
 
-    /**
-     * @return SetId
-     */
-    public function getSetId(): SetId
-    {
-        return $this->setId;
-    }
+  /**
+   * @return SetId
+   */
+  public function getSetId (): SetId
+  {
+    return $this->setId;
+  }
 
-    /**
-     * @param SetId $set_id
-     *
-     * @return self
-     */
-    public function setSetId(SetId $set_id): self
-    {
-        $this->setId = $set_id;
-        return $this;
-    }
+  /**
+   * @param SetId $set_id
+   *
+   * @return self
+   */
+  public function setSetId (SetId $set_id): self
+  {
+    $this->setId = $set_id;
+    return $this;
+  }
 
 
 }

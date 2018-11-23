@@ -22,6 +22,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 namespace i3Soft\CDA;
 
 /**
@@ -37,7 +38,7 @@ class Autoloader
    *
    * @return void
    */
-  public static function register()
+  public static function register ()
   {
     spl_autoload_register(array(new self, 'autoload'));
   }
@@ -47,13 +48,17 @@ class Autoloader
    *
    * @param string $class
    */
-  public static function autoload($class)
+  public static function autoload ($class)
   {
     $prefixLength = strlen(self::NAMESPACE_PREFIX);
-    if (0 === strncmp(self::NAMESPACE_PREFIX, $class, $prefixLength)) {
+    if (0 === strncmp(self::NAMESPACE_PREFIX, $class, $prefixLength))
+    {
       $file = str_replace('\\', DIRECTORY_SEPARATOR, substr($class, $prefixLength));
-      $file = realpath(__DIR__ . (empty($file) ? '' : DIRECTORY_SEPARATOR) . $file . '.php');
-      if (file_exists($file)) {
+      $file = realpath(__DIR__ . (empty($file)
+          ? ''
+          : DIRECTORY_SEPARATOR) . $file . '.php');
+      if (file_exists($file))
+      {
         /** @noinspection PhpIncludeInspection Dynamic includes */
         require_once $file;
       }

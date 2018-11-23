@@ -40,36 +40,36 @@ use i3Soft\CDA\DataType\Code\CodedValue;
 
 class MethodCode extends Code
 {
-    /** @noinspection ReturnTypeCanBeDeclaredInspection */
-    /**
-     * @param string $code
-     * @param string $displayName
-     *
-     * @return self
-     */
-    public static function NCTIS(string $code, string $displayName)
-    {
-        return new self(new CodedValue($code, $displayName, '1.2.36.1.2001.1001.101', 'NCTIS Data Components'));
-    }
+  /** @noinspection ReturnTypeCanBeDeclaredInspection */
+  /**
+   * @param string $code
+   * @param string $displayName
+   *
+   * @return self
+   */
+  public static function NCTIS (string $code, string $displayName)
+  {
+    return new self(new CodedValue($code, $displayName, '1.2.36.1.2001.1001.101', 'NCTIS Data Components'));
+  }
 
-    /** @noinspection ReturnTypeCanBeDeclaredInspection */
+  /** @noinspection ReturnTypeCanBeDeclaredInspection */
 
-    /**
-     * @param string $code
-     * @param string $displayName
-     *
-     * @return self
-     */
-    public static function SNOMED(string $code, string $displayName)
-    {
-        return new self(new CodedValue($code, $displayName, '2.16.840.1.113883.6.96', 'SNOMED CT'));
-    }
+  /**
+   * @param string $code
+   * @param string $displayName
+   *
+   * @return self
+   */
+  public static function SNOMED (string $code, string $displayName)
+  {
+    return new self(new CodedValue($code, $displayName, '2.16.840.1.113883.6.96', 'SNOMED CT'));
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function getElementTag(): string
-    {
-        return 'methodCode';
-    }
+  /**
+   * @inheritDoc
+   */
+  public function getElementTag (): string
+  {
+    return 'methodCode';
+  }
 }

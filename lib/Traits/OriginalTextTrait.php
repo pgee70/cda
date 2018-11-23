@@ -37,44 +37,45 @@ use i3Soft\CDA\Elements\OriginalText;
  */
 trait OriginalTextTrait
 {
-    /** @var OriginalText */
-    private $originalText;
+  /** @var OriginalText */
+  private $originalText;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderOriginalText(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderOriginalText (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasOriginalText())
     {
-        if ($this->hasOriginalText()) {
-            $el->appendChild($this->getOriginalText()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getOriginalText()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasOriginalText(): bool { return null !== $this->originalText; }
+  /**
+   * @return bool
+   */
+  public function hasOriginalText (): bool { return NULL !== $this->originalText; }
 
-    /**
-     * @return OriginalText
-     */
-    public function getOriginalText(): OriginalText
-    {
-        return $this->originalText;
-    }
+  /**
+   * @return OriginalText
+   */
+  public function getOriginalText (): OriginalText
+  {
+    return $this->originalText;
+  }
 
-    /**
-     * @param OriginalText $originalText
-     *
-     * @return self
-     */
-    public function setOriginalText(OriginalText $originalText): self
-    {
-        $this->originalText = $originalText;
-        return $this;
-    }
+  /**
+   * @param OriginalText $originalText
+   *
+   * @return self
+   */
+  public function setOriginalText (OriginalText $originalText): self
+  {
+    $this->originalText = $originalText;
+    return $this;
+  }
 }

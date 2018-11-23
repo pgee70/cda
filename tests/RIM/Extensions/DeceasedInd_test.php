@@ -47,35 +47,35 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class DeceasedInd_test extends MyTestCase
 {
-    public function test_true()
-    {
-        $expected = <<<XML
+  public function test_true ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:deceasedInd value="true"/>
 
 XML;
 
-        $deceased_ind = new DeceasedInd('true');
-        $dom          = new \DOMDocument('1.0', 'UTF-8');
-        $doc          = $deceased_ind->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $deceased_ind = new DeceasedInd('true');
+    $dom          = new \DOMDocument('1.0', 'UTF-8');
+    $doc          = $deceased_ind->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_false()
-    {
-        $expected = <<<XML
+  public function test_false ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:deceasedInd value="false"/>
 
 XML;
 
-        $deceased_ind = new DeceasedInd('not true');
-        $dom          = new \DOMDocument('1.0', 'UTF-8');
-        $doc          = $deceased_ind->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $deceased_ind = new DeceasedInd('not true');
+    $dom          = new \DOMDocument('1.0', 'UTF-8');
+    $doc          = $deceased_ind->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

@@ -66,10 +66,8 @@ use i3Soft\CDA\Traits\VersionNumberTrait;
  */
 class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
 {
-  const NS_CDA     = '';
   const NS_CDA_URI = 'urn:hl7-org:v3';
-  const NS_XSI_URI = 'http://www.w3.org/2001/XMLSchema-instance';
-  const VERSION    = '1.0.5';
+  const VERSION    = '1.0.6';
 
   use RealmCodesTrait;
   use TypeIdTrait;
@@ -102,7 +100,6 @@ class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
   // use ComponentTrait;
   use ClassCodeTrait;
   use MoodCodeTrait;
-
   /**
    * Referer assigned to this document  *
    *
@@ -119,12 +116,11 @@ class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
   private $inFulfillmentOf;
   private $documentationOf;
   private $relatedDocument;
-
-  /** @var string  the xmlns:ext attribute - leave empty string to not render.*/
+  /** @var string  the xmlns:ext attribute - leave empty string to not render. */
   private $attributeXmlnsExt;
-  /** @var string the xmlns:xs attribute - leave as empty string to not render*/
+  /** @var string the xmlns:xs attribute - leave as empty string to not render */
   private $attributeXmlNsXs;
-  /** @var array the three parameters of the attribute Namespace*/
+  /** @var array the three parameters of the attribute Namespace */
   private $attributeNs;
 
   /**
@@ -135,7 +131,7 @@ class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
     $this->rootComponent    = new Component\RootBodyComponent();
     $this->referenceManager = new ReferenceManager();
     $this->setTypeId(new TypeId(new InstanceIdentifier('2.16.840.1.113883.1.3', 'POCD_HD000040')))
-      ->setAttributeNs(self::NS_XSI_URI, 'xsi:schemaLocation', 'CDA-ES-v1_3.xsd')
+      ->setAttributeNs(self::getNS_XSI_URI(), 'xsi:schemaLocation', 'CDA-ES-v1_3.xsd')
       ->setAttributeXmlnsExt('http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0')
       ->setAttributeXmlNsXs('http://www.w3.org/2001/XMLSchema')
       ->setAcceptableClassCodes(['', ClassCodeInterface::CLINICAL_DOCUMENT])
@@ -143,6 +139,10 @@ class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
       ->setAcceptableMoodCodes(['', MoodCodeInterface::EVENT])
       ->setMoodCode('');
   }
+
+  public static function getNS_XSI_URI (): string { return 'http://www.w3.org/2001/XMLSchema-instance'; }
+
+  public static function getNS (): string { return ''; }
 
   /**
    *
@@ -165,7 +165,7 @@ class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
     $el  = $doc->createElementNS(self::NS_CDA_URI, 'ClinicalDocument');
     $doc->appendChild($el);
     // set the NS
-    if (implode('',$this->getAttributeNs()))
+    if (implode('', $this->getAttributeNs()))
     {
       $el->setAttributeNS(
         $this->getAttributeNs()[0],
@@ -225,12 +225,24 @@ class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
   }
 
   /**
-   *
-   * @return Component\RootBodyComponent
+   * @return array
    */
-  public function getRootComponent (): Component\RootBodyComponent
+  public function getAttributeNs (): array
   {
-    return $this->rootComponent;
+    return $this->attributeNs;
+  }
+
+  /**
+   * @param string $namespaceUri
+   * @param string $qualifiedName
+   * @param string $value
+   *
+   * @return ClinicalDocument
+   */
+  public function setAttributeNs (string $namespaceUri, string $qualifiedName, string $value): self
+  {
+    $this->attributeNs = [$namespaceUri, $qualifiedName, $value];
+    return $this;
   }
 
   /**
@@ -272,23 +284,11 @@ class ClinicalDocument implements ClassCodeInterface, MoodCodeInterface
   }
 
   /**
-   * @param string $namespaceUri
-   * @param string $qualifiedName
-   * @param string $value
    *
-   * @return ClinicalDocument
+   * @return Component\RootBodyComponent
    */
-  public function setAttributeNs (string $namespaceUri, string $qualifiedName, string $value): self
+  public function getRootComponent (): Component\RootBodyComponent
   {
-    $this->attributeNs = [$namespaceUri, $qualifiedName, $value];
-    return $this;
-  }
-
-  /**
-   * @return array
-   */
-  public function getAttributeNs (): array
-  {
-    return $this->attributeNs;
+    return $this->rootComponent;
   }
 }

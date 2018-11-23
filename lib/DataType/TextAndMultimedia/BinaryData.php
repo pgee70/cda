@@ -48,49 +48,50 @@ use i3Soft\CDA\DataType\AnyType;
  */
 class BinaryData extends AnyType
 {
-    /**
-     * the content
-     *
-     * @var mixed
-     */
-    private $content;
+  /**
+   * the content
+   *
+   * @var mixed
+   */
+  private $content;
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    $content = new \DOMText($this->getContent());
+    $el->appendChild($content);
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getContent ()
+  {
+    return $this->content;
+  }
+
+  /** @noinspection ReturnTypeCanBeDeclaredInspection */
+
+  /**
+   * @param $content
+   *
+   * @return self
+   */
+  public function setContent ($content)
+  {
+    $this->content = $content;
+    return $this;
+  }
+
+  public function returnEncapsuledData (): EncapsuledData
+  {
+    if ($this instanceof EncapsuledData)
     {
-        $content = new \DOMText($this->getContent());
-        $el->appendChild($content);
+      return $this;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /** @noinspection ReturnTypeCanBeDeclaredInspection */
-
-    /**
-     * @param $content
-     *
-     * @return self
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-        return $this;
-    }
-
-    public function returnEncapsuledData(): EncapsuledData
-    {
-        if ($this instanceof EncapsuledData) {
-            return $this;
-        }
-        throw new \RuntimeException('This call is only valid from an Encapsuled data object');
-    }
+    throw new \RuntimeException('This call is only valid from an Encapsuled data object');
+  }
 }

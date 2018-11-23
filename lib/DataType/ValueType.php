@@ -44,66 +44,66 @@ use i3Soft\CDA\ClinicalDocument as CD;
  */
 class ValueType extends AnyType
 {
-    protected $value;
+  protected $value;
 
-    protected $attribute;
+  protected $attribute;
 
-    /**
-     * ValueType constructor.
-     *
-     * @param        $value
-     * @param string $attribute
-     */
-    public function __construct($value, $attribute = 'value')
-    {
-        $this->setValue($value)
-          ->setAttribute($attribute);
-    }
+  /**
+   * ValueType constructor.
+   *
+   * @param        $value
+   * @param string $attribute
+   */
+  public function __construct ($value, $attribute = 'value')
+  {
+    $this->setValue($value)
+      ->setAttribute($attribute);
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
-    {
-        $el->setAttributeNS(CD::NS_CDA, $this->getAttribute(), $this->getValue());
-    }
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    $el->setAttributeNS(CD::getNS(), $this->getAttribute(), $this->getValue());
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getAttribute()
-    {
-        return $this->attribute;
-    }
+  /**
+   * @return mixed
+   */
+  public function getAttribute ()
+  {
+    return $this->attribute;
+  }
 
-    /**
-     * @param $attribute
-     *
-     * @return ValueType
-     */
-    public function setAttribute($attribute): ValueType
-    {
-        $this->attribute = $attribute;
-        return $this;
-    }
+  /**
+   * @param $attribute
+   *
+   * @return ValueType
+   */
+  public function setAttribute ($attribute): ValueType
+  {
+    $this->attribute = $attribute;
+    return $this;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
+  /**
+   * @return mixed
+   */
+  public function getValue ()
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param $value
-     *
-     * @return self
-     */
-    public function setValue($value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
+  /**
+   * @param $value
+   *
+   * @return self
+   */
+  public function setValue ($value): self
+  {
+    $this->value = $value;
+    return $this;
+  }
 }

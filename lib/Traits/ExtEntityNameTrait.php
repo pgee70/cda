@@ -37,48 +37,49 @@ use i3Soft\CDA\RIM\Extensions\ExtEntityName;
  */
 trait ExtEntityNameTrait
 {
-    /** @var ExtEntityName */
-    private $extEntityName;
+  /** @var ExtEntityName */
+  private $extEntityName;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExtEntityName(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExtEntityName (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtEntityName())
     {
-        if ($this->hasExtEntityName()) {
-            $el->appendChild($this->getExtEntityName()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtEntityName()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtEntityName(): bool
-    {
-        return null !== $this->extEntityName;
+  /**
+   * @return bool
+   */
+  public function hasExtEntityName (): bool
+  {
+    return NULL !== $this->extEntityName;
 
-    }
+  }
 
-    /**
-     * @return ExtEntityName
-     */
-    public function getExtEntityName(): ExtEntityName
-    {
-        return $this->extEntityName;
-    }
+  /**
+   * @return ExtEntityName
+   */
+  public function getExtEntityName (): ExtEntityName
+  {
+    return $this->extEntityName;
+  }
 
-    /**
-     * @param ExtEntityName $extEntityName
-     *
-     * @return self
-     */
-    public function setExtEntityName(ExtEntityName $extEntityName): self
-    {
-        $this->extEntityName = $extEntityName;
-        return $this;
-    }
+  /**
+   * @param ExtEntityName $extEntityName
+   *
+   * @return self
+   */
+  public function setExtEntityName (ExtEntityName $extEntityName): self
+  {
+    $this->extEntityName = $extEntityName;
+    return $this;
+  }
 }

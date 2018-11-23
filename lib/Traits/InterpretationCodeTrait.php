@@ -33,48 +33,49 @@ use i3Soft\CDA\Elements\InterpretationCode;
 trait InterpretationCodeTrait
 {
 
-    /** @var  InterpretationCode */
-    private $interpretationCode;
+  /** @var  InterpretationCode */
+  private $interpretationCode;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderInterpretationCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderInterpretationCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasInterpretationCode())
     {
-        if ($this->hasInterpretationCode()) {
-            $el->appendChild($this->getInterpretationCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getInterpretationCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
 
-    /**
-     * @return bool
-     */
-    public function hasInterpretationCode(): bool
-    {
-        return null !== $this->interpretationCode;
-    }
+  /**
+   * @return bool
+   */
+  public function hasInterpretationCode (): bool
+  {
+    return NULL !== $this->interpretationCode;
+  }
 
-    /**
-     * @return InterpretationCode
-     */
-    public function getInterpretationCode(): InterpretationCode
-    {
-        return $this->interpretationCode;
-    }
+  /**
+   * @return InterpretationCode
+   */
+  public function getInterpretationCode (): InterpretationCode
+  {
+    return $this->interpretationCode;
+  }
 
-    /**
-     * @param InterpretationCode $interpretationCode
-     *
-     * @return self
-     */
-    public function setInterpretationCode(InterpretationCode $interpretationCode): self
-    {
-        $this->interpretationCode = $interpretationCode;
-        return $this;
-    }
+  /**
+   * @param InterpretationCode $interpretationCode
+   *
+   * @return self
+   */
+  public function setInterpretationCode (InterpretationCode $interpretationCode): self
+  {
+    $this->interpretationCode = $interpretationCode;
+    return $this;
+  }
 }

@@ -48,36 +48,36 @@ use i3Soft\CDA\Traits\WholeOrganisationTrait;
 class AsOrganizationPartOf extends AbstractElement
 {
 
-    use WholeOrganisationTrait;
+  use WholeOrganisationTrait;
 
-    /**
-     * AsOrganizationPartOf constructor.
-     *
-     * @param WholeOrganisation $whole_organisation
-     */
-    public function __construct(WholeOrganisation $whole_organisation)
-    {
-        $this->setWholeOrganisation($whole_organisation);
-    }
+  /**
+   * AsOrganizationPartOf constructor.
+   *
+   * @param WholeOrganisation $whole_organisation
+   */
+  public function __construct (WholeOrganisation $whole_organisation)
+  {
+    $this->setWholeOrganisation($whole_organisation);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderWholeOrganisation($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderWholeOrganisation($el, $doc);
+    return $el;
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'asOrganizationPartOf';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'asOrganizationPartOf';
+  }
 }

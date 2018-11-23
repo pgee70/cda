@@ -32,64 +32,68 @@ use i3Soft\CDA\Elements\Address\Telecom;
 
 trait TelecomsTrait
 {
-    /** @var Telecom[] */
-    private $telecoms = [];
+  /** @var Telecom[] */
+  private $telecoms = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderTelecoms(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderTelecoms (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasTelecoms())
     {
-        if ($this->hasTelecoms()) {
-            foreach ($this->getTelecoms() as $telecom) {
-                $el->appendChild($telecom->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getTelecoms() as $telecom)
+      {
+        $el->appendChild($telecom->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasTelecoms(): bool
-    {
-        return \count($this->telecoms) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasTelecoms (): bool
+  {
+    return \count($this->telecoms) > 0;
+  }
 
-    /**
-     * @return Telecom[]
-     */
-    public function getTelecoms(): array
-    {
-        return $this->telecoms;
-    }
+  /**
+   * @return Telecom[]
+   */
+  public function getTelecoms (): array
+  {
+    return $this->telecoms;
+  }
 
-    /**
-     * @param Telecom[] $telecoms
-     *
-     * @return self
-     */
-    public function setTelecoms(array $telecoms): self
+  /**
+   * @param Telecom[] $telecoms
+   *
+   * @return self
+   */
+  public function setTelecoms (array $telecoms): self
+  {
+    foreach ($telecoms as $telecom)
     {
-        foreach ($telecoms as $telecom) {
-            if ($telecom instanceof Telecom) {
-                $this->addTelecom($telecom);
-            }
-        }
-        return $this;
+      if ($telecom instanceof Telecom)
+      {
+        $this->addTelecom($telecom);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param Telecom $telecom
-     *
-     * @return self
-     */
-    public function addTelecom(Telecom $telecom): self
-    {
-        $this->telecoms[] = $telecom;
-        return $this;
-    }
+  /**
+   * @param Telecom $telecom
+   *
+   * @return self
+   */
+  public function addTelecom (Telecom $telecom): self
+  {
+    $this->telecoms[] = $telecom;
+    return $this;
+  }
 }

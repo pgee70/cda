@@ -37,64 +37,68 @@ use i3Soft\CDA\RIM\Participation\RecordTarget;
  */
 trait RecordTargetsTrait
 {
-    /** @var RecordTarget[] */
-    private $recordTargets = [];
+  /** @var RecordTarget[] */
+  private $recordTargets = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return RecordTargetsTrait
-     */
-    public function renderRecordTargets(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return RecordTargetsTrait
+   */
+  public function renderRecordTargets (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasRecordTargets())
     {
-        if ($this->hasRecordTargets()) {
-            foreach ($this->getRecordTargets() as $record_target) {
-                $el->appendChild($record_target->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getRecordTargets() as $record_target)
+      {
+        $el->appendChild($record_target->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasRecordTargets(): bool
-    {
-        return \count($this->recordTargets) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasRecordTargets (): bool
+  {
+    return \count($this->recordTargets) > 0;
+  }
 
-    /**
-     * @return RecordTarget[]
-     */
-    public function getRecordTargets(): array
-    {
-        return $this->recordTargets;
-    }
+  /**
+   * @return RecordTarget[]
+   */
+  public function getRecordTargets (): array
+  {
+    return $this->recordTargets;
+  }
 
-    /**
-     * @param RecordTarget[] $recordTargets
-     *
-     * @return self
-     */
-    public function setRecordTargets(array $recordTargets): self
+  /**
+   * @param RecordTarget[] $recordTargets
+   *
+   * @return self
+   */
+  public function setRecordTargets (array $recordTargets): self
+  {
+    foreach ($recordTargets as $record_target)
     {
-        foreach ($recordTargets as $record_target) {
-            if ($record_target instanceof RecordTarget) {
-                $this->addRecordTarget($record_target);
-            }
-        }
-        return $this;
+      if ($record_target instanceof RecordTarget)
+      {
+        $this->addRecordTarget($record_target);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param RecordTarget $recordTarget
-     *
-     * @return RecordTargetsTrait
-     */
-    public function addRecordTarget(RecordTarget $recordTarget): self
-    {
-        $this->recordTargets[] = $recordTarget;
-        return $this;
-    }
+  /**
+   * @param RecordTarget $recordTarget
+   *
+   * @return RecordTargetsTrait
+   */
+  public function addRecordTarget (RecordTarget $recordTarget): self
+  {
+    $this->recordTargets[] = $recordTarget;
+    return $this;
+  }
 }

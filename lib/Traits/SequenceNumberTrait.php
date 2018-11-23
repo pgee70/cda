@@ -33,47 +33,48 @@ use i3Soft\CDA\Elements\SequenceNumber;
 
 trait SequenceNumberTrait
 {
-    /** @var SequenceNumber */
-    private $sequenceNumber;
+  /** @var SequenceNumber */
+  private $sequenceNumber;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderSequenceNumber(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderSequenceNumber (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasSequenceNumber())
     {
-        if ($this->hasSequenceNumber()) {
-            $el->appendChild($this->getSequenceNumber()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getSequenceNumber()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasSequenceNumber(): bool
-    {
-        return null !== $this->sequenceNumber;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSequenceNumber (): bool
+  {
+    return NULL !== $this->sequenceNumber;
+  }
 
-    /**
-     * @return SequenceNumber
-     */
-    public function getSequenceNumber(): SequenceNumber
-    {
-        return $this->sequenceNumber;
-    }
+  /**
+   * @return SequenceNumber
+   */
+  public function getSequenceNumber (): SequenceNumber
+  {
+    return $this->sequenceNumber;
+  }
 
-    /**
-     * @param IntegerType $integer_type
-     *
-     * @return self
-     */
-    public function setSequenceNumber(IntegerType $integer_type): self
-    {
-        $this->sequenceNumber = new SequenceNumber($integer_type);
-        return $this;
-    }
+  /**
+   * @param IntegerType $integer_type
+   *
+   * @return self
+   */
+  public function setSequenceNumber (IntegerType $integer_type): self
+  {
+    $this->sequenceNumber = new SequenceNumber($integer_type);
+    return $this;
+  }
 }

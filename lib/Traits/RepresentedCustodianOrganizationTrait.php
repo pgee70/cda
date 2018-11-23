@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Entity\RepresentedCustodianOrganization;
  */
 trait RepresentedCustodianOrganizationTrait
 {
-    /** @var RepresentedCustodianOrganization */
-    private $representedCustodianOrganization;
+  /** @var RepresentedCustodianOrganization */
+  private $representedCustodianOrganization;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderRepresentedCustodianOrganization(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderRepresentedCustodianOrganization (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasRepresentedCustodianOrganization())
     {
-        if ($this->hasRepresentedCustodianOrganization()) {
-            $el->appendChild($this->getRepresentedCustodianOrganization()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getRepresentedCustodianOrganization()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasRepresentedCustodianOrganization(): bool
-    {
-        return null !== $this->representedCustodianOrganization;
-    }
+  /**
+   * @return bool
+   */
+  public function hasRepresentedCustodianOrganization (): bool
+  {
+    return NULL !== $this->representedCustodianOrganization;
+  }
 
-    /**
-     * @return RepresentedCustodianOrganization
-     */
-    public function getRepresentedCustodianOrganization(): RepresentedCustodianOrganization
-    {
-        return $this->representedCustodianOrganization;
-    }
+  /**
+   * @return RepresentedCustodianOrganization
+   */
+  public function getRepresentedCustodianOrganization (): RepresentedCustodianOrganization
+  {
+    return $this->representedCustodianOrganization;
+  }
 
-    /**
-     * @param RepresentedCustodianOrganization $representedCustodianOrganization
-     *
-     * @return self
-     */
-    public function setRepresentedCustodianOrganization(RepresentedCustodianOrganization $representedCustodianOrganization): self
-    {
-        $this->representedCustodianOrganization = $representedCustodianOrganization;
-        return $this;
-    }
+  /**
+   * @param RepresentedCustodianOrganization $representedCustodianOrganization
+   *
+   * @return self
+   */
+  public function setRepresentedCustodianOrganization (RepresentedCustodianOrganization $representedCustodianOrganization): self
+  {
+    $this->representedCustodianOrganization = $representedCustodianOrganization;
+    return $this;
+  }
 }

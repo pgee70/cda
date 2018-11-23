@@ -44,30 +44,30 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 class InformationRecipient extends AbstractElement implements TypeCodeInterface
 {
 
-    use IntendedRecipientTrait;
-    use TypeCodeTrait;
+  use IntendedRecipientTrait;
+  use TypeCodeTrait;
 
-    public function __construct()
-    {
-        $this->setAcceptableTypeCodes(TypeCodeInterface::x_InformationRecipient)
-          ->setTypeCode('');
-    }
+  public function __construct ()
+  {
+    $this->setAcceptableTypeCodes(TypeCodeInterface::x_InformationRecipient)
+      ->setTypeCode('');
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIntendedRecipient($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIntendedRecipient($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'informationRecipient';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'informationRecipient';
+  }
 }

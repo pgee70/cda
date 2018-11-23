@@ -61,50 +61,50 @@ use i3Soft\CDA\Traits\TextTrait;
 
 class ExtControlAct extends AbstractElement implements ClassCodeInterface, MoodCodeInterface, NegationInterface
 {
-    use IdsTrait;
-    use CodeTrait;
-    use TextTrait;
-    use StatusCodeTrait;
-    use EffectiveTimeTrait;
-    use PriorityCodeTrait;
-    use SubjectTrait;
-    use SpecimensTrait;
-    use PerformersTrait;
-    use AuthorsTrait;
-    use InformantsTrait;
-    use ParticipantsTrait;
-    use EntryRelationshipsTrait;
-    use ReferencesTrait;
-    use PreconditionsTrait;
+  use IdsTrait;
+  use CodeTrait;
+  use TextTrait;
+  use StatusCodeTrait;
+  use EffectiveTimeTrait;
+  use PriorityCodeTrait;
+  use SubjectTrait;
+  use SpecimensTrait;
+  use PerformersTrait;
+  use AuthorsTrait;
+  use InformantsTrait;
+  use ParticipantsTrait;
+  use EntryRelationshipsTrait;
+  use ReferencesTrait;
+  use PreconditionsTrait;
 
-    use ClassCodeTrait;
-    use MoodCodeTrait;
-    use NegationIndTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
+  use NegationIndTrait;
 
 
-    public function __construct()
-    {
-        // note the mood code is required.
-        $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
-          ->setClassCode(ClassCodeInterface::CONTROL_ACT)
-          ->setAcceptableClassCodes(MoodCodeInterface::x_DocumentActMood);
-    }
+  public function __construct ()
+  {
+    // note the mood code is required.
+    $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
+      ->setClassCode(ClassCodeInterface::CONTROL_ACT)
+      ->setAcceptableClassCodes(MoodCodeInterface::x_DocumentActMood);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc);
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'controlAct';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'controlAct';
+  }
 
 
 }

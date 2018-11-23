@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\ExpectedUseTime;
  */
 trait ExpectedUseTimeTrait
 {
-    /** @var ExpectedUseTime */
-    private $expectedUseTime;
+  /** @var ExpectedUseTime */
+  private $expectedUseTime;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExpectedUseTime(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExpectedUseTime (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExpectedUseTime())
     {
-        if ($this->hasExpectedUseTime()) {
-            $el->appendChild($this->getExpectedUseTime()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExpectedUseTime()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExpectedUseTime(): bool
-    {
-        return null !== $this->expectedUseTime;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExpectedUseTime (): bool
+  {
+    return NULL !== $this->expectedUseTime;
+  }
 
-    /**
-     * @return ExpectedUseTime
-     */
-    public function getExpectedUseTime(): ExpectedUseTime
-    {
-        return $this->expectedUseTime;
-    }
+  /**
+   * @return ExpectedUseTime
+   */
+  public function getExpectedUseTime (): ExpectedUseTime
+  {
+    return $this->expectedUseTime;
+  }
 
-    /**
-     * @param ExpectedUseTime $expectedUseTime
-     *
-     * @return self
-     */
-    public function setExpectedUseTime(ExpectedUseTime $expectedUseTime): self
-    {
-        $this->expectedUseTime = $expectedUseTime;
-        return $this;
-    }
+  /**
+   * @param ExpectedUseTime $expectedUseTime
+   *
+   * @return self
+   */
+  public function setExpectedUseTime (ExpectedUseTime $expectedUseTime): self
+  {
+    $this->expectedUseTime = $expectedUseTime;
+    return $this;
+  }
 }

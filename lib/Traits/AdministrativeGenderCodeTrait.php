@@ -38,57 +38,60 @@ use i3Soft\CDA\Elements\AdministrativeGenderCode;
  */
 trait AdministrativeGenderCodeTrait
 {
-    /** @var AdministrativeGenderCode */
-    private $administrative_gender_code;
+  /** @var AdministrativeGenderCode */
+  private $administrative_gender_code;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return AdministrativeGenderCodeTrait
-     */
-    public function renderAdministrativeGenderCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return AdministrativeGenderCodeTrait
+   */
+  public function renderAdministrativeGenderCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAdministrativeGenderCode())
     {
-        if ($this->hasAdministrativeGenderCode()) {
-            $el->appendChild($this->getAdministrativeGenderCode()->toDOMElement($doc));
-        }
-
-        return $this;
+      $el->appendChild($this->getAdministrativeGenderCode()->toDOMElement($doc));
     }
 
-    /**
-     * @return bool
-     */
-    public function hasAdministrativeGenderCode(): bool
+    return $this;
+  }
+
+  /**
+   * @return bool
+   */
+  public function hasAdministrativeGenderCode (): bool
+  {
+    return NULL !== $this->administrative_gender_code;
+  }
+
+  /**
+   * @return AdministrativeGenderCode
+   */
+  public function getAdministrativeGenderCode (): AdministrativeGenderCode
+  {
+    return $this->administrative_gender_code;
+  }
+
+  /**
+   * @param $value
+   *
+   * @return self
+   */
+  public function setAdministrativeGenderCode ($value): self
+  {
+    if ($value instanceof CodedValue)
     {
-        return null !== $this->administrative_gender_code;
+      $this->administrative_gender_code = new AdministrativeGenderCode($value);
+      return $this;
     }
 
-    /**
-     * @return AdministrativeGenderCode
-     */
-    public function getAdministrativeGenderCode(): AdministrativeGenderCode
+    if ($value instanceof AdministrativeGenderCode)
     {
-        return $this->administrative_gender_code;
+      $this->administrative_gender_code = $value;
+      return $this;
     }
-
-    /**
-     * @param $value
-     *
-     * @return self
-     */
-    public function setAdministrativeGenderCode($value): self
-    {
-        if ($value instanceof CodedValue) {
-            $this->administrative_gender_code = new AdministrativeGenderCode($value);
-            return $this;
-        }
-
-        if ($value instanceof AdministrativeGenderCode) {
-            $this->administrative_gender_code = $value;
-            return $this;
-        }
-        $this->administrative_gender_code = AdministrativeGenderCode::getCodedValueFromString($value);
-        return $this;
-    }
+    $this->administrative_gender_code = AdministrativeGenderCode::getCodedValueFromString($value);
+    return $this;
+  }
 }

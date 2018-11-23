@@ -42,59 +42,64 @@ use i3Soft\CDA\DataType\Code\CodedSimple;
  */
 class SignatureCode extends AbstractElement
 {
-    /**
-     *
-     * @var CodedSimple
-     */
-    protected $code;
+  /**
+   *
+   * @var CodedSimple
+   */
+  protected $code;
 
-    /**
-     * SignatureCode constructor.
-     *
-     * @param null $code
-     */
-    public function __construct($code = null)
+  /**
+   * SignatureCode constructor.
+   *
+   * @param null $code
+   */
+  public function __construct ($code = NULL)
+  {
+    if ($code instanceof CodedSimple)
     {
-        if ($code instanceof CodedSimple) {
-            $this->setCode($code);
-        } elseif (\is_string($code)) {
-            $this->setCode(new CodedSimple($code));
-        } else {
-            $this->setCode(new CodedSimple('S'));
-        }
+      $this->setCode($code);
     }
+    elseif (\is_string($code))
+    {
+      $this->setCode(new CodedSimple($code));
+    }
+    else
+    {
+      $this->setCode(new CodedSimple('S'));
+    }
+  }
 
-    public function getCode(): CodedSimple
-    {
-        return $this->code;
-    }
+  public function getCode (): CodedSimple
+  {
+    return $this->code;
+  }
 
-    /**
-     * @param CodedSimple $code
-     *
-     * @return self
-     */
-    public function setCode(CodedSimple $code): self
-    {
-        $this->code = $code;
-        return $this;
-    }
+  /**
+   * @param CodedSimple $code
+   *
+   * @return self
+   */
+  public function setCode (CodedSimple $code): self
+  {
+    $this->code = $code;
+    return $this;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, array('code'));
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, array('code'));
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'signatureCode';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'signatureCode';
+  }
 }

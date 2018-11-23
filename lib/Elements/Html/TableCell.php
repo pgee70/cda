@@ -59,158 +59,160 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 class TableCell extends AbstractElement
 {
-    /**
-     *
-     */
-    const TH = 'th';
-    /**
-     *
-     */
-    const TD = 'td';
-    /**
-     *
-     * @var string
-     */
-    private $content;
-    /**
-     *
-     * @var ReferenceType
-     */
-    private $reference;
-    /**
-     *
-     * @var TableRow
-     */
-    private $row;
-    /**
-     * a string determining if the row is th or td
-     *
-     * @var string
-     */
-    private $level;
+  /**
+   *
+   */
+  const TH = 'th';
+  /**
+   *
+   */
+  const TD = 'td';
+  /**
+   *
+   * @var string
+   */
+  private $content;
+  /**
+   *
+   * @var ReferenceType
+   */
+  private $reference;
+  /**
+   *
+   * @var TableRow
+   */
+  private $row;
+  /**
+   * a string determining if the row is th or td
+   *
+   * @var string
+   */
+  private $level;
 
-    /**
-     * TableCell constructor.
-     *
-     * @param                                       $level
-     * @param TableRow                              $row
-     * @param string                                $content
-     */
-    public function __construct($level, TableRow $row = null, $content = '')
+  /**
+   * TableCell constructor.
+   *
+   * @param                                       $level
+   * @param TableRow                              $row
+   * @param string                                $content
+   */
+  public function __construct ($level, TableRow $row = NULL, $content = '')
+  {
+    $this->setContent($content);
+    if (FALSE === \in_array($level, array(self::TH, self::TD), TRUE))
     {
-        $this->setContent($content);
-        if (false === \in_array($level, array(self::TH, self::TD), true)) {
-            throw new \InvalidArgumentException("The level supplied was '{$level}' it must be th or td,");
-        }
-        $this->level = $level;
+      throw new \InvalidArgumentException("The level supplied was '{$level}' it must be th or td,");
+    }
+    $this->level = $level;
+  }
+
+  /**
+   *
+   * @return TableRow
+   */
+  public function getRow (): TableRow
+  {
+    return $this->row;
+  }
+
+  /**
+   *
+   * @param TableRow $row
+   *
+   * @return self
+   */
+  public function setRow (TableRow $row): self
+  {
+    $this->row = $row;
+
+    return $this;
+  }
+
+  /**
+   *
+   * @return boolean
+   */
+  public function isEmpty (): bool
+  {
+    return empty($this->getContent());
+  }
+
+  /**
+   *
+   * @return string
+   */
+  public function getContent (): string
+  {
+    return $this->content;
+  }
+
+  /**
+   *
+   * @param string $content
+   *
+   * @return self
+   */
+  public function setContent ($content): self
+  {
+    $this->content = $content;
+
+    return $this;
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    if ($this->hasReference())
+    {
+      $this->getReference()->setValueToElement($el, $doc);
     }
 
-    /**
-     *
-     * @return TableRow
-     */
-    public function getRow(): TableRow
-    {
-        return $this->row;
-    }
+    $el->appendChild($doc->createTextNode($this->getContent()));
 
-    /**
-     *
-     * @param TableRow $row
-     *
-     * @return self
-     */
-    public function setRow(TableRow $row): self
-    {
-        $this->row = $row;
+    return $el;
+  }
 
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasReference (): bool
+  {
+    return NULL !== $this->reference;
+  }
 
-    /**
-     *
-     * @return boolean
-     */
-    public function isEmpty(): bool
-    {
-        return empty($this->getContent());
-    }
+  /**
+   *
+   * @return ReferenceType
+   */
+  public function getReference (): ReferenceType
+  {
+    return $this->reference;
+  }
 
-    /**
-     *
-     * @return string
-     */
-    public function getContent(): string
-    {
-        return $this->content;
-    }
+  /**
+   *
+   * @param ReferenceType $reference
+   *
+   * @return self
+   */
+  public function setReference (ReferenceType $reference): self
+  {
+    $this->reference = $reference;
 
-    /**
-     *
-     * @param string $content
-     *
-     * @return self
-     */
-    public function setContent($content): self
-    {
-        $this->content = $content;
+    return $this;
+  }
 
-        return $this;
-    }
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-
-        if ($this->hasReference()) {
-            $this->getReference()->setValueToElement($el, $doc);
-        }
-
-        $el->appendChild($doc->createTextNode($this->getContent()));
-
-        return $el;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasReference(): bool
-    {
-        return null !== $this->reference;
-    }
-
-    /**
-     *
-     * @return ReferenceType
-     */
-    public function getReference(): ReferenceType
-    {
-        return $this->reference;
-    }
-
-    /**
-     *
-     * @param ReferenceType $reference
-     *
-     * @return self
-     */
-    public function setReference(ReferenceType $reference): self
-    {
-        $this->reference = $reference;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return $this->level;
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return $this->level;
+  }
 }

@@ -30,31 +30,31 @@ namespace i3Soft\CDA\Interfaces;
 
 interface NullFlavourInterface
 {
-    const NotApplicable          = 'NA';
-    const NoInformation          = 'NI';
-    const Unknown                = 'UNK';
-    const AskedButUnknown        = 'ASKU';
-    const TemporarilyUnavailable = 'NAV';
-    const NotAsked               = 'NASK';
-    const Other                  = 'OTH';
-    const NegativeInfinity       = 'NINF';
-    const PositiveInfinity       = 'PINF';
-    const Trace                  = 'TRC';
-    const Masked                 = 'MSK';
-    const SufficientQuantity     = 'QS';
+  const NotApplicable          = 'NA';
+  const NoInformation          = 'NI';
+  const Unknown                = 'UNK';
+  const AskedButUnknown        = 'ASKU';
+  const TemporarilyUnavailable = 'NAV';
+  const NotAsked               = 'NASK';
+  const Other                  = 'OTH';
+  const NegativeInfinity       = 'NINF';
+  const PositiveInfinity       = 'PINF';
+  const Trace                  = 'TRC';
+  const Masked                 = 'MSK';
+  const SufficientQuantity     = 'QS';
 
-    const flavours = array(
-      self::NotApplicable,
-      self::NoInformation,
-      self::Unknown,
-      self::AskedButUnknown,
-      self::TemporarilyUnavailable,
-      self::NotAsked,
-      self::Other,
-      self::NegativeInfinity,
-      self::PositiveInfinity,
-      self::Trace,
-      self::Masked,
-      self::SufficientQuantity,
-    );
+  const flavours = array(
+    self::NotApplicable,
+    self::NoInformation,
+    self::Unknown,
+    self::AskedButUnknown,
+    self::TemporarilyUnavailable,
+    self::NotAsked,
+    self::Other,
+    self::NegativeInfinity,
+    self::PositiveInfinity,
+    self::Trace,
+    self::Masked,
+    self::SufficientQuantity,
+  );
 }

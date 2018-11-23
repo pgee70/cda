@@ -33,47 +33,48 @@ use i3Soft\CDA\RIM\Entity\PlayingEntity;
 
 trait DescTrait
 {
-    /** @var  Desc */
-    private $desc;
+  /** @var  Desc */
+  private $desc;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderDesc(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderDesc (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasDesc())
     {
-        if ($this->hasDesc()) {
-            $el->appendChild($this->getDesc()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getDesc()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasDesc(): bool
-    {
-        return null !== $this->desc;
-    }
+  /**
+   * @return bool
+   */
+  public function hasDesc (): bool
+  {
+    return NULL !== $this->desc;
+  }
 
-    /**
-     * @return Desc
-     */
-    public function getDesc(): Desc
-    {
-        return $this->desc;
-    }
+  /**
+   * @return Desc
+   */
+  public function getDesc (): Desc
+  {
+    return $this->desc;
+  }
 
-    /**
-     * @param Desc $desc
-     *
-     * @return PlayingEntity
-     */
-    public function setDesc(Desc $desc): self
-    {
-        $this->desc = $desc;
-        return $this;
-    }
+  /**
+   * @param Desc $desc
+   *
+   * @return PlayingEntity
+   */
+  public function setDesc (Desc $desc): self
+  {
+    $this->desc = $desc;
+    return $this;
+  }
 }

@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\EthnicGroupCode;
  */
 trait EthnicGroupTrait
 {
-    /** @var EthnicGroupCode */
-    private $ethnic_group_code;
+  /** @var EthnicGroupCode */
+  private $ethnic_group_code;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderEthnicGroup(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderEthnicGroup (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasEthnicGroupCode())
     {
-        if ($this->hasEthnicGroupCode()) {
-            $el->appendChild($this->getEthnicGroupCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getEthnicGroupCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasEthnicGroupCode(): bool
-    {
-        return null !== $this->ethnic_group_code;
-    }
+  /**
+   * @return bool
+   */
+  public function hasEthnicGroupCode (): bool
+  {
+    return NULL !== $this->ethnic_group_code;
+  }
 
-    /**
-     * @return EthnicGroupCode
-     */
-    public function getEthnicGroupCode(): EthnicGroupCode
-    {
-        return $this->ethnic_group_code;
-    }
+  /**
+   * @return EthnicGroupCode
+   */
+  public function getEthnicGroupCode (): EthnicGroupCode
+  {
+    return $this->ethnic_group_code;
+  }
 
-    /**
-     * @param EthnicGroupCode $ethnic_group_code
-     *
-     * @return self
-     */
-    public function setEthnicGroupCode(EthnicGroupCode $ethnic_group_code): self
-    {
-        $this->ethnic_group_code = $ethnic_group_code;
-        return $this;
-    }
+  /**
+   * @param EthnicGroupCode $ethnic_group_code
+   *
+   * @return self
+   */
+  public function setEthnicGroupCode (EthnicGroupCode $ethnic_group_code): self
+  {
+    $this->ethnic_group_code = $ethnic_group_code;
+    return $this;
+  }
 }

@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Act\ObservationMedia;
  */
 trait ObservationMediaTrait
 {
-    /** @var ObservationMedia */
-    private $observationMedia;
+  /** @var ObservationMedia */
+  private $observationMedia;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderObservationMedia(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderObservationMedia (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasObservationMedia())
     {
-        if ($this->hasObservationMedia()) {
-            $el->appendChild($this->getObservationMedia()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getObservationMedia()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasObservationMedia(): bool
-    {
-        return null !== $this->observationMedia;
-    }
+  /**
+   * @return bool
+   */
+  public function hasObservationMedia (): bool
+  {
+    return NULL !== $this->observationMedia;
+  }
 
-    /**
-     * @return ObservationMedia
-     */
-    public function getObservationMedia(): ObservationMedia
-    {
-        return $this->observationMedia;
-    }
+  /**
+   * @return ObservationMedia
+   */
+  public function getObservationMedia (): ObservationMedia
+  {
+    return $this->observationMedia;
+  }
 
-    /**
-     * @param ObservationMedia $observationMedia
-     *
-     * @return self
-     */
-    public function setObservationMedia(ObservationMedia $observationMedia): self
-    {
-        $this->observationMedia = $observationMedia;
-        return $this;
-    }
+  /**
+   * @param ObservationMedia $observationMedia
+   *
+   * @return self
+   */
+  public function setObservationMedia (ObservationMedia $observationMedia): self
+  {
+    $this->observationMedia = $observationMedia;
+    return $this;
+  }
 }

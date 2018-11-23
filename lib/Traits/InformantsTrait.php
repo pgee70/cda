@@ -38,47 +38,49 @@ namespace i3Soft\CDA\Traits;
 
 trait InformantsTrait
 {
-    /** @var */
-    private $informants = [];
+  /** @var */
+  private $informants = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderInformants(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderInformants (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasInformants())
     {
-        if ($this->hasInformants()) {
-            foreach ($this->getInformants() as $informant) {
-                $el->appendChild($informant->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getInformants() as $informant)
+      {
+        $el->appendChild($informant->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasInformants(): bool
-    {
-        return \count($this->informants) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasInformants (): bool
+  {
+    return \count($this->informants) > 0;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getInformants()
-    {
-        return $this->informants;
-    }
+  /**
+   * @return mixed
+   */
+  public function getInformants ()
+  {
+    return $this->informants;
+  }
 
-    /**
-     * @param mixed $informants
-     */
-    public function setInformants($informants)
-    {
-        $this->informants = $informants;
-    }
+  /**
+   * @param mixed $informants
+   */
+  public function setInformants ($informants)
+  {
+    $this->informants = $informants;
+  }
 
 }

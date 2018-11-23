@@ -38,19 +38,19 @@ namespace i3Soft\CDA\Elements\Html;
 
 class Sup extends AbstractHtmlElement
 {
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'sup';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'sup';
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function canAddTag($choice): bool
-    {
-        return false;
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function canAddTag ($choice): bool
+  {
+    return FALSE;
+  }
 }

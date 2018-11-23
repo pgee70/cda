@@ -43,35 +43,36 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class Subject2 extends AbstractElement implements TypeCodeInterface
 {
-    use SubstitutionPermissionTrait;
-    use TypeCodeTrait;
+  use SubstitutionPermissionTrait;
+  use TypeCodeTrait;
 
-    public function __construct($substitution_permission = null)
+  public function __construct ($substitution_permission = NULL)
+  {
+    $this->setAcceptableTypeCodes(['', TypeCodeInterface::SUBJECT])
+      ->setTypeCode('');
+    if ($substitution_permission && $substitution_permission instanceof SubstitutionPermission)
     {
-        $this->setAcceptableTypeCodes(['', TypeCodeInterface::SUBJECT])
-          ->setTypeCode('');
-        if ($substitution_permission && $substitution_permission instanceof SubstitutionPermission) {
-            $this->setSubstitutionPermission($substitution_permission);
-        }
-
+      $this->setSubstitutionPermission($substitution_permission);
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getSubstitutionPermission()->toDOMElement($doc));
-        return $el;
-    }
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:subject2';
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getSubstitutionPermission()->toDOMElement($doc));
+    return $el;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:subject2';
+  }
 
 }

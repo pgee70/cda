@@ -43,81 +43,87 @@ use i3Soft\CDA\RIM\Extensions\AsQualifications;
 class AssignedPerson extends Person
 {
 
-    /** @var Set */
-    protected $person_name;
+  /** @var Set */
+  protected $person_name;
 
-    /** @var AsEmployment */
-    protected $as_employment;
+  /** @var AsEmployment */
+  protected $as_employment;
 
-    /** @var AsQualifications */
-    protected $as_qualifications;
+  /** @var AsQualifications */
+  protected $as_qualifications;
 
-    /** @noinspection PhpMissingParentConstructorInspection */
-    /** @noinspection MagicMethodsValidityInspection */
-    public function __construct($names = null, $as_entity_identifier = null, $as_employment = null, $as_qualifications = null)
+  /** @noinspection PhpMissingParentConstructorInspection */
+  /** @noinspection MagicMethodsValidityInspection */
+  public function __construct ($names = NULL, $as_entity_identifier = NULL, $as_employment = NULL, $as_qualifications = NULL)
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::EntityClass)
+      ->setClassCode(ClassCodeInterface::PERSON);
+    if ($names)
     {
-        $this->setAcceptableClassCodes(ClassCodeInterface::EntityClass)
-          ->setClassCode(ClassCodeInterface::PERSON);
-        if ($names) {
-            $this->setNames($names);
-        }
-        if ($as_entity_identifier) {
-            $this->setAsEntityIdentifier($as_entity_identifier);
-        }
-        if ($as_employment) {
-            $this->setAsEmployment($as_employment);
-        }
-        if ($as_qualifications) {
-            $this->setAsQualifications($as_qualifications);
-        }
+      $this->setNames($names);
     }
-
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+    if ($as_entity_identifier)
     {
-        $el = parent::toDOMElement($doc);
-        if ($this->hasAsEmployment()) {
-            $el->appendChild($this->getAsEmployment()->toDOMElement($doc));
-        }
-        if ($this->hasAsQualifications()) {
-            $el->appendChild($this->getAsQualifications()->toDOMElement($doc));
-        }
-        return $el;
+      $this->setAsEntityIdentifier($as_entity_identifier);
     }
-
-    public function hasAsEmployment(): bool
+    if ($as_employment)
     {
-        return null !== $this->as_employment;
+      $this->setAsEmployment($as_employment);
     }
-
-    public function getAsEmployment(): AsEmployment
+    if ($as_qualifications)
     {
-        return $this->as_employment;
+      $this->setAsQualifications($as_qualifications);
     }
+  }
 
-    public function setAsEmployment(AsEmployment $as_employment): self
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = parent::toDOMElement($doc);
+    if ($this->hasAsEmployment())
     {
-        $this->as_employment = $as_employment;
-        return $this;
+      $el->appendChild($this->getAsEmployment()->toDOMElement($doc));
     }
+    if ($this->hasAsQualifications())
+    {
+      $el->appendChild($this->getAsQualifications()->toDOMElement($doc));
+    }
+    return $el;
+  }
 
-    public function hasAsQualifications(): bool
-    {
-        return null !== $this->as_qualifications;
-    }
+  public function hasAsEmployment (): bool
+  {
+    return NULL !== $this->as_employment;
+  }
 
-    public function getAsQualifications(): AsQualifications
-    {
-        return $this->as_qualifications;
-    }
+  public function getAsEmployment (): AsEmployment
+  {
+    return $this->as_employment;
+  }
 
-    public function setAsQualifications(AsQualifications $as_qualifications): self
-    {
-        $this->as_qualifications = $as_qualifications;
-        return $this;
-    }
+  public function setAsEmployment (AsEmployment $as_employment): self
+  {
+    $this->as_employment = $as_employment;
+    return $this;
+  }
 
-    protected function getElementTag(): string
-    {
-        return 'assignedPerson';
-    }
+  public function hasAsQualifications (): bool
+  {
+    return NULL !== $this->as_qualifications;
+  }
+
+  public function getAsQualifications (): AsQualifications
+  {
+    return $this->as_qualifications;
+  }
+
+  public function setAsQualifications (AsQualifications $as_qualifications): self
+  {
+    $this->as_qualifications = $as_qualifications;
+    return $this;
+  }
+
+  protected function getElementTag (): string
+  {
+    return 'assignedPerson';
+  }
 }

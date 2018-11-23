@@ -39,31 +39,32 @@ use i3Soft\CDA\Traits\MultipleBirthsTrait;
  */
 abstract class LivingSubject extends Entity
 {
-    use AdministrativeGenderCodeTrait;
-    use BirthTimeTrait;
-    use EthnicGroupTrait;
-    use MultipleBirthsTrait;
-    use BirthPlaceTrait;
-    use AsEntityIdentifierTrait;
+  use AdministrativeGenderCodeTrait;
+  use BirthTimeTrait;
+  use EthnicGroupTrait;
+  use MultipleBirthsTrait;
+  use BirthPlaceTrait;
+  use AsEntityIdentifierTrait;
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    if ($this->hasNames())
     {
-        $el = $this->createElement($doc);
-        if ($this->hasNames()) {
-            $this->getNames()->setValueToElement($el, $doc);
-        }
-        $this->renderAdministrativeGenderCode($el, $doc)
-          ->renderBirthTime($el, $doc)
-          ->renderEthnicGroup($el, $doc)
-          ->renderMultipleBirths($el, $doc)
-          ->renderBirthPlace($el, $doc)
-          ->renderAsEntityIdentifier($el, $doc);
-        return $el;
+      $this->getNames()->setValueToElement($el, $doc);
     }
+    $this->renderAdministrativeGenderCode($el, $doc)
+      ->renderBirthTime($el, $doc)
+      ->renderEthnicGroup($el, $doc)
+      ->renderMultipleBirths($el, $doc)
+      ->renderBirthPlace($el, $doc)
+      ->renderAsEntityIdentifier($el, $doc);
+    return $el;
+  }
 
 }

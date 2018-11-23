@@ -43,58 +43,59 @@ use i3Soft\CDA\Traits\RouteCodeTrait;
 class SubstanceAdministration extends Act
 {
 
-    use EffectiveTimesTrait;
-    use RouteCodeTrait;
-    use ApproachSiteCodesTrait;
-    use DoseQuantityTrait;
-    use RateQuantityTrait;
-    use ConsumableTrait;
+  use EffectiveTimesTrait;
+  use RouteCodeTrait;
+  use ApproachSiteCodesTrait;
+  use DoseQuantityTrait;
+  use RateQuantityTrait;
+  use ConsumableTrait;
 
-    /**
-     * SubstanceAdministration constructor.
-     *
-     * @link https://www.hl7.org/documentcenter/public_temp_F5125FF9-1C23-BA17-0C1A72EC817E8760/standards/vocabulary/vocabulary_tables/infrastructure/vocabulary/ActClass.html
-     *
-     * @param null $consumable
-     */
-    public function __construct($consumable = null)
+  /**
+   * SubstanceAdministration constructor.
+   *
+   * @link https://www.hl7.org/documentcenter/public_temp_F5125FF9-1C23-BA17-0C1A72EC817E8760/standards/vocabulary/vocabulary_tables/infrastructure/vocabulary/ActClass.html
+   *
+   * @param null $consumable
+   */
+  public function __construct ($consumable = NULL)
+  {
+    parent::__construct();
+    if ($consumable instanceof Consumable)
     {
-        parent::__construct();
-        if ($consumable instanceof Consumable) {
-            $this->setConsumable($consumable);
-        }
-        $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
-          ->setClassCode(ClassCodeInterface::SUBSTANCE_ADMINISTRATION)
-          ->setMoodCode(MoodCodeInterface::EVENT);
+      $this->setConsumable($consumable);
     }
+    $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
+      ->setClassCode(ClassCodeInterface::SUBSTANCE_ADMINISTRATION)
+      ->setMoodCode(MoodCodeInterface::EVENT);
+  }
 
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc)
-          ->renderText($el, $doc)
-          ->renderStatusCode($el, $doc)
-          ->renderEffectiveTimes($el, $doc)
-          ->renderRouteCode($el, $doc)
-          ->renderDoseQuantity($el, $doc)
-          ->renderConsumable($el, $doc)
-          ->renderEntryRelationships($el, $doc)
-          ->renderPreconditions($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc)
+      ->renderText($el, $doc)
+      ->renderStatusCode($el, $doc)
+      ->renderEffectiveTimes($el, $doc)
+      ->renderRouteCode($el, $doc)
+      ->renderDoseQuantity($el, $doc)
+      ->renderConsumable($el, $doc)
+      ->renderEntryRelationships($el, $doc)
+      ->renderPreconditions($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'substanceAdministration';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'substanceAdministration';
+  }
 
 }

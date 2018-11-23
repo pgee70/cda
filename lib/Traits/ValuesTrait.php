@@ -37,64 +37,68 @@ use i3Soft\CDA\Elements\Value;
  */
 trait ValuesTrait
 {
-    /** @var Value[] */
-    private $values = [];
+  /** @var Value[] */
+  private $values = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderValues(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderValues (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasValues())
     {
-        if ($this->hasValues()) {
-            foreach ($this->getValues() as $value) {
-                $el->appendChild($value->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getValues() as $value)
+      {
+        $el->appendChild($value->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasValues(): bool
-    {
-        return \count($this->values) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasValues (): bool
+  {
+    return \count($this->values) > 0;
+  }
 
-    /**
-     * @return Value[]
-     */
-    public function getValues(): array
-    {
-        return $this->values;
-    }
+  /**
+   * @return Value[]
+   */
+  public function getValues (): array
+  {
+    return $this->values;
+  }
 
-    /**
-     * @param Value[]
-     *
-     * @return self
-     */
-    public function setValues(array $values): self
+  /**
+   * @param Value[]
+   *
+   * @return self
+   */
+  public function setValues (array $values): self
+  {
+    foreach ($values as $value)
     {
-        foreach ($values as $value) {
-            if ($value instanceof Value) {
-                $this->addValue($value);
-            }
-        }
-        return $this;
+      if ($value instanceof Value)
+      {
+        $this->addValue($value);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param Value $value
-     *
-     * @return self
-     */
-    public function addValue(Value $value): self
-    {
-        $this->values[] = $value;
-        return $this;
-    }
+  /**
+   * @param Value $value
+   *
+   * @return self
+   */
+  public function addValue (Value $value): self
+  {
+    $this->values[] = $value;
+    return $this;
+  }
 }

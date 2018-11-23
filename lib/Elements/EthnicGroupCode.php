@@ -46,46 +46,48 @@ use i3Soft\CDA\DataType\Code\CodedValue;
  */
 class EthnicGroupCode extends Code
 {
-    const status_aboriginal                       = 1;
-    const status_torres_strait                    = 2;
-    const status_both_aboriginal_torres_strait    = 3;
-    const status_neither_aboriginal_torres_strait = 4;
-    const status_unknown                          = 9;
+  const status_aboriginal                       = 1;
+  const status_torres_strait                    = 2;
+  const status_both_aboriginal_torres_strait    = 3;
+  const status_neither_aboriginal_torres_strait = 4;
+  const status_unknown                          = 9;
 
-    /**
-     * EthnicGroupCode constructor.
-     * either use a coded value in the constuctor, or the METeOR Indigenous Status int.
-     *
-     * @param int|CodedValue $value
-     */
-    public function __construct(int $value)
+  /**
+   * EthnicGroupCode constructor.
+   * either use a coded value in the constuctor, or the METeOR Indigenous Status int.
+   *
+   * @param int|CodedValue $value
+   */
+  public function __construct (int $value)
+  {
+    if ($value instanceof CodedValue)
     {
-        if ($value instanceof CodedValue) {
-            parent::__construct($value);
-            return;
-        }
-        $values = array(
-          self::status_aboriginal                       => 'Aboriginal but not Torres Strait Islander origin',
-          self::status_torres_strait                    => 'Torres Strait Islander but not Aboriginal origin',
-          self::status_both_aboriginal_torres_strait    => 'Both Aboriginal and Torres Strait Islander origin',
-          self::status_neither_aboriginal_torres_strait => 'Neither Aboriginal nor Torres Strait Islander origin',
-          self::status_unknown                          => 'Not stated/inadequately described'
-        );
-        if (array_key_exists((int)$value, $values) === false) {
-            throw new \InvalidArgumentException("The ethnic group code {$value} is not allowed!");
-        }
-        $coded_value = new CodedValue ($value,
-          $values[$value],
-          '2.16.840.1.113883.3.879.291036',
-          'METeOR Indigenous Status');
-        parent::__construct($coded_value);
+      parent::__construct($value);
+      return;
     }
+    $values = array(
+      self::status_aboriginal                       => 'Aboriginal but not Torres Strait Islander origin',
+      self::status_torres_strait                    => 'Torres Strait Islander but not Aboriginal origin',
+      self::status_both_aboriginal_torres_strait    => 'Both Aboriginal and Torres Strait Islander origin',
+      self::status_neither_aboriginal_torres_strait => 'Neither Aboriginal nor Torres Strait Islander origin',
+      self::status_unknown                          => 'Not stated/inadequately described'
+    );
+    if (array_key_exists((int)$value, $values) === FALSE)
+    {
+      throw new \InvalidArgumentException("The ethnic group code {$value} is not allowed!");
+    }
+    $coded_value = new CodedValue ($value,
+      $values[$value],
+      '2.16.840.1.113883.3.879.291036',
+      'METeOR Indigenous Status');
+    parent::__construct($coded_value);
+  }
 
-    /**
-     * @return string
-     */
-    public function getElementTag(): string
-    {
-        return 'ethnicGroupCode';
-    }
+  /**
+   * @return string
+   */
+  public function getElementTag (): string
+  {
+    return 'ethnicGroupCode';
+  }
 }

@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\SignatureCode;
  */
 trait SignatureCodeTrait
 {
-    /** @var SignatureCode */
-    private $signatureCode;
+  /** @var SignatureCode */
+  private $signatureCode;
 
-    /**
-     * @return bool
-     */
-    public function hasSignatureCode(): bool
-    {
-        return null !== $this->signatureCode;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSignatureCode (): bool
+  {
+    return NULL !== $this->signatureCode;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderSignatureCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderSignatureCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->getSignatureCode())
     {
-        if ($this->getSignatureCode()) {
-            $el->appendChild($this->getSignatureCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getSignatureCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return SignatureCode
-     */
-    public function getSignatureCode(): SignatureCode
-    {
-        return $this->signatureCode;
-    }
+  /**
+   * @return SignatureCode
+   */
+  public function getSignatureCode (): SignatureCode
+  {
+    return $this->signatureCode;
+  }
 
-    /**
-     * @param SignatureCode $signatureCode
-     *
-     * @return self
-     */
-    public function setSignatureCode(SignatureCode $signatureCode): self
-    {
-        $this->signatureCode = $signatureCode;
-        return $this;
-    }
+  /**
+   * @param SignatureCode $signatureCode
+   *
+   * @return self
+   */
+  public function setSignatureCode (SignatureCode $signatureCode): self
+  {
+    $this->signatureCode = $signatureCode;
+    return $this;
+  }
 }

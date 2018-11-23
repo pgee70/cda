@@ -39,11 +39,11 @@ use i3Soft\CDA\Elements\AbstractSimpleElement;
 class StreetName extends AbstractSimpleElement
 {
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'streetName';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'streetName';
+  }
 }

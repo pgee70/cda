@@ -30,19 +30,19 @@ namespace i3Soft\CDA\Interfaces;
 
 interface InversionIndInterface
 {
-    /**
-     * @return bool
-     */
-    public function getInversionInd(): bool;
+  /**
+   * @return bool
+   */
+  public function getInversionInd (): bool;
 
-    /**
-     * @param bool $inversionInd
-     *
-     */
-    public function setInversionInd(bool $inversionInd);
+  /**
+   * @param bool $inversionInd
+   *
+   */
+  public function setInversionInd (bool $inversionInd);
 
-    /**
-     * @return bool
-     */
-    public function hasInversionInd(): bool;
+  /**
+   * @return bool
+   */
+  public function hasInversionInd (): bool;
 }

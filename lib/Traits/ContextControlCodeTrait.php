@@ -37,50 +37,52 @@ use i3Soft\CDA\Interfaces\ContextControlCodeInterface;
  */
 trait ContextControlCodeTrait
 {
-    /** @var string */
-    private $contextControlCode = '';
+  /** @var string */
+  private $contextControlCode = '';
 
-    /**
-     * @param \DOMElement $el
-     *
-     * @return self
-     */
-    public function renderContextControlCode(\DOMElement $el): self
+  /**
+   * @param \DOMElement $el
+   *
+   * @return self
+   */
+  public function renderContextControlCode (\DOMElement $el): self
+  {
+    if ($this->hasContextControlCode())
     {
-        if ($this->hasContextControlCode()) {
-            $el->setAttribute('contextControlCode', $this->getContextControlCode());
-        }
-        return $this;
+      $el->setAttribute('contextControlCode', $this->getContextControlCode());
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasContextControlCode(): bool
-    {
-        return '' !== $this->contextControlCode;
-    }
+  /**
+   * @return bool
+   */
+  public function hasContextControlCode (): bool
+  {
+    return '' !== $this->contextControlCode;
+  }
 
-    /**
-     * @return string
-     */
-    public function getContextControlCode(): string
-    {
-        return $this->contextControlCode;
-    }
+  /**
+   * @return string
+   */
+  public function getContextControlCode (): string
+  {
+    return $this->contextControlCode;
+  }
 
-    /**
-     * @param string $contextControlCode
-     *
-     * @return self
-     */
-    public function setContextControlCode(string $contextControlCode): self
+  /**
+   * @param string $contextControlCode
+   *
+   * @return self
+   */
+  public function setContextControlCode (string $contextControlCode): self
+  {
+    if (\in_array($contextControlCode, ContextControlCodeInterface::CDA, TRUE) === FALSE)
     {
-        if (\in_array($contextControlCode, ContextControlCodeInterface::CDA, true) === false) {
-            throw new \InvalidArgumentException("The context control value $contextControlCode was not valid!");
-        }
-        $this->contextControlCode = $contextControlCode;
-        return $this;
+      throw new \InvalidArgumentException("The context control value $contextControlCode was not valid!");
     }
+    $this->contextControlCode = $contextControlCode;
+    return $this;
+  }
 
 }

@@ -37,44 +37,45 @@ use i3Soft\CDA\Elements\LanguageCode;
  */
 trait LanguageCodeTrait
 {
-    /** @var LanguageCode */
-    private $languageCode;
+  /** @var LanguageCode */
+  private $languageCode;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderLanguageCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderLanguageCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasLanguageCode())
     {
-        if ($this->hasLanguageCode()) {
-            $el->appendChild($this->getLanguageCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getLanguageCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasLanguageCode(): bool
-    {
-        return null !== $this->languageCode;
-    }
+  /**
+   * @return bool
+   */
+  public function hasLanguageCode (): bool
+  {
+    return NULL !== $this->languageCode;
+  }
 
-    /**
-     * @return LanguageCode
-     */
-    public function getLanguageCode(): LanguageCode
-    {
-        return $this->languageCode;
-    }
+  /**
+   * @return LanguageCode
+   */
+  public function getLanguageCode (): LanguageCode
+  {
+    return $this->languageCode;
+  }
 
-    /**
-     * @param LanguageCode $languageCode
-     */
-    public function setLanguageCode(LanguageCode $languageCode)
-    {
-        $this->languageCode = $languageCode;
-    }
+  /**
+   * @param LanguageCode $languageCode
+   */
+  public function setLanguageCode (LanguageCode $languageCode)
+  {
+    $this->languageCode = $languageCode;
+  }
 }

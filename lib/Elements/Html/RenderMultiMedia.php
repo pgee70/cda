@@ -38,20 +38,20 @@ namespace i3Soft\CDA\Elements\Html;
 
 class RenderMultiMedia extends AbstractHtmlElement
 {
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'renderMultiMedia';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'renderMultiMedia';
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function canAddTag($choice): bool
-    {
-        return ($choice
-                && ($choice instanceof Caption));
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function canAddTag ($choice): bool
+  {
+    return ($choice
+            && ($choice instanceof Caption));
+  }
 }

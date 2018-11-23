@@ -44,55 +44,55 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 class Place extends AbstractElement
 {
-    /** @var Addr */
-    protected $addr;
+  /** @var Addr */
+  protected $addr;
 
-    /**
-     * Place constructor.
-     *
-     * @param Addr $addr
-     */
-    public function __construct(Addr $addr)
-    {
-        $this->setAddr($addr);
-    }
+  /**
+   * Place constructor.
+   *
+   * @param Addr $addr
+   */
+  public function __construct (Addr $addr)
+  {
+    $this->setAddr($addr);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getAddr()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getAddr()->toDOMElement($doc));
+    return $el;
+  }
 
-    /**
-     * @return Addr
-     */
-    public function getAddr(): Addr
-    {
-        return $this->addr;
-    }
+  /**
+   * @return Addr
+   */
+  public function getAddr (): Addr
+  {
+    return $this->addr;
+  }
 
-    /**
-     * @param Addr $addr
-     *
-     * @return Place
-     */
-    public function setAddr(Addr $addr): Place
-    {
-        $this->addr = $addr;
-        return $this;
-    }
+  /**
+   * @param Addr $addr
+   *
+   * @return Place
+   */
+  public function setAddr (Addr $addr): Place
+  {
+    $this->addr = $addr;
+    return $this;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'place';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'place';
+  }
 }

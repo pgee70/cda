@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Extensions\JobClassCode;
  */
 trait JobClassCodeTrait
 {
-    /** @var JobClassCode */
-    protected $job_class_code;
+  /** @var JobClassCode */
+  protected $job_class_code;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderJobClassCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderJobClassCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasJobClassCode())
     {
-        if ($this->hasJobClassCode()) {
-            $el->appendChild($this->getJobClassCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getJobClassCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasJobClassCode(): bool
-    {
-        return null !== $this->job_class_code;
-    }
+  /**
+   * @return bool
+   */
+  public function hasJobClassCode (): bool
+  {
+    return NULL !== $this->job_class_code;
+  }
 
-    /**
-     * @return JobClassCode
-     */
-    public function getJobClassCode(): JobClassCode
-    {
-        return $this->job_class_code;
-    }
+  /**
+   * @return JobClassCode
+   */
+  public function getJobClassCode (): JobClassCode
+  {
+    return $this->job_class_code;
+  }
 
-    /**
-     * @param JobClassCode $job_class_code
-     *
-     * @return self
-     */
-    public function setJobClassCode(JobClassCode $job_class_code): self
-    {
-        $this->job_class_code = $job_class_code;
-        return $this;
-    }
+  /**
+   * @param JobClassCode $job_class_code
+   *
+   * @return self
+   */
+  public function setJobClassCode (JobClassCode $job_class_code): self
+  {
+    $this->job_class_code = $job_class_code;
+    return $this;
+  }
 }

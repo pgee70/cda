@@ -37,38 +37,38 @@ use i3Soft\CDA\DataType\Identifier\InstanceIdentifier;
  */
 trait InstanceIdentifierTrait
 {
-    /**
-     *
-     * @var InstanceIdentifier
-     */
-    protected $instance_identifier;
+  /**
+   *
+   * @var InstanceIdentifier
+   */
+  protected $instance_identifier;
 
-    /**
-     * @return InstanceIdentifier
-     */
-    public function getIdentifier(): InstanceIdentifier
-    {
-        return $this->instance_identifier;
-    }
+  /**
+   * @return InstanceIdentifier
+   */
+  public function getIdentifier (): InstanceIdentifier
+  {
+    return $this->instance_identifier;
+  }
 
-    /**
-     * @param InstanceIdentifier $identifier
-     *
-     * @return self
-     */
-    public function setIdentifier(InstanceIdentifier $identifier): self
-    {
-        $this->instance_identifier = $identifier;
-        return $this;
-    }
+  /**
+   * @param InstanceIdentifier $identifier
+   *
+   * @return self
+   */
+  public function setIdentifier (InstanceIdentifier $identifier): self
+  {
+    $this->instance_identifier = $identifier;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasIdentifier(): bool
-    {
-        return null !== $this->instance_identifier;
-    }
+  /**
+   * @return bool
+   */
+  public function hasIdentifier (): bool
+  {
+    return NULL !== $this->instance_identifier;
+  }
 
 
 }

@@ -61,63 +61,69 @@ use i3Soft\CDA\Traits\TelecomsTrait;
 
 class PatientRole extends Role
 {
-    use PatientTrait;
-    use AddrsTrait;
-    use TelecomsTrait;
+  use PatientTrait;
+  use AddrsTrait;
+  use TelecomsTrait;
 
-    /**
-     * PatientRole constructor.
-     *
-     * @param Id      $id
-     * @param Patient $patient
-     */
-    public function __construct(
-      Id $id,
-      Patient $patient
-    ) {
-        $this
-          ->setAcceptableClassCodes(ClassCodeInterface::RoleClassRoot)
-          ->setClassCode(ClassCodeInterface::PATIENT)
-          ->setPatient($patient)
-          ->addId($id);
-    }
+  /**
+   * PatientRole constructor.
+   *
+   * @param Id      $id
+   * @param Patient $patient
+   */
+  public function __construct (
+    Id $id,
+    Patient $patient
+  ) {
+    $this
+      ->setAcceptableClassCodes(ClassCodeInterface::RoleClassRoot)
+      ->setClassCode(ClassCodeInterface::PATIENT)
+      ->setPatient($patient)
+      ->addId($id);
+  }
 
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    if ($this->hasIds())
     {
-        $el = $this->createElement($doc);
-
-        if ($this->hasIds()) {
-            foreach ($this->getIds() as $id) {
-                $el->appendChild($id->toDOMElement($doc));
-            }
-        }
-        if ($this->hasAddrs()) {
-            foreach ($this->getAddrs() as $addr) {
-                $el->appendChild($addr->toDOMElement($doc));
-            }
-        }
-        if ($this->hasTelecoms()) {
-            foreach ($this->getTelecoms() as $telecom) {
-                $el->appendChild($telecom->toDOMElement($doc));
-            }
-        }
-        $el->appendChild($this->getPatient()->toDOMElement($doc));
-
-        return $el;
+      foreach ($this->getIds() as $id)
+      {
+        $el->appendChild($id->toDOMElement($doc));
+      }
     }
-
-
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
+    if ($this->hasAddrs())
     {
-        return 'patientRole';
+      foreach ($this->getAddrs() as $addr)
+      {
+        $el->appendChild($addr->toDOMElement($doc));
+      }
     }
+    if ($this->hasTelecoms())
+    {
+      foreach ($this->getTelecoms() as $telecom)
+      {
+        $el->appendChild($telecom->toDOMElement($doc));
+      }
+    }
+    $el->appendChild($this->getPatient()->toDOMElement($doc));
+
+    return $el;
+  }
+
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'patientRole';
+  }
 }

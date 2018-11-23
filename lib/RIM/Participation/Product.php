@@ -44,32 +44,32 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class Product extends AbstractElement implements TypeCodeInterface
 {
-    use ManufacturedProductTrait;
-    use TypeCodeTrait;
+  use ManufacturedProductTrait;
+  use TypeCodeTrait;
 
-    public function __construct(ManufacturedProduct $manufactured_product)
-    {
-        $this->setAcceptableTypeCodes(['', TypeCodeInterface::PRODUCT])
-          ->setTypeCode(TypeCodeInterface::PRODUCT)
-          ->setManufacturedProduct($manufactured_product);
-    }
+  public function __construct (ManufacturedProduct $manufactured_product)
+  {
+    $this->setAcceptableTypeCodes(['', TypeCodeInterface::PRODUCT])
+      ->setTypeCode(TypeCodeInterface::PRODUCT)
+      ->setManufacturedProduct($manufactured_product);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getManufacturedProduct()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getManufacturedProduct()->toDOMElement($doc));
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'product';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'product';
+  }
 
 }

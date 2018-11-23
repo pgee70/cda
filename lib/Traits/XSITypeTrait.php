@@ -32,59 +32,60 @@ use i3Soft\CDA\Interfaces\XSITypeInterface;
 
 trait XSITypeTrait
 {
-    /** @var string */
-    private $xsi_type = '';
-    /** @var string[] */
-    private $acceptable_xsi_types = XSITypeInterface::xsi_types;
+  /** @var string */
+  private $xsi_type = '';
+  /** @var string[] */
+  private $acceptable_xsi_types = XSITypeInterface::xsi_types;
 
-    /**
-     * @return string
-     */
-    public function getXSIType(): string
-    {
-        return $this->xsi_type;
-    }
+  /**
+   * @return string
+   */
+  public function getXSIType (): string
+  {
+    return $this->xsi_type;
+  }
 
-    /**
-     * @param string $xsi_type
-     *
-     * @return self
-     */
-    public function setXSIType(string $xsi_type): self
+  /**
+   * @param string $xsi_type
+   *
+   * @return self
+   */
+  public function setXSIType (string $xsi_type): self
+  {
+    if (\in_array($xsi_type, $this->getAcceptableXsiTypes(), TRUE) === FALSE)
     {
-        if (\in_array($xsi_type, $this->getAcceptableXsiTypes(), true) === false) {
-            throw new \InvalidArgumentException("The xsi_type {$xsi_type} is not valid!");
-        }
-        $this->xsi_type = $xsi_type;
-        return $this;
+      throw new \InvalidArgumentException("The xsi_type {$xsi_type} is not valid!");
     }
+    $this->xsi_type = $xsi_type;
+    return $this;
+  }
 
-    /**
-     * @return array
-     */
-    public function getAcceptableXsiTypes(): array
-    {
-        return $this->acceptable_xsi_types;
-    }
+  /**
+   * @return array
+   */
+  public function getAcceptableXsiTypes (): array
+  {
+    return $this->acceptable_xsi_types;
+  }
 
-    /**
-     * @param array $acceptable_xsi_types
-     *
-     * @return self
-     */
-    public function setAcceptableXsiTypes(array $acceptable_xsi_types): self
-    {
-        $this->acceptable_xsi_types = $acceptable_xsi_types;
-        return $this;
-    }
+  /**
+   * @param array $acceptable_xsi_types
+   *
+   * @return self
+   */
+  public function setAcceptableXsiTypes (array $acceptable_xsi_types): self
+  {
+    $this->acceptable_xsi_types = $acceptable_xsi_types;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasXSIType(): bool
-    {
-        return '' !== $this->xsi_type;
-    }
+  /**
+   * @return bool
+   */
+  public function hasXSIType (): bool
+  {
+    return '' !== $this->xsi_type;
+  }
 
 
 }

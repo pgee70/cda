@@ -38,16 +38,16 @@ namespace i3Soft\CDA\Elements\Html;
 
 class Br extends AbstractHtmlElement
 {
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'br';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'br';
+  }
 
-    protected function canAddTag($choice): bool
-    {
-        return false;
-    }
+  protected function canAddTag ($choice): bool
+  {
+    return FALSE;
+  }
 }

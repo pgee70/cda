@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Participation\Authenticator;
  */
 trait AuthenticatorTrait
 {
-    /** @var Authenticator */
-    private $authenticator;
+  /** @var Authenticator */
+  private $authenticator;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return AuthenticatorTrait
-     */
-    public function renderAuthenticator(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return AuthenticatorTrait
+   */
+  public function renderAuthenticator (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAuthenticator())
     {
-        if ($this->hasAuthenticator()) {
-            $el->appendChild($this->getAuthenticator()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getAuthenticator()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAuthenticator(): bool
-    {
-        return null !== $this->authenticator;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAuthenticator (): bool
+  {
+    return NULL !== $this->authenticator;
+  }
 
-    /**
-     * @return Authenticator
-     */
-    public function getAuthenticator(): Authenticator
-    {
-        return $this->authenticator;
-    }
+  /**
+   * @return Authenticator
+   */
+  public function getAuthenticator (): Authenticator
+  {
+    return $this->authenticator;
+  }
 
-    /**
-     * @param Authenticator $authenticator
-     *
-     * @return self
-     */
-    public function setAuthenticator(Authenticator $authenticator): self
-    {
-        $this->authenticator = $authenticator;
-        return $this;
-    }
+  /**
+   * @param Authenticator $authenticator
+   *
+   * @return self
+   */
+  public function setAuthenticator (Authenticator $authenticator): self
+  {
+    $this->authenticator = $authenticator;
+    return $this;
+  }
 }

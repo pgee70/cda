@@ -46,17 +46,17 @@ use i3Soft\CDA\tests\MyTestCase;
  */
 class XMLBodyComponent_test extends MyTestCase
 {
-    public function setUp()
-    {
+  public function setUp ()
+  {
 
-    }
+  }
 
-    public function test_XMLComponent()
-    {
+  public function test_XMLComponent ()
+  {
 
-        $body = self::getBody();
+    $body = self::getBody();
 
-        $expected = <<<XML
+    $expected = <<<XML
     <structuredBody classCode="DOCBODY">
       <component typeCode="COMP">
         <section classCode="DOCSECT">
@@ -70,36 +70,36 @@ class XMLBodyComponent_test extends MyTestCase
     </structuredBody>
 XML;
 
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
 
-        $fake = new \DOMDocument;
-        $fake->appendChild($body->toDOMElement($fake));
+    $fake = new \DOMDocument;
+    $fake->appendChild($body->toDOMElement($fake));
 
-        $this->assertEqualXMLStructure($expectedDoc->firstChild, $fake->firstChild, true);
-    }
+    $this->assertEqualXMLStructure($expectedDoc->firstChild, $fake->firstChild, TRUE);
+  }
 
-    /**
-     * create an xml body
-     *
-     * __note__: this function is public to let other test re-use this
-     * body.
-     *
-     * @return XMLBodyComponent
-     */
-    public static function getBody(): XMLBodyComponent
-    {
-        $section   = (new Section())
-          ->setMoodCode('')
-          ->setCode(new Code(new LoincCode('42349-1', 'REASON FOR REFERRAL')))
-          ->setId(new Id(new InstanceIdentifier('430ADCD7-4481-DC0F-181D-2398F930B220')))
-          ->setText(new Text('Robert Hunter is a patient.'))
-          ->addTemplateId(new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.3.1'))
-          ->setTitle(new Title('REASON FOR REFERRAL'));
-        $component = (new SingleComponent())
-          ->addSection($section);
+  /**
+   * create an xml body
+   *
+   * __note__: this function is public to let other test re-use this
+   * body.
+   *
+   * @return XMLBodyComponent
+   */
+  public static function getBody (): XMLBodyComponent
+  {
+    $section   = (new Section())
+      ->setMoodCode('')
+      ->setCode(new Code(new LoincCode('42349-1', 'REASON FOR REFERRAL')))
+      ->setId(new Id(new InstanceIdentifier('430ADCD7-4481-DC0F-181D-2398F930B220')))
+      ->setText(new Text('Robert Hunter is a patient.'))
+      ->addTemplateId(new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.3.1'))
+      ->setTitle(new Title('REASON FOR REFERRAL'));
+    $component = (new SingleComponent())
+      ->addSection($section);
 
-        return (new XMLBodyComponent())
-          ->addComponent($component);
-    }
+    return (new XMLBodyComponent())
+      ->addComponent($component);
+  }
 }

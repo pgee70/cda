@@ -51,46 +51,47 @@ use i3Soft\CDA\ClinicalDocument as CDA;
 class CharacterStringWithCode extends ConceptDescriptor
 {
 
-    /** @var string */
-    private $codeSystemVersion;
+  /** @var string */
+  private $codeSystemVersion;
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    parent::setValueToElement($el, $doc);
+    if ($this->hasCodeSystemVersion())
     {
-        parent::setValueToElement($el, $doc);
-        if ($this->hasCodeSystemVersion()) {
-            $el->setAttribute(CDA::NS_CDA . 'codeSystemVersion', $this->getCodeSystemVersion());
-        }
+      $el->setAttribute(CDA::getNS() . 'codeSystemVersion', $this->getCodeSystemVersion());
     }
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasCodeSystemVersion(): bool
-    {
-        return null !== $this->codeSystemVersion;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCodeSystemVersion (): bool
+  {
+    return NULL !== $this->codeSystemVersion;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCodeSystemVersion()
-    {
-        return $this->codeSystemVersion;
-    }
+  /**
+   * @return mixed
+   */
+  public function getCodeSystemVersion ()
+  {
+    return $this->codeSystemVersion;
+  }
 
-    /**
-     * @param string $codeSystemVersion
-     *
-     * @return CharacterStringWithCode
-     */
-    public function setCodeSystemVersion(string $codeSystemVersion): self
-    {
-        $this->codeSystemVersion = $codeSystemVersion;
-        return $this;
-    }
+  /**
+   * @param string $codeSystemVersion
+   *
+   * @return CharacterStringWithCode
+   */
+  public function setCodeSystemVersion (string $codeSystemVersion): self
+  {
+    $this->codeSystemVersion = $codeSystemVersion;
+    return $this;
+  }
 
 }

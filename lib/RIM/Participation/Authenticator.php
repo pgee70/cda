@@ -47,38 +47,38 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class Authenticator extends AbstractElement implements TypeCodeInterface, ContextControlCodeInterface
 {
-    use TimeTrait;
-    use AssignedEntityTrait;
-    use TypeCodeTrait;
-    use SignatureCodeTrait;
-    use ContextControlCodeTrait;
+  use TimeTrait;
+  use AssignedEntityTrait;
+  use TypeCodeTrait;
+  use SignatureCodeTrait;
+  use ContextControlCodeTrait;
 
-    public function __construct()
-    {
-        $this->setAcceptableTypeCodes(TypeCodeInterface::ParticipationType)
-          ->setTypeCode(TypeCodeInterface::AUTHENTICATOR)
-          ->setContextControlCode('');
-    }
+  public function __construct ()
+  {
+    $this->setAcceptableTypeCodes(TypeCodeInterface::ParticipationType)
+      ->setTypeCode(TypeCodeInterface::AUTHENTICATOR)
+      ->setContextControlCode('');
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderTime($el, $doc);
-        $this->renderSignatureCode($el, $doc);
-        $this->renderAssignedEntity($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderTime($el, $doc);
+    $this->renderSignatureCode($el, $doc);
+    $this->renderAssignedEntity($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'authenticator';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'authenticator';
+  }
 }

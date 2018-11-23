@@ -29,13 +29,13 @@ namespace i3Soft\CDA\Interfaces;
 
 interface DeterminerCodeInterface
 {
-    const INSTANCE_        = 'INSTANCE';
-    const EntityDeterminer = array(
-      '',
-      self::INSTANCE_
-    );
+  const INSTANCE_        = 'INSTANCE';
+  const EntityDeterminer = array(
+    '',
+    self::INSTANCE_
+  );
 
-    public function getDeterminerCode(): string;
+  public function getDeterminerCode (): string;
 
-    public function setDeterminerCode(string $determiner_code);
+  public function setDeterminerCode (string $determiner_code);
 }

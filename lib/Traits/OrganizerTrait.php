@@ -32,47 +32,48 @@ use i3Soft\CDA\RIM\Act\Organizer;
 
 trait OrganizerTrait
 {
-    /** @var Organizer */
-    private $organizer;
+  /** @var Organizer */
+  private $organizer;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderOrganizer(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderOrganizer (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasOrganizer())
     {
-        if ($this->hasOrganizer()) {
-            $el->appendChild($this->getOrganizer()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getOrganizer()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasOrganizer(): bool
-    {
-        return null !== $this->organizer;
-    }
+  /**
+   * @return bool
+   */
+  public function hasOrganizer (): bool
+  {
+    return NULL !== $this->organizer;
+  }
 
-    /**
-     * @return Organizer
-     */
-    public function getOrganizer(): Organizer
-    {
-        return $this->organizer;
-    }
+  /**
+   * @return Organizer
+   */
+  public function getOrganizer (): Organizer
+  {
+    return $this->organizer;
+  }
 
-    /**
-     * @param Organizer $organizer
-     *
-     * @return self
-     */
-    public function setOrganizer(Organizer $organizer): self
-    {
-        $this->organizer = $organizer;
-        return $this;
-    }
+  /**
+   * @param Organizer $organizer
+   *
+   * @return self
+   */
+  public function setOrganizer (Organizer $organizer): self
+  {
+    $this->organizer = $organizer;
+    return $this;
+  }
 }

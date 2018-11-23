@@ -37,48 +37,49 @@ use i3Soft\CDA\RIM\Extensions\Subject2;
  */
 trait ExtSubjectOf2Trait
 {
-    /** @var Subject2 */
-    private $extSubjectOf2;
+  /** @var Subject2 */
+  private $extSubjectOf2;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExtSubjectOf2(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExtSubjectOf2 (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtSubjectOf2())
     {
-        if ($this->hasExtSubjectOf2()) {
-            $el->appendChild($this->getExtSubjectOf2()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtSubjectOf2()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtSubjectOf2(): bool
-    {
-        return null !== $this->extSubjectOf2;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtSubjectOf2 (): bool
+  {
+    return NULL !== $this->extSubjectOf2;
+  }
 
-    /**
-     * @return Subject2
-     */
-    public function getExtSubjectOf2(): Subject2
-    {
-        return $this->extSubjectOf2;
-    }
+  /**
+   * @return Subject2
+   */
+  public function getExtSubjectOf2 (): Subject2
+  {
+    return $this->extSubjectOf2;
+  }
 
-    /**
-     * @param Subject2 $extSubjectOf2
-     *
-     * @return self
-     */
-    public function setExtSubjectOf2(Subject2 $extSubjectOf2): self
-    {
-        $this->extSubjectOf2 = $extSubjectOf2;
-        return $this;
-    }
+  /**
+   * @param Subject2 $extSubjectOf2
+   *
+   * @return self
+   */
+  public function setExtSubjectOf2 (Subject2 $extSubjectOf2): self
+  {
+    $this->extSubjectOf2 = $extSubjectOf2;
+    return $this;
+  }
 
 }

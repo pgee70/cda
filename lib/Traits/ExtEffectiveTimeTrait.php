@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Extensions\ExtEffectiveTime;
  */
 trait ExtEffectiveTimeTrait
 {
-    /** @var ExtEffectiveTime */
-    private $ext_effective_time;
+  /** @var ExtEffectiveTime */
+  private $ext_effective_time;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExtEffectiveTime(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExtEffectiveTime (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtEffectiveTime())
     {
-        if ($this->hasExtEffectiveTime()) {
-            $el->appendChild($this->getExtEffectiveTime()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtEffectiveTime()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtEffectiveTime(): bool
-    {
-        return null !== $this->ext_effective_time;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtEffectiveTime (): bool
+  {
+    return NULL !== $this->ext_effective_time;
+  }
 
-    /**
-     * @return ExtEffectiveTime
-     */
-    public function getExtEffectiveTime(): ExtEffectiveTime
-    {
-        return $this->ext_effective_time;
-    }
+  /**
+   * @return ExtEffectiveTime
+   */
+  public function getExtEffectiveTime (): ExtEffectiveTime
+  {
+    return $this->ext_effective_time;
+  }
 
-    /**
-     * @param ExtEffectiveTime $ext_effective_time
-     *
-     * @return self
-     */
-    public function setExtEffectiveTime(ExtEffectiveTime $ext_effective_time): self
-    {
-        $this->ext_effective_time = $ext_effective_time;
-        return $this;
-    }
+  /**
+   * @param ExtEffectiveTime $ext_effective_time
+   *
+   * @return self
+   */
+  public function setExtEffectiveTime (ExtEffectiveTime $ext_effective_time): self
+  {
+    $this->ext_effective_time = $ext_effective_time;
+    return $this;
+  }
 }

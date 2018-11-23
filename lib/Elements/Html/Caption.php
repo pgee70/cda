@@ -38,25 +38,25 @@ namespace i3Soft\CDA\Elements\Html;
 
 class Caption extends AbstractHtmlElement
 {
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'caption';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'caption';
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function canAddTag($choice): bool
-    {
-        return ($choice
-                && ($choice instanceof LinkHtml
-                    || $choice instanceof Sub
-                    || $choice instanceof Sup
-                    || $choice instanceof Footnote
-                    || $choice instanceof FootNoteRef));
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function canAddTag ($choice): bool
+  {
+    return ($choice
+            && ($choice instanceof LinkHtml
+                || $choice instanceof Sub
+                || $choice instanceof Sup
+                || $choice instanceof Footnote
+                || $choice instanceof FootNoteRef));
+  }
 
 }

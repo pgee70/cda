@@ -44,37 +44,38 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class EncounterParticipant extends AbstractElement implements TypeCodeInterface
 {
-    use TimeTrait;
-    use AssignedEntityTrait;
-    use TypeCodeTrait;
+  use TimeTrait;
+  use AssignedEntityTrait;
+  use TypeCodeTrait;
 
-    public function __construct(AssignedEntity $assigned_entity, string $type_code)
+  public function __construct (AssignedEntity $assigned_entity, string $type_code)
+  {
+    $this->setAssignedEntity($assigned_entity)
+      ->setAcceptableTypeCodes(TypeCodeInterface::x_EncounterParticipant)
+      ->setTypeCode($type_code);
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    if ($this->hasTime())
     {
-        $this->setAssignedEntity($assigned_entity)
-          ->setAcceptableTypeCodes(TypeCodeInterface::x_EncounterParticipant)
-          ->setTypeCode($type_code);
+      $el->appendChild($this->getTime()->toDOMElement($doc));
     }
+    $el->appendChild($this->getAssignedEntity()->toDOMElement($doc));
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-
-        if ($this->hasTime()) {
-            $el->appendChild($this->getTime()->toDOMElement($doc));
-        }
-        $el->appendChild($this->getAssignedEntity()->toDOMElement($doc));
-        return $el;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'encounterParticipant';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'encounterParticipant';
+  }
 
 }

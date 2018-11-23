@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Act\Encounter;
  */
 trait EncounterTrait
 {
-    /** @var Encounter */
-    private $encounter;
+  /** @var Encounter */
+  private $encounter;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderEncounter(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderEncounter (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasEncounter())
     {
-        if ($this->hasEncounter()) {
-            $el->appendChild($this->getEncounter()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getEncounter()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasEncounter(): bool
-    {
-        return null !== $this->encounter;
-    }
+  /**
+   * @return bool
+   */
+  public function hasEncounter (): bool
+  {
+    return NULL !== $this->encounter;
+  }
 
-    /**
-     * @return Encounter
-     */
-    public function getEncounter(): Encounter
-    {
-        return $this->encounter;
-    }
+  /**
+   * @return Encounter
+   */
+  public function getEncounter (): Encounter
+  {
+    return $this->encounter;
+  }
 
-    /**
-     * @param Encounter $encounter
-     *
-     * @return self
-     */
-    public function setEncounter(Encounter $encounter): self
-    {
-        $this->encounter = $encounter;
-        return $this;
-    }
+  /**
+   * @param Encounter $encounter
+   *
+   * @return self
+   */
+  public function setEncounter (Encounter $encounter): self
+  {
+    $this->encounter = $encounter;
+    return $this;
+  }
 }

@@ -40,85 +40,85 @@ use i3Soft\CDA\tests\MyTestCase;
  */
 class TimeStamp_test extends MyTestCase
 {
-    public function test_EffectiveTime()
-    {
-        $ts = new TimeStamp();
-        $ts->setDate(\DateTime::createFromFormat(\DateTime::ATOM,
-          '2009-12-12T17:21:51-0500'));
+  public function test_EffectiveTime ()
+  {
+    $ts = new TimeStamp();
+    $ts->setDate(\DateTime::createFromFormat(\DateTime::ATOM,
+      '2009-12-12T17:21:51-0500'));
 
-        $doc = new \DOMDocument('1.0', 'UTF-8');
+    $doc = new \DOMDocument('1.0', 'UTF-8');
 
-        $el = $doc->createElement('effectiveTime');
-        $doc->appendChild($el);
+    $el = $doc->createElement('effectiveTime');
+    $doc->appendChild($el);
 
-        $ts->setValueToElement($el, $doc);
+    $ts->setValueToElement($el, $doc);
 
-        $expected = <<<'CDA'
+    $expected = <<<'CDA'
 <effectiveTime value="20091212172151"/>
 CDA;
 
-        $this->assertXmlStringEqualsXmlString($expected, $doc->saveXML($el));
-    }
+    $this->assertXmlStringEqualsXmlString($expected, $doc->saveXML($el));
+  }
 
-    public function test_WithPrecision()
-    {
-        $ts = new TimeStamp();
-        $ts->setDate(\DateTime::createFromFormat(\DateTime::ATOM, '2009-12-12T17:21:51-0500'))
-          ->setPrecision(TimeStamp::PRECISION_DAY);
+  public function test_WithPrecision ()
+  {
+    $ts = new TimeStamp();
+    $ts->setDate(\DateTime::createFromFormat(\DateTime::ATOM, '2009-12-12T17:21:51-0500'))
+      ->setPrecision(TimeStamp::PRECISION_DAY);
 
-        $doc = new \DOMDocument('1.0', 'UTF-8');
+    $doc = new \DOMDocument('1.0', 'UTF-8');
 
-        $el = $doc->createElement('effectiveTime');
-        $doc->appendChild($el);
+    $el = $doc->createElement('effectiveTime');
+    $doc->appendChild($el);
 
-        $ts->setValueToElement($el, $doc);
+    $ts->setValueToElement($el, $doc);
 
-        $expected = <<<'CDA'
+    $expected = <<<'CDA'
 <effectiveTime value="20091212"/>
 CDA;
 
-        $this->assertXmlStringEqualsXmlString($expected, $doc->saveXML($el));
-    }
+    $this->assertXmlStringEqualsXmlString($expected, $doc->saveXML($el));
+  }
 
-    public function test_WithOffsetOnFalse()
-    {
-        $ts = new TimeStamp();
-        $ts->setDate(\DateTime::createFromFormat(\DateTime::ATOM, '2009-12-12T17:21:51-0500'))
-          ->setPrecision(TimeStamp::PRECISION_SECONDS);
+  public function test_WithOffsetOnFalse ()
+  {
+    $ts = new TimeStamp();
+    $ts->setDate(\DateTime::createFromFormat(\DateTime::ATOM, '2009-12-12T17:21:51-0500'))
+      ->setPrecision(TimeStamp::PRECISION_SECONDS);
 
-        $doc = new \DOMDocument('1.0', 'UTF-8');
+    $doc = new \DOMDocument('1.0', 'UTF-8');
 
-        $el = $doc->createElement('effectiveTime');
-        $doc->appendChild($el);
+    $el = $doc->createElement('effectiveTime');
+    $doc->appendChild($el);
 
-        $ts->setValueToElement($el, $doc);
+    $ts->setValueToElement($el, $doc);
 
-        $expected = <<<'CDA'
+    $expected = <<<'CDA'
 <effectiveTime value="20091212172151"/>
 CDA;
 
-        $this->assertXmlStringEqualsXmlString($expected, $doc->saveXML($el));
-    }
+    $this->assertXmlStringEqualsXmlString($expected, $doc->saveXML($el));
+  }
 
-    public function test_WithOffsetOnTrue()
-    {
-        $ts = new TimeStamp();
-        $ts->setDate(\DateTime::createFromFormat(\DateTime::ATOM,
-          '2009-12-12T17:21:51-0500'))
-          ->setPrecision(TimeStamp::PRECISION_SECONDS)
-          ->setOffset(true);
+  public function test_WithOffsetOnTrue ()
+  {
+    $ts = new TimeStamp();
+    $ts->setDate(\DateTime::createFromFormat(\DateTime::ATOM,
+      '2009-12-12T17:21:51-0500'))
+      ->setPrecision(TimeStamp::PRECISION_SECONDS)
+      ->setOffset(TRUE);
 
-        $doc = new \DOMDocument('1.0', 'UTF-8');
+    $doc = new \DOMDocument('1.0', 'UTF-8');
 
-        $el = $doc->createElement('effectiveTime');
-        $doc->appendChild($el);
+    $el = $doc->createElement('effectiveTime');
+    $doc->appendChild($el);
 
-        $ts->setValueToElement($el, $doc);
+    $ts->setValueToElement($el, $doc);
 
-        $expected = <<<'CDA'
+    $expected = <<<'CDA'
 <effectiveTime value="20091212172151-0500"/>
 CDA;
 
-        $this->assertXmlStringEqualsXmlString($expected, $doc->saveXML($el));
-    }
+    $this->assertXmlStringEqualsXmlString($expected, $doc->saveXML($el));
+  }
 }

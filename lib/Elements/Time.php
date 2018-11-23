@@ -34,58 +34,59 @@ use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
  */
 class Time extends AbstractElement
 {
-    /**
-     *
-     * @var TimeStamp
-     */
-    protected $time;
+  /**
+   *
+   * @var TimeStamp
+   */
+  protected $time;
 
-    /**
-     * Time constructor.
-     *
-     * @param null $time
-     */
-    public function __construct($time)
-    {
-        $this->setTime($time);
-    }
+  /**
+   * Time constructor.
+   *
+   * @param null $time
+   */
+  public function __construct ($time)
+  {
+    $this->setTime($time);
+  }
 
-    /**
-     * @return TimeStamp|IntervalOfTime
-     */
-    public function getTime()
-    {
-        return $this->time;
-    }
+  /**
+   * @return TimeStamp|IntervalOfTime
+   */
+  public function getTime ()
+  {
+    return $this->time;
+  }
 
-    /**
-     * @param TimeStamp|IntervalOfTime $in
-     *
-     * @return self
-     */
-    public function setTime($in): self
+  /**
+   * @param TimeStamp|IntervalOfTime $in
+   *
+   * @return self
+   */
+  public function setTime ($in): self
+  {
+    if ($in instanceof TimeStamp || $in instanceof IntervalOfTime || $in instanceof PeriodicIntervalOfTime)
     {
-        if ($in instanceof TimeStamp || $in instanceof IntervalOfTime || $in instanceof PeriodicIntervalOfTime) {
-            $this->time = $in;
-        }
-        return $this;
+      $this->time = $in;
     }
+    return $this;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, array('time'));
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, array('time'));
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'time';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'time';
+  }
 }

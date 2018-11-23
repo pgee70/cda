@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Entity\RepresentedOrganization;
  */
 trait RepresentedOrganizationTrait
 {
-    /** @var RepresentedOrganization */
-    private $representedOrganization;
+  /** @var RepresentedOrganization */
+  private $representedOrganization;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderRepresentedOrganization(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderRepresentedOrganization (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasRepresentedOrganization())
     {
-        if ($this->hasRepresentedOrganization()) {
-            $el->appendChild($this->getRepresentedOrganization()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getRepresentedOrganization()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasRepresentedOrganization(): bool
-    {
-        return null !== $this->representedOrganization;
-    }
+  /**
+   * @return bool
+   */
+  public function hasRepresentedOrganization (): bool
+  {
+    return NULL !== $this->representedOrganization;
+  }
 
-    /**
-     * @return RepresentedOrganization
-     */
-    public function getRepresentedOrganization(): RepresentedOrganization
-    {
-        return $this->representedOrganization;
-    }
+  /**
+   * @return RepresentedOrganization
+   */
+  public function getRepresentedOrganization (): RepresentedOrganization
+  {
+    return $this->representedOrganization;
+  }
 
-    /**
-     * @param RepresentedOrganization $representedOrganization
-     *
-     * @return self
-     */
-    public function setRepresentedOrganization(RepresentedOrganization $representedOrganization): self
-    {
-        $this->representedOrganization = $representedOrganization;
-        return $this;
-    }
+  /**
+   * @param RepresentedOrganization $representedOrganization
+   *
+   * @return self
+   */
+  public function setRepresentedOrganization (RepresentedOrganization $representedOrganization): self
+  {
+    $this->representedOrganization = $representedOrganization;
+    return $this;
+  }
 }

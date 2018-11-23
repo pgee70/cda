@@ -40,55 +40,59 @@ use i3Soft\CDA\Elements\EffectiveTime;
  */
 trait EffectiveTimeTrait
 {
-    /** @var  EffectiveTime */
-    private $effectiveTime;
+  /** @var  EffectiveTime */
+  private $effectiveTime;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderEffectiveTime(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderEffectiveTime (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasEffectiveTime())
     {
-        if ($this->hasEffectiveTime()) {
-            $el->appendChild($this->getEffectiveTime()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getEffectiveTime()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasEffectiveTime(): bool
-    {
-        return null !== $this->effectiveTime;
-    }
+  /**
+   * @return bool
+   */
+  public function hasEffectiveTime (): bool
+  {
+    return NULL !== $this->effectiveTime;
+  }
 
-    /**
-     * @return EffectiveTime
-     */
-    public function getEffectiveTime(): EffectiveTime
-    {
-        return $this->effectiveTime;
-    }
+  /**
+   * @return EffectiveTime
+   */
+  public function getEffectiveTime (): EffectiveTime
+  {
+    return $this->effectiveTime;
+  }
 
-    /**
-     * can take a number of input parameter class types, converts to effective time.
-     *
-     * @param TimeStamp|PeriodicIntervalOfTime|IntervalOfTime|EffectiveTime $in
-     *
-     * @return self
-     */
-    public function setEffectiveTime($in): self
+  /**
+   * can take a number of input parameter class types, converts to effective time.
+   *
+   * @param TimeStamp|PeriodicIntervalOfTime|IntervalOfTime|EffectiveTime $in
+   *
+   * @return self
+   */
+  public function setEffectiveTime ($in): self
+  {
+    if ($in instanceof TimeStamp
+        || $in instanceof PeriodicIntervalOfTime
+        || $in instanceof IntervalOfTime)
     {
-        if ($in instanceof TimeStamp
-            || $in instanceof PeriodicIntervalOfTime
-            || $in instanceof IntervalOfTime) {
-            $this->effectiveTime = new EffectiveTime($in);
-        } elseif ($in instanceof EffectiveTime) {
-            $this->effectiveTime = $in;
-        }
-        return $this;
+      $this->effectiveTime = new EffectiveTime($in);
     }
+    elseif ($in instanceof EffectiveTime)
+    {
+      $this->effectiveTime = $in;
+    }
+    return $this;
+  }
 }

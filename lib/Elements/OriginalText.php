@@ -44,17 +44,17 @@ namespace i3Soft\CDA\Elements;
 class OriginalText extends AbstractSimpleElement
 {
 
-    public static function fromString(string $value): OriginalText
-    {
-        return new self($value);
-    }
+  public static function fromString (string $value): OriginalText
+  {
+    return new self($value);
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'originalText';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'originalText';
+  }
 
 }

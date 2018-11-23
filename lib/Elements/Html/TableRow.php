@@ -33,176 +33,179 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 class TableRow extends AbstractElement
 {
-    /**
-     *
-     * @var TableCell[]
-     */
-    private $cells;
+  /**
+   *
+   * @var TableCell[]
+   */
+  private $cells;
 
-    /**
-     * a reference to the section this row is attached to
-     *
-     * @var AbstractTableSection
-     */
-    private $section;
+  /**
+   * a reference to the section this row is attached to
+   *
+   * @var AbstractTableSection
+   */
+  private $section;
 
-    /**
-     *
-     * @var ReferenceType
-     */
-    private $reference;
+  /**
+   *
+   * @var ReferenceType
+   */
+  private $reference;
 
-    /**
-     * TableRow constructor.
-     *
-     * @param AbstractTableSection $section
-     */
-    public function __construct(AbstractTableSection $section = null)
+  /**
+   * TableRow constructor.
+   *
+   * @param AbstractTableSection $section
+   */
+  public function __construct (AbstractTableSection $section = NULL)
+  {
+    $this->section = $section;
+  }
+
+  /**
+   *
+   * @param string $content
+   *
+   * @param null   $type
+   *
+   * @return TableCell
+   */
+  public function createCell ($content, $type = NULL): TableCell
+  {
+    if (NULL === $type)
     {
-        $this->section = $section;
+      $type = $this->getSection() instanceof TableHead
+        ? TableCell::TH
+        : TableCell::TD;
+    }
+    $cell = new TableCell(
+      $type,
+      $this,
+      $content);
+    $this->addCell($cell);
+    return $cell;
+  }
+
+  /**
+   * @return AbstractTableSection
+   */
+  public function getSection (): AbstractTableSection
+  {
+    return $this->section;
+  }
+
+  /**
+   * @param AbstractTableSection $section
+   *
+   * @return self
+   */
+  public function setSection (AbstractTableSection $section): self
+  {
+    $this->section = $section;
+    return $this;
+  }
+
+  /**
+   *
+   * @param TableCell $cell
+   *
+   * @return self
+   */
+  public function addCell (TableCell $cell): self
+  {
+    $cell->setRow($this);
+
+    $this->cells[] = $cell;
+
+    return $this;
+  }
+
+  /**
+   *
+   * @return boolean
+   */
+  public function isEmpty (): bool
+  {
+    return \count($this->getCells()) > 0;
+  }
+
+  /**
+   *
+   * @return TableCell[]
+   */
+  public function getCells (): array
+  {
+    return $this->cells;
+  }
+
+  /**
+   * @param array $cells
+   *
+   * @return self
+   */
+  public function setCells (array $cells): self
+  {
+    $this->cells = $cells;
+    return $this;
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    if ($this->hasReference())
+    {
+      $this->getReference()->setValueToElement($el, $doc);
     }
 
-    /**
-     *
-     * @param string $content
-     *
-     * @param null   $type
-     *
-     * @return TableCell
-     */
-    public function createCell($content, $type = null): TableCell
+    foreach ($this->getCells() as $cell)
     {
-        if (null === $type) {
-            $type = $this->getSection() instanceof TableHead
-              ? TableCell::TH
-              : TableCell::TD;
-        }
-        $cell = new TableCell(
-          $type,
-          $this,
-          $content);
-        $this->addCell($cell);
-        return $cell;
+      $el->appendChild($cell->toDOMElement($doc));
     }
 
-    /**
-     * @return AbstractTableSection
-     */
-    public function getSection(): AbstractTableSection
-    {
-        return $this->section;
-    }
+    return $el;
+  }
 
-    /**
-     * @param AbstractTableSection $section
-     *
-     * @return self
-     */
-    public function setSection(AbstractTableSection $section): self
-    {
-        $this->section = $section;
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasReference (): bool
+  {
+    return NULL !== $this->reference;
+  }
 
-    /**
-     *
-     * @param TableCell $cell
-     *
-     * @return self
-     */
-    public function addCell(TableCell $cell): self
-    {
-        $cell->setRow($this);
+  /**
+   *
+   * @return ReferenceType
+   */
+  public function getReference (): ReferenceType
+  {
+    return $this->reference;
+  }
 
-        $this->cells[] = $cell;
+  /**
+   *
+   * @param ReferenceType $reference
+   *
+   * @return self
+   */
+  public function setReference (ReferenceType $reference): self
+  {
+    $this->reference = $reference;
 
-        return $this;
-    }
+    return $this;
+  }
 
-    /**
-     *
-     * @return boolean
-     */
-    public function isEmpty(): bool
-    {
-        return \count($this->getCells()) > 0;
-    }
-
-    /**
-     *
-     * @return TableCell[]
-     */
-    public function getCells(): array
-    {
-        return $this->cells;
-    }
-
-    /**
-     * @param array $cells
-     *
-     * @return self
-     */
-    public function setCells(array $cells): self
-    {
-        $this->cells = $cells;
-        return $this;
-    }
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-
-        if ($this->hasReference()) {
-            $this->getReference()->setValueToElement($el, $doc);
-        }
-
-        foreach ($this->getCells() as $cell) {
-            $el->appendChild($cell->toDOMElement($doc));
-        }
-
-        return $el;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasReference(): bool
-    {
-        return null !== $this->reference;
-    }
-
-    /**
-     *
-     * @return ReferenceType
-     */
-    public function getReference(): ReferenceType
-    {
-        return $this->reference;
-    }
-
-    /**
-     *
-     * @param ReferenceType $reference
-     *
-     * @return self
-     */
-    public function setReference(ReferenceType $reference): self
-    {
-        $this->reference = $reference;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'tr';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'tr';
+  }
 }

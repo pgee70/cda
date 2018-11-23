@@ -32,49 +32,51 @@ use i3Soft\CDA\Elements\Quantity;
 
 trait QuantitiesTrait
 {
-    /** @var  Quantity[] */
-    private $quantities = [];
+  /** @var  Quantity[] */
+  private $quantities = [];
 
-    /**
-     * @param Quantity $quantity
-     *
-     * @return self
-     */
-    public function addQuantity(Quantity $quantity): self
-    {
-        $this->quantities[] = $quantity;
-        return $this;
-    }
+  /**
+   * @param Quantity $quantity
+   *
+   * @return self
+   */
+  public function addQuantity (Quantity $quantity): self
+  {
+    $this->quantities[] = $quantity;
+    return $this;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderQuantities(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderQuantities (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasQuantities())
     {
-        if ($this->hasQuantities()) {
-            foreach ($this->getQuantities() as $quantity) {
-                $el->appendChild($quantity->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getQuantities() as $quantity)
+      {
+        $el->appendChild($quantity->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasQuantities(): bool
-    {
-        return \count($this->quantities) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasQuantities (): bool
+  {
+    return \count($this->quantities) > 0;
+  }
 
-    /**
-     * @return Quantity[]
-     */
-    public function getQuantities(): array
-    {
-        return $this->quantities;
-    }
+  /**
+   * @return Quantity[]
+   */
+  public function getQuantities (): array
+  {
+    return $this->quantities;
+  }
 }

@@ -37,65 +37,69 @@ use i3Soft\CDA\Elements\Address\Addr;
  */
 trait AddrsTrait
 {
-    /** @var Addr[] */
-    private $addrs = [];
+  /** @var Addr[] */
+  private $addrs = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAddrs(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAddrs (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAddrs())
     {
-        if ($this->hasAddrs()) {
-            foreach ($this->getAddrs() as $addr) {
-                $el->appendChild($addr->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getAddrs() as $addr)
+      {
+        $el->appendChild($addr->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAddrs(): bool
-    {
-        return \count($this->addrs) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAddrs (): bool
+  {
+    return \count($this->addrs) > 0;
+  }
 
-    /**
-     * @return Addr[]
-     */
-    public function getAddrs(): array
-    {
-        return $this->addrs;
-    }
+  /**
+   * @return Addr[]
+   */
+  public function getAddrs (): array
+  {
+    return $this->addrs;
+  }
 
-    /**
-     * @param Addr[] $addrs
-     *
-     * @return self
-     */
-    public function setAddrs(array $addrs): self
+  /**
+   * @param Addr[] $addrs
+   *
+   * @return self
+   */
+  public function setAddrs (array $addrs): self
+  {
+    foreach ($addrs as $addr)
     {
-        foreach ($addrs as $addr) {
-            if ($addr instanceof Addr) {
-                $this->addAddr($addr);
-            }
-        }
-        return $this;
+      if ($addr instanceof Addr)
+      {
+        $this->addAddr($addr);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param Addr $addr
-     *
-     * @return self
-     */
-    public function addAddr(Addr $addr): self
-    {
-        $this->addrs[] = $addr;
-        return $this;
-    }
+  /**
+   * @param Addr $addr
+   *
+   * @return self
+   */
+  public function addAddr (Addr $addr): self
+  {
+    $this->addrs[] = $addr;
+    return $this;
+  }
 
 }

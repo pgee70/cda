@@ -45,54 +45,54 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 class ExtEntityName extends AbstractElement
 {
-    protected $name;
+  protected $name;
 
-    /**
-     * ExtEntityName constructor.
-     *
-     * @param SimpleString $name
-     */
-    public function __construct(SimpleString $name)
-    {
-        $this->setName($name);
-    }
+  /**
+   * ExtEntityName constructor.
+   *
+   * @param SimpleString $name
+   */
+  public function __construct (SimpleString $name)
+  {
+    $this->setName($name);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->getName()->setValueToElement($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->getName()->setValueToElement($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @return SimpleString
-     */
-    public function getName(): SimpleString
-    {
-        return $this->name;
-    }
+  /**
+   * @return SimpleString
+   */
+  public function getName (): SimpleString
+  {
+    return $this->name;
+  }
 
-    /**
-     * @param SimpleString $name
-     *
-     * @return ExtEntityName
-     */
-    public function setName(SimpleString $name): ExtEntityName
-    {
-        $this->name = $name;
-        return $this;
-    }
+  /**
+   * @param SimpleString $name
+   *
+   * @return ExtEntityName
+   */
+  public function setName (SimpleString $name): ExtEntityName
+  {
+    $this->name = $name;
+    return $this;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:name';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:name';
+  }
 }

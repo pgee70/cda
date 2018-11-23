@@ -64,17 +64,17 @@ use i3Soft\CDA\tests\MyTestCase;
 class Supply_test extends MyTestCase
 {
 
-    /**
-     * example taken and adapted from
-     *
-     * @link https://wiki.ihe.net/index.php/CDA_Entry_Content_Modules#Specification_16
-     * note that exmplar on the site had the sequence numbers different from the xsd document  so performer
-     *  and author tags were change around
-     */
+  /**
+   * example taken and adapted from
+   *
+   * @link https://wiki.ihe.net/index.php/CDA_Entry_Content_Modules#Specification_16
+   * note that exmplar on the site had the sequence numbers different from the xsd document  so performer
+   *  and author tags were change around
+   */
 
-    public function test_tag()
-    {
-        $expected = <<<'CDA'
+  public function test_tag ()
+  {
+    $expected = <<<'CDA'
 <supply classCode='SPLY' moodCode='INT'>
 	<templateId root='2.16.840.1.113883.10.20.1.34'/>
 	<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.7.3'/>
@@ -115,67 +115,67 @@ class Supply_test extends MyTestCase
 </supply>
 
 CDA;
-        $tag      = (new Supply())
-          ->setMoodCode(\i3Soft\CDA\Interfaces\MoodCodeInterface::INTENT)
-          ->addTemplateId(new InstanceIdentifier('2.16.840.1.113883.10.20.1.34'))
-          ->addTemplateId(new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.4.7.3'))
-          ->returnSupply()
-          ->addId(Id::fromString('abc', 'def'))
-          ->returnSupply()
-          ->setRepeatNumber(new RepeatNumber('2'))
-          ->setQuantity(Quantity::fromString('mg', '5'))
-          ->addAuthor(
-            (new Author())
-              ->setTypeCode('')
-              ->setTime(TimeStamp::fromString('2018-01-01 12:35', '+1100'))
-              ->setAssignedAuthor(
-                (new AssignedAuthor())
+    $tag      = (new Supply())
+      ->setMoodCode(\i3Soft\CDA\Interfaces\MoodCodeInterface::INTENT)
+      ->addTemplateId(new InstanceIdentifier('2.16.840.1.113883.10.20.1.34'))
+      ->addTemplateId(new InstanceIdentifier('1.3.6.1.4.1.19376.1.5.3.1.4.7.3'))
+      ->returnSupply()
+      ->addId(Id::fromString('abc', 'def'))
+      ->returnSupply()
+      ->setRepeatNumber(new RepeatNumber('2'))
+      ->setQuantity(Quantity::fromString('mg', '5'))
+      ->addAuthor(
+        (new Author())
+          ->setTypeCode('')
+          ->setTime(TimeStamp::fromString('2018-01-01 12:35', '+1100'))
+          ->setAssignedAuthor(
+            (new AssignedAuthor())
+              ->setClassCode('')
+              ->addId(Id::fromString('qwerty', 'uiop'))
+              ->addAddr(new Addr())
+              ->addTelecom(new Telecom(AddressCodeType::BUSINESS, '123456789'))
+              ->setAssignedPerson(
+                (new AssignedPerson(
+                  (new Set(PersonName::class))
+                    ->add((new PersonName())
+                      ->setUseAttribute(UseAttributeInterface::LEGAL_NAME)
+                      ->addPart(PersonName::HONORIFIC, 'Dr')
+                      ->addPart(PersonName::FIRST_NAME, 'Bone')
+                      ->addPart(PersonName::LAST_NAME, 'Doctor'))))
                   ->setClassCode('')
-                  ->addId(Id::fromString('qwerty', 'uiop'))
-                  ->addAddr(new Addr())
-                  ->addTelecom(new Telecom(AddressCodeType::BUSINESS, '123456789'))
-                  ->setAssignedPerson(
-                    (new AssignedPerson(
-                      (new Set(PersonName::class))
-                        ->add((new PersonName())
-                          ->setUseAttribute(UseAttributeInterface::LEGAL_NAME)
-                          ->addPart(PersonName::HONORIFIC, 'Dr')
-                          ->addPart(PersonName::FIRST_NAME, 'Bone')
-                          ->addPart(PersonName::LAST_NAME, 'Doctor'))))
-                      ->setClassCode('')
-                  )
-                  ->setRepresentedOrganization(
-                    (new RepresentedOrganization())
-                      ->setClassCode('')
-                      ->addName(new EntityName())
-                  )
+              )
+              ->setRepresentedOrganization(
+                (new RepresentedOrganization())
+                  ->setClassCode('')
+                  ->addName(new EntityName())
               )
           )
-          ->addPerformer(
-            (new Performer())
-              ->setTypeCode(TypeCodeInterface::PERFORMER)
-              ->setTime(TimeStamp::fromString('2018-01-01 12:35', '+1100'))
-              ->setAssignedEntity(
-                (new AssignedEntity(Id::fromString('asdf', 'ghjk')))
+      )
+      ->addPerformer(
+        (new Performer())
+          ->setTypeCode(TypeCodeInterface::PERFORMER)
+          ->setTime(TimeStamp::fromString('2018-01-01 12:35', '+1100'))
+          ->setAssignedEntity(
+            (new AssignedEntity(Id::fromString('asdf', 'ghjk')))
+              ->setClassCode('')
+              ->addAddr(new Addr())
+              ->addTelecom(new Telecom(AddressCodeType::BUSINESS, '789456132'))
+              ->setRepresentedOrganization(
+                (new RepresentedOrganization())
                   ->setClassCode('')
-                  ->addAddr(new Addr())
-                  ->addTelecom(new Telecom(AddressCodeType::BUSINESS, '789456132'))
-                  ->setRepresentedOrganization(
-                    (new RepresentedOrganization())
-                      ->setClassCode('')
-                      ->addName(new EntityName())
-                  )
+                  ->addName(new EntityName())
               )
           )
-          ->addEntryRelationship((new EntryRelationship())->setTypeCode(TypeCodeInterface::HAS_SUBJECT));
+      )
+      ->addEntryRelationship((new EntryRelationship())->setTypeCode(TypeCodeInterface::HAS_SUBJECT));
 
 
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $tag->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $tag->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }
 

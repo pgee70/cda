@@ -66,9 +66,9 @@ use i3Soft\CDA\tests\MyTestCase;
  */
 class Author_test extends MyTestCase
 {
-    public function test_Author()
-    {
-        $expected = <<<'CDA'
+  public function test_Author ()
+  {
+    $expected = <<<'CDA'
 <author typeCode="AUT">
     <time value="2000040714"/>
     <assignedAuthor classCode="ASSIGNED">
@@ -84,34 +84,34 @@ class Author_test extends MyTestCase
 </author>
 CDA;
 
-        $names = new Set(PersonName::class);
-        $names->add((new PersonName())
-          ->addPart(PersonName::FIRST_NAME, 'Robert')
-          ->addPart(PersonName::LAST_NAME, 'Dolin')
-          ->addPart(PersonName::SUFFIX, 'MD')
-        );
+    $names = new Set(PersonName::class);
+    $names->add((new PersonName())
+      ->addPart(PersonName::FIRST_NAME, 'Robert')
+      ->addPart(PersonName::LAST_NAME, 'Dolin')
+      ->addPart(PersonName::SUFFIX, 'MD')
+    );
 
-        $assigned_author = new AssignedAuthor(Id::fromString('2.16.840.1.113883.19.5', 'KP00017'));
-        $assigned_author->setAssignedPerson(new AssignedPerson($names));
+    $assigned_author = new AssignedAuthor(Id::fromString('2.16.840.1.113883.19.5', 'KP00017'));
+    $assigned_author->setAssignedPerson(new AssignedPerson($names));
 
-        $tag               = new Author(
-          (new TimeStamp(\DateTime::createFromFormat('Y-m-d-H:i', '2000-04-07-14:00')))->setPrecision(TimeStamp::PRECISION_HOURS),
-          $assigned_author
-        );
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $tag->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag               = new Author(
+      (new TimeStamp(\DateTime::createFromFormat('Y-m-d-H:i', '2000-04-07-14:00')))->setPrecision(TimeStamp::PRECISION_HOURS),
+      $assigned_author
+    );
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $tag->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    /**
-     * see page 79 of EventSummary_CDAImplementationGuide_v1.3.pdf
-     */
-    public function test_australian_extension()
-    {
-        $expected = <<<CDA
+  /**
+   * see page 79 of EventSummary_CDAImplementationGuide_v1.3.pdf
+   */
+  public function test_australian_extension ()
+  {
+    $expected = <<<CDA
 <author>
 <!-- Must hold same value as DateTime attested (ClinicalDocument.legalAuthenticator.time) -->
     <time value="20091020123500+1000"/>
@@ -190,68 +190,68 @@ CDA;
 </author>
 CDA;
 
-        $names           = (new Set(PersonName::class))
-          ->add((new PersonName())
-            ->addPart(PersonName::HONORIFIC, 'Dr.')
-            ->addPart(PersonName::FIRST_NAME, 'Good')
-            ->addPart(PersonName::LAST_NAME, 'Doctor')
-          );
-        $assigned_author = new AssignedAuthor(
-          Id::fromString('7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085'),
+    $names           = (new Set(PersonName::class))
+      ->add((new PersonName())
+        ->addPart(PersonName::HONORIFIC, 'Dr.')
+        ->addPart(PersonName::FIRST_NAME, 'Good')
+        ->addPart(PersonName::LAST_NAME, 'Doctor')
+      );
+    $assigned_author = new AssignedAuthor(
+      Id::fromString('7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085'),
+      Code::Occupation(253111),
+      (new Addr(
+        '1 Clinician street',
+        'Nehtaville',
+        'QLD',
+        '5555',
+        '32568931'
+      ))->setCountry(new Country('Australia'))
+        ->setUseAttribute(new AddressCodeType('WP')),
+      array(new Telecom('WP', 'tel:0712341234'),),
+      (new AssignedPerson(
+        $names,
+        new AsEntityIdentifier(
+          new ExtId('HPI-I', '1.2.36.1.2001.1003.0', '8003619900015717'),
+          new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
+        ),
+        new AsEmployment(
+          new ExtCode(new OriginalText('GP')),
           Code::Occupation(253111),
-          (new Addr(
-            '1 Clinician street',
-            'Nehtaville',
-            'QLD',
-            '5555',
-            '32568931'
-          ))->setCountry(new Country('Australia'))
-            ->setUseAttribute(new AddressCodeType('WP')),
-          array(new Telecom('WP', 'tel:0712341234'),),
-          (new AssignedPerson(
-            $names,
-            new AsEntityIdentifier(
-              new ExtId('HPI-I', '1.2.36.1.2001.1003.0', '8003619900015717'),
-              new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
-            ),
-            new AsEmployment(
-              new ExtCode(new OriginalText('GP')),
-              Code::Occupation(253111),
-              new JobClassCode(JobClassCode::CODE_FULL_TIME),
-              new ExtEmployerOrganization(
-                new EntityName('ACME Hospital One'),
-                new AsOrganizationPartOf(
-                  new WholeOrganisation(
-                    (new EntityName('ACME Hospital Group'))->setUseAttribute('ORGB'),
-                    new AsEntityIdentifier(
-                      new ExtId('HPI-O', '1.2.36.1.2001.1003.0', '8003621566684455'),
-                      new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
-                    ),
-                    (new Addr(
-                      '1 Clinician street',
-                      'Nehtaville',
-                      'QLD',
-                      '5555',
-                      '32568931'))->setUseAttribute('WP'),
-                    new Telecom('WP', 'tel:0712341234')
-                  )
-                )
+          new JobClassCode(JobClassCode::CODE_FULL_TIME),
+          new ExtEmployerOrganization(
+            new EntityName('ACME Hospital One'),
+            new AsOrganizationPartOf(
+              new WholeOrganisation(
+                (new EntityName('ACME Hospital Group'))->setUseAttribute('ORGB'),
+                new AsEntityIdentifier(
+                  new ExtId('HPI-O', '1.2.36.1.2001.1003.0', '8003621566684455'),
+                  new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
+                ),
+                (new Addr(
+                  '1 Clinician street',
+                  'Nehtaville',
+                  'QLD',
+                  '5555',
+                  '32568931'))->setUseAttribute('WP'),
+                new Telecom('WP', 'tel:0712341234')
               )
-            ),
-            new AsQualifications(new ExtCode(new OriginalText('M.B.B.S')))
-          ))->setClassCode(''));
-        $assigned_author->setClassCode('');
+            )
+          )
+        ),
+        new AsQualifications(new ExtCode(new OriginalText('M.B.B.S')))
+      ))->setClassCode(''));
+    $assigned_author->setClassCode('');
 
-        $tag = new Author(
-          (new TimeStamp(new \DateTime('200910201235+1000')))->setOffset(true),
-          $assigned_author
-        );
-        $tag->setTypeCode('');
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $tag->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag = new Author(
+      (new TimeStamp(new \DateTime('200910201235+1000')))->setOffset(TRUE),
+      $assigned_author
+    );
+    $tag->setTypeCode('');
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $tag->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

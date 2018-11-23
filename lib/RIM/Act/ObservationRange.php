@@ -54,47 +54,50 @@ use i3Soft\CDA\Traits\ValueTrait;
  */
 class ObservationRange extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {
-    use CodedValueTrait;
-    use CodeTrait;
-    use TextTrait;
-    use ValueTrait;
-    use InterpretationCodeTrait;
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  use CodedValueTrait;
+  use CodeTrait;
+  use TextTrait;
+  use ValueTrait;
+  use InterpretationCodeTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    public function __construct()
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(array_merge([''], ClassCodeInterface::ActClassObservation))
+      ->setAcceptableMoodCodes(['', MoodCodeInterface::EVENT_CRITERION])
+      ->setClassCode('')
+      ->setMoodCode('');
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    if ($this->hasCode())
     {
-        $this->setAcceptableClassCodes(array_merge([''], ClassCodeInterface::ActClassObservation))
-          ->setAcceptableMoodCodes(['', MoodCodeInterface::EVENT_CRITERION])
-          ->setClassCode('')
-          ->setMoodCode('');
+      $this->renderCode($el, $doc);
     }
-
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+    elseif ($this->hasCodedValue())
     {
-        $el = $this->createElement($doc);
-
-        if ($this->hasCode()) {
-            $this->renderCode($el, $doc);
-        } elseif ($this->hasCodedValue()) {
-            $this->renderCodedValue($el, $doc);
-        }
-        $this->renderText($el, $doc);
-        $this->renderValue($el, $doc);
-        $this->renderInterpretationCode($el, $doc);
-        return $el;
+      $this->renderCodedValue($el, $doc);
     }
+    $this->renderText($el, $doc);
+    $this->renderValue($el, $doc);
+    $this->renderInterpretationCode($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'observationRange';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'observationRange';
+  }
 
 
 }

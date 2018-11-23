@@ -38,134 +38,136 @@ use i3Soft\CDA\DataType\AnyType;
  */
 class InstanceIdentifier extends AnyType
 {
-    /**
-     *
-     * @var string
-     */
-    private $root;
+  /**
+   *
+   * @var string
+   */
+  private $root;
 
-    /**
-     *
-     * @var string
-     */
-    private $extension;
+  /**
+   *
+   * @var string
+   */
+  private $extension;
 
-    /**
-     *
-     * @var string
-     */
-    private $assigningAuthorityName;
+  /**
+   *
+   * @var string
+   */
+  private $assigningAuthorityName;
 
-    /**
-     * InstanceIdentifier constructor.
-     *
-     * @param      $root
-     * @param null $extension
-     * @param null $assigningAuthorityName
-     */
-    public function __construct(
-      $root,
-      $extension = null,
-      $assigningAuthorityName = null
-    ) {
-        $this->root                   = $root;
-        $this->extension              = $extension;
-        $this->assigningAuthorityName = $assigningAuthorityName;
-    }
+  /**
+   * InstanceIdentifier constructor.
+   *
+   * @param      $root
+   * @param null $extension
+   * @param null $assigningAuthorityName
+   */
+  public function __construct (
+    $root,
+    $extension = NULL,
+    $assigningAuthorityName = NULL
+  ) {
+    $this->root                   = $root;
+    $this->extension              = $extension;
+    $this->assigningAuthorityName = $assigningAuthorityName;
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    $el->setAttribute(CDA::getNS() . 'root', $this->getRoot());
+
+    if ($this->hasExtension())
     {
-        $el->setAttribute(CDA::NS_CDA . 'root', $this->getRoot());
-
-        if ($this->hasExtension()) {
-            $el->setAttribute(CDA::NS_CDA . 'extension', $this->getExtension());
-        }
-
-        if ($this->hasAssigningAuthorityName()) {
-            $el->setAttribute(
-              CDA::NS_CDA . 'assigningAuthorityName',
-              $this->getAssigningAuthorityName()
-            );
-        }
+      $el->setAttribute(CDA::getNS() . 'extension', $this->getExtension());
     }
 
-    /**
-     * @return string
-     */
-    public function getRoot(): string
+    if ($this->hasAssigningAuthorityName())
     {
-        return $this->root;
+      $el->setAttribute(
+        CDA::getNS() . 'assigningAuthorityName',
+        $this->getAssigningAuthorityName()
+      );
     }
+  }
 
-    /**
-     * @param $root
-     *
-     * @return self
-     */
-    public function setRoot($root): self
-    {
-        $this->root = $root;
+  /**
+   * @return string
+   */
+  public function getRoot (): string
+  {
+    return $this->root;
+  }
 
-        return $this;
-    }
+  /**
+   * @param $root
+   *
+   * @return self
+   */
+  public function setRoot ($root): self
+  {
+    $this->root = $root;
 
-    /**
-     * @return bool
-     */
-    public function hasExtension(): bool
-    {
-        return $this->getExtension() !== null;
-    }
+    return $this;
+  }
 
-    /**
-     * @return null|string
-     */
-    public function getExtension()
-    {
-        return $this->extension;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtension (): bool
+  {
+    return $this->getExtension() !== NULL;
+  }
 
-    /**
-     * @param $extension
-     *
-     * @return self
-     */
-    public function setExtension($extension): self
-    {
-        $this->extension = $extension;
+  /**
+   * @return null|string
+   */
+  public function getExtension ()
+  {
+    return $this->extension;
+  }
 
-        return $this;
-    }
+  /**
+   * @param $extension
+   *
+   * @return self
+   */
+  public function setExtension ($extension): self
+  {
+    $this->extension = $extension;
 
-    /**
-     * @return bool
-     */
-    public function hasAssigningAuthorityName(): bool
-    {
-        return $this->getAssigningAuthorityName() !== null;
-    }
+    return $this;
+  }
 
-    /**
-     * @return null|string
-     */
-    public function getAssigningAuthorityName()
-    {
-        return $this->assigningAuthorityName;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAssigningAuthorityName (): bool
+  {
+    return $this->getAssigningAuthorityName() !== NULL;
+  }
 
-    /**
-     * @param $assigningAuthorityName
-     *
-     * @return self
-     */
-    public function setAssigningAuthorityName($assigningAuthorityName): self
-    {
-        $this->assigningAuthorityName = $assigningAuthorityName;
+  /**
+   * @return null|string
+   */
+  public function getAssigningAuthorityName ()
+  {
+    return $this->assigningAuthorityName;
+  }
 
-        return $this;
-    }
+  /**
+   * @param $assigningAuthorityName
+   *
+   * @return self
+   */
+  public function setAssigningAuthorityName ($assigningAuthorityName): self
+  {
+    $this->assigningAuthorityName = $assigningAuthorityName;
+
+    return $this;
+  }
 }

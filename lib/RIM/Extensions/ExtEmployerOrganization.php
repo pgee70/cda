@@ -46,80 +46,80 @@ use i3Soft\CDA\RIM\Role\AsOrganizationPartOf;
  */
 class ExtEmployerOrganization extends AbstractElement
 {
-    /** @var EntityName */
-    protected $name;
+  /** @var EntityName */
+  protected $name;
 
-    /** @var AsOrganizationPartOf */
-    protected $as_organization_part_of;
+  /** @var AsOrganizationPartOf */
+  protected $as_organization_part_of;
 
-    /**
-     * ExtEmployerOrganization constructor.
-     *
-     * @param EntityName           $name
-     * @param AsOrganizationPartOf $as_organization_part_of
-     */
-    public function __construct(EntityName $name, AsOrganizationPartOf $as_organization_part_of)
-    {
-        $this->setName($name)
-          ->setAsOrganizationPartOf($as_organization_part_of);
-    }
+  /**
+   * ExtEmployerOrganization constructor.
+   *
+   * @param EntityName           $name
+   * @param AsOrganizationPartOf $as_organization_part_of
+   */
+  public function __construct (EntityName $name, AsOrganizationPartOf $as_organization_part_of)
+  {
+    $this->setName($name)
+      ->setAsOrganizationPartOf($as_organization_part_of);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->getName()->setValueToElement($el, $doc);
-        $el->appendChild($this->getAsOrganizationPartOf()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->getName()->setValueToElement($el, $doc);
+    $el->appendChild($this->getAsOrganizationPartOf()->toDOMElement($doc));
+    return $el;
+  }
 
-    /**
-     * @return EntityName
-     */
-    public function getName(): EntityName
-    {
-        return $this->name;
-    }
+  /**
+   * @return EntityName
+   */
+  public function getName (): EntityName
+  {
+    return $this->name;
+  }
 
-    /**
-     * @param EntityName $name
-     *
-     * @return ExtEmployerOrganization
-     */
-    public function setName(EntityName $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
+  /**
+   * @param EntityName $name
+   *
+   * @return ExtEmployerOrganization
+   */
+  public function setName (EntityName $name): self
+  {
+    $this->name = $name;
+    return $this;
+  }
 
-    /**
-     * @return AsOrganizationPartOf
-     */
-    public function getAsOrganizationPartOf(): AsOrganizationPartOf
-    {
-        return $this->as_organization_part_of;
-    }
+  /**
+   * @return AsOrganizationPartOf
+   */
+  public function getAsOrganizationPartOf (): AsOrganizationPartOf
+  {
+    return $this->as_organization_part_of;
+  }
 
-    /**
-     * @param AsOrganizationPartOf $as_organisation_part_of
-     *
-     * @return ExtEmployerOrganization
-     */
-    public function setAsOrganizationPartOf(AsOrganizationPartOf $as_organisation_part_of): self
-    {
-        $this->as_organization_part_of = $as_organisation_part_of;
-        return $this;
-    }
+  /**
+   * @param AsOrganizationPartOf $as_organisation_part_of
+   *
+   * @return ExtEmployerOrganization
+   */
+  public function setAsOrganizationPartOf (AsOrganizationPartOf $as_organisation_part_of): self
+  {
+    $this->as_organization_part_of = $as_organisation_part_of;
+    return $this;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:employerOrganization';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:employerOrganization';
+  }
 }

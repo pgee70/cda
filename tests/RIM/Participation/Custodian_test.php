@@ -55,17 +55,17 @@ use i3Soft\CDA\tests\MyTestCase;
  */
 class Custodian_test extends MyTestCase
 {
-    public function test_Custodian()
-    {
-        $names         = (new Set(EntityName::class))
-          ->add(new EntityName('ABRUMET asbl'));
-        $reprCustodian = new RepresentedCustodianOrganization($names, Id::fromString('82112744-ea24-11e6-95be-17f96f76d55c'));
+  public function test_Custodian ()
+  {
+    $names         = (new Set(EntityName::class))
+      ->add(new EntityName('ABRUMET asbl'));
+    $reprCustodian = new RepresentedCustodianOrganization($names, Id::fromString('82112744-ea24-11e6-95be-17f96f76d55c'));
 
-        $assignedCustodian = new AssignedCustodian($reprCustodian);
+    $assignedCustodian = new AssignedCustodian($reprCustodian);
 
-        $custodian = new Custodian($assignedCustodian);
+    $custodian = new Custodian($assignedCustodian);
 
-        $expected    = <<<'CDA'
+    $expected    = <<<'CDA'
  	  <custodian typeCode="CST">
  	    <assignedCustodian classCode="ASSIGNED">
  	      <representedCustodianOrganization classCode="ORG">
@@ -75,23 +75,23 @@ class Custodian_test extends MyTestCase
  	    </assignedCustodian>
  	  </custodian>
 CDA;
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
-        $expectedCustodian = $expectedDoc
-          ->getElementsByTagName('custodian')
-          ->item(0);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedCustodian = $expectedDoc
+      ->getElementsByTagName('custodian')
+      ->item(0);
 
-        $this->assertEqualXMLStructure($expectedCustodian,
-          $custodian->toDOMElement(new \DOMDocument()), true);
+    $this->assertEqualXMLStructure($expectedCustodian,
+      $custodian->toDOMElement(new \DOMDocument()), TRUE);
 
-    }
+  }
 
-    /**
-     * see page 55 of EventSummary_CDAImplementationGuide_v1.3.pdf
-     */
-    public function test_custodian_extended()
-    {
-        $expected     = <<<XML
+  /**
+   * see page 55 of EventSummary_CDAImplementationGuide_v1.3.pdf
+   */
+  public function test_custodian_extended ()
+  {
+    $expected     = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <custodian typeCode="CST">
   <assignedCustodian classCode="ASSIGNED">
@@ -117,30 +117,30 @@ CDA;
 </custodian>
 
 XML;
-        $rep_cust_org = new RepresentedCustodianOrganization(
-          (new Set(EntityName::class))->add(new EntityName('Custodian')),
-          Id::fromString('c9c04faf-d7a8-4802-8c69-980b0ce4d798')
-        );
-        $rep_cust_org->addTelecom(new Telecom('WP', 'tel:0712341234'))
-          ->addAddr(new Addr(
-            new StreetAddressLine('1 Clinician street'),
-            new City('Nethaville'),
-            new State('QLD'),
-            new PostalCode('5555'),
-            new AdditionalLocator('32568931')
-          ))
-          ->setAsEntityIdentifier(
-            new AsEntityIdentifier(
-              new ExtId('PAI-O', '1.2.36.1.2001.1007.1', '8003640001000036'),
-              new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
-            ));
-        $custodian         = new Custodian(
-          new AssignedCustodian($rep_cust_org));
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $custodian->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $rep_cust_org = new RepresentedCustodianOrganization(
+      (new Set(EntityName::class))->add(new EntityName('Custodian')),
+      Id::fromString('c9c04faf-d7a8-4802-8c69-980b0ce4d798')
+    );
+    $rep_cust_org->addTelecom(new Telecom('WP', 'tel:0712341234'))
+      ->addAddr(new Addr(
+        new StreetAddressLine('1 Clinician street'),
+        new City('Nethaville'),
+        new State('QLD'),
+        new PostalCode('5555'),
+        new AdditionalLocator('32568931')
+      ))
+      ->setAsEntityIdentifier(
+        new AsEntityIdentifier(
+          new ExtId('PAI-O', '1.2.36.1.2001.1007.1', '8003640001000036'),
+          new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
+        ));
+    $custodian         = new Custodian(
+      new AssignedCustodian($rep_cust_org));
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $custodian->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

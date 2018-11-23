@@ -30,60 +30,61 @@ namespace i3Soft\CDA\Traits;
 
 trait TypeCodeTrait
 {
-    /** @var string */
-    private $type_code = '';
+  /** @var string */
+  private $type_code = '';
 
-    /** @var string[] */
-    private $acceptable_type_codes;
+  /** @var string[] */
+  private $acceptable_type_codes;
 
-    /**
-     * @return string
-     */
-    public function getTypeCode(): string
+  /**
+   * @return string
+   */
+  public function getTypeCode (): string
+  {
+    return $this->type_code;
+  }
+
+  /**
+   * @param string $type_code
+   *
+   * @return self
+   */
+  public function setTypeCode (string $type_code): self
+  {
+    if (\in_array($type_code, $this->getAcceptableTypeCodes(), TRUE) === FALSE)
     {
-        return $this->type_code;
+      throw new \InvalidArgumentException("The type code {$type_code} is not valid!");
     }
+    $this->type_code = $type_code;
+    return $this;
+  }
 
-    /**
-     * @param string $type_code
-     *
-     * @return self
-     */
-    public function setTypeCode(string $type_code): self
-    {
-        if (\in_array($type_code, $this->getAcceptableTypeCodes(), true) === false) {
-            throw new \InvalidArgumentException("The type code {$type_code} is not valid!");
-        }
-        $this->type_code = $type_code;
-        return $this;
-    }
+  /**
+   * @return array
+   */
+  public function getAcceptableTypeCodes (): array
+  {
+    return $this->acceptable_type_codes;
+  }
 
-    /**
-     * @return array
-     */
-    public function getAcceptableTypeCodes(): array
-    {
-        return $this->acceptable_type_codes;
-    }
+  /**
+   * @param string[] $acceptable_type_codes
+   *
+   * @return self
+   */
+  public function setAcceptableTypeCodes (array $acceptable_type_codes): self
+  {
+    $this->acceptable_type_codes = $acceptable_type_codes;
+    return $this;
+  }
 
-    /**
-     * @param string[] $acceptable_type_codes
-     *
-     * @return self
-     */
-    public function setAcceptableTypeCodes(array $acceptable_type_codes): self
-    {
-        $this->acceptable_type_codes = $acceptable_type_codes;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasTypeCode(): bool
-    {
-        return false === empty($this->type_code);
-    }
+  /**
+   * @return bool
+   */
+  public function hasTypeCode (): bool
+  {
+    return FALSE === empty($this->type_code);
+  }
 
 
 }

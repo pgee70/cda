@@ -38,11 +38,11 @@ use i3Soft\CDA\Elements\AbstractSimpleElement;
  */
 class PostalCode extends AbstractSimpleElement
 {
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'postalCode';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'postalCode';
+  }
 }

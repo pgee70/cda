@@ -53,7 +53,7 @@ class PersonName extends EntityName
   public function __construct ()
   {
     parent::__construct(NULL);
-    $this->name_tuples =[];
+    $this->name_tuples = [];
     // use name attributes must conform to: AS 5017-2006: Health Care Client Name Usage
     $this->acceptable_use_attributes = UseAttributeInterface::NameValues;
   }
@@ -83,15 +83,15 @@ class PersonName extends EntityName
   {
     if (\count($this->name_tuples) > 0)
     {
-      $name = $doc->createElement(CDA::NS_CDA . 'name');
+      $name = $doc->createElement(CDA::getNS() . 'name');
       if (FALSE === empty($this->getUseAttribute()))
       {
-        $name->setAttribute(CDA::NS_CDA . 'use', $this->getUseAttribute());
+        $name->setAttribute(CDA::getNS() . 'use', $this->getUseAttribute());
       }
       $el->appendChild($name);
       foreach ($this->name_tuples as $tuple)
       {
-        $partElement = $doc->createElement(CDA::NS_CDA . $tuple['part'], $tuple['value']);
+        $partElement = $doc->createElement(CDA::getNS() . $tuple['part'], $tuple['value']);
         if ($tuple['qualifier'])
         {
           $partElement->setAttribute('qualifier', $tuple['qualifier']);
@@ -114,7 +114,7 @@ class PersonName extends EntityName
   /**
    * @return PersonName
    */
-  public function resetNameTuples ():self
+  public function resetNameTuples (): self
   {
     $this->name_tuples = [];
   }

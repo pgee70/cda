@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\Name;
  */
 trait NameTrait
 {
-    /** @var Name */
-    private $name;
+  /** @var Name */
+  private $name;
 
-    /**
-     * @return Name
-     */
-    public function getName(): Name
-    {
-        return $this->name;
-    }
+  /**
+   * @return Name
+   */
+  public function getName (): Name
+  {
+    return $this->name;
+  }
 
-    /**
-     * @param Name $name
-     *
-     * @return self
-     */
-    public function setName(Name $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
+  /**
+   * @param Name $name
+   *
+   * @return self
+   */
+  public function setName (Name $name): self
+  {
+    $this->name = $name;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasName(): bool
-    {
-        return null !== $this->name;
-    }
+  /**
+   * @return bool
+   */
+  public function hasName (): bool
+  {
+    return NULL !== $this->name;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderName(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderName (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasName())
     {
-        if ($this->hasName()) {
-            $el->appendChild($this->getName()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getName()->toDOMElement($doc));
     }
+    return $this;
+  }
 }

@@ -45,51 +45,52 @@ use i3Soft\CDA\RIM\Participation\Consumable;
  */
 trait ConsumableTrait
 {
-    /** @var Consumable */
-    private $consumable;
+  /** @var Consumable */
+  private $consumable;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderConsumable(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderConsumable (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasConsumable())
     {
-        if ($this->hasConsumable()) {
-            $el->appendChild($this->getConsumable()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getConsumable()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasConsumable(): bool
-    {
-        return null !== $this->consumable;
-    }
+  /**
+   * @return bool
+   */
+  public function hasConsumable (): bool
+  {
+    return NULL !== $this->consumable;
+  }
 
-    /**
-     *
-     * @return Consumable
-     */
-    public function getConsumable(): Consumable
-    {
-        return $this->consumable;
-    }
+  /**
+   *
+   * @return Consumable
+   */
+  public function getConsumable (): Consumable
+  {
+    return $this->consumable;
+  }
 
-    /**
-     *
-     * @param Consumable $consumable
-     *
-     * @return self
-     */
-    public function setConsumable(Consumable $consumable): self
-    {
-        $this->consumable = $consumable;
-        return $this;
-    }
+  /**
+   *
+   * @param Consumable $consumable
+   *
+   * @return self
+   */
+  public function setConsumable (Consumable $consumable): self
+  {
+    $this->consumable = $consumable;
+    return $this;
+  }
 
 
 }

@@ -37,47 +37,48 @@ use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
  */
 trait CopyTimeTrait
 {
-    /** @var TimeStamp */
-    private $copyTime;
+  /** @var TimeStamp */
+  private $copyTime;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return CopyTimeTrait
-     */
-    public function renderCopyTime(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return CopyTimeTrait
+   */
+  public function renderCopyTime (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasCopyTime())
     {
-        if ($this->hasCopyTime()) {
-            $this->getCopyTime()->setValueToElement($el, $doc);
-        }
-        return $this;
+      $this->getCopyTime()->setValueToElement($el, $doc);
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasCopyTime(): bool
-    {
-        return null !== $this->copyTime;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCopyTime (): bool
+  {
+    return NULL !== $this->copyTime;
+  }
 
-    /**
-     * @return TimeStamp
-     */
-    public function getCopyTime(): TimeStamp
-    {
-        return $this->copyTime;
-    }
+  /**
+   * @return TimeStamp
+   */
+  public function getCopyTime (): TimeStamp
+  {
+    return $this->copyTime;
+  }
 
-    /**
-     * @param TimeStamp $copyTime
-     *
-     * @return self
-     */
-    public function setCopyTime(TimeStamp $copyTime): self
-    {
-        $this->copyTime = $copyTime;
-        return $this;
-    }
+  /**
+   * @param TimeStamp $copyTime
+   *
+   * @return self
+   */
+  public function setCopyTime (TimeStamp $copyTime): self
+  {
+    $this->copyTime = $copyTime;
+    return $this;
+  }
 }

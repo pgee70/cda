@@ -39,51 +39,53 @@ use i3Soft\CDA\Elements\DoseQuantity;
  */
 trait DoseQuantityTrait
 {
-    /** @var DoseQuantity */
-    private $doseQuantity;
+  /** @var DoseQuantity */
+  private $doseQuantity;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderDoseQuantity(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderDoseQuantity (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasDoseQuantity())
     {
-        if ($this->hasDoseQuantity()) {
-            $el->appendChild($this->getDoseQuantity()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getDoseQuantity()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasDoseQuantity(): bool
-    {
-        return null !== $this->doseQuantity;
-    }
+  /**
+   * @return bool
+   */
+  public function hasDoseQuantity (): bool
+  {
+    return NULL !== $this->doseQuantity;
+  }
 
-    /**
-     *
-     * @return DoseQuantity
-     */
-    public function getDoseQuantity(): DoseQuantity
-    {
-        return $this->doseQuantity;
-    }
+  /**
+   *
+   * @return DoseQuantity
+   */
+  public function getDoseQuantity (): DoseQuantity
+  {
+    return $this->doseQuantity;
+  }
 
-    /**
-     *
-     * @param AbstractInterval|PhysicalQuantity $doseQuantity
-     *
-     * @return self
-     */
-    public function setDoseQuantity($doseQuantity): self
+  /**
+   *
+   * @param AbstractInterval|PhysicalQuantity $doseQuantity
+   *
+   * @return self
+   */
+  public function setDoseQuantity ($doseQuantity): self
+  {
+    if ($doseQuantity instanceof AbstractInterval || $doseQuantity instanceof PhysicalQuantity)
     {
-        if ($doseQuantity instanceof AbstractInterval || $doseQuantity instanceof PhysicalQuantity) {
-            $this->doseQuantity = new DoseQuantity($doseQuantity);
-        }
-        return $this;
+      $this->doseQuantity = new DoseQuantity($doseQuantity);
     }
+    return $this;
+  }
 }

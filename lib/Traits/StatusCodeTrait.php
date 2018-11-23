@@ -32,47 +32,48 @@ use i3Soft\CDA\Elements\StatusCodeElement;
 
 trait StatusCodeTrait
 {
-    /** @var StatusCodeElement */
-    private $statusCode;
+  /** @var StatusCodeElement */
+  private $statusCode;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderStatusCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderStatusCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasStatusCode())
     {
-        if ($this->hasStatusCode()) {
-            $el->appendChild($this->getStatusCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getStatusCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasStatusCode(): bool
-    {
-        return null !== $this->statusCode;
-    }
+  /**
+   * @return bool
+   */
+  public function hasStatusCode (): bool
+  {
+    return NULL !== $this->statusCode;
+  }
 
-    /**
-     * @return StatusCodeElement
-     */
-    public function getStatusCode(): StatusCodeElement
-    {
-        return $this->statusCode;
-    }
+  /**
+   * @return StatusCodeElement
+   */
+  public function getStatusCode (): StatusCodeElement
+  {
+    return $this->statusCode;
+  }
 
-    /**
-     * @param StatusCodeElement $statusCode
-     *
-     * @return self
-     */
-    public function setStatusCode(StatusCodeElement $statusCode): self
-    {
-        $this->statusCode = $statusCode;
-        return $this;
-    }
+  /**
+   * @param StatusCodeElement $statusCode
+   *
+   * @return self
+   */
+  public function setStatusCode (StatusCodeElement $statusCode): self
+  {
+    $this->statusCode = $statusCode;
+    return $this;
+  }
 }

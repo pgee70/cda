@@ -41,66 +41,68 @@ use i3Soft\CDA\DataType\Code\CharacterStringWithCode;
 class SoftwareName extends AbstractElement
 {
 
-    /** @var CharacterStringWithCode */
-    protected $character_string_with_code;
+  /** @var CharacterStringWithCode */
+  protected $character_string_with_code;
 
-    public function __construct($cs_code = null)
+  public function __construct ($cs_code = NULL)
+  {
+    if ($cs_code instanceof CharacterStringWithCode)
     {
-        if ($cs_code instanceof CharacterStringWithCode) {
-            $this->setCharacterStringWithCode($cs_code);
-        }
+      $this->setCharacterStringWithCode($cs_code);
     }
+  }
 
-    /**
-     * sets the code attributes and set the text of the tag to the display version of the software
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   * sets the code attributes and set the text of the tag to the display version of the software
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    if ($this->hasCharacterStringWithCode())
     {
-        $el = $this->createElement($doc);
-        if ($this->hasCharacterStringWithCode()) {
-            $cs_code = $this->getCharacterStringWithCode();
-            $el->appendChild($doc->createTextNode($cs_code->getDisplayName()));
-            $cs_code->setValueToElement($el, $doc);
-        }
-        return $el;
+      $cs_code = $this->getCharacterStringWithCode();
+      $el->appendChild($doc->createTextNode($cs_code->getDisplayName()));
+      $cs_code->setValueToElement($el, $doc);
     }
+    return $el;
+  }
 
-    public function hasCharacterStringWithCode(): bool
-    {
-        return null !== $this->character_string_with_code;
-    }
+  public function hasCharacterStringWithCode (): bool
+  {
+    return NULL !== $this->character_string_with_code;
+  }
 
-    /**
-     * @return CharacterStringWithCode
-     */
-    public function getCharacterStringWithCode(): CharacterStringWithCode
-    {
-        return $this->character_string_with_code;
-    }
+  /**
+   * @return CharacterStringWithCode
+   */
+  public function getCharacterStringWithCode (): CharacterStringWithCode
+  {
+    return $this->character_string_with_code;
+  }
 
-    /**
-     * @param CharacterStringWithCode $character_string_with_code
-     *
-     * @return SoftwareName
-     */
-    public function setCharacterStringWithCode(CharacterStringWithCode $character_string_with_code): SoftwareName
-    {
-        $this->character_string_with_code = $character_string_with_code;
-        return $this;
-    }
+  /**
+   * @param CharacterStringWithCode $character_string_with_code
+   *
+   * @return SoftwareName
+   */
+  public function setCharacterStringWithCode (CharacterStringWithCode $character_string_with_code): SoftwareName
+  {
+    $this->character_string_with_code = $character_string_with_code;
+    return $this;
+  }
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'softwareName';
-    }
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'softwareName';
+  }
 
 }

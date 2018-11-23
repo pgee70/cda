@@ -42,52 +42,52 @@ use i3Soft\CDA\Traits\ClassCodeTrait;
 
 class ExtAsSpecimenInContainer extends AbstractElement implements ClassCodeInterface
 {
-    use ClassCodeTrait;
-    /** @var ExtContainer */
-    protected $extContainer;
+  use ClassCodeTrait;
+  /** @var ExtContainer */
+  protected $extContainer;
 
 
-    public function __construct(ExtContainer $ext_container)
-    {
-        $this->setAcceptableClassCodes(['', ClassCodeInterface::CONTAINER])
-          ->setClassCode(ClassCodeInterface::CONTAINER)
-          ->setExtContainer($ext_container);
-    }
+  public function __construct (ExtContainer $ext_container)
+  {
+    $this->setAcceptableClassCodes(['', ClassCodeInterface::CONTAINER])
+      ->setClassCode(ClassCodeInterface::CONTAINER)
+      ->setExtContainer($ext_container);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getExtContainer()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getExtContainer()->toDOMElement($doc));
+    return $el;
+  }
 
-    /**
-     * @return ExtContainer
-     */
-    public function getExtContainer(): ExtContainer
-    {
-        return $this->extContainer;
-    }
+  /**
+   * @return ExtContainer
+   */
+  public function getExtContainer (): ExtContainer
+  {
+    return $this->extContainer;
+  }
 
-    /**
-     * @param ExtContainer $extContainer
-     *
-     * @return self
-     */
-    public function setExtContainer(ExtContainer $extContainer): self
-    {
-        $this->extContainer = $extContainer;
-        return $this;
-    }
+  /**
+   * @param ExtContainer $extContainer
+   *
+   * @return self
+   */
+  public function setExtContainer (ExtContainer $extContainer): self
+  {
+    $this->extContainer = $extContainer;
+    return $this;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:asSpecimenInContainer';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:asSpecimenInContainer';
+  }
 }

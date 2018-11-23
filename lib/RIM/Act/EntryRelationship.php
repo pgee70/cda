@@ -64,95 +64,120 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
  */
 class EntryRelationship extends AbstractElement implements TypeCodeInterface, InversionIndInterface, ContextConductionIndInterface, NegationInterface
 {
-    use SequenceNumberTrait;
-    use SeperatableIndTrait;
-    use ActTrait;
-    use EncounterTrait;
-    use ObservationTrait;
-    use ObservationMediaTrait;
-    use OrganizerTrait;
-    use ProcedureTrait;
-    use RegionOfInterestTrait;
-    use SubstanceAdministrationTrait;
-    use SupplyTrait;
+  use SequenceNumberTrait;
+  use SeperatableIndTrait;
+  use ActTrait;
+  use EncounterTrait;
+  use ObservationTrait;
+  use ObservationMediaTrait;
+  use OrganizerTrait;
+  use ProcedureTrait;
+  use RegionOfInterestTrait;
+  use SubstanceAdministrationTrait;
+  use SupplyTrait;
 
-    use TypeCodeTrait;
-    use NegationIndTrait;
-    use ContextConductionIndTrait;
-    use InversionIndTrait;
+  use TypeCodeTrait;
+  use NegationIndTrait;
+  use ContextConductionIndTrait;
+  use InversionIndTrait;
 
-    /**
-     * EntryRelationship constructor.
-     * type code is required.
-     *
-     * @param null   $choice
-     * @param string $type_code
-     */
-    public function __construct($choice = null, string $type_code = '')
+  /**
+   * EntryRelationship constructor.
+   * type code is required.
+   *
+   * @param null   $choice
+   * @param string $type_code
+   */
+  public function __construct ($choice = NULL, string $type_code = '')
+  {
+    $this->setAcceptableTypeCodes(TypeCodeInterface::x_ActRelationshipEntryRelationship)
+      ->setTypeCode(TypeCodeInterface::CAUSE);
+    $this->templateIds = array();
+    if ($choice instanceof Act)
     {
-        $this->setAcceptableTypeCodes(TypeCodeInterface::x_ActRelationshipEntryRelationship)
-          ->setTypeCode(TypeCodeInterface::CAUSE);
-        $this->templateIds = array();
-        if ($choice instanceof Act) {
-            $this->setAct($choice);
-        } elseif ($choice instanceof Encounter) {
-            $this->setEncounter($choice);
-        } elseif ($choice instanceof Observation) {
-            $this->setObservation($choice);
-        } elseif ($choice instanceof ObservationMedia) {
-            $this->setObservationMedia($choice);
-        } elseif ($choice instanceof Organizer) {
-            $this->setOrganizer($choice);
-        } elseif ($choice instanceof SubstanceAdministration) {
-            $this->setSubstanceAdministration($choice);
-        }
-        if ($type_code) {
-            $this->setTypeCode($type_code);
-        }
+      $this->setAct($choice);
     }
-
-
-    /**
-     * Transforms the element into a DOMElement, which will be included
-     * into the final CDA XML
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+    elseif ($choice instanceof Encounter)
     {
-        $el = $this->createElement($doc);
-
-        if ($this->hasSequenceNumber()) {
-            $this->renderSequenceNumber($el, $doc);
-        }
-        if ($this->hasSeperatableInd()) {
-            $this->renderSeperatableInd($el, $doc);
-        }
-        if ($this->hasAct()) {
-            $this->renderAct($el, $doc);
-        } elseif ($this->hasEncounter()) {
-            $this->renderEncounter($el, $doc);
-        } elseif ($this->hasObservation()) {
-            $this->renderObservation($el, $doc);
-        } elseif ($this->hasObservationMedia()) {
-            $this->renderObservationMedia($el, $doc);
-        } elseif ($this->hasOrganizer()) {
-            $this->renderOrganizer($el, $doc);
-        } elseif ($this->hasSubstanceAdministration()) {
-            $this->renderSubstanceAdministration($el, $doc);
-        }
-        return $el;
+      $this->setEncounter($choice);
     }
-
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
+    elseif ($choice instanceof Observation)
     {
-        return 'entryRelationship';
+      $this->setObservation($choice);
     }
+    elseif ($choice instanceof ObservationMedia)
+    {
+      $this->setObservationMedia($choice);
+    }
+    elseif ($choice instanceof Organizer)
+    {
+      $this->setOrganizer($choice);
+    }
+    elseif ($choice instanceof SubstanceAdministration)
+    {
+      $this->setSubstanceAdministration($choice);
+    }
+    if ($type_code)
+    {
+      $this->setTypeCode($type_code);
+    }
+  }
+
+
+  /**
+   * Transforms the element into a DOMElement, which will be included
+   * into the final CDA XML
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    if ($this->hasSequenceNumber())
+    {
+      $this->renderSequenceNumber($el, $doc);
+    }
+    if ($this->hasSeperatableInd())
+    {
+      $this->renderSeperatableInd($el, $doc);
+    }
+    if ($this->hasAct())
+    {
+      $this->renderAct($el, $doc);
+    }
+    elseif ($this->hasEncounter())
+    {
+      $this->renderEncounter($el, $doc);
+    }
+    elseif ($this->hasObservation())
+    {
+      $this->renderObservation($el, $doc);
+    }
+    elseif ($this->hasObservationMedia())
+    {
+      $this->renderObservationMedia($el, $doc);
+    }
+    elseif ($this->hasOrganizer())
+    {
+      $this->renderOrganizer($el, $doc);
+    }
+    elseif ($this->hasSubstanceAdministration())
+    {
+      $this->renderSubstanceAdministration($el, $doc);
+    }
+    return $el;
+  }
+
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'entryRelationship';
+  }
 }

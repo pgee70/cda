@@ -38,11 +38,11 @@ namespace i3Soft\CDA\RIM\Entity;
 
 class InformationRecipientPerson extends Person
 {
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'informationRecipient';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'informationRecipient';
+  }
 }

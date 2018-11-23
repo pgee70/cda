@@ -37,36 +37,37 @@ use i3Soft\CDA\Interfaces\NullFlavourInterface;
  */
 trait NullFlavourTrait
 {
-    /** @var string */
-    private $nullFlavour = '';
+  /** @var string */
+  private $nullFlavour = '';
 
-    /**
-     * @return string
-     */
-    public function getNullFlavour(): string
-    {
-        return $this->nullFlavour;
-    }
+  /**
+   * @return string
+   */
+  public function getNullFlavour (): string
+  {
+    return $this->nullFlavour;
+  }
 
-    /**
-     * @param mixed $nullFlavour
-     *
-     * @return self
-     */
-    public function setNullFlavour(string $nullFlavour): self
+  /**
+   * @param mixed $nullFlavour
+   *
+   * @return self
+   */
+  public function setNullFlavour (string $nullFlavour): self
+  {
+    if (\in_array($nullFlavour, NullFlavourInterface::flavours, TRUE) === FALSE)
     {
-        if (\in_array($nullFlavour, NullFlavourInterface::flavours, true) === false) {
-            throw new \InvalidArgumentException("The nullFlavour attribute {$nullFlavour} is not valid!");
-        }
-        $this->nullFlavour = $nullFlavour;
-        return $this;
+      throw new \InvalidArgumentException("The nullFlavour attribute {$nullFlavour} is not valid!");
     }
+    $this->nullFlavour = $nullFlavour;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasNullFlavour(): bool
-    {
-        return '' !== $this->nullFlavour;
-    }
+  /**
+   * @return bool
+   */
+  public function hasNullFlavour (): bool
+  {
+    return '' !== $this->nullFlavour;
+  }
 }

@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\Quantity;
  */
 trait QuantityTrait
 {
-    /** @var Quantity */
-    private $quantity;
+  /** @var Quantity */
+  private $quantity;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return QuantityTrait
-     */
-    public function renderQuantity(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return QuantityTrait
+   */
+  public function renderQuantity (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasQuantity())
     {
-        if ($this->hasQuantity()) {
-            $el->appendChild($this->getQuantity()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getQuantity()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasQuantity(): bool
-    {
-        return null !== $this->quantity;
-    }
+  /**
+   * @return bool
+   */
+  public function hasQuantity (): bool
+  {
+    return NULL !== $this->quantity;
+  }
 
-    /**
-     * @return Quantity
-     */
-    public function getQuantity(): Quantity
-    {
-        return $this->quantity;
-    }
+  /**
+   * @return Quantity
+   */
+  public function getQuantity (): Quantity
+  {
+    return $this->quantity;
+  }
 
-    /**
-     * @param Quantity $quantity
-     *
-     * @return self
-     */
-    public function setQuantity(Quantity $quantity): self
-    {
-        $this->quantity = $quantity;
-        return $this;
-    }
+  /**
+   * @param Quantity $quantity
+   *
+   * @return self
+   */
+  public function setQuantity (Quantity $quantity): self
+  {
+    $this->quantity = $quantity;
+    return $this;
+  }
 }

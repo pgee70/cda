@@ -46,35 +46,35 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class DataEnterer extends AbstractElement implements TypeCodeInterface, ContextControlCodeInterface
 {
-    use IdsTrait;
-    use AssignedEntityTrait;
-    use TimeTrait;
-    use TypeCodeTrait;
-    use ContextControlCodeTrait;
+  use IdsTrait;
+  use AssignedEntityTrait;
+  use TimeTrait;
+  use TypeCodeTrait;
+  use ContextControlCodeTrait;
 
-    public function __construct()
-    {
-        $this->setAcceptableTypeCodes(array('', TypeCodeInterface::DATA_ENTRY_PERSON))
-          ->setTypeCode('');
-    }
+  public function __construct ()
+  {
+    $this->setAcceptableTypeCodes(array('', TypeCodeInterface::DATA_ENTRY_PERSON))
+      ->setTypeCode('');
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        $this->renderTime($el, $doc);
-        $this->renderAssignedEntity($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    $this->renderTime($el, $doc);
+    $this->renderAssignedEntity($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'dataEnterer';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'dataEnterer';
+  }
 }

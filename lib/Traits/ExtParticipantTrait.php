@@ -37,48 +37,49 @@ use i3Soft\CDA\RIM\Extensions\ExtParticipant;
  */
 trait ExtParticipantTrait
 {
-    /** @var ExtParticipant */
-    private $ext_participant;
+  /** @var ExtParticipant */
+  private $ext_participant;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExtParticipant(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExtParticipant (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtParticipant())
     {
-        if ($this->hasExtParticipant()) {
-            $el->appendChild($this->getExtParticipant()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtParticipant()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtParticipant(): bool
-    {
-        return null !== $this->ext_participant;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtParticipant (): bool
+  {
+    return NULL !== $this->ext_participant;
+  }
 
-    /**
-     * @return ExtParticipant
-     */
-    public function getExtParticipant(): ExtParticipant
-    {
-        return $this->ext_participant;
-    }
+  /**
+   * @return ExtParticipant
+   */
+  public function getExtParticipant (): ExtParticipant
+  {
+    return $this->ext_participant;
+  }
 
-    /**
-     * @param ExtParticipant $ext_participant
-     *
-     * @return self
-     */
-    public function setExtParticipant(ExtParticipant $ext_participant): self
-    {
-        $this->ext_participant = $ext_participant;
-        return $this;
-    }
+  /**
+   * @param ExtParticipant $ext_participant
+   *
+   * @return self
+   */
+  public function setExtParticipant (ExtParticipant $ext_participant): self
+  {
+    $this->ext_participant = $ext_participant;
+    return $this;
+  }
 
 }

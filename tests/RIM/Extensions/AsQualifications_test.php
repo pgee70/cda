@@ -48,9 +48,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class AsQualifications_test extends MyTestCase
 {
-    public function test_tag()
-    {
-        $expected = <<<CDA
+  public function test_tag ()
+  {
+    $expected = <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:asQualifications classCode="QUAL">
     <ext:code>
@@ -58,11 +58,11 @@ class AsQualifications_test extends MyTestCase
     </ext:code>
 </ext:asQualifications>
 CDA;
-        $tag      = new AsQualifications(new ExtCode(new OriginalText('M.B.B.S')));
-        $dom      = new \DOMDocument('1.0', 'UTF-8');
-        $doc      = $tag->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag      = new AsQualifications(new ExtCode(new OriginalText('M.B.B.S')));
+    $dom      = new \DOMDocument('1.0', 'UTF-8');
+    $doc      = $tag->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

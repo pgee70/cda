@@ -46,20 +46,20 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class OriginalText_test extends MyTestCase
 {
-    public function test_original_text()
-    {
-        $expected          = <<<XML
+  public function test_original_text ()
+  {
+    $expected          = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <originalText>unit-tester</originalText>
 
 XML;
-        $original_text     = new OriginalText('unit-tester');
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $original_text->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $original_text     = new OriginalText('unit-tester');
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $original_text->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
 }

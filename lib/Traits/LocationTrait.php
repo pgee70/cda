@@ -31,46 +31,47 @@ namespace i3Soft\CDA\Traits;
 
 trait LocationTrait
 {
-    /** @var */
-    private $location;
+  /** @var */
+  private $location;
 
-    public function getLocation()
-    {
-        return $this->location;
-    }
+  public function getLocation ()
+  {
+    return $this->location;
+  }
 
-    /**
-     * @param mixed $location
-     *
-     * @return self
-     */
-    public function setLocation($location): self
-    {
-        $this->location = $location;
-        return $this;
-    }
+  /**
+   * @param mixed $location
+   *
+   * @return self
+   */
+  public function setLocation ($location): self
+  {
+    $this->location = $location;
+    return $this;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderLocation(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderLocation (\DOMElement $el, \DOMDocument $doc): self
+  {
+    /** @noinspection MissingOrEmptyGroupStatementInspection */
+    if ($this->hasLocation())
     {
-        /** @noinspection MissingOrEmptyGroupStatementInspection */
-        if ($this->hasLocation()) {
-            // $el->appendChild($this->getLocation()->toDOMElement($doc));
-        }
-        return $this;
+      // $el->appendChild($this->getLocation()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasLocation(): bool
-    {
-        return null !== $this->location;
-    }
+  /**
+   * @return bool
+   */
+  public function hasLocation (): bool
+  {
+    return NULL !== $this->location;
+  }
 
 }

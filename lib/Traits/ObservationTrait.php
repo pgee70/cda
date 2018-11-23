@@ -32,47 +32,48 @@ use i3Soft\CDA\RIM\Act\Observation;
 
 trait ObservationTrait
 {
-    /** @var Observation */
-    private $observation;
+  /** @var Observation */
+  private $observation;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderObservation(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderObservation (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasObservation())
     {
-        if ($this->hasObservation()) {
-            $el->appendChild($this->getObservation()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getObservation()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasObservation(): bool
-    {
-        return null !== $this->observation;
-    }
+  /**
+   * @return bool
+   */
+  public function hasObservation (): bool
+  {
+    return NULL !== $this->observation;
+  }
 
-    /**
-     * @return Observation
-     */
-    public function getObservation(): Observation
-    {
-        return $this->observation;
-    }
+  /**
+   * @return Observation
+   */
+  public function getObservation (): Observation
+  {
+    return $this->observation;
+  }
 
-    /**
-     * @param Observation $observation
-     *
-     * @return self
-     */
-    public function setObservation(Observation $observation): self
-    {
-        $this->observation = $observation;
-        return $this;
-    }
+  /**
+   * @param Observation $observation
+   *
+   * @return self
+   */
+  public function setObservation (Observation $observation): self
+  {
+    $this->observation = $observation;
+    return $this;
+  }
 }

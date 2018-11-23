@@ -32,35 +32,36 @@ namespace i3Soft\CDA\DataType\TextAndMultimedia;
 class CharacterString extends EncapsuledData
 {
 
-    /**
-     * CharacterString constructor.
-     *
-     * @param $content
-     */
-    public function __construct($content)
+  /**
+   * CharacterString constructor.
+   *
+   * @param $content
+   */
+  public function __construct ($content)
+  {
+    $this->setContent($content);
+  }
+
+  /**
+   * @param $content
+   *
+   */
+  public function setContent ($content)
+  {
+    if (FALSE === \is_string($content))
     {
-        $this->setContent($content);
+      throw new \InvalidArgumentException('the data should be a string, ' .
+                                          \gettype($content) . ' given.');
     }
 
-    /**
-     * @param $content
-     *
-     */
-    public function setContent($content)
-    {
-        if (false === \is_string($content)) {
-            throw new \InvalidArgumentException('the data should be a string, ' .
-                                                \gettype($content) . ' given.');
-        }
+    parent::setContent($content);
+  }
 
-        parent::setContent($content);
-    }
-
-    /**
-     * @return string
-     */
-    public function getMediaType(): string
-    {
-        return 'text/plain';
-    }
+  /**
+   * @return string
+   */
+  public function getMediaType (): string
+  {
+    return 'text/plain';
+  }
 }

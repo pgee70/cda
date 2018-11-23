@@ -52,47 +52,47 @@ use i3Soft\CDA\Traits\TelecomsTrait;
  */
 class AssociatedEntity extends AbstractElement implements ClassCodeInterface
 {
-    use IdsTrait;
-    use CodedValueTrait;
-    use AddrsTrait;
-    use TelecomsTrait;
-    use AssociatedPersonTrait;
-    use ScopingOrganizationTrait;
-    use ClassCodeTrait;
+  use IdsTrait;
+  use CodedValueTrait;
+  use AddrsTrait;
+  use TelecomsTrait;
+  use AssociatedPersonTrait;
+  use ScopingOrganizationTrait;
+  use ClassCodeTrait;
 
 
-    /**
-     * AssociatedEntity constructor.
-     */
-    public function __construct()
-    {
-        $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassAssociative)
-          ->setClassCode('');
-    }
+  /**
+   * AssociatedEntity constructor.
+   */
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassAssociative)
+      ->setClassCode('');
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        $this->renderCodedValue($el, $doc);
-        $this->renderAddrs($el, $doc);
-        $this->renderTelecoms($el, $doc);
-        $this->renderAssociatedPerson($el, $doc);
-        $this->renderScopingOrganization($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    $this->renderCodedValue($el, $doc);
+    $this->renderAddrs($el, $doc);
+    $this->renderTelecoms($el, $doc);
+    $this->renderAssociatedPerson($el, $doc);
+    $this->renderScopingOrganization($el, $doc);
+    return $el;
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'associatedEntity';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'associatedEntity';
+  }
 }

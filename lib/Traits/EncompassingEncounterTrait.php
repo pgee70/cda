@@ -32,47 +32,48 @@ use i3Soft\CDA\RIM\Act\EncompassingEncounter;
 
 trait EncompassingEncounterTrait
 {
-    /** @var EncompassingEncounter */
-    private $encompassingEncounter;
+  /** @var EncompassingEncounter */
+  private $encompassingEncounter;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderEncompassingEncounter(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderEncompassingEncounter (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasEncompassingEncounter())
     {
-        if ($this->hasEncompassingEncounter()) {
-            $el->appendChild($this->getEncompassingEncounter()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getEncompassingEncounter()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasEncompassingEncounter(): bool
-    {
-        return null !== $this->encompassingEncounter;
-    }
+  /**
+   * @return bool
+   */
+  public function hasEncompassingEncounter (): bool
+  {
+    return NULL !== $this->encompassingEncounter;
+  }
 
-    /**
-     * @return EncompassingEncounter
-     */
-    public function getEncompassingEncounter(): EncompassingEncounter
-    {
-        return $this->encompassingEncounter;
-    }
+  /**
+   * @return EncompassingEncounter
+   */
+  public function getEncompassingEncounter (): EncompassingEncounter
+  {
+    return $this->encompassingEncounter;
+  }
 
-    /**
-     * @param EncompassingEncounter $encompassingEncounter
-     *
-     * @return self
-     */
-    public function setEncompassingEncounter(EncompassingEncounter $encompassingEncounter): self
-    {
-        $this->encompassingEncounter = $encompassingEncounter;
-        return $this;
-    }
+  /**
+   * @param EncompassingEncounter $encompassingEncounter
+   *
+   * @return self
+   */
+  public function setEncompassingEncounter (EncompassingEncounter $encompassingEncounter): self
+  {
+    $this->encompassingEncounter = $encompassingEncounter;
+    return $this;
+  }
 }

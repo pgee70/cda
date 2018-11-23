@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Act\Criterion;
  */
 trait CriterionTrait
 {
-    /** @var Criterion */
-    private $criterion;
+  /** @var Criterion */
+  private $criterion;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderCriterion(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderCriterion (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasCriterion())
     {
-        if ($this->hasCriterion()) {
-            $el->appendChild($this->getCriterion()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getCriterion()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasCriterion(): bool
-    {
-        return null !== $this->criterion;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCriterion (): bool
+  {
+    return NULL !== $this->criterion;
+  }
 
-    /**
-     * @return Criterion
-     */
-    public function getCriterion(): Criterion
-    {
-        return $this->criterion;
-    }
+  /**
+   * @return Criterion
+   */
+  public function getCriterion (): Criterion
+  {
+    return $this->criterion;
+  }
 
-    /**
-     * @param Criterion $criterion
-     *
-     * @return self
-     */
-    public function setCriterion(Criterion $criterion): self
-    {
-        $this->criterion = $criterion;
-        return $this;
-    }
+  /**
+   * @param Criterion $criterion
+   *
+   * @return self
+   */
+  public function setCriterion (Criterion $criterion): self
+  {
+    $this->criterion = $criterion;
+    return $this;
+  }
 }

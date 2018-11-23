@@ -29,91 +29,91 @@ namespace i3Soft\CDA\Interfaces;
 
 interface MediaTypeInterface
 {
-    const APPLICATION_DICOM         = 'application/dicom';
-    const APPLICATION_MSWORD        = 'application/msword';
-    const APPLICATION_PDF           = 'application/pdf';
-    const AUDIO_BASIC               = 'audio/basic';
-    const AUDIO_K32ADPCM            = 'audio/k32adpcm';
-    const AUDIO_MPEG                = 'audio/mpeg';
-    const IMAGE_G3FAX               = 'image/g3fax';
-    const IMAGE_GIF                 = 'image/gif';
-    const IMAGE_JPEG                = 'image/jpeg';
-    const IMAGE_PNG                 = 'image/png';
-    const IMAGE_TIFF                = 'image/tiff';
-    const MODEL_VRML                = 'model/vrml';
-    const MULTIPART_XHL7_CDA_LEVEL1 = 'multipart/x-hl7-cda-level1';
-    const TEXT_HTML                 = 'text/html';
-    const TEXT_PLAIN                = 'text/plain';
-    const TEXT_RTF                  = 'text/rtf';
-    const TEXT_SGML                 = 'text/sgml';
-    const TEXT_X_HL7_FT             = 'text/x-hl7-ft';
-    const TEXT_XML                  = 'text/xml';
-    const VIDEO_MPEG                = 'video/mpeg';
-    const VIDEO_XAVI                = 'video/x-avi';
+  const APPLICATION_DICOM         = 'application/dicom';
+  const APPLICATION_MSWORD        = 'application/msword';
+  const APPLICATION_PDF           = 'application/pdf';
+  const AUDIO_BASIC               = 'audio/basic';
+  const AUDIO_K32ADPCM            = 'audio/k32adpcm';
+  const AUDIO_MPEG                = 'audio/mpeg';
+  const IMAGE_G3FAX               = 'image/g3fax';
+  const IMAGE_GIF                 = 'image/gif';
+  const IMAGE_JPEG                = 'image/jpeg';
+  const IMAGE_PNG                 = 'image/png';
+  const IMAGE_TIFF                = 'image/tiff';
+  const MODEL_VRML                = 'model/vrml';
+  const MULTIPART_XHL7_CDA_LEVEL1 = 'multipart/x-hl7-cda-level1';
+  const TEXT_HTML                 = 'text/html';
+  const TEXT_PLAIN                = 'text/plain';
+  const TEXT_RTF                  = 'text/rtf';
+  const TEXT_SGML                 = 'text/sgml';
+  const TEXT_X_HL7_FT             = 'text/x-hl7-ft';
+  const TEXT_XML                  = 'text/xml';
+  const VIDEO_MPEG                = 'video/mpeg';
+  const VIDEO_XAVI                = 'video/x-avi';
 
-    const ApplicationMediaType = array(
-      self::APPLICATION_DICOM,
-      self::APPLICATION_MSWORD,
-      self::APPLICATION_PDF
-    );
-    const AudioMediaType       = array(
-      self::AUDIO_BASIC,
-      self::AUDIO_K32ADPCM,
-      self::AUDIO_MPEG
-    );
-    const ImageMediaType       = array(
-      self::IMAGE_G3FAX,
-      self::IMAGE_GIF,
-      self::IMAGE_JPEG,
-      self::IMAGE_PNG,
-      self::IMAGE_TIFF
-    );
-    const ModelMediaType       = array(
-      self::MODEL_VRML
-    );
-    const MultipartMediaType   = array(
-      self::MULTIPART_XHL7_CDA_LEVEL1
-    );
-    const TextMediaType        = array(
-      self::TEXT_HTML,
-      self::TEXT_PLAIN,
-      self::TEXT_RTF,
-      self::TEXT_SGML,
-      self::TEXT_X_HL7_FT,
-      self::TEXT_XML
-    );
-    const VideoMediaType       = array(
-      self::VIDEO_MPEG,
-      self::VIDEO_XAVI
-    );
+  const ApplicationMediaType = array(
+    self::APPLICATION_DICOM,
+    self::APPLICATION_MSWORD,
+    self::APPLICATION_PDF
+  );
+  const AudioMediaType       = array(
+    self::AUDIO_BASIC,
+    self::AUDIO_K32ADPCM,
+    self::AUDIO_MPEG
+  );
+  const ImageMediaType       = array(
+    self::IMAGE_G3FAX,
+    self::IMAGE_GIF,
+    self::IMAGE_JPEG,
+    self::IMAGE_PNG,
+    self::IMAGE_TIFF
+  );
+  const ModelMediaType       = array(
+    self::MODEL_VRML
+  );
+  const MultipartMediaType   = array(
+    self::MULTIPART_XHL7_CDA_LEVEL1
+  );
+  const TextMediaType        = array(
+    self::TEXT_HTML,
+    self::TEXT_PLAIN,
+    self::TEXT_RTF,
+    self::TEXT_SGML,
+    self::TEXT_X_HL7_FT,
+    self::TEXT_XML
+  );
+  const VideoMediaType       = array(
+    self::VIDEO_MPEG,
+    self::VIDEO_XAVI
+  );
 
-    const AllMediaTypes = array(
-      self::APPLICATION_DICOM,
-      self::APPLICATION_MSWORD,
-      self::APPLICATION_PDF,
-      self::AUDIO_BASIC,
-      self::AUDIO_K32ADPCM,
-      self::AUDIO_MPEG,
-      self::IMAGE_G3FAX,
-      self::IMAGE_GIF,
-      self::IMAGE_JPEG,
-      self::IMAGE_PNG,
-      self::IMAGE_TIFF,
-      self::MODEL_VRML,
-      self::MULTIPART_XHL7_CDA_LEVEL1,
-      self::TEXT_HTML,
-      self::TEXT_PLAIN,
-      self::TEXT_RTF,
-      self::TEXT_SGML,
-      self::TEXT_X_HL7_FT,
-      self::TEXT_XML,
-      self::VIDEO_MPEG,
-      self::VIDEO_XAVI
-    );
+  const AllMediaTypes = array(
+    self::APPLICATION_DICOM,
+    self::APPLICATION_MSWORD,
+    self::APPLICATION_PDF,
+    self::AUDIO_BASIC,
+    self::AUDIO_K32ADPCM,
+    self::AUDIO_MPEG,
+    self::IMAGE_G3FAX,
+    self::IMAGE_GIF,
+    self::IMAGE_JPEG,
+    self::IMAGE_PNG,
+    self::IMAGE_TIFF,
+    self::MODEL_VRML,
+    self::MULTIPART_XHL7_CDA_LEVEL1,
+    self::TEXT_HTML,
+    self::TEXT_PLAIN,
+    self::TEXT_RTF,
+    self::TEXT_SGML,
+    self::TEXT_X_HL7_FT,
+    self::TEXT_XML,
+    self::VIDEO_MPEG,
+    self::VIDEO_XAVI
+  );
 
-    /** @return string */
-    public function getMediaType(): string;
+  /** @return string */
+  public function getMediaType (): string;
 
-    public function setMediaType(string $media_type);
+  public function setMediaType (string $media_type);
 
 }

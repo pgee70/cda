@@ -38,49 +38,50 @@ use i3Soft\CDA\DataType\Quantity\PhysicalQuantity\PhysicalQuantity;
  */
 trait RateQuantityTrait
 {
-    /** @var AbstractInterval|PhysicalQuantity */
-    private $rateQuantity;
+  /** @var AbstractInterval|PhysicalQuantity */
+  private $rateQuantity;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderRateQuantity(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderRateQuantity (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasRateQuantity())
     {
-        if ($this->hasRateQuantity()) {
-            $this->getRateQuantity()->setValueToElement($el, $doc);
-        }
-        return $this;
+      $this->getRateQuantity()->setValueToElement($el, $doc);
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasRateQuantity(): bool
-    {
-        return null !== $this->rateQuantity;
-    }
+  /**
+   * @return bool
+   */
+  public function hasRateQuantity (): bool
+  {
+    return NULL !== $this->rateQuantity;
+  }
 
-    /**
-     *
-     * @return AbstractInterval|PhysicalQuantity
-     */
-    public function getRateQuantity()
-    {
-        return $this->rateQuantity;
-    }
+  /**
+   *
+   * @return AbstractInterval|PhysicalQuantity
+   */
+  public function getRateQuantity ()
+  {
+    return $this->rateQuantity;
+  }
 
-    /**
-     *
-     * @param AbstractInterval|PhysicalQuantity $rateQuantity
-     *
-     * @return self
-     */
-    public function setRateQuantity($rateQuantity): self
-    {
-        $this->rateQuantity = $rateQuantity;
-        return $this;
-    }
+  /**
+   *
+   * @param AbstractInterval|PhysicalQuantity $rateQuantity
+   *
+   * @return self
+   */
+  public function setRateQuantity ($rateQuantity): self
+  {
+    $this->rateQuantity = $rateQuantity;
+    return $this;
+  }
 }

@@ -39,12 +39,12 @@ namespace i3Soft\CDA\RIM\Entity;
 class ReceivedOrganization extends Organization
 {
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'receivedOrganization';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'receivedOrganization';
+  }
 
 }

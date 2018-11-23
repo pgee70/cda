@@ -33,56 +33,56 @@ use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
  */
 class BirthTime extends AbstractElement
 {
-    /**
-     *
-     * @var TimeStamp
-     */
-    protected $datetime;
+  /**
+   *
+   * @var TimeStamp
+   */
+  protected $datetime;
 
-    /**
-     * BirthTime constructor.
-     *
-     * @param TimeStamp $datetime
-     */
-    public function __construct(TimeStamp $datetime)
-    {
-        $this->setDatetime($datetime);
-    }
+  /**
+   * BirthTime constructor.
+   *
+   * @param TimeStamp $datetime
+   */
+  public function __construct (TimeStamp $datetime)
+  {
+    $this->setDatetime($datetime);
+  }
 
-    /**
-     * @return TimeStamp
-     */
-    public function getDatetime(): TimeStamp
-    {
-        return $this->datetime;
-    }
+  /**
+   * @return TimeStamp
+   */
+  public function getDatetime (): TimeStamp
+  {
+    return $this->datetime;
+  }
 
-    /**
-     * @param TimeStamp $datetime
-     *
-     * @return self
-     */
-    public function setDatetime(TimeStamp $datetime): self
-    {
-        $this->datetime = $datetime;
-        return $this;
-    }
+  /**
+   * @param TimeStamp $datetime
+   *
+   * @return self
+   */
+  public function setDatetime (TimeStamp $datetime): self
+  {
+    $this->datetime = $datetime;
+    return $this;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, array('datetime'));
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, array('datetime'));
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'birthTime';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'birthTime';
+  }
 }

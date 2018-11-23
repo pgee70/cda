@@ -48,27 +48,27 @@ use i3Soft\CDA\RIM\Entity\AssignedEntity;
  */
 class LegalAuthenticator extends Authenticator
 {
-    /**
-     * LegalAuthenticator constructor.
-     *
-     * @param Time           $time
-     * @param SignatureCode  $signature_code
-     * @param AssignedEntity $assigned_entity
-     */
-    public function __construct(Time $time, SignatureCode $signature_code, AssignedEntity $assigned_entity)
-    {
-        parent::__construct();
-        $this->setAcceptableTypeCodes(['', TypeCodeInterface::LEGAL_AUTHENTICATOR])
-          ->setTypeCode('')
-          ->setTime($time)
-          ->setSignatureCode($signature_code)
-          ->setAssignedEntity($assigned_entity);
-    }
+  /**
+   * LegalAuthenticator constructor.
+   *
+   * @param Time           $time
+   * @param SignatureCode  $signature_code
+   * @param AssignedEntity $assigned_entity
+   */
+  public function __construct (Time $time, SignatureCode $signature_code, AssignedEntity $assigned_entity)
+  {
+    parent::__construct();
+    $this->setAcceptableTypeCodes(['', TypeCodeInterface::LEGAL_AUTHENTICATOR])
+      ->setTypeCode('')
+      ->setTime($time)
+      ->setSignatureCode($signature_code)
+      ->setAssignedEntity($assigned_entity);
+  }
 
-    protected function getElementTag(): string
-    {
-        return 'legalAuthenticator';
-    }
+  protected function getElementTag (): string
+  {
+    return 'legalAuthenticator';
+  }
 
 
 }

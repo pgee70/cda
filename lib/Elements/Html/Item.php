@@ -38,31 +38,31 @@ namespace i3Soft\CDA\Elements\Html;
 
 class Item extends AbstractHtmlElement
 {
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'item';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'item';
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function canAddTag($choice): bool
-    {
-        return ($choice
-                && ($choice instanceof LinkHtml
-                    || $choice instanceof Sub
-                    || $choice instanceof Sup
-                    || $choice instanceof Br
-                    || $choice instanceof Footnote
-                    || $choice instanceof FootNoteRef
-                    || $choice instanceof RenderMultiMedia
-                    || $choice instanceof Paragraph
-                    || $choice instanceof listElement
-                    || $choice instanceof Table
-                ));
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function canAddTag ($choice): bool
+  {
+    return ($choice
+            && ($choice instanceof LinkHtml
+                || $choice instanceof Sub
+                || $choice instanceof Sup
+                || $choice instanceof Br
+                || $choice instanceof Footnote
+                || $choice instanceof FootNoteRef
+                || $choice instanceof RenderMultiMedia
+                || $choice instanceof Paragraph
+                || $choice instanceof listElement
+                || $choice instanceof Table
+            ));
+  }
 
 }

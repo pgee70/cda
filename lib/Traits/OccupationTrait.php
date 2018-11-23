@@ -38,51 +38,55 @@ use i3Soft\CDA\RIM\Extensions\JobClassCode;
  */
 trait OccupationTrait
 {
-    /** @var Code|JobClassCode */
-    private $occupation;
+  /** @var Code|JobClassCode */
+  private $occupation;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderOccupation(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderOccupation (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasOccupation())
     {
-        if ($this->hasOccupation()) {
-            $el->appendChild($this->getOccupation()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getOccupation()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasOccupation(): bool
-    {
-        return null !== $this->occupation;
-    }
+  /**
+   * @return bool
+   */
+  public function hasOccupation (): bool
+  {
+    return NULL !== $this->occupation;
+  }
 
-    /**
-     * @return Code|JobClassCode
-     */
-    public function getOccupation()
-    {
-        return $this->occupation;
-    }
+  /**
+   * @return Code|JobClassCode
+   */
+  public function getOccupation ()
+  {
+    return $this->occupation;
+  }
 
-    /**
-     * @param Code|JobClassCode $occupation
-     *
-     * @return self
-     */
-    public function setOccupation($occupation): self
+  /**
+   * @param Code|JobClassCode $occupation
+   *
+   * @return self
+   */
+  public function setOccupation ($occupation): self
+  {
+    if ($occupation instanceof Code || $occupation instanceof JobClassCode)
     {
-        if ($occupation instanceof Code || $occupation instanceof JobClassCode) {
-            $this->occupation = $occupation;
-        } else {
-            throw new \InvalidArgumentException('Occupation must be an instance of Code or JobClassCode');
-        }
-        return $this;
+      $this->occupation = $occupation;
     }
+    else
+    {
+      throw new \InvalidArgumentException('Occupation must be an instance of Code or JobClassCode');
+    }
+    return $this;
+  }
 }

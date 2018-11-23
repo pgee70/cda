@@ -49,12 +49,12 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class Authorization_test extends MyTestCase
 {
-    /**
-     * see page 118 of EventSummary_CDAImplementationGuide_v1.3.pdf
-     */
-    public function test_tag()
-    {
-        $expected          = <<<'CDA'
+  /**
+   * see page 118 of EventSummary_CDAImplementationGuide_v1.3.pdf
+   */
+  public function test_tag ()
+  {
+    $expected          = <<<'CDA'
 <authorization typeCode="AUTH">
     <consent moodCode="EVN" classCode="CONS">
         <code code="a" codeSystem="b" codeSystemName="c" displayName="d"/>
@@ -63,37 +63,37 @@ class Authorization_test extends MyTestCase
 </authorization>
 
 CDA;
-        $tag               = new Authorization(
-          (new Consent())
-            ->setCodedValue(new CodedValue('a', 'd', 'b', 'c'))
-            ->setStatusCode(StatusCodeElement::Completed()));
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $tag->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag               = new Authorization(
+      (new Consent())
+        ->setCodedValue(new CodedValue('a', 'd', 'b', 'c'))
+        ->setStatusCode(StatusCodeElement::Completed()));
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $tag->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_bad_class_code()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The class code xxx is not valid!');
-        (new Consent())->setClassCode('xxx');
-    }
+  public function test_bad_class_code ()
+  {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The class code xxx is not valid!');
+    (new Consent())->setClassCode('xxx');
+  }
 
-    public function test_bad_mood_code()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The mood code xxx is not valid!');
-        (new Consent())->setMoodCode('xxx');
-    }
+  public function test_bad_mood_code ()
+  {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The mood code xxx is not valid!');
+    (new Consent())->setMoodCode('xxx');
+  }
 
-    public function test_bad_type_code()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The type code xxx is not valid!');
-        (new Authorization(new Consent()))->setTypeCode('xxx');
-    }
+  public function test_bad_type_code ()
+  {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The type code xxx is not valid!');
+    (new Authorization(new Consent()))->setTypeCode('xxx');
+  }
 }
 

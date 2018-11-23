@@ -34,38 +34,38 @@ use i3Soft\CDA\Traits\ManufacturedProductTrait;
  */
 class Consumable extends Participation
 {
-    use ManufacturedProductTrait;
+  use ManufacturedProductTrait;
 
-    /**
-     * Consumable constructor.
-     *
-     * @param ManufacturedProduct $manufacturedProduct
-     */
-    public function __construct(ManufacturedProduct $manufacturedProduct)
-    {
-        $this->setAcceptableTypeCodes(['', TypeCodeInterface::CONSUMABLE])
-          ->setManufacturedProduct($manufacturedProduct)
-          ->setTypeCode(TypeCodeInterface::CONSUMABLE);
-    }
+  /**
+   * Consumable constructor.
+   *
+   * @param ManufacturedProduct $manufacturedProduct
+   */
+  public function __construct (ManufacturedProduct $manufacturedProduct)
+  {
+    $this->setAcceptableTypeCodes(['', TypeCodeInterface::CONSUMABLE])
+      ->setManufacturedProduct($manufacturedProduct)
+      ->setTypeCode(TypeCodeInterface::CONSUMABLE);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderManufacturedProduct($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderManufacturedProduct($el, $doc);
+    return $el;
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'consumable';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'consumable';
+  }
 }

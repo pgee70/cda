@@ -32,47 +32,48 @@ use i3Soft\CDA\RIM\Entity\AssociatedPerson;
 
 trait AssociatedPersonTrait
 {
-    /** @var AssociatedPerson */
-    private $associated_person;
+  /** @var AssociatedPerson */
+  private $associated_person;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAssociatedPerson(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAssociatedPerson (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAssociatedPerson())
     {
-        if ($this->hasAssociatedPerson()) {
-            $el->appendChild($this->getAssociatedPerson()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getAssociatedPerson()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAssociatedPerson(): bool
-    {
-        return null !== $this->associated_person;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAssociatedPerson (): bool
+  {
+    return NULL !== $this->associated_person;
+  }
 
-    /**
-     * @return AssociatedPerson
-     */
-    public function getAssociatedPerson(): AssociatedPerson
-    {
-        return $this->associated_person;
-    }
+  /**
+   * @return AssociatedPerson
+   */
+  public function getAssociatedPerson (): AssociatedPerson
+  {
+    return $this->associated_person;
+  }
 
-    /**
-     * @param AssociatedPerson $associated_person
-     *
-     * @return self
-     */
-    public function setAssociatedPerson(AssociatedPerson $associated_person): self
-    {
-        $this->associated_person = $associated_person;
-        return $this;
-    }
+  /**
+   * @param AssociatedPerson $associated_person
+   *
+   * @return self
+   */
+  public function setAssociatedPerson (AssociatedPerson $associated_person): self
+  {
+    $this->associated_person = $associated_person;
+    return $this;
+  }
 }

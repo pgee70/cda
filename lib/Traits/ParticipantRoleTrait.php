@@ -37,48 +37,49 @@ use i3Soft\CDA\RIM\Role\ParticipantRole;
  */
 trait ParticipantRoleTrait
 {
-    /** @var  ParticipantRole */
-    private $participantRole;
+  /** @var  ParticipantRole */
+  private $participantRole;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderParticipantRole(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderParticipantRole (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasParticipantRole())
     {
-        if ($this->hasParticipantRole()) {
-            $el->appendChild($this->getParticipantRole()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getParticipantRole()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasParticipantRole(): bool
-    {
-        return null !== $this->participantRole;
-    }
+  /**
+   * @return bool
+   */
+  public function hasParticipantRole (): bool
+  {
+    return NULL !== $this->participantRole;
+  }
 
-    /**
-     * @return ParticipantRole
-     */
-    public function getParticipantRole(): ParticipantRole
-    {
-        return $this->participantRole;
-    }
+  /**
+   * @return ParticipantRole
+   */
+  public function getParticipantRole (): ParticipantRole
+  {
+    return $this->participantRole;
+  }
 
-    /**
-     * @param ParticipantRole $participantRole
-     *
-     * @return self
-     */
-    public function setParticipantRole(ParticipantRole $participantRole): self
-    {
-        $this->participantRole = $participantRole;
-        return $this;
-    }
+  /**
+   * @param ParticipantRole $participantRole
+   *
+   * @return self
+   */
+  public function setParticipantRole (ParticipantRole $participantRole): self
+  {
+    $this->participantRole = $participantRole;
+    return $this;
+  }
 
 }

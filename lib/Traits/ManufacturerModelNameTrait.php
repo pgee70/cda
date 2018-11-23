@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\ManufacturerModelName;
  */
 trait ManufacturerModelNameTrait
 {
-    /** @var ManufacturerModelName */
-    private $manufacturer_model_name;
+  /** @var ManufacturerModelName */
+  private $manufacturer_model_name;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderManufacturerModelName(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderManufacturerModelName (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasManufacturerModelName())
     {
-        if ($this->hasManufacturerModelName()) {
-            $el->appendChild($this->getManufacturerModelName()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getManufacturerModelName()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasManufacturerModelName(): bool
-    {
-        return null !== $this->manufacturer_model_name;
-    }
+  /**
+   * @return bool
+   */
+  public function hasManufacturerModelName (): bool
+  {
+    return NULL !== $this->manufacturer_model_name;
+  }
 
-    /**
-     * @return ManufacturerModelName
-     */
-    public function getManufacturerModelName(): ManufacturerModelName
-    {
-        return $this->manufacturer_model_name;
-    }
+  /**
+   * @return ManufacturerModelName
+   */
+  public function getManufacturerModelName (): ManufacturerModelName
+  {
+    return $this->manufacturer_model_name;
+  }
 
-    /**
-     * @param ManufacturerModelName $manufacturer_model_name
-     *
-     * @return self
-     */
-    public function setManufacturerModelName(ManufacturerModelName $manufacturer_model_name): self
-    {
-        $this->manufacturer_model_name = $manufacturer_model_name;
-        return $this;
-    }
+  /**
+   * @param ManufacturerModelName $manufacturer_model_name
+   *
+   * @return self
+   */
+  public function setManufacturerModelName (ManufacturerModelName $manufacturer_model_name): self
+  {
+    $this->manufacturer_model_name = $manufacturer_model_name;
+    return $this;
+  }
 }

@@ -47,40 +47,41 @@ use i3Soft\CDA\Traits\SpecimenPlayingEntityTrait;
  */
 class SpecimenRole extends Role
 {
-    use SpecimenPlayingEntityTrait;
+  use SpecimenPlayingEntityTrait;
 
-    /**
-     * SpecimenRole constructor.
-     *
-     * @param null $specimenPlayingEntity
-     */
-    public function __construct($specimenPlayingEntity = null)
+  /**
+   * SpecimenRole constructor.
+   *
+   * @param null $specimenPlayingEntity
+   */
+  public function __construct ($specimenPlayingEntity = NULL)
+  {
+    if ($specimenPlayingEntity
+        && $specimenPlayingEntity instanceof SpecimenPlayingEntity)
     {
-        if ($specimenPlayingEntity
-            && $specimenPlayingEntity instanceof SpecimenPlayingEntity) {
-            $this->setSpecimenPlayingEntity($specimenPlayingEntity);
-        }
-        $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassSpecimen)
-          ->setClassCode('');
+      $this->setSpecimenPlayingEntity($specimenPlayingEntity);
     }
+    $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassSpecimen)
+      ->setClassCode('');
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        $this->renderSpecimenPlayingEntity($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    $this->renderSpecimenPlayingEntity($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'specimenRole';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'specimenRole';
+  }
 
 }

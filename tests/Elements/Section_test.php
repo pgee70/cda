@@ -65,9 +65,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class Section_test extends MyTestCase
 {
-    public function test_tag()
-    {
-        $expected          = <<<XML
+  public function test_tag ()
+  {
+    $expected          = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <section>
   <id root="88CDBCA4-EFD1-11DF-8DE4-E4CDDFD72085"/>
@@ -105,54 +105,54 @@ class Section_test extends MyTestCase
 </section>
 
 XML;
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $dom->formatOutput = true;
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $dom->formatOutput = TRUE;
 
-        $section = (new Section(
-          Id::fromString('88CDBCA4-EFD1-11DF-8DE4-E4CDDFD72085'),
-          Code::NCTIS('102.16080', 'Administrative Observations'),
-          new Title('Administrative Observations'),
-          new Text(
-            (new Table())
-              ->getTbody()
-              ->createRow()
-              ->createCell('Australian Medicare Prescriber Number', TableCell::TH)->getRow()
-              ->createCell('049960CT')->getRow()
-              ->getSection()
-              ->getTable()
-          )
-        ))
-          ->setMoodCode('')
-          ->setClassCode('')
-          ->setExtCoverage2(
-            new ExtCoverage2(
-              new ExtEntitlement(
-                new ExtId('Medicare Prescriber number', '1.2.36.174030967.0.3', '049960CT'),
-                new ExtCode(null, new CodedValue(
-                  '10',
-                  'Medicare Prescriber Number',
-                  '1.2.36.1.2001.1001.101.104.16047',
-                  'NCTIS Entitlement Type Values')),
-                new ExtEffectiveTime(new IntervalOfTime(
-                  (new TimeStamp(
-                    new \DateTime('2005-01-01 01:01:00', new \DateTimeZone('+1100'))
-                  ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(true),
-                  (new TimeStamp(
-                    new \DateTime('2025-01-01 01:01:00', new \DateTimeZone('+1100'))
-                  ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(true)
-                )),
-                new ExtParticipant(
-                  new ExtParticipantRole(
-                    new ExtId('', '7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085')
-                  )
-                )
+    $section = (new Section(
+      Id::fromString('88CDBCA4-EFD1-11DF-8DE4-E4CDDFD72085'),
+      Code::NCTIS('102.16080', 'Administrative Observations'),
+      new Title('Administrative Observations'),
+      new Text(
+        (new Table())
+          ->getTbody()
+          ->createRow()
+          ->createCell('Australian Medicare Prescriber Number', TableCell::TH)->getRow()
+          ->createCell('049960CT')->getRow()
+          ->getSection()
+          ->getTable()
+      )
+    ))
+      ->setMoodCode('')
+      ->setClassCode('')
+      ->setExtCoverage2(
+        new ExtCoverage2(
+          new ExtEntitlement(
+            new ExtId('Medicare Prescriber number', '1.2.36.174030967.0.3', '049960CT'),
+            new ExtCode(NULL, new CodedValue(
+              '10',
+              'Medicare Prescriber Number',
+              '1.2.36.1.2001.1001.101.104.16047',
+              'NCTIS Entitlement Type Values')),
+            new ExtEffectiveTime(new IntervalOfTime(
+              (new TimeStamp(
+                new \DateTime('2005-01-01 01:01:00', new \DateTimeZone('+1100'))
+              ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(TRUE),
+              (new TimeStamp(
+                new \DateTime('2025-01-01 01:01:00', new \DateTimeZone('+1100'))
+              ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(TRUE)
+            )),
+            new ExtParticipant(
+              new ExtParticipantRole(
+                new ExtId('', '7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085')
               )
             )
-          );
-        $doc     = $section->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+          )
+        )
+      );
+    $doc     = $section->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
 }

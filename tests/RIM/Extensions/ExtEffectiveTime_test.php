@@ -51,9 +51,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class ExtEffectiveTime_test extends MyTestCase
 {
-    public function test_tag()
-    {
-        $expected          = <<<XML
+  public function test_tag ()
+  {
+    $expected          = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ext:effectiveTime xsi:type="IVL_TS">
@@ -62,20 +62,20 @@ class ExtEffectiveTime_test extends MyTestCase
 </ext:effectiveTime>
 
 XML;
-        $tag               = new ExtEffectiveTime(new IntervalOfTime(
-          (new TimeStamp(
-            new \DateTime('2005-01-01 01:01:00', new \DateTimeZone('+1100'))
-          ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(true),
-          (new TimeStamp(
-            new \DateTime('2025-01-01 01:01:00', new \DateTimeZone('+1100'))
-          ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(true)
-        ));
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $tag->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag               = new ExtEffectiveTime(new IntervalOfTime(
+      (new TimeStamp(
+        new \DateTime('2005-01-01 01:01:00', new \DateTimeZone('+1100'))
+      ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(TRUE),
+      (new TimeStamp(
+        new \DateTime('2025-01-01 01:01:00', new \DateTimeZone('+1100'))
+      ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(TRUE)
+    ));
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $tag->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
 }

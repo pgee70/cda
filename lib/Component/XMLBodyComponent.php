@@ -36,60 +36,62 @@ use i3Soft\CDA\Traits\SingleComponentTrait;
  */
 class XMLBodyComponent extends AbstractComponent implements ClassCodeInterface, MoodCodeInterface
 {
-    use SingleComponentTrait;
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  use SingleComponentTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    /**
-     * XMLBodyComponent constructor.
-     *
-     * @param null $component
-     */
-    public function __construct($component = null)
+  /**
+   * XMLBodyComponent constructor.
+   *
+   * @param null $component
+   */
+  public function __construct ($component = NULL)
+  {
+    $acceptable_values = array(
+      '',
+      MoodCodeInterface::EVENT,
+      MoodCodeInterface::GOAL,
+      MoodCodeInterface::INTENT,
+      MoodCodeInterface::PROMISE,
+      MoodCodeInterface::PROPOSAL,
+      MoodCodeInterface::REQUEST
+    );
+    $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
+      ->setAcceptableMoodCodes($acceptable_values)
+      ->setClassCode(ClassCodeInterface::DOCUMENT_BODY)
+      ->setMoodCode('');
+    if ($component instanceof SingleComponent)
     {
-        $acceptable_values = array(
-          '',
-          MoodCodeInterface::EVENT,
-          MoodCodeInterface::GOAL,
-          MoodCodeInterface::INTENT,
-          MoodCodeInterface::PROMISE,
-          MoodCodeInterface::PROPOSAL,
-          MoodCodeInterface::REQUEST
-        );
-        $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
-          ->setAcceptableMoodCodes($acceptable_values)
-          ->setClassCode(ClassCodeInterface::DOCUMENT_BODY)
-          ->setMoodCode('');
-        if ($component instanceof SingleComponent) {
-            $this->addComponent($component);
-        }
+      $this->addComponent($component);
+    }
+  }
+
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    foreach ($this->getComponents() as $component)
+    {
+      $el->appendChild($component->toDOMElement($doc));
     }
 
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-
-        foreach ($this->getComponents() as $component) {
-            $el->appendChild($component->toDOMElement($doc));
-        }
-
-        return $el;
-    }
+    return $el;
+  }
 
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'structuredBody';
-    }
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'structuredBody';
+  }
 }

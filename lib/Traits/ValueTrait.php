@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\Value;
  */
 trait ValueTrait
 {
-    /** @var Value */
-    private $value;
+  /** @var Value */
+  private $value;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderValue(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderValue (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasValue())
     {
-        if ($this->hasValue()) {
-            $el->appendChild($this->getValue()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getValue()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasValue(): bool
-    {
-        return null !== $this->value;
-    }
+  /**
+   * @return bool
+   */
+  public function hasValue (): bool
+  {
+    return NULL !== $this->value;
+  }
 
-    /**
-     * @return Value
-     */
-    public function getValue(): Value
-    {
-        return $this->value;
-    }
+  /**
+   * @return Value
+   */
+  public function getValue (): Value
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param Value $value
-     *
-     * @return self
-     */
-    public function setValue(Value $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
+  /**
+   * @param Value $value
+   *
+   * @return self
+   */
+  public function setValue (Value $value): self
+  {
+    $this->value = $value;
+    return $this;
+  }
 }

@@ -60,58 +60,58 @@ use i3Soft\CDA\Traits\ValueTrait;
  */
 class ObservationMedia extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {
-    use IdsTrait;
-    use ValueTrait;
-    use ClassCodeTrait;
-    use MoodCodeTrait;
-    use LanguageCodeTrait;
-    use SubjectTrait;
-    use PerformersTrait;
-    use SpecimensTrait;
-    use AuthorsTrait;
-    use InformantsTrait;
-    use ParticipantsTrait;
-    use EntryRelationshipsTrait;
-    use ReferencesTrait;
-    use PreconditionsTrait;
+  use IdsTrait;
+  use ValueTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
+  use LanguageCodeTrait;
+  use SubjectTrait;
+  use PerformersTrait;
+  use SpecimensTrait;
+  use AuthorsTrait;
+  use InformantsTrait;
+  use ParticipantsTrait;
+  use EntryRelationshipsTrait;
+  use ReferencesTrait;
+  use PreconditionsTrait;
 
-    /**
-     * ObservationMedia constructor.
-     */
-    public function __construct()
-    {
-        $this->setAcceptableClassCodes(ClassCodeInterface::ActClassObservation)
-          ->setClassCode('')
-          ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
-          ->setMoodCode('');
-    }
+  /**
+   * ObservationMedia constructor.
+   */
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::ActClassObservation)
+      ->setClassCode('')
+      ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
+      ->setMoodCode('');
+  }
 
-    /**
-     * @inheritDoc
-     *
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc)
-          ->renderLanguageCode($el, $doc)
-          ->renderValue($el, $doc)
-          ->renderSubject($el, $doc)
-          ->renderPerformers($el, $doc)
-          ->renderAuthors($el, $doc)
-          ->renderInformants($el, $doc)
-          ->renderParticipants($el, $doc)
-          ->renderEntryRelationships($el, $doc)
-          ->renderReferences($el, $doc)
-          ->renderPreconditions($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   *
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc)
+      ->renderLanguageCode($el, $doc)
+      ->renderValue($el, $doc)
+      ->renderSubject($el, $doc)
+      ->renderPerformers($el, $doc)
+      ->renderAuthors($el, $doc)
+      ->renderInformants($el, $doc)
+      ->renderParticipants($el, $doc)
+      ->renderEntryRelationships($el, $doc)
+      ->renderReferences($el, $doc)
+      ->renderPreconditions($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'observationMedia';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'observationMedia';
+  }
 }

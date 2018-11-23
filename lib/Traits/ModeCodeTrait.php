@@ -32,44 +32,45 @@ use i3Soft\CDA\Elements\ModeCode;
 
 trait ModeCodeTrait
 {
-    /** @var ModeCode */
-    private $modeCode;
+  /** @var ModeCode */
+  private $modeCode;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderModeCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderModeCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasModeCode())
     {
-        if ($this->hasModeCode()) {
-            $el->appendChild($this->getModeCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getModeCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasModeCode(): bool { return null !== $this->modeCode; }
+  /**
+   * @return bool
+   */
+  public function hasModeCode (): bool { return NULL !== $this->modeCode; }
 
-    /**
-     * @return ModeCode
-     */
-    public function getModeCode(): ModeCode
-    {
-        return $this->modeCode;
-    }
+  /**
+   * @return ModeCode
+   */
+  public function getModeCode (): ModeCode
+  {
+    return $this->modeCode;
+  }
 
-    /**
-     * @param ModeCode $modeCode
-     *
-     * @return self
-     */
-    public function setModeCode(ModeCode $modeCode): self
-    {
-        $this->modeCode = $modeCode;
-        return $this;
-    }
+  /**
+   * @param ModeCode $modeCode
+   *
+   * @return self
+   */
+  public function setModeCode (ModeCode $modeCode): self
+  {
+    $this->modeCode = $modeCode;
+    return $this;
+  }
 }

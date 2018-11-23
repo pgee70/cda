@@ -41,190 +41,191 @@ use i3Soft\CDA\ClinicalDocument as CD;
  */
 class EncapsuledData extends BinaryData
 {
-    private $mediaType;
+  private $mediaType;
 
-    private $charset;
+  private $charset;
 
-    private $language;
+  private $language;
 
-    private $compression;
+  private $compression;
 
-    private $reference;
+  private $reference;
 
-    private $integrityCheck;
+  private $integrityCheck;
 
-    private $intetgrityCheckAlgorithm;
+  private $intetgrityCheckAlgorithm;
 
-    private $thumbnail;
+  private $thumbnail;
 
-    /**
-     * @return mixed
-     */
-    public function getCharset()
+  /**
+   * @return mixed
+   */
+  public function getCharset ()
+  {
+    return $this->charset;
+  }
+
+  /**
+   * @param $charset
+   *
+   * @return self
+   */
+  public function setCharset ($charset): self
+  {
+    $this->charset = $charset;
+    return $this;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getLanguage ()
+  {
+    return $this->language;
+  }
+
+  /**
+   * @param $language
+   *
+   * @return self
+   */
+  public function setLanguage ($language): self
+  {
+    $this->language = $language;
+    return $this;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getCompression ()
+  {
+    return $this->compression;
+  }
+
+  /**
+   * @param $compression
+   *
+   * @return self
+   */
+  public function setCompression ($compression): self
+  {
+    $this->compression = $compression;
+    return $this;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getReference ()
+  {
+    return $this->reference;
+  }
+
+  /**
+   * @param $reference
+   *
+   * @return self
+   */
+  public function setReference ($reference): self
+  {
+    $this->reference = $reference;
+    return $this;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getIntegrityCheck ()
+  {
+    return $this->integrityCheck;
+  }
+
+  /**
+   * @param $integrityCheck
+   *
+   * @return self
+   */
+  public function setIntegrityCheck ($integrityCheck): self
+  {
+    $this->integrityCheck = $integrityCheck;
+    return $this;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getIntegrityCheckAlgorithm ()
+  {
+    return $this->intetgrityCheckAlgorithm;
+  }
+
+  /**
+   * @param $integrityCheckAlgorithm
+   *
+   * @return self
+   */
+  public function setIntegrityCheckAlgorithm ($integrityCheckAlgorithm): self
+  {
+    $this->intetgrityCheckAlgorithm = $integrityCheckAlgorithm;
+    return $this;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getThumbnail ()
+  {
+    return $this->thumbnail;
+  }
+
+  /**
+   * @param $thumbnail
+   *
+   * @return self
+   */
+  public function setThumbnail ($thumbnail): self
+  {
+    $this->thumbnail = $thumbnail;
+    return $this;
+  }
+
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    if ($this->getMediaType() && $this->getMediaType() !== 'text/plain')
     {
-        return $this->charset;
+      $el->setAttribute(CD::getNS() . 'mediaType', $this->getMediaType());
     }
 
-    /**
-     * @param $charset
-     *
-     * @return self
-     */
-    public function setCharset($charset): self
-    {
-        $this->charset = $charset;
-        return $this;
-    }
+    $content = $this->getMediaType() === 'text/plain'
+      ? new \DOMCdataSection($this->getContent())
+      : new \DOMText($this->getContent());
 
-    /**
-     * @return mixed
-     */
-    public function getLanguage()
-    {
-        return $this->language;
-    }
+    $el->appendChild($content);
+  }
 
-    /**
-     * @param $language
-     *
-     * @return self
-     */
-    public function setLanguage($language): self
-    {
-        $this->language = $language;
-        return $this;
-    }
+  /**
+   * @return mixed
+   */
+  public function getMediaType ()
+  {
+    return $this->mediaType;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getCompression()
-    {
-        return $this->compression;
-    }
-
-    /**
-     * @param $compression
-     *
-     * @return self
-     */
-    public function setCompression($compression): self
-    {
-        $this->compression = $compression;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getReference()
-    {
-        return $this->reference;
-    }
-
-    /**
-     * @param $reference
-     *
-     * @return self
-     */
-    public function setReference($reference): self
-    {
-        $this->reference = $reference;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIntegrityCheck()
-    {
-        return $this->integrityCheck;
-    }
-
-    /**
-     * @param $integrityCheck
-     *
-     * @return self
-     */
-    public function setIntegrityCheck($integrityCheck): self
-    {
-        $this->integrityCheck = $integrityCheck;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIntegrityCheckAlgorithm()
-    {
-        return $this->intetgrityCheckAlgorithm;
-    }
-
-    /**
-     * @param $integrityCheckAlgorithm
-     *
-     * @return self
-     */
-    public function setIntegrityCheckAlgorithm($integrityCheckAlgorithm): self
-    {
-        $this->intetgrityCheckAlgorithm = $integrityCheckAlgorithm;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getThumbnail()
-    {
-        return $this->thumbnail;
-    }
-
-    /**
-     * @param $thumbnail
-     *
-     * @return self
-     */
-    public function setThumbnail($thumbnail): self
-    {
-        $this->thumbnail = $thumbnail;
-        return $this;
-    }
-
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
-    {
-        if ($this->getMediaType() && $this->getMediaType() !== 'text/plain') {
-            $el->setAttribute(CD::NS_CDA . 'mediaType', $this->getMediaType());
-        }
-
-        $content = $this->getMediaType() === 'text/plain'
-          ? new \DOMCdataSection($this->getContent())
-          : new \DOMText($this->getContent());
-
-        $el->appendChild($content);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMediaType()
-    {
-        return $this->mediaType;
-    }
-
-    /**
-     * @param $mediaType
-     *
-     * @return self
-     */
-    public function setMediaType($mediaType): self
-    {
-        $this->mediaType = $mediaType;
-        return $this;
-    }
+  /**
+   * @param $mediaType
+   *
+   * @return self
+   */
+  public function setMediaType ($mediaType): self
+  {
+    $this->mediaType = $mediaType;
+    return $this;
+  }
 
 
 }

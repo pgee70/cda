@@ -56,9 +56,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class ExtEntitlement_test extends MyTestCase
 {
-    public function test_tag()
-    {
-        $expected = <<<XML
+  public function test_tag ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:entitlement classCode="COV" moodCode="EVN">
   <ext:id assigningAuthorityName="Medicare Prescriber number" root="1.2.36.174030967.0.3" extension="049960CT" />
@@ -77,32 +77,32 @@ class ExtEntitlement_test extends MyTestCase
 XML;
 
 
-        $tag               = new ExtEntitlement(
-          new ExtId('Medicare Prescriber number', '1.2.36.174030967.0.3', '049960CT'),
-          new ExtCode(null, new CodedValue(
-            '10',
-            'Medicare Prescriber Number',
-            '1.2.36.1.2001.1001.101.104.16047',
-            'NCTIS Entitlement Type Values')),
-          new ExtEffectiveTime(new IntervalOfTime(
-            (new TimeStamp(
-              new \DateTime('2005-01-01 01:01:00', new \DateTimeZone('+1100'))
-            ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(true),
-            (new TimeStamp(
-              new \DateTime('2025-01-01 01:01:00', new \DateTimeZone('+1100'))
-            ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(true)
-          )),
-          new ExtParticipant(
-            new ExtParticipantRole(
-              new ExtId('', '7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085'))
-          )
-        );
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $tag->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag               = new ExtEntitlement(
+      new ExtId('Medicare Prescriber number', '1.2.36.174030967.0.3', '049960CT'),
+      new ExtCode(NULL, new CodedValue(
+        '10',
+        'Medicare Prescriber Number',
+        '1.2.36.1.2001.1001.101.104.16047',
+        'NCTIS Entitlement Type Values')),
+      new ExtEffectiveTime(new IntervalOfTime(
+        (new TimeStamp(
+          new \DateTime('2005-01-01 01:01:00', new \DateTimeZone('+1100'))
+        ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(TRUE),
+        (new TimeStamp(
+          new \DateTime('2025-01-01 01:01:00', new \DateTimeZone('+1100'))
+        ))->setPrecision(TimeStamp::PRECISION_SECONDS)->setOffset(TRUE)
+      )),
+      new ExtParticipant(
+        new ExtParticipantRole(
+          new ExtId('', '7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085'))
+      )
+    );
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $tag->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
 }

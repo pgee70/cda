@@ -35,23 +35,23 @@ namespace i3Soft\CDA\DataType\Code;
  */
 class CodedValue extends CodedWithEquivalents
 {
-    /**
-     * CodedValue constructor.
-     *
-     * @param $code
-     * @param $displayName
-     * @param $codeSystem
-     * @param $codeSystemName
-     */
-    public function __construct(
-      $code,
-      $displayName,
-      $codeSystem,
-      $codeSystemName
-    ) {
-        $this->setCode($code)
-          ->setDisplayName($displayName)
-          ->setCodeSystem($codeSystem)
-          ->setCodeSystemName($codeSystemName);
-    }
+  /**
+   * CodedValue constructor.
+   *
+   * @param $code
+   * @param $displayName
+   * @param $codeSystem
+   * @param $codeSystemName
+   */
+  public function __construct (
+    $code,
+    $displayName,
+    $codeSystem,
+    $codeSystemName
+  ) {
+    $this->setCode($code)
+      ->setDisplayName($displayName)
+      ->setCodeSystem($codeSystem)
+      ->setCodeSystemName($codeSystemName);
+  }
 }

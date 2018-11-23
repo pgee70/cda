@@ -45,53 +45,53 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 class MultipleBirthOrderNumber extends AbstractElement
 {
-    /** @var ValueType */
-    protected $value;
+  /** @var ValueType */
+  protected $value;
 
-    /**
-     * MultipleBirthOrderNumber constructor.
-     *
-     * @param string $value
-     */
-    public function __construct(string $value)
-    {
-        $this->setValue($value);
-    }
+  /**
+   * MultipleBirthOrderNumber constructor.
+   *
+   * @param string $value
+   */
+  public function __construct (string $value)
+  {
+    $this->setValue($value);
+  }
 
-    /**
-     * @return ValueType
-     */
-    public function getValue(): ValueType
-    {
-        return $this->value;
-    }
+  /**
+   * @return ValueType
+   */
+  public function getValue (): ValueType
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param $value
-     *
-     * @return MultipleBirthOrderNumber
-     */
-    public function setValue($value): MultipleBirthOrderNumber
-    {
-        $this->value = new ValueType($value);
-        return $this;
-    }
+  /**
+   * @param $value
+   *
+   * @return MultipleBirthOrderNumber
+   */
+  public function setValue ($value): MultipleBirthOrderNumber
+  {
+    $this->value = new ValueType($value);
+    return $this;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, array('value'));
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, array('value'));
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:multipleBirthOrderNumber';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:multipleBirthOrderNumber';
+  }
 }

@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Participation\Product;
  */
 trait ProductTrait
 {
-    /** @var Product */
-    private $product;
+  /** @var Product */
+  private $product;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderProduct(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderProduct (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasProduct())
     {
-        if ($this->hasProduct()) {
-            $el->appendChild($this->getProduct()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getProduct()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasProduct(): bool
-    {
-        return null !== $this->product;
-    }
+  /**
+   * @return bool
+   */
+  public function hasProduct (): bool
+  {
+    return NULL !== $this->product;
+  }
 
-    /**
-     * @return Product
-     */
-    public function getProduct(): Product
-    {
-        return $this->product;
-    }
+  /**
+   * @return Product
+   */
+  public function getProduct (): Product
+  {
+    return $this->product;
+  }
 
-    /**
-     * @param Product $product
-     *
-     * @return self
-     */
-    public function setProduct(Product $product): self
-    {
-        $this->product = $product;
-        return $this;
-    }
+  /**
+   * @param Product $product
+   *
+   * @return self
+   */
+  public function setProduct (Product $product): self
+  {
+    $this->product = $product;
+    return $this;
+  }
 }

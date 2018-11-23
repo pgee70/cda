@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Participation\LegalAuthenticator;
  */
 trait LegalAuthenticatorTrait
 {
-    /** @var LegalAuthenticator */
-    private $legalAuthenticator;
+  /** @var LegalAuthenticator */
+  private $legalAuthenticator;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return LegalAuthenticatorTrait
-     */
-    public function renderLegalAuthenticator(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return LegalAuthenticatorTrait
+   */
+  public function renderLegalAuthenticator (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasLegalAuthenicator())
     {
-        if ($this->hasLegalAuthenicator()) {
-            $el->appendChild($this->getLegalAuthenticator()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getLegalAuthenticator()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasLegalAuthenicator(): bool
-    {
-        return null !== $this->legalAuthenticator;
-    }
+  /**
+   * @return bool
+   */
+  public function hasLegalAuthenicator (): bool
+  {
+    return NULL !== $this->legalAuthenticator;
+  }
 
-    /**
-     * @return LegalAuthenticator
-     */
-    public function getLegalAuthenticator(): LegalAuthenticator
-    {
-        return $this->legalAuthenticator;
-    }
+  /**
+   * @return LegalAuthenticator
+   */
+  public function getLegalAuthenticator (): LegalAuthenticator
+  {
+    return $this->legalAuthenticator;
+  }
 
-    /**
-     * @param LegalAuthenticator $legalAuthenticator
-     *
-     * @return self
-     */
-    public function setLegalAuthenticator(LegalAuthenticator $legalAuthenticator): self
-    {
-        $this->legalAuthenticator = $legalAuthenticator;
-        return $this;
-    }
+  /**
+   * @param LegalAuthenticator $legalAuthenticator
+   *
+   * @return self
+   */
+  public function setLegalAuthenticator (LegalAuthenticator $legalAuthenticator): self
+  {
+    $this->legalAuthenticator = $legalAuthenticator;
+    return $this;
+  }
 }

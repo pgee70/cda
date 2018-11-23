@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Entity\Patient;
  */
 trait PatientTrait
 {
-    /** @var Patient */
-    private $patient;
+  /** @var Patient */
+  private $patient;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderPatient(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderPatient (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasPatient())
     {
-        if ($this->hasPatient()) {
-            $el->appendChild($this->getPatient()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getPatient()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasPatient(): bool
-    {
-        return null !== $this->patient;
-    }
+  /**
+   * @return bool
+   */
+  public function hasPatient (): bool
+  {
+    return NULL !== $this->patient;
+  }
 
-    /**
-     * @return Patient
-     */
-    public function getPatient(): Patient
-    {
-        return $this->patient;
-    }
+  /**
+   * @return Patient
+   */
+  public function getPatient (): Patient
+  {
+    return $this->patient;
+  }
 
-    /**
-     * @param Patient $patient
-     *
-     * @return self
-     */
-    public function setPatient(Patient $patient): self
-    {
-        $this->patient = $patient;
-        return $this;
-    }
+  /**
+   * @param Patient $patient
+   *
+   * @return self
+   */
+  public function setPatient (Patient $patient): self
+  {
+    $this->patient = $patient;
+    return $this;
+  }
 }

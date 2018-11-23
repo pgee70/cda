@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Entity\Subject;
  */
 trait SubjectTrait
 {
-    /** @var Subject */
-    private $subject;
+  /** @var Subject */
+  private $subject;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderSubject(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderSubject (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasSubject())
     {
-        if ($this->hasSubject()) {
-            $el->appendChild($this->getSubject()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getSubject()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasSubject(): bool
-    {
-        return null !== $this->subject;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSubject (): bool
+  {
+    return NULL !== $this->subject;
+  }
 
-    /**
-     * @return Subject
-     */
-    public function getSubject(): Subject
-    {
-        return $this->subject;
-    }
+  /**
+   * @return Subject
+   */
+  public function getSubject (): Subject
+  {
+    return $this->subject;
+  }
 
-    /**
-     * @param Subject $subject
-     *
-     * @return self
-     */
-    public function setSubject(Subject $subject): self
-    {
-        $this->subject = $subject;
-        return $this;
-    }
+  /**
+   * @param Subject $subject
+   *
+   * @return self
+   */
+  public function setSubject (Subject $subject): self
+  {
+    $this->subject = $subject;
+    return $this;
+  }
 }

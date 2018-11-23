@@ -43,27 +43,27 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class EntityName_test extends MyTestCase
 {
-    public function test_EntityName()
-    {
-        $n = new EntityName("my name");
+  public function test_EntityName ()
+  {
+    $n = new EntityName("my name");
 
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $el  = $dom->createElement('el');
-        $dom->appendChild($el);
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $el  = $dom->createElement('el');
+    $dom->appendChild($el);
 
-        $n->setValueToElement($el, $dom);
+    $n->setValueToElement($el, $dom);
 
-        $expected    = <<<'CDA'
+    $expected    = <<<'CDA'
 <el><name>my name</name></el>
 CDA;
-        $expectedDoc = new \DOMDocument('1.0');
-        $expectedDoc->loadXML($expected);
-        $expectedEl = $expectedDoc
-          ->getElementsByTagName('el')
-          ->item(0);
+    $expectedDoc = new \DOMDocument('1.0');
+    $expectedDoc->loadXML($expected);
+    $expectedEl = $expectedDoc
+      ->getElementsByTagName('el')
+      ->item(0);
 
-        $this->assertEqualXMLStructure($expectedEl, $el, true);
+    $this->assertEqualXMLStructure($expectedEl, $el, TRUE);
 
-    }
+  }
 
 }

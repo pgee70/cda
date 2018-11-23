@@ -38,11 +38,11 @@ namespace i3Soft\CDA\RIM\Entity;
 
 class PlayingDevice extends Device
 {
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'playingDevice';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'playingDevice';
+  }
 }

@@ -43,11 +43,11 @@ namespace i3Soft\CDA\Elements;
  */
 class ManufacturerModelName extends SoftwareName
 {
-    /**
-     * @return string
-     */
-    public function getElementTag(): string
-    {
-        return 'manufacturerModelName';
-    }
+  /**
+   * @return string
+   */
+  public function getElementTag (): string
+  {
+    return 'manufacturerModelName';
+  }
 }

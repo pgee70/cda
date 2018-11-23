@@ -40,48 +40,48 @@ use i3Soft\CDA\DataType\Boolean\Boolean;
 
 class SeperatableInd extends AbstractElement
 {
-    /** @var Boolean */
-    protected $value;
+  /** @var Boolean */
+  protected $value;
 
-    public function __construct(Boolean $value)
-    {
-        $this->setValue($value);
-    }
+  public function __construct (Boolean $value)
+  {
+    $this->setValue($value);
+  }
 
-    /** @noinspection PhpDocSignatureInspection */
-    /**
-     * @return Boolean
-     */
-    public function getValue(): Boolean
-    {
-        return $this->value;
-    }
+  /** @noinspection PhpDocSignatureInspection */
+  /**
+   * @return Boolean
+   */
+  public function getValue (): Boolean
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param Boolean $value
-     *
-     * @return SeperatableInd
-     */
-    public function setValue(Boolean $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
+  /**
+   * @param Boolean $value
+   *
+   * @return SeperatableInd
+   */
+  public function setValue (Boolean $value): self
+  {
+    $this->value = $value;
+    return $this;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, ['value']);
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, ['value']);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'seperatableInd';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'seperatableInd';
+  }
 
 }

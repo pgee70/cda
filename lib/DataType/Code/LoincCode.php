@@ -32,42 +32,42 @@ namespace i3Soft\CDA\DataType\Code;
  */
 class LoincCode extends CodedValue
 {
-    const CODE_SYSTEM      = '2.16.840.1.113883.6.1';
-    const CODE_SYSTEM_NAME = 'LOINC';
+  const CODE_SYSTEM      = '2.16.840.1.113883.6.1';
+  const CODE_SYSTEM_NAME = 'LOINC';
 
-    /**
-     * LoincCode constructor.
-     *
-     * @param $code
-     * @param $displayName
-     */
-    public function __construct(
+  /**
+   * LoincCode constructor.
+   *
+   * @param $code
+   * @param $displayName
+   */
+  public function __construct (
+    $code,
+    $displayName
+  ) {
+    parent::__construct(
       $code,
-      $displayName
-    ) {
-        parent::__construct(
-          $code,
-          $displayName,
-          self::CODE_SYSTEM,
-          self::CODE_SYSTEM_NAME
-        );
-    }
+      $displayName,
+      self::CODE_SYSTEM,
+      self::CODE_SYSTEM_NAME
+    );
+  }
 
-    /**
-     *
-     * @param $code
-     * @param $displayName
-     *
-     * @return CodedValue
-     * @deprecated since 2017-01-01 use the constructor instead
-     */
-    public static function create($code, $displayName): CodedValue
-    {
-        return new CodedValue(
-          $code,
-          $displayName,
-          self::CODE_SYSTEM,
-          self::CODE_SYSTEM_NAME
-        );
-    }
+  /**
+   *
+   * @param $code
+   * @param $displayName
+   *
+   * @return CodedValue
+   * @deprecated since 2017-01-01 use the constructor instead
+   */
+  public static function create ($code, $displayName): CodedValue
+  {
+    return new CodedValue(
+      $code,
+      $displayName,
+      self::CODE_SYSTEM,
+      self::CODE_SYSTEM_NAME
+    );
+  }
 }

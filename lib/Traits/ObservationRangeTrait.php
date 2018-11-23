@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Act\ObservationRange;
  */
 trait ObservationRangeTrait
 {
-    /** @var ObservationRange */
-    private $observationRange;
+  /** @var ObservationRange */
+  private $observationRange;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderObservationRange(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderObservationRange (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasObservationRange())
     {
-        if ($this->hasObservationRange()) {
-            $el->appendChild($this->getObservationRange()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getObservationRange()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasObservationRange(): bool
-    {
-        return null !== $this->observationRange;
-    }
+  /**
+   * @return bool
+   */
+  public function hasObservationRange (): bool
+  {
+    return NULL !== $this->observationRange;
+  }
 
-    /**
-     * @return ObservationRange
-     */
-    public function getObservationRange(): ObservationRange
-    {
-        return $this->observationRange;
-    }
+  /**
+   * @return ObservationRange
+   */
+  public function getObservationRange (): ObservationRange
+  {
+    return $this->observationRange;
+  }
 
-    /**
-     * @param ObservationRange $observationRange
-     *
-     * @return self
-     */
-    public function setObservationRange(ObservationRange $observationRange): self
-    {
-        $this->observationRange = $observationRange;
-        return $this;
-    }
+  /**
+   * @param ObservationRange $observationRange
+   *
+   * @return self
+   */
+  public function setObservationRange (ObservationRange $observationRange): self
+  {
+    $this->observationRange = $observationRange;
+    return $this;
+  }
 }

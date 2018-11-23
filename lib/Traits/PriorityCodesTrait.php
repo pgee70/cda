@@ -36,65 +36,69 @@ use i3Soft\CDA\Elements\PriorityCode;
  */
 trait PriorityCodesTrait
 {
-    /** @var PriorityCode[] */
-    private $priorityCodes = array();
+  /** @var PriorityCode[] */
+  private $priorityCodes = array();
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderPriorityCodes(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderPriorityCodes (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasPriorityCodes())
     {
-        if ($this->hasPriorityCodes()) {
-            foreach ($this->getPriorityCodes() as $priority_code) {
-                $el->appendChild($priority_code->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getPriorityCodes() as $priority_code)
+      {
+        $el->appendChild($priority_code->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasPriorityCodes(): bool
-    {
-        return \count($this->priorityCodes) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasPriorityCodes (): bool
+  {
+    return \count($this->priorityCodes) > 0;
+  }
 
-    /**
-     * @return PriorityCode[]
-     */
-    public function getPriorityCodes(): array
-    {
-        return $this->priorityCodes;
-    }
+  /**
+   * @return PriorityCode[]
+   */
+  public function getPriorityCodes (): array
+  {
+    return $this->priorityCodes;
+  }
 
-    /**
-     * @param PriorityCode[] $priorityCodes
-     *
-     * @return self
-     */
-    public function setPriorityCodes(array $priorityCodes): self
+  /**
+   * @param PriorityCode[] $priorityCodes
+   *
+   * @return self
+   */
+  public function setPriorityCodes (array $priorityCodes): self
+  {
+    foreach ($priorityCodes as $priority_code)
     {
-        foreach ($priorityCodes as $priority_code) {
-            if ($priority_code instanceof PriorityCode) {
-                $this->addPriorityCode($priority_code);
-            }
-        }
-        $this->priorityCodes = $priorityCodes;
-        return $this;
+      if ($priority_code instanceof PriorityCode)
+      {
+        $this->addPriorityCode($priority_code);
+      }
     }
+    $this->priorityCodes = $priorityCodes;
+    return $this;
+  }
 
-    /**
-     * @param PriorityCode $priorityCode
-     *
-     * @return PriorityCodesTrait
-     */
-    public function addPriorityCode(PriorityCode $priorityCode): self
-    {
-        $this->priorityCodes[] = $priorityCode;
-        return $this;
-    }
+  /**
+   * @param PriorityCode $priorityCode
+   *
+   * @return PriorityCodesTrait
+   */
+  public function addPriorityCode (PriorityCode $priorityCode): self
+  {
+    $this->priorityCodes[] = $priorityCode;
+    return $this;
+  }
 }

@@ -32,49 +32,49 @@ use i3Soft\CDA\ClinicalDocument as CDA;
  */
 class ReferenceType extends AnyType
 {
-    /**
-     *
-     * @var string
-     */
-    private $reference;
+  /**
+   *
+   * @var string
+   */
+  private $reference;
 
-    /**
-     * ReferenceType constructor.
-     *
-     * @param $reference
-     */
-    public function __construct($reference)
-    {
-        $this->reference = $reference;
-    }
+  /**
+   * ReferenceType constructor.
+   *
+   * @param $reference
+   */
+  public function __construct ($reference)
+  {
+    $this->reference = $reference;
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
-    {
-        $el->setAttribute('ID', $this->getReference());
-    }
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    $el->setAttribute('ID', $this->getReference());
+  }
 
-    /**
-     * @return string
-     */
-    public function getReference(): string
-    {
-        return $this->reference;
-    }
+  /**
+   * @return string
+   */
+  public function getReference (): string
+  {
+    return $this->reference;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $doc->createElement(CDA::NS_CDA . 'reference');
-        $el->setAttribute(CDA::NS_CDA . 'value', '#' . $this->getReference());
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $doc->createElement(CDA::getNS() . 'reference');
+    $el->setAttribute(CDA::getNS() . 'value', '#' . $this->getReference());
 
-        return $el;
-    }
+    return $el;
+  }
 }

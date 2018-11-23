@@ -37,16 +37,16 @@ namespace i3Soft\CDA\DataType;
  */
 abstract class AnyType
 {
-    /**
-     *
-     * Add attribute to the given element.
-     *
-     * The data type are responsible to add the given attribute, content child
-     * to the Element.
-     *
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     */
-    abstract public function setValueToElement(\DOMElement $el, \DOMDocument $doc);
+  /**
+   *
+   * Add attribute to the given element.
+   *
+   * The data type are responsible to add the given attribute, content child
+   * to the Element.
+   *
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   */
+  abstract public function setValueToElement (\DOMElement $el, \DOMDocument $doc);
 }

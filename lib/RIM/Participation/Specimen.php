@@ -49,32 +49,32 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
  */
 class Specimen extends AbstractElement implements TypeCodeInterface
 {
-    use SpecimenRoleTrait;
-    use TypeCodeTrait;
+  use SpecimenRoleTrait;
+  use TypeCodeTrait;
 
-    public function __construct(SpecimenRole $specimen_role)
-    {
-        $this->setSpecimenRole($specimen_role)
-          ->setAcceptableTypeCodes(TypeCodeInterface::SpecimenType)
-          ->setTypeCode('');
-    }
+  public function __construct (SpecimenRole $specimen_role)
+  {
+    $this->setSpecimenRole($specimen_role)
+      ->setAcceptableTypeCodes(TypeCodeInterface::SpecimenType)
+      ->setTypeCode('');
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderSpecimenRole($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderSpecimenRole($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'specimen';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'specimen';
+  }
 
 }

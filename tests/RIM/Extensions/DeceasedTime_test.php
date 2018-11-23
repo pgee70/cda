@@ -48,28 +48,28 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class DeceasedTime_test extends MyTestCase
 {
-    public function test_past_value()
-    {
-        $expected = <<<XML
+  public function test_past_value ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:deceasedTime value="20100101000000"/>
 
 XML;
 
-        $deceased_time = new DeceasedTime(new TimeStamp(new \DateTime('2010-01-01', new \DateTimeZone('Australia/Hobart'))));
-        $dom           = new \DOMDocument('1.0', 'UTF-8');
-        $doc           = $deceased_time->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $deceased_time = new DeceasedTime(new TimeStamp(new \DateTime('2010-01-01', new \DateTimeZone('Australia/Hobart'))));
+    $dom           = new \DOMDocument('1.0', 'UTF-8');
+    $doc           = $deceased_time->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_future_value()
-    {
-        $future_date = new \DateTime('+10 days', new \DateTimeZone('Australia/Hobart'));
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The deceased date can not be in the future!');
-        $deceased_time = new DeceasedTime(new TimeStamp($future_date));
-    }
+  public function test_future_value ()
+  {
+    $future_date = new \DateTime('+10 days', new \DateTimeZone('Australia/Hobart'));
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The deceased date can not be in the future!');
+    $deceased_time = new DeceasedTime(new TimeStamp($future_date));
+  }
 
 }

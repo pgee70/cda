@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Role\PatientRole;
  */
 trait PatientRoleTrait
 {
-    /** @var PatientRole */
-    private $patientRole;
+  /** @var PatientRole */
+  private $patientRole;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderPatientRole(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderPatientRole (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasPatientRole())
     {
-        if ($this->hasPatientRole()) {
-            $el->appendChild($this->getPatientRole()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getPatientRole()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasPatientRole(): bool
-    {
-        return null !== $this->patientRole;
-    }
+  /**
+   * @return bool
+   */
+  public function hasPatientRole (): bool
+  {
+    return NULL !== $this->patientRole;
+  }
 
-    /**
-     * @return PatientRole
-     */
-    public function getPatientRole(): PatientRole
-    {
-        return $this->patientRole;
-    }
+  /**
+   * @return PatientRole
+   */
+  public function getPatientRole (): PatientRole
+  {
+    return $this->patientRole;
+  }
 
-    /**
-     * @param PatientRole $patientRole
-     *
-     * @return self
-     */
-    public function setPatientRole(PatientRole $patientRole): self
-    {
-        $this->patientRole = $patientRole;
-        return $this;
-    }
+  /**
+   * @param PatientRole $patientRole
+   *
+   * @return self
+   */
+  public function setPatientRole (PatientRole $patientRole): self
+  {
+    $this->patientRole = $patientRole;
+    return $this;
+  }
 }

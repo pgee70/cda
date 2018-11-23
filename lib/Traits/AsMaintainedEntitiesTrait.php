@@ -37,62 +37,65 @@ use i3Soft\CDA\RIM\Entity\MaintainedEntity;
  */
 trait AsMaintainedEntitiesTrait
 {
-    /** @var  MaintainedEntity[] */
-    protected $asMaintainedEntities = array();
+  /** @var  MaintainedEntity[] */
+  protected $asMaintainedEntities = array();
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAsMaintainedEntity(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAsMaintainedEntity (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAsMaintainedEntities())
     {
-        if ($this->hasAsMaintainedEntities()) {
-            foreach ($this->getAsMaintainedEntities() as $as_maintained_entity) {
-                $el->appendChild($as_maintained_entity->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getAsMaintainedEntities() as $as_maintained_entity)
+      {
+        $el->appendChild($as_maintained_entity->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAsMaintainedEntities(): bool
-    {
-        return \count($this->asMaintainedEntities) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAsMaintainedEntities (): bool
+  {
+    return \count($this->asMaintainedEntities) > 0;
+  }
 
-    /**
-     * @return MaintainedEntity[]
-     */
-    public function getAsMaintainedEntities(): array
-    {
-        return $this->asMaintainedEntities;
-    }
+  /**
+   * @return MaintainedEntity[]
+   */
+  public function getAsMaintainedEntities (): array
+  {
+    return $this->asMaintainedEntities;
+  }
 
-    /**
-     * @param MaintainedEntity $asMaintainedEntities
-     *
-     * @return self
-     */
-    public function setAsMaintainedEntities(MaintainedEntity $asMaintainedEntities): self
+  /**
+   * @param MaintainedEntity $asMaintainedEntities
+   *
+   * @return self
+   */
+  public function setAsMaintainedEntities (MaintainedEntity $asMaintainedEntities): self
+  {
+    foreach ($asMaintainedEntities as $as_maintained_entity)
     {
-        foreach ($asMaintainedEntities as $as_maintained_entity) {
-            $this->addAsMaintainedEntity($as_maintained_entity);
-        }
-        return $this;
+      $this->addAsMaintainedEntity($as_maintained_entity);
     }
+    return $this;
+  }
 
-    /**
-     * @param MaintainedEntity $maintained_entity
-     *
-     * @return self
-     */
-    public function addAsMaintainedEntity(MaintainedEntity $maintained_entity): self
-    {
-        $this->asMaintainedEntities[] = $maintained_entity;
-        return $this;
-    }
+  /**
+   * @param MaintainedEntity $maintained_entity
+   *
+   * @return self
+   */
+  public function addAsMaintainedEntity (MaintainedEntity $maintained_entity): self
+  {
+    $this->asMaintainedEntities[] = $maintained_entity;
+    return $this;
+  }
 }

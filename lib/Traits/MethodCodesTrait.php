@@ -32,64 +32,68 @@ use i3Soft\CDA\Elements\MethodCode;
 
 trait MethodCodesTrait
 {
-    /** @var MethodCode[] */
-    private $methodCodes = [];
+  /** @var MethodCode[] */
+  private $methodCodes = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderMethodCodes(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderMethodCodes (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasMethodCodes())
     {
-        if ($this->hasMethodCodes()) {
-            foreach ($this->getMethodCodes() as $method_code) {
-                $el->appendChild($method_code->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getMethodCodes() as $method_code)
+      {
+        $el->appendChild($method_code->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasMethodCodes(): bool
-    {
-        return \count($this->methodCodes) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasMethodCodes (): bool
+  {
+    return \count($this->methodCodes) > 0;
+  }
 
-    /**
-     * @return MethodCode[]
-     */
-    public function getMethodCodes(): array
-    {
-        return $this->methodCodes;
-    }
+  /**
+   * @return MethodCode[]
+   */
+  public function getMethodCodes (): array
+  {
+    return $this->methodCodes;
+  }
 
-    /**
-     * @param MethodCode[] $methodCodes
-     *
-     * @return self
-     */
-    public function setMethodCodes(array $methodCodes): self
+  /**
+   * @param MethodCode[] $methodCodes
+   *
+   * @return self
+   */
+  public function setMethodCodes (array $methodCodes): self
+  {
+    foreach ($methodCodes as $method_code)
     {
-        foreach ($methodCodes as $method_code) {
-            if ($method_code instanceof MethodCode) {
-                $this->addMethodCode($method_code);
-            }
-        }
-        return $this;
+      if ($method_code instanceof MethodCode)
+      {
+        $this->addMethodCode($method_code);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param MethodCode $method_code
-     *
-     * @return self
-     */
-    public function addMethodCode(MethodCode $method_code): self
-    {
-        $this->methodCodes[] = $method_code;
-        return $this;
-    }
+  /**
+   * @param MethodCode $method_code
+   *
+   * @return self
+   */
+  public function addMethodCode (MethodCode $method_code): self
+  {
+    $this->methodCodes[] = $method_code;
+    return $this;
+  }
 }

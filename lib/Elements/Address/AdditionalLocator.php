@@ -45,11 +45,11 @@ use i3Soft\CDA\Elements\AbstractSimpleElement;
  */
 class AdditionalLocator extends AbstractSimpleElement
 {
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'additionalLocator';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'additionalLocator';
+  }
 }

@@ -50,22 +50,22 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class ExtParticipantRole_test extends MyTestCase
 {
-    public function test_found()
-    {
-        $expected          = <<<XML
+  public function test_found ()
+  {
+    $expected          = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:participantRole classCode="ASSIGNED">
 <!-- Same as the author (assignedAuthor) id -->
     <ext:id root="7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085" />
 </ext:participantRole>
 XML;
-        $tag               = new ExtParticipantRole(ExtId::fromString('7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085'));
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $tag->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag               = new ExtParticipantRole(ExtId::fromString('7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085'));
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $tag->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
 }

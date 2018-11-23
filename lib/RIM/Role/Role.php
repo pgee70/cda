@@ -37,6 +37,6 @@ use i3Soft\CDA\Traits\IdsTrait;
  */
 abstract class Role extends AbstractElement implements ClassCodeInterface
 {
-    use IdsTrait;
-    use ClassCodeTrait;
+  use IdsTrait;
+  use ClassCodeTrait;
 }

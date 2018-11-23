@@ -38,47 +38,48 @@ use i3Soft\CDA\RIM\Entity\AssignedEntity;
 trait AssignedEntityTrait
 {
 
-    /** @var AssignedEntity */
-    private $assignedEntity;
+  /** @var AssignedEntity */
+  private $assignedEntity;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAssignedEntity(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAssignedEntity (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAssignedEntity())
     {
-        if ($this->hasAssignedEntity()) {
-            $el->appendChild($this->getAssignedEntity()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getAssignedEntity()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAssignedEntity(): bool
-    {
-        return null !== $this->assignedEntity;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAssignedEntity (): bool
+  {
+    return NULL !== $this->assignedEntity;
+  }
 
-    /**
-     * @return AssignedEntity
-     */
-    public function getAssignedEntity(): AssignedEntity
-    {
-        return $this->assignedEntity;
-    }
+  /**
+   * @return AssignedEntity
+   */
+  public function getAssignedEntity (): AssignedEntity
+  {
+    return $this->assignedEntity;
+  }
 
-    /**
-     * @param AssignedEntity $assignedEntity
-     *
-     * @return self
-     */
-    public function setAssignedEntity(AssignedEntity $assignedEntity): self
-    {
-        $this->assignedEntity = $assignedEntity;
-        return $this;
-    }
+  /**
+   * @param AssignedEntity $assignedEntity
+   *
+   * @return self
+   */
+  public function setAssignedEntity (AssignedEntity $assignedEntity): self
+  {
+    $this->assignedEntity = $assignedEntity;
+    return $this;
+  }
 }

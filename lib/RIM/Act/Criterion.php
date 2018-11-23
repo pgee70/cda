@@ -47,44 +47,47 @@ use i3Soft\CDA\Traits\ValueTrait;
 
 class Criterion extends AbstractComponent implements ClassCodeInterface, MoodCodeInterface
 {
-    use CodeTrait;
-    use TextTrait;
-    use ValueTrait;
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  use CodeTrait;
+  use TextTrait;
+  use ValueTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    public function __construct()
-    {
-        $this->setAcceptableClassCodes(ClassCodeInterface::ActClassObservation)
-          ->setClassCode(ClassCodeInterface::OBSERVATION)
-          ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
-          ->setMoodCode(MoodCodeInterface::EVENT_CRITERION);
-    }
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::ActClassObservation)
+      ->setClassCode(ClassCodeInterface::OBSERVATION)
+      ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
+      ->setMoodCode(MoodCodeInterface::EVENT_CRITERION);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    if ($this->hasCode())
     {
-        $el = $this->createElement($doc);
-        if ($this->hasCode()) {
-            $el->appendChild($this->getCode()->toDOMElement($doc));
-        }
-        if ($this->hasText()) {
-            $el->appendChild($this->getText()->toDOMElement($doc));
-        }
-        if ($this->hasValue()) {
-            $el->appendChild($this->getValue()->toDOMElement($doc));
-        }
-        return $el;
+      $el->appendChild($this->getCode()->toDOMElement($doc));
     }
+    if ($this->hasText())
+    {
+      $el->appendChild($this->getText()->toDOMElement($doc));
+    }
+    if ($this->hasValue())
+    {
+      $el->appendChild($this->getValue()->toDOMElement($doc));
+    }
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'criterion';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'criterion';
+  }
 
 }

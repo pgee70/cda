@@ -45,39 +45,39 @@ use i3Soft\CDA\Traits\SoftwareNameTrait;
  */
 class Device extends AbstractElement implements ClassCodeInterface, DeterminerCodeInterface
 {
-    use CodeTrait;
-    use ManufacturerModelNameTrait;
-    use SoftwareNameTrait;
+  use CodeTrait;
+  use ManufacturerModelNameTrait;
+  use SoftwareNameTrait;
 
-    use ClassCodeTrait;
-    use DeterminerCodeTrait;
+  use ClassCodeTrait;
+  use DeterminerCodeTrait;
 
-    public function __construct()
-    {
-        $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassDevice)
-          ->setClassCode(ClassCodeInterface::CLASS_DEVICE)
-          ->setAcceptableDeterminerCodes(DeterminerCodeInterface::EntityDeterminer)
-          ->setDeterminerCode(DeterminerCodeInterface::INSTANCE_);
-    }
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassDevice)
+      ->setClassCode(ClassCodeInterface::CLASS_DEVICE)
+      ->setAcceptableDeterminerCodes(DeterminerCodeInterface::EntityDeterminer)
+      ->setDeterminerCode(DeterminerCodeInterface::INSTANCE_);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderCode($el, $doc)
-          ->renderManufacturerModelName($el, $doc)
-          ->renderSoftwareName($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderCode($el, $doc)
+      ->renderManufacturerModelName($el, $doc)
+      ->renderSoftwareName($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'device';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'device';
+  }
 
 }

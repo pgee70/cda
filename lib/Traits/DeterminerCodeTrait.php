@@ -32,49 +32,50 @@ use i3Soft\CDA\Interfaces\DeterminerCodeInterface;
 
 trait DeterminerCodeTrait
 {
-    /** @var string */
-    private $determiner_code;
+  /** @var string */
+  private $determiner_code;
 
-    private $acceptable_determiner_codes = DeterminerCodeInterface::EntityDeterminer;
+  private $acceptable_determiner_codes = DeterminerCodeInterface::EntityDeterminer;
 
-    /**
-     * @return string
-     */
-    public function getDeterminerCode(): string
+  /**
+   * @return string
+   */
+  public function getDeterminerCode (): string
+  {
+    return $this->determiner_code;
+  }
+
+  /**
+   * @param string $determiner_code
+   *
+   * @return self
+   */
+  public function setDeterminerCode (string $determiner_code): self
+  {
+    if (\in_array($determiner_code, $this->getAcceptableDeterminerCodes(), TRUE) === FALSE)
     {
-        return $this->determiner_code;
+      throw new \InvalidArgumentException("The determiner code {$determiner_code} is not an acceptable value!");
     }
+    $this->determiner_code = $determiner_code;
+    return $this;
+  }
 
-    /**
-     * @param string $determiner_code
-     *
-     * @return self
-     */
-    public function setDeterminerCode(string $determiner_code): self
-    {
-        if (\in_array($determiner_code, $this->getAcceptableDeterminerCodes(), true) === false) {
-            throw new \InvalidArgumentException("The determiner code {$determiner_code} is not an acceptable value!");
-        }
-        $this->determiner_code = $determiner_code;
-        return $this;
-    }
+  /**
+   * @return array
+   */
+  public function getAcceptableDeterminerCodes (): array
+  {
+    return $this->acceptable_determiner_codes;
+  }
 
-    /**
-     * @return array
-     */
-    public function getAcceptableDeterminerCodes(): array
-    {
-        return $this->acceptable_determiner_codes;
-    }
-
-    /**
-     * @param array $acceptable_determiner_codes
-     *
-     * @return self
-     */
-    public function setAcceptableDeterminerCodes(array $acceptable_determiner_codes): self
-    {
-        $this->acceptable_determiner_codes = $acceptable_determiner_codes;
-        return $this;
-    }
+  /**
+   * @param array $acceptable_determiner_codes
+   *
+   * @return self
+   */
+  public function setAcceptableDeterminerCodes (array $acceptable_determiner_codes): self
+  {
+    $this->acceptable_determiner_codes = $acceptable_determiner_codes;
+    return $this;
+  }
 }

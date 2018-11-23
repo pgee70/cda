@@ -43,25 +43,25 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class ExtCoverage2 extends AbstractElement implements TypeCodeInterface
 {
-    use TypeCodeTrait;
-    use ExtEntitlementTrait;
+  use TypeCodeTrait;
+  use ExtEntitlementTrait;
 
-    public function __construct(ExtEntitlement $ext_entitlement)
-    {
-        $this->setExtEntitlement($ext_entitlement);
-        $this->setAcceptableTypeCodes(['', TypeCodeInterface::COVERED_BY])
-          ->setTypeCode(TypeCodeInterface::COVERED_BY);
-    }
+  public function __construct (ExtEntitlement $ext_entitlement)
+  {
+    $this->setExtEntitlement($ext_entitlement);
+    $this->setAcceptableTypeCodes(['', TypeCodeInterface::COVERED_BY])
+      ->setTypeCode(TypeCodeInterface::COVERED_BY);
+  }
 
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderExtEntitlement($el, $doc);
-        return $el;
-    }
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderExtEntitlement($el, $doc);
+    return $el;
+  }
 
-    protected function getElementTag(): string
-    {
-        return 'ext:coverage2';
-    }
+  protected function getElementTag (): string
+  {
+    return 'ext:coverage2';
+  }
 }

@@ -30,7 +30,7 @@ namespace i3Soft\CDA\DataType\Code;
  */
 class StatusCode extends CodedValue
 {
-    const COMPLETED = 'completed';
-    const NEW_      = 'new';
-    const CANCELLED = 'cancelled';
+  const COMPLETED = 'completed';
+  const NEW_      = 'new';
+  const CANCELLED = 'cancelled';
 }

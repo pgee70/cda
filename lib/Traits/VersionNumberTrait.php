@@ -37,49 +37,50 @@ use i3Soft\CDA\Elements\VersionNumber;
  */
 trait VersionNumberTrait
 {
-    /** @var VersionNumber */
-    private $version;
+  /** @var VersionNumber */
+  private $version;
 
-    /**
-     * @param VersionNumber $version
-     *
-     * @return self
-     */
-    public function setVersionNumber(VersionNumber $version): self
+  /**
+   * @param VersionNumber $version
+   *
+   * @return self
+   */
+  public function setVersionNumber (VersionNumber $version): self
+  {
+    $this->version = $version;
+    return $this;
+  }
+
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return VersionNumberTrait
+   */
+  public function renderVersionNumber (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasVersionNumber())
     {
-        $this->version = $version;
-        return $this;
+      $el->appendChild($this->getVersionNumber()->toDOMElement($doc));
     }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return VersionNumberTrait
-     */
-    public function renderVersionNumber(\DOMElement $el, \DOMDocument $doc): self
-    {
-        if ($this->hasVersionNumber()) {
-            $el->appendChild($this->getVersionNumber()->toDOMElement($doc));
-        }
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasVersionNumber (): bool
+  {
+    return $this->version !== NULL;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasVersionNumber(): bool
-    {
-        return $this->version !== null;
-    }
-
-    /**
-     * @return VersionNumber
-     */
-    public function getVersionNumber(): VersionNumber
-    {
-        return $this->version;
-    }
+  /**
+   * @return VersionNumber
+   */
+  public function getVersionNumber (): VersionNumber
+  {
+    return $this->version;
+  }
 
 }

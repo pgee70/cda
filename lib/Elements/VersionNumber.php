@@ -36,58 +36,58 @@ use i3Soft\CDA\DataType\IntegerType;
  */
 class VersionNumber extends AbstractElement
 {
-    /**
-     * @var
-     */
-    protected $version;
+  /**
+   * @var
+   */
+  protected $version;
 
-    /**
-     * VersionNumber constructor.
-     *
-     * @param IntegerType $version
-     */
-    public function __construct(IntegerType $version)
-    {
-        $this->setVersion($version);
-    }
+  /**
+   * VersionNumber constructor.
+   *
+   * @param IntegerType $version
+   */
+  public function __construct (IntegerType $version)
+  {
+    $this->setVersion($version);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->getVersion()->setValueToElement($el, $doc);
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->getVersion()->setValueToElement($el, $doc);
 
-        return $el;
-    }
+    return $el;
+  }
 
-    /**
-     * @return IntegerType
-     */
-    public function getVersion(): IntegerType
-    {
-        return $this->version;
-    }
+  /**
+   * @return IntegerType
+   */
+  public function getVersion (): IntegerType
+  {
+    return $this->version;
+  }
 
-    /**
-     * @param IntegerType $version
-     *
-     * @return self
-     */
-    public function setVersion(IntegerType $version): self
-    {
-        $this->version = $version;
-        return $this;
-    }
+  /**
+   * @param IntegerType $version
+   *
+   * @return self
+   */
+  public function setVersion (IntegerType $version): self
+  {
+    $this->version = $version;
+    return $this;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'version';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'version';
+  }
 }

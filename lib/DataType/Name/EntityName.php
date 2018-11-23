@@ -47,82 +47,84 @@ use i3Soft\CDA\Interfaces\UseAttributeInterface;
 
 class EntityName extends AnyType implements UseAttributeInterface
 {
-    /**
-     *
-     * @var string
-     */
-    protected $string = '';
+  /**
+   *
+   * @var string
+   */
+  protected $string = '';
 
-    protected $use_attribute = '';
+  protected $use_attribute = '';
 
-    protected $acceptable_use_attributes = array();
+  protected $acceptable_use_attributes = array();
 
-    /**
-     * EntityName constructor.
-     *
-     * @param string $string
-     */
-    public function __construct($string = '')
+  /**
+   * EntityName constructor.
+   *
+   * @param string $string
+   */
+  public function __construct ($string = '')
+  {
+    $this->acceptable_use_attributes = UseAttributeInterface::AddressValues;
+    $this->setString($string);
+  }
+
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    $name = $doc->createElement('name');
+    $name->appendChild($doc->createTextNode($this->getString()));
+
+    $el->appendChild($name);
+    if (FALSE === empty($this->getUseAttribute()))
     {
-        $this->acceptable_use_attributes = UseAttributeInterface::AddressValues;
-        $this->setString($string);
+      $name->setAttribute(CDA::getNS() . 'use', $this->getUseAttribute());
     }
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
+  /**
+   * @return string
+   */
+  public function getString (): string
+  {
+    return $this->string;
+  }
+
+  /**
+   * @param $string
+   *
+   * @return self
+   */
+  public function setString ($string): self
+  {
+    $this->string = $string;
+    return $this;
+  }
+
+  /**
+   * @return string
+   */
+  public function getUseAttribute (): string
+  {
+    return $this->use_attribute;
+  }
+
+  /**
+   * Note that overloads do validation as appropriate
+   *
+   * @param string $use_attribute
+   *
+   * @return EntityName
+   */
+  public function setUseAttribute (string $use_attribute): self
+  {
+    if (\in_array($use_attribute, $this->acceptable_use_attributes, TRUE) === FALSE)
     {
-        $name = $doc->createElement('name');
-        $name->appendChild($doc->createTextNode($this->getString()));
-
-        $el->appendChild($name);
-        if (false === empty($this->getUseAttribute())) {
-            $name->setAttribute(CDA::NS_CDA . 'use', $this->getUseAttribute());
-        }
+      throw new \InvalidArgumentException("The use attribute {$use_attribute} is not an acceptable value!");
     }
-
-    /**
-     * @return string
-     */
-    public function getString(): string
-    {
-        return $this->string;
-    }
-
-    /**
-     * @param $string
-     *
-     * @return self
-     */
-    public function setString($string): self
-    {
-        $this->string = $string;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUseAttribute(): string
-    {
-        return $this->use_attribute;
-    }
-
-    /**
-     * Note that overloads do validation as appropriate
-     *
-     * @param string $use_attribute
-     *
-     * @return EntityName
-     */
-    public function setUseAttribute(string $use_attribute): self
-    {
-        if (\in_array($use_attribute, $this->acceptable_use_attributes, true) === false) {
-            throw new \InvalidArgumentException("The use attribute {$use_attribute} is not an acceptable value!");
-        }
-        $this->use_attribute = $use_attribute;
-        return $this;
-    }
+    $this->use_attribute = $use_attribute;
+    return $this;
+  }
 }

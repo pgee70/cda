@@ -47,49 +47,49 @@ use i3Soft\CDA\DataType\TextAndMultimedia\SimpleString;
 abstract class AbstractSimpleElement extends AbstractElement
 {
 
-    /** @var SimpleString */
-    protected $value;
+  /** @var SimpleString */
+  protected $value;
 
-    /**
-     * AbstractSimpleElement constructor.
-     *
-     * @param string $value
-     */
-    public function __construct(string $value)
-    {
-        $this->setValue(new SimpleString($value));
-    }
+  /**
+   * AbstractSimpleElement constructor.
+   *
+   * @param string $value
+   */
+  public function __construct (string $value)
+  {
+    $this->setValue(new SimpleString($value));
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
 
-        $this->getValue()->setValueToElement($el, $doc);
+    $this->getValue()->setValueToElement($el, $doc);
 
-        return $el;
-    }
+    return $el;
+  }
 
-    /**
-     * @return SimpleString
-     */
-    public function getValue(): SimpleString
-    {
-        return $this->value;
-    }
+  /**
+   * @return SimpleString
+   */
+  public function getValue (): SimpleString
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param SimpleString $value
-     *
-     * @return AbstractSimpleElement
-     */
-    public function setValue(SimpleString $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
+  /**
+   * @param SimpleString $value
+   *
+   * @return AbstractSimpleElement
+   */
+  public function setValue (SimpleString $value): self
+  {
+    $this->value = $value;
+    return $this;
+  }
 }

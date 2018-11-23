@@ -38,11 +38,11 @@ use i3Soft\CDA\Elements\AbstractSimpleElement;
  */
 class HouseNumber extends AbstractSimpleElement
 {
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'houseNumber';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'houseNumber';
+  }
 }

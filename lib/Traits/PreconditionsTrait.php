@@ -37,66 +37,70 @@ use i3Soft\CDA\RIM\Act\Precondition;
  */
 trait PreconditionsTrait
 {
-    /** @var Precondition[] */
-    private $preconditions = [];
+  /** @var Precondition[] */
+  private $preconditions = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderPreconditions(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderPreconditions (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasPreconditions())
     {
-        if ($this->hasPreconditions()) {
-            foreach ($this->getPreconditions() as $precondition) {
-                $el->appendChild($precondition->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getPreconditions() as $precondition)
+      {
+        $el->appendChild($precondition->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasPreconditions(): bool
-    {
-        return \count($this->preconditions) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasPreconditions (): bool
+  {
+    return \count($this->preconditions) > 0;
+  }
 
-    /**
-     * @return Precondition[]
-     */
-    public function getPreconditions(): array
-    {
-        return $this->preconditions;
-    }
+  /**
+   * @return Precondition[]
+   */
+  public function getPreconditions (): array
+  {
+    return $this->preconditions;
+  }
 
-    /**
-     * @param Precondition[] $preconditions
-     *
-     * @return PreconditionsTrait
-     */
-    public function setPreconditions(array $preconditions): self
+  /**
+   * @param Precondition[] $preconditions
+   *
+   * @return PreconditionsTrait
+   */
+  public function setPreconditions (array $preconditions): self
+  {
+    foreach ($preconditions as $precondition)
     {
-        foreach ($preconditions as $precondition) {
-            if ($precondition instanceof Precondition) {
-                $this->addPrecondition($precondition);
-            }
-        }
-        return $this;
+      if ($precondition instanceof Precondition)
+      {
+        $this->addPrecondition($precondition);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param Precondition $precondition
-     *
-     * @return self
-     */
-    public function addPrecondition(Precondition $precondition): self
-    {
-        $this->preconditions[] = $precondition;
-        return $this;
-    }
+  /**
+   * @param Precondition $precondition
+   *
+   * @return self
+   */
+  public function addPrecondition (Precondition $precondition): self
+  {
+    $this->preconditions[] = $precondition;
+    return $this;
+  }
 
 
 }

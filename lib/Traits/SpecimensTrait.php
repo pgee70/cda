@@ -37,69 +37,73 @@ use i3Soft\CDA\RIM\Participation\Specimen;
  */
 trait SpecimensTrait
 {
-    /** @var Specimen[] */
-    private $specimens = [];
-    /**
-     * @return bool
-     */
+  /** @var Specimen[] */
+  private $specimens = [];
+  /**
+   * @return bool
+   */
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderSpecimens(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderSpecimens (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasSpecimens())
     {
-        if ($this->hasSpecimens()) {
-            foreach ($this->getSpecimens() as $specimen) {
-                $el->appendChild($specimen->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getSpecimens() as $specimen)
+      {
+        $el->appendChild($specimen->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasSpecimens(): bool
-    {
-        return \count($this->specimens) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSpecimens (): bool
+  {
+    return \count($this->specimens) > 0;
+  }
 
-    /**
-     * @return Specimen[]
-     */
-    public function getSpecimens(): array
-    {
-        return $this->specimens;
-    }
+  /**
+   * @return Specimen[]
+   */
+  public function getSpecimens (): array
+  {
+    return $this->specimens;
+  }
 
-    /**
-     * @param Specimen[] $specimens
-     *
-     * @return self
-     */
-    public function setSpecimens(array $specimens): self
+  /**
+   * @param Specimen[] $specimens
+   *
+   * @return self
+   */
+  public function setSpecimens (array $specimens): self
+  {
+    foreach ($specimens as $specimen)
     {
-        foreach ($specimens as $specimen) {
-            if ($specimen instanceof Specimen) {
-                $this->addSpecimen($specimen);
-            }
-        }
-        return $this;
+      if ($specimen instanceof Specimen)
+      {
+        $this->addSpecimen($specimen);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param Specimen $specimen
-     *
-     * @return self
-     */
-    public function addSpecimen(Specimen $specimen): self
-    {
-        $this->specimens[] = $specimen;
-        return $this;
-    }
+  /**
+   * @param Specimen $specimen
+   *
+   * @return self
+   */
+  public function addSpecimen (Specimen $specimen): self
+  {
+    $this->specimens[] = $specimen;
+    return $this;
+  }
 
 
 }

@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Entity\InformationRecipientPerson;
  */
 trait InformationRecipientPersonTrait
 {
-    /** @var InformationRecipientPerson */
-    private $information_recipient_person;
+  /** @var InformationRecipientPerson */
+  private $information_recipient_person;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderInformationRecipientPerson(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderInformationRecipientPerson (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasInformationRecipientPerson())
     {
-        if ($this->hasInformationRecipientPerson()) {
-            $el->appendChild($this->getInformationRecipientPerson()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getInformationRecipientPerson()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasInformationRecipientPerson(): bool
-    {
-        return null !== $this->information_recipient_person;
-    }
+  /**
+   * @return bool
+   */
+  public function hasInformationRecipientPerson (): bool
+  {
+    return NULL !== $this->information_recipient_person;
+  }
 
-    /**
-     * @return InformationRecipientPerson
-     */
-    public function getInformationRecipientPerson(): InformationRecipientPerson
-    {
-        return $this->information_recipient_person;
-    }
+  /**
+   * @return InformationRecipientPerson
+   */
+  public function getInformationRecipientPerson (): InformationRecipientPerson
+  {
+    return $this->information_recipient_person;
+  }
 
-    /**
-     * @param InformationRecipientPerson $information_recipient_person
-     *
-     * @return self
-     */
-    public function setInformationRecipientPerson(InformationRecipientPerson $information_recipient_person): self
-    {
-        $this->information_recipient_person = $information_recipient_person;
-        return $this;
-    }
+  /**
+   * @param InformationRecipientPerson $information_recipient_person
+   *
+   * @return self
+   */
+  public function setInformationRecipientPerson (InformationRecipientPerson $information_recipient_person): self
+  {
+    $this->information_recipient_person = $information_recipient_person;
+    return $this;
+  }
 }

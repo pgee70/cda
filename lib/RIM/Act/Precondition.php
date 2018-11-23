@@ -44,33 +44,33 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 class Precondition extends AbstractElement implements TypeCodeInterface
 {
 
-    use CriterionTrait;
-    use TypeCodeTrait;
+  use CriterionTrait;
+  use TypeCodeTrait;
 
-    public function __construct(Criterion $criterion)
-    {
-        $this->setAcceptableTypeCodes(TypeCodeInterface::ActRelationshipType)
-          ->setTypeCode(TypeCodeInterface::HAS_PRE_CONDITION)
-          ->$this->setCriterion($criterion);
-    }
+  public function __construct (Criterion $criterion)
+  {
+    $this->setAcceptableTypeCodes(TypeCodeInterface::ActRelationshipType)
+      ->setTypeCode(TypeCodeInterface::HAS_PRE_CONDITION)
+      ->$this->setCriterion($criterion);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getCriterion()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getCriterion()->toDOMElement($doc));
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'precondition';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'precondition';
+  }
 
 
 }

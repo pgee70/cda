@@ -51,9 +51,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class AsEntityIdentifier_test extends MyTestCase
 {
-    public function test_Id()
-    {
-        $expected          = <<<XML
+  public function test_Id ()
+  {
+    $expected          = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:asEntityIdentifier classCode="IDENT">
   <ext:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0" extension="8003611566682112"/>
@@ -63,16 +63,16 @@ class AsEntityIdentifier_test extends MyTestCase
 </ext:asEntityIdentifier>
 
 XML;
-        $entity_identifier = new AsEntityIdentifier(
-          new ExtId('HPI-I', '1.2.36.1.2001.1003.0', '8003611566682112'),
-          new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
-        );
+    $entity_identifier = new AsEntityIdentifier(
+      new ExtId('HPI-I', '1.2.36.1.2001.1003.0', '8003611566682112'),
+      new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
+    );
 
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $entity_identifier->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $entity_identifier->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

@@ -40,52 +40,56 @@ use i3Soft\CDA\Elements\Time;
  */
 trait TimeTrait
 {
-    /** @var Time */
-    private $time;
+  /** @var Time */
+  private $time;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderTime(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderTime (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasTime())
     {
-        if ($this->hasTime()) {
-            $el->appendChild($this->getTime()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getTime()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasTime(): bool
-    {
-        return null !== $this->time;
-    }
+  /**
+   * @return bool
+   */
+  public function hasTime (): bool
+  {
+    return NULL !== $this->time;
+  }
 
-    /**
-     * @return Time
-     */
-    public function getTime(): Time
-    {
-        return $this->time;
-    }
+  /**
+   * @return Time
+   */
+  public function getTime (): Time
+  {
+    return $this->time;
+  }
 
-    /**
-     * @param Time|TimeStamp|IntervalOfTime $in
-     *
-     * @return self
-     */
-    public function setTime($in): self
+  /**
+   * @param Time|TimeStamp|IntervalOfTime $in
+   *
+   * @return self
+   */
+  public function setTime ($in): self
+  {
+    if ($in instanceof Time)
     {
-        if ($in instanceof Time) {
-            $this->time = $in;
-        } elseif ($in instanceof TimeStamp || $in instanceof IntervalOfTime || $in instanceof PeriodicIntervalOfTime) {
-            $this->time = new Time($in);
-        }
-        return $this;
+      $this->time = $in;
     }
+    elseif ($in instanceof TimeStamp || $in instanceof IntervalOfTime || $in instanceof PeriodicIntervalOfTime)
+    {
+      $this->time = new Time($in);
+    }
+    return $this;
+  }
 
 }

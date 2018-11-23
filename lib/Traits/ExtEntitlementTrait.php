@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Extensions\ExtEntitlement;
  */
 trait ExtEntitlementTrait
 {
-    /** @var ExtEntitlement */
-    private $ext_entitlement;
+  /** @var ExtEntitlement */
+  private $ext_entitlement;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExtEntitlement(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExtEntitlement (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtEntitlement())
     {
-        if ($this->hasExtEntitlement()) {
-            $el->appendChild($this->getExtEntitlement()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtEntitlement()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtEntitlement(): bool
-    {
-        return null !== $this->ext_entitlement;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtEntitlement (): bool
+  {
+    return NULL !== $this->ext_entitlement;
+  }
 
-    /**
-     * @return ExtEntitlement
-     */
-    public function getExtEntitlement(): ExtEntitlement
-    {
-        return $this->ext_entitlement;
-    }
+  /**
+   * @return ExtEntitlement
+   */
+  public function getExtEntitlement (): ExtEntitlement
+  {
+    return $this->ext_entitlement;
+  }
 
-    /**
-     * @param ExtEntitlement $ext_entitlement
-     *
-     * @return ExtEntitlementTrait
-     */
-    public function setExtEntitlement(ExtEntitlement $ext_entitlement): self
-    {
-        $this->ext_entitlement = $ext_entitlement;
-        return $this;
-    }
+  /**
+   * @param ExtEntitlement $ext_entitlement
+   *
+   * @return ExtEntitlementTrait
+   */
+  public function setExtEntitlement (ExtEntitlement $ext_entitlement): self
+  {
+    $this->ext_entitlement = $ext_entitlement;
+    return $this;
+  }
 }

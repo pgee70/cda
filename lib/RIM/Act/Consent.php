@@ -53,59 +53,63 @@ use i3Soft\CDA\Traits\StatusCodeTrait;
  */
 class Consent extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {
-    use IdsTrait;
-    use CodedValueTrait;
-    use StatusCodeTrait;
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  use IdsTrait;
+  use CodedValueTrait;
+  use StatusCodeTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    /**
-     * Consent constructor.
-     */
-    public function __construct()
+  /**
+   * Consent constructor.
+   */
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
+      ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
+      ->setClassCode(ClassCodeInterface::CONSENT)
+      ->setMoodCode(MoodCodeInterface::EVENT);
+  }
+
+
+  /**
+   * Transforms the element into a DOMElement, which will be included
+   * into the final CDA XML
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    if ($this->hasIds())
     {
-        $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
-          ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
-          ->setClassCode(ClassCodeInterface::CONSENT)
-          ->setMoodCode(MoodCodeInterface::EVENT);
+      foreach ($this->getIds() as $id)
+      {
+        $el->appendChild($id->toDOMElement($doc));
+      }
     }
 
-
-    /**
-     * Transforms the element into a DOMElement, which will be included
-     * into the final CDA XML
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+    if ($this->hasCodedValue())
     {
-        $el = $this->createElement($doc);
-        if ($this->hasIds()) {
-            foreach ($this->getIds() as $id) {
-                $el->appendChild($id->toDOMElement($doc));
-            }
-        }
-
-        if ($this->hasCodedValue()) {
-            $el->appendChild((new Code($this->getCodedValue()))->toDOMElement($doc));
-        }
-        if ($this->hasStatusCode()) {
-            $el->appendChild($this->getStatusCode()->toDOMElement($doc));
-        }
-        return $el;
+      $el->appendChild((new Code($this->getCodedValue()))->toDOMElement($doc));
     }
-
-
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
+    if ($this->hasStatusCode())
     {
-        return 'consent';
+      $el->appendChild($this->getStatusCode()->toDOMElement($doc));
     }
+    return $el;
+  }
+
+
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'consent';
+  }
 
 }

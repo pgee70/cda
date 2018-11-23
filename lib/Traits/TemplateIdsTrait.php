@@ -38,69 +38,75 @@ use i3Soft\CDA\Elements\TemplateId;
  */
 trait TemplateIdsTrait
 {
-    /** @var TemplateId[] */
-    protected $templateIds = [];
+  /** @var TemplateId[] */
+  protected $templateIds = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderTemplateIds(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderTemplateIds (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasTemplateIds())
     {
-        if ($this->hasTemplateIds()) {
-            /** @var TemplateId $template_id */
-            foreach ($this->getTemplateIds() as $template_id) {
-                $el->appendChild($template_id->toDOMElement($doc));
-            }
-        }
-        return $this;
+      /** @var TemplateId $template_id */
+      foreach ($this->getTemplateIds() as $template_id)
+      {
+        $el->appendChild($template_id->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasTemplateIds(): bool
-    {
-        return \count($this->templateIds) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasTemplateIds (): bool
+  {
+    return \count($this->templateIds) > 0;
+  }
 
-    /**
-     * @return array
-     */
-    public function getTemplateIds(): array
-    {
-        return $this->templateIds;
-    }
+  /**
+   * @return array
+   */
+  public function getTemplateIds (): array
+  {
+    return $this->templateIds;
+  }
 
-    /**
-     *
-     * @param TemplateId[] $templateIds
-     *
-     * @return self
-     */
-    public function setTemplateIds(array $templateIds): self
+  /**
+   *
+   * @param TemplateId[] $templateIds
+   *
+   * @return self
+   */
+  public function setTemplateIds (array $templateIds): self
+  {
+    foreach ($templateIds as $ii)
     {
-        foreach ($templateIds as $ii) {
-            if ($ii instanceof InstanceIdentifier) {
-                $this->addTemplateId($ii);
-            } else {
-                throw new \UnexpectedValueException(
-                  sprintf('The values of templateIds must contains only %s', InstanceIdentifier::class));
-            }
-        }
-        return $this;
+      if ($ii instanceof InstanceIdentifier)
+      {
+        $this->addTemplateId($ii);
+      }
+      else
+      {
+        throw new \UnexpectedValueException(
+          sprintf('The values of templateIds must contains only %s', InstanceIdentifier::class));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param InstanceIdentifier $instance_identifier
-     *
-     * @return self
-     */
-    public function addTemplateId(InstanceIdentifier $instance_identifier): self
-    {
-        $this->templateIds[] = new TemplateId($instance_identifier);
-        return $this;
-    }
+  /**
+   * @param InstanceIdentifier $instance_identifier
+   *
+   * @return self
+   */
+  public function addTemplateId (InstanceIdentifier $instance_identifier): self
+  {
+    $this->templateIds[] = new TemplateId($instance_identifier);
+    return $this;
+  }
 }

@@ -45,85 +45,87 @@ use i3Soft\CDA\Traits\ValuesTrait;
  */
 class Observation extends Act
 {
-    use TargetSiteCodesTrait;
-    use ValuesTrait;
-    use DerivationExprTrait;
-    use RepeatNumberTrait;
-    use InterpretationCodesTrait;
-    use MethodCodesTrait;
-    use ReferenceRangesTrait;
+  use TargetSiteCodesTrait;
+  use ValuesTrait;
+  use DerivationExprTrait;
+  use RepeatNumberTrait;
+  use InterpretationCodesTrait;
+  use MethodCodesTrait;
+  use ReferenceRangesTrait;
 
-    /**
-     * Observation constructor.
-     *
-     * @param null $code
-     * @param null $value
-     */
-    public function __construct($code = null, $value = null)
+  /**
+   * Observation constructor.
+   *
+   * @param null $code
+   * @param null $value
+   */
+  public function __construct ($code = NULL, $value = NULL)
+  {
+    parent::__construct();
+    $this->setAcceptableClassCodes(array('', ClassCodeInterface::OBSERVATION))
+      ->setAcceptableMoodCodes(MoodCodeInterface::x_ActMoodDocumentObservation)
+      ->setMoodCode('')
+      ->setClassCode(ClassCodeInterface::OBSERVATION);
+    if ($code instanceof Code)
     {
-        parent::__construct();
-        $this->setAcceptableClassCodes(array('', ClassCodeInterface::OBSERVATION))
-          ->setAcceptableMoodCodes(MoodCodeInterface::x_ActMoodDocumentObservation)
-          ->setMoodCode('')
-          ->setClassCode(ClassCodeInterface::OBSERVATION);
-        if ($code instanceof Code) {
-            $this->setCode($code);
-        }
-        if ($value instanceof Value) {
-            $this->addValue($value);
-        }
+      $this->setCode($code);
     }
-
-
-    /**
-     *
-     * @param string $flavour
-     *
-     * @return \i3Soft\CDA\RIM\Act\Observation
-     */
-    public static function nullObservation($flavour = null): Observation
+    if ($value instanceof Value)
     {
-        return (new self())
-          ->setCode(
-            (new Code())
-              ->setNullFlavour($flavour ?? NullType::NOT_HERE)
-          )->setMoodCode(MoodCodeInterface::DEFINITION);
+      $this->addValue($value);
     }
-
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc)
-          ->renderCode($el, $doc)
-          ->renderText($el, $doc)
-          ->renderStatusCode($el, $doc)
-          ->renderEffectiveTime($el, $doc)
-          ->renderPriorityCode($el, $doc)
-          ->renderLanguageCode($el, $doc)
-          ->renderLanguageCode($el, $doc)
-          ->renderValues($el, $doc)
-          ->renderInterpretationCodes($el, $doc)
-          ->renderMethodCodes($el, $doc)
-          ->renderTargetSiteCodes($el, $doc)
-          ->renderSubject($el, $doc)
-          ->renderSpecimens($el, $doc)
-          ->renderPerformers($el, $doc)
-          ->renderAuthors($el, $doc)
-          ->renderParticipants($el, $doc)
-          ->renderEntryRelationships($el, $doc)
-          ->renderReferences($el, $doc)
-          ->renderPreconditions($el, $doc)
-          ->renderReferenceRanges($el, $doc);
-        return $el;
-    }
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'observation';
-    }
+  /**
+   *
+   * @param string $flavour
+   *
+   * @return \i3Soft\CDA\RIM\Act\Observation
+   */
+  public static function nullObservation ($flavour = NULL): Observation
+  {
+    return (new self())
+      ->setCode(
+        (new Code())
+          ->setNullFlavour($flavour ?? NullType::NOT_HERE)
+      )->setMoodCode(MoodCodeInterface::DEFINITION);
+  }
+
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc)
+      ->renderCode($el, $doc)
+      ->renderText($el, $doc)
+      ->renderStatusCode($el, $doc)
+      ->renderEffectiveTime($el, $doc)
+      ->renderPriorityCode($el, $doc)
+      ->renderLanguageCode($el, $doc)
+      ->renderLanguageCode($el, $doc)
+      ->renderValues($el, $doc)
+      ->renderInterpretationCodes($el, $doc)
+      ->renderMethodCodes($el, $doc)
+      ->renderTargetSiteCodes($el, $doc)
+      ->renderSubject($el, $doc)
+      ->renderSpecimens($el, $doc)
+      ->renderPerformers($el, $doc)
+      ->renderAuthors($el, $doc)
+      ->renderParticipants($el, $doc)
+      ->renderEntryRelationships($el, $doc)
+      ->renderReferences($el, $doc)
+      ->renderPreconditions($el, $doc)
+      ->renderReferenceRanges($el, $doc);
+    return $el;
+  }
+
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'observation';
+  }
 
 }

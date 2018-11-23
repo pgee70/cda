@@ -24,10 +24,11 @@
  */
 
 system('clear');
-$now = new \DateTime(null, new \DateTimeZone('Australia/Hobart'));
+$now = new \DateTime(NULL, new \DateTimeZone('Australia/Hobart'));
 echo "Unit test begins on {$now->format('H:i:s T dS F Y')}\n";
-if (!defined('ENVIRONMENT')) {
-    define('ENVIRONMENT', 'testing');
+if (!defined('ENVIRONMENT'))
+{
+  define('ENVIRONMENT', 'testing');
 }
 
 error_reporting(-1);
@@ -35,25 +36,32 @@ ini_set('display_errors', 1);
 
 spl_autoload_register(function ($className)
 {
-    if (strpos($className, 'i3Soft\CDA\tests') === 0) {
-        $className = str_replace(["i3Soft\\CDA\\tests\\", "\\"], ['', DIRECTORY_SEPARATOR], $className);
-        $filename = './' . $className . '.php';
-        if (file_exists($filename)) {
-            include_once $filename;
-        }
-        else {
-            echo "the file $filename as was not found!";
-        }
-
-    } else {
-        $className = str_replace(["i3Soft\\CDA\\", "\\"], ['', DIRECTORY_SEPARATOR], $className);
-        /** @noinspection PhpIncludeInspection */
-        $filename = '../lib/' . $className . '.php';
-        if (file_exists($filename)) {
-            include_once $filename;
-        }
-        else {
-            echo "the file $filename as was not found!";
-        }
+  if (strpos($className, 'i3Soft\CDA\tests') === 0)
+  {
+    $className = str_replace(["i3Soft\\CDA\\tests\\", "\\"], ['', DIRECTORY_SEPARATOR], $className);
+    $filename  = './' . $className . '.php';
+    if (file_exists($filename))
+    {
+      include_once $filename;
     }
+    else
+    {
+      echo "the file $filename as was not found!";
+    }
+
+  }
+  else
+  {
+    $className = str_replace(["i3Soft\\CDA\\", "\\"], ['', DIRECTORY_SEPARATOR], $className);
+    /** @noinspection PhpIncludeInspection */
+    $filename = '../lib/' . $className . '.php';
+    if (file_exists($filename))
+    {
+      include_once $filename;
+    }
+    else
+    {
+      echo "the file $filename as was not found!";
+    }
+  }
 });

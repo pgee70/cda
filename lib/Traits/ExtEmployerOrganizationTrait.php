@@ -38,47 +38,48 @@ use i3Soft\CDA\RIM\Extensions\ExtEmployerOrganization;
 trait ExtEmployerOrganizationTrait
 {
 
-    /** @var ExtEmployerOrganization */
-    protected $ext_employer_organization;
+  /** @var ExtEmployerOrganization */
+  protected $ext_employer_organization;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExtEmployerOrganization(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExtEmployerOrganization (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtEmployerOrganization())
     {
-        if ($this->hasExtEmployerOrganization()) {
-            $el->appendChild($this->getExtEmployerOrganization()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtEmployerOrganization()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtEmployerOrganization(): bool
-    {
-        return null !== $this->ext_employer_organization;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtEmployerOrganization (): bool
+  {
+    return NULL !== $this->ext_employer_organization;
+  }
 
-    /**
-     * @return ExtEmployerOrganization
-     */
-    public function getExtEmployerOrganization(): ExtEmployerOrganization
-    {
-        return $this->ext_employer_organization;
-    }
+  /**
+   * @return ExtEmployerOrganization
+   */
+  public function getExtEmployerOrganization (): ExtEmployerOrganization
+  {
+    return $this->ext_employer_organization;
+  }
 
-    /**
-     * @param ExtEmployerOrganization $ext_employer_organization
-     *
-     * @return self
-     */
-    public function setExtEmployerOrganization(ExtEmployerOrganization $ext_employer_organization): self
-    {
-        $this->ext_employer_organization = $ext_employer_organization;
-        return $this;
-    }
+  /**
+   * @param ExtEmployerOrganization $ext_employer_organization
+   *
+   * @return self
+   */
+  public function setExtEmployerOrganization (ExtEmployerOrganization $ext_employer_organization): self
+  {
+    $this->ext_employer_organization = $ext_employer_organization;
+    return $this;
+  }
 }

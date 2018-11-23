@@ -60,84 +60,90 @@ use i3Soft\CDA\Traits\TelecomsTrait;
  */
 class AssignedEntity extends AbstractElement implements ClassCodeInterface
 {
-    use IdTrait;
-    use CodeTrait;
-    use AddrsTrait;
-    use TelecomsTrait;
-    use AssignedEntityTrait;
-    use AsEntityIdentifierTrait;
-    use RepresentedOrganizationTrait;
-    use AssignedPersonTrait;
-    use ClassCodeTrait;
+  use IdTrait;
+  use CodeTrait;
+  use AddrsTrait;
+  use TelecomsTrait;
+  use AssignedEntityTrait;
+  use AsEntityIdentifierTrait;
+  use RepresentedOrganizationTrait;
+  use AssignedPersonTrait;
+  use ClassCodeTrait;
 
-    /**
-     * AssignedEntity constructor.
-     *
-     * @param Id                      $id
-     * @param Code                    $code
-     * @param Addr                    $addr
-     * @param Telecom                 $telecom
-     * @param AssignedPerson          $assigned_person
-     * @param AsEntityIdentifier      $as_entity_identifier
-     * @param RepresentedOrganization $represented_organization
-     */
-    public function __construct(
-      Id $id,
-      $code = null,
-      $addr = null,
-      $telecom = null,
-      $assigned_person = null,
-      $as_entity_identifier = null,
-      $represented_organization = null
-    ) {
-        $this->setAcceptableClassCodes(['', ClassCodeInterface::ASSIGNED])
-          ->setClassCode('')
-          ->setId($id);
-        if ($code && $code instanceof Code) {
-            $this->setCode($code);
-        }
-        if ($addr && $addr instanceof Addr) {
-            $this->addAddr($addr);
-        }
-        if ($telecom && $telecom instanceof Telecom) {
-            $this->addTelecom($telecom);
-        }
-        if ($assigned_person && $assigned_person instanceof AssignedPerson) {
-            $this->setAssignedPerson($assigned_person);
-        }
-        if ($as_entity_identifier && $as_entity_identifier instanceof AsEntityIdentifier) {
-            $this->setAsEntityIdentifier($as_entity_identifier);
-        }
-        if ($represented_organization && $represented_organization instanceof RepresentedOrganization) {
-            $this->setRepresentedOrganization($represented_organization);
-        }
-    }
-
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   * AssignedEntity constructor.
+   *
+   * @param Id                      $id
+   * @param Code                    $code
+   * @param Addr                    $addr
+   * @param Telecom                 $telecom
+   * @param AssignedPerson          $assigned_person
+   * @param AsEntityIdentifier      $as_entity_identifier
+   * @param RepresentedOrganization $represented_organization
+   */
+  public function __construct (
+    Id $id,
+    $code = NULL,
+    $addr = NULL,
+    $telecom = NULL,
+    $assigned_person = NULL,
+    $as_entity_identifier = NULL,
+    $represented_organization = NULL
+  ) {
+    $this->setAcceptableClassCodes(['', ClassCodeInterface::ASSIGNED])
+      ->setClassCode('')
+      ->setId($id);
+    if ($code && $code instanceof Code)
     {
-        $el = $this->createElement($doc);
-        $this->renderId($el, $doc);
-        $this->renderCode($el, $doc);
-        $this->renderAddrs($el, $doc);
-        $this->renderTelecoms($el, $doc);
-        $this->renderAssignedPerson($el, $doc);
-        $this->renderAsEntityIdentifier($el, $doc);
-        $this->renderRepresentedOrganization($el, $doc);
-        return $el;
+      $this->setCode($code);
     }
-
-
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
+    if ($addr && $addr instanceof Addr)
     {
-        return 'assignedEntity';
+      $this->addAddr($addr);
     }
+    if ($telecom && $telecom instanceof Telecom)
+    {
+      $this->addTelecom($telecom);
+    }
+    if ($assigned_person && $assigned_person instanceof AssignedPerson)
+    {
+      $this->setAssignedPerson($assigned_person);
+    }
+    if ($as_entity_identifier && $as_entity_identifier instanceof AsEntityIdentifier)
+    {
+      $this->setAsEntityIdentifier($as_entity_identifier);
+    }
+    if ($represented_organization && $represented_organization instanceof RepresentedOrganization)
+    {
+      $this->setRepresentedOrganization($represented_organization);
+    }
+  }
+
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderId($el, $doc);
+    $this->renderCode($el, $doc);
+    $this->renderAddrs($el, $doc);
+    $this->renderTelecoms($el, $doc);
+    $this->renderAssignedPerson($el, $doc);
+    $this->renderAsEntityIdentifier($el, $doc);
+    $this->renderRepresentedOrganization($el, $doc);
+    return $el;
+  }
+
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'assignedEntity';
+  }
 }

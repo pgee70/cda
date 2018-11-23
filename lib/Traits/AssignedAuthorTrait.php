@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Role\AssignedAuthor;
  */
 trait AssignedAuthorTrait
 {
-    /** @var AssignedAuthor */
-    private $assignedAuthor;
+  /** @var AssignedAuthor */
+  private $assignedAuthor;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAssignedAuthor(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAssignedAuthor (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAssignedAuthor())
     {
-        if ($this->hasAssignedAuthor()) {
-            $el->appendChild($this->getAssignedAuthor()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getAssignedAuthor()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAssignedAuthor(): bool
-    {
-        return null !== $this->assignedAuthor;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAssignedAuthor (): bool
+  {
+    return NULL !== $this->assignedAuthor;
+  }
 
-    /**
-     * @return AssignedAuthor
-     */
-    public function getAssignedAuthor(): AssignedAuthor
-    {
-        return $this->assignedAuthor;
-    }
+  /**
+   * @return AssignedAuthor
+   */
+  public function getAssignedAuthor (): AssignedAuthor
+  {
+    return $this->assignedAuthor;
+  }
 
-    /**
-     * @param AssignedAuthor $assigned_author
-     *
-     * @return self
-     */
-    public function setAssignedAuthor(AssignedAuthor $assigned_author): self
-    {
-        $this->assignedAuthor = $assigned_author;
-        return $this;
-    }
+  /**
+   * @param AssignedAuthor $assigned_author
+   *
+   * @return self
+   */
+  public function setAssignedAuthor (AssignedAuthor $assigned_author): self
+  {
+    $this->assignedAuthor = $assigned_author;
+    return $this;
+  }
 }

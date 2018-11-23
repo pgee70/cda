@@ -57,73 +57,73 @@ use i3Soft\CDA\Traits\TextTrait;
  */
 class Act extends AbstractElement implements ClassCodeInterface, MoodCodeInterface, NegationInterface
 {
-    use IdsTrait;
-    use CodeTrait;
-    use TextTrait;
-    use StatusCodeTrait;
-    use EffectiveTimeTrait;
-    use PriorityCodeTrait;
-    use LanguageCodeTrait;
-    use SubjectTrait;
-    use SpecimensTrait;
-    use PerformersTrait;
-    use AuthorsTrait;
-    use InformantsTrait;
-    use ParticipantsTrait;
-    use EntryRelationshipsTrait;
-    use ReferencesTrait;
-    use PreconditionsTrait;
+  use IdsTrait;
+  use CodeTrait;
+  use TextTrait;
+  use StatusCodeTrait;
+  use EffectiveTimeTrait;
+  use PriorityCodeTrait;
+  use LanguageCodeTrait;
+  use SubjectTrait;
+  use SpecimensTrait;
+  use PerformersTrait;
+  use AuthorsTrait;
+  use InformantsTrait;
+  use ParticipantsTrait;
+  use EntryRelationshipsTrait;
+  use ReferencesTrait;
+  use PreconditionsTrait;
 
-    use ClassCodeTrait;
-    use MoodCodeTrait;
-    use NegationIndTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
+  use NegationIndTrait;
 
-    /**
-     * Act constructor.
-     *
-     */
-    public function __construct()
-    {
-        $this->setAcceptableClassCodes(ClassCodeInterface::x_ActClassDocumentEntryAct)
-          ->setAcceptableMoodCodes(MoodCodeInterface::x_DocumentActMood)
-          ->setMoodCode(MoodCodeInterface::EVENT)
-          ->setClassCode(ClassCodeInterface::ACT);
-    }
-
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        $this->renderCode($el, $doc);
-        $this->renderText($el, $doc);
-        $this->renderStatusCode($el, $doc);
-        $this->renderEffectiveTime($el, $doc);
-        $this->renderPriorityCode($el, $doc);
-        $this->renderLanguageCode($el, $doc);
-        $this->renderSubject($el, $doc);
-        $this->renderSpecimens($el, $doc);
-        $this->renderPerformers($el, $doc);
-        $this->renderAuthors($el, $doc);
-        $this->renderParticipants($el, $doc);
-        $this->renderEntryRelationships($el, $doc);
-        $this->renderReferences($el, $doc);
-        $this->renderPreconditions($el, $doc);
-        return $el;
-    }
+  /**
+   * Act constructor.
+   *
+   */
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::x_ActClassDocumentEntryAct)
+      ->setAcceptableMoodCodes(MoodCodeInterface::x_DocumentActMood)
+      ->setMoodCode(MoodCodeInterface::EVENT)
+      ->setClassCode(ClassCodeInterface::ACT);
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'act';
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    $this->renderCode($el, $doc);
+    $this->renderText($el, $doc);
+    $this->renderStatusCode($el, $doc);
+    $this->renderEffectiveTime($el, $doc);
+    $this->renderPriorityCode($el, $doc);
+    $this->renderLanguageCode($el, $doc);
+    $this->renderSubject($el, $doc);
+    $this->renderSpecimens($el, $doc);
+    $this->renderPerformers($el, $doc);
+    $this->renderAuthors($el, $doc);
+    $this->renderParticipants($el, $doc);
+    $this->renderEntryRelationships($el, $doc);
+    $this->renderReferences($el, $doc);
+    $this->renderPreconditions($el, $doc);
+    return $el;
+  }
+
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'act';
+  }
 
 }

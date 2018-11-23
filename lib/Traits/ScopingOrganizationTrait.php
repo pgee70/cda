@@ -45,47 +45,48 @@ use i3Soft\CDA\RIM\Entity\Organization;
  */
 trait ScopingOrganizationTrait
 {
-    /** @var Organization */
-    private $scoping_organization;
+  /** @var Organization */
+  private $scoping_organization;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderScopingOrganization(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderScopingOrganization (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasScopingOrganisation())
     {
-        if ($this->hasScopingOrganisation()) {
-            $el->appendChild($this->getScopingOrganization()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getScopingOrganization()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasScopingOrganisation(): bool
-    {
-        return null !== $this->scoping_organization;
-    }
+  /**
+   * @return bool
+   */
+  public function hasScopingOrganisation (): bool
+  {
+    return NULL !== $this->scoping_organization;
+  }
 
-    /**
-     * @return Organization
-     */
-    public function getScopingOrganization(): Organization
-    {
-        return $this->scoping_organization;
-    }
+  /**
+   * @return Organization
+   */
+  public function getScopingOrganization (): Organization
+  {
+    return $this->scoping_organization;
+  }
 
-    /**
-     * @param Organization $organization
-     *
-     * @return self
-     */
-    public function setScopingOrganization(Organization $organization): self
-    {
-        $this->scoping_organization = $organization;
-        return $this;
-    }
+  /**
+   * @param Organization $organization
+   *
+   * @return self
+   */
+  public function setScopingOrganization (Organization $organization): self
+  {
+    $this->scoping_organization = $organization;
+    return $this;
+  }
 }

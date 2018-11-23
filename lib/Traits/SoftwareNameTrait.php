@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\SoftwareName;
  */
 trait SoftwareNameTrait
 {
-    /** @var SoftwareName */
-    private $software_name;
+  /** @var SoftwareName */
+  private $software_name;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return SoftwareNameTrait
-     */
-    public function renderSoftwareName(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return SoftwareNameTrait
+   */
+  public function renderSoftwareName (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasSoftwareName())
     {
-        if ($this->hasSoftwareName()) {
-            $el->appendChild($this->getSoftwareName()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getSoftwareName()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasSoftwareName(): bool
-    {
-        return null !== $this->software_name;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSoftwareName (): bool
+  {
+    return NULL !== $this->software_name;
+  }
 
-    /**
-     * @return SoftwareName
-     */
-    public function getSoftwareName(): SoftwareName
-    {
-        return $this->software_name;
-    }
+  /**
+   * @return SoftwareName
+   */
+  public function getSoftwareName (): SoftwareName
+  {
+    return $this->software_name;
+  }
 
-    /**
-     * @param SoftwareName $software_name
-     *
-     * @return self
-     */
-    public function setSoftwareName(SoftwareName $software_name): self
-    {
-        $this->software_name = $software_name;
-        return $this;
-    }
+  /**
+   * @param SoftwareName $software_name
+   *
+   * @return self
+   */
+  public function setSoftwareName (SoftwareName $software_name): self
+  {
+    $this->software_name = $software_name;
+    return $this;
+  }
 }

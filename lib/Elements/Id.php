@@ -34,45 +34,45 @@ use i3Soft\CDA\Traits\InstanceIdentifierTrait;
  */
 class Id extends AbstractElement
 {
-    use InstanceIdentifierTrait;
+  use InstanceIdentifierTrait;
 
-    /**
-     * Id constructor.
-     *
-     * @param InstanceIdentifier $identifier
-     */
-    public function __construct(InstanceIdentifier $identifier)
-    {
-        $this->setIdentifier($identifier);
-    }
+  /**
+   * Id constructor.
+   *
+   * @param InstanceIdentifier $identifier
+   */
+  public function __construct (InstanceIdentifier $identifier)
+  {
+    $this->setIdentifier($identifier);
+  }
 
-    /**
-     * @param $root
-     * @param $extension
-     *
-     * @return Id
-     */
-    public static function fromString($root, $extension = null): Id
-    {
-        return new Id(new InstanceIdentifier($root, $extension));
-    }
+  /**
+   * @param $root
+   * @param $extension
+   *
+   * @return Id
+   */
+  public static function fromString ($root, $extension = NULL): Id
+  {
+    return new Id(new InstanceIdentifier($root, $extension));
+  }
 
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, array('instance_identifier'));
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, array('instance_identifier'));
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'id';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'id';
+  }
 }

@@ -40,26 +40,26 @@ use i3Soft\CDA\DataType\Code\CodedValue;
 
 class Translation extends Code
 {
-    public static function SNOMED(string $code, string $displayName)
-    {
-        return new self(new CodedValue($code, $displayName, '2.16.840.1.113883.6.96', 'SNOMED CT'));
-    }
+  public static function SNOMED (string $code, string $displayName)
+  {
+    return new self(new CodedValue($code, $displayName, '2.16.840.1.113883.6.96', 'SNOMED CT'));
+  }
 
-    public static function NCTIS(string $code, string $displayName)
-    {
-        return new self(new CodedValue($code, $displayName, '1.2.36.1.2001.1001.101', 'NCTIS Data Components'));
-    }
+  public static function NCTIS (string $code, string $displayName)
+  {
+    return new self(new CodedValue($code, $displayName, '1.2.36.1.2001.1001.101', 'NCTIS Data Components'));
+  }
 
-    public static function LOINC(string $code, string $displayName)
-    {
-        return new self(new CodedValue($code, $displayName, '2.16.840.1.113883.6.1', 'LOINC'));
-    }
+  public static function LOINC (string $code, string $displayName)
+  {
+    return new self(new CodedValue($code, $displayName, '2.16.840.1.113883.6.1', 'LOINC'));
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function getElementTag(): string
-    {
-        return 'translation';
-    }
+  /**
+   * @inheritDoc
+   */
+  public function getElementTag (): string
+  {
+    return 'translation';
+  }
 }

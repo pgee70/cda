@@ -47,14 +47,14 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class Id_test extends MyTestCase
 {
-    public function test_Id()
-    {
-        $expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ext:id assigningAuthorityName=\"HPI-I\" root=\"1.2.36.1.2001.1003.0.8003611566682112\"/>\n";
-        $id       = new ExtId('HPI-I', '1.2.36.1.2001.1003.0.8003611566682112');
-        $dom      = new \DOMDocument('1.0', 'UTF-8');
-        $doc      = $id->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+  public function test_Id ()
+  {
+    $expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ext:id assigningAuthorityName=\"HPI-I\" root=\"1.2.36.1.2001.1003.0.8003611566682112\"/>\n";
+    $id       = new ExtId('HPI-I', '1.2.36.1.2001.1003.0.8003611566682112');
+    $dom      = new \DOMDocument('1.0', 'UTF-8');
+    $doc      = $id->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

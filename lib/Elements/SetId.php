@@ -41,33 +41,33 @@ use i3Soft\CDA\Traits\InstanceIdentifierTrait;
  */
 class SetId extends AbstractElement
 {
-    use InstanceIdentifierTrait;
+  use InstanceIdentifierTrait;
 
-    /**
-     * SetId constructor.
-     *
-     * @param InstanceIdentifier $identifier
-     */
-    public function __construct(InstanceIdentifier $identifier)
-    {
-        $this->setIdentifier($identifier);
-    }
+  /**
+   * SetId constructor.
+   *
+   * @param InstanceIdentifier $identifier
+   */
+  public function __construct (InstanceIdentifier $identifier)
+  {
+    $this->setIdentifier($identifier);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, array('instance_identifier'));
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, array('instance_identifier'));
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'setId';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'setId';
+  }
 }

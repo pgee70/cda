@@ -51,9 +51,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class BirthPlace_test extends MyTestCase
 {
-    public function test_birth_place()
-    {
-        $expected = <<<XML
+  public function test_birth_place ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <birthplace>
   <place>
@@ -66,20 +66,20 @@ class BirthPlace_test extends MyTestCase
 
 XML;
 
-        $address = new Addr(
-          null,
-          null,
-          new State('QLD')
-        );
-        $address->setCountry(new Country('Australia'));
+    $address = new Addr(
+      NULL,
+      NULL,
+      new State('QLD')
+    );
+    $address->setCountry(new Country('Australia'));
 
-        $birth_place = new BirthPlace(new Place($address));
-        $dom         = new \DOMDocument('1.0', 'UTF-8');
-        $doc         = $birth_place->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $dom->formatOutput = true;
-        $cda               = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $birth_place = new BirthPlace(new Place($address));
+    $dom         = new \DOMDocument('1.0', 'UTF-8');
+    $doc         = $birth_place->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $dom->formatOutput = TRUE;
+    $cda               = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
 }

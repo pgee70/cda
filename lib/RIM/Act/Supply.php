@@ -65,77 +65,77 @@ use i3Soft\CDA\Traits\TextTrait;
 
 class Supply Extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {
-    use IdsTrait;
-    use CodeTrait;
-    use TextTrait;
-    use StatusCodeTrait;
-    use EffectiveTimesTrait;
-    use PriorityCodesTrait;
-    use RepeatNumberTrait;
-    use IndependentIndTrait;
-    use QuantityTrait;
-    use ExpectedUseTimeTrait;
-    use SubjectTrait;
-    use SpecimensTrait;
-    use ProductTrait;
-    use PerformersTrait;
-    use AuthorsTrait;
-    use InformantsTrait;
-    use ParticipantsTrait;
-    use EntryRelationshipsTrait;
-    use ReferencesTrait;
-    use PreconditionsTrait;
-    use ExtSubjectOf2Trait;
-    use ExtCoveragesTrait;
+  use IdsTrait;
+  use CodeTrait;
+  use TextTrait;
+  use StatusCodeTrait;
+  use EffectiveTimesTrait;
+  use PriorityCodesTrait;
+  use RepeatNumberTrait;
+  use IndependentIndTrait;
+  use QuantityTrait;
+  use ExpectedUseTimeTrait;
+  use SubjectTrait;
+  use SpecimensTrait;
+  use ProductTrait;
+  use PerformersTrait;
+  use AuthorsTrait;
+  use InformantsTrait;
+  use ParticipantsTrait;
+  use EntryRelationshipsTrait;
+  use ReferencesTrait;
+  use PreconditionsTrait;
+  use ExtSubjectOf2Trait;
+  use ExtCoveragesTrait;
 
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    public function __construct()
-    {
-        $this->setAcceptableClassCodes([ClassCodeInterface::SUPPLY])
-          ->setClassCode(ClassCodeInterface::SUPPLY)
-          ->setAcceptableMoodCodes(MoodCodeInterface::x_DocumentSubstanceMood);
-    }
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes([ClassCodeInterface::SUPPLY])
+      ->setClassCode(ClassCodeInterface::SUPPLY)
+      ->setAcceptableMoodCodes(MoodCodeInterface::x_DocumentSubstanceMood);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        $this->renderCode($el, $doc);
-        $this->renderText($el, $doc);
-        $this->renderStatusCode($el, $doc);
-        $this->renderEffectiveTimes($el, $doc);
-        $this->renderPriorityCodes($el, $doc);
-        $this->renderRepeatNumber($el, $doc);
-        $this->renderIndependentInd($el, $doc);
-        $this->renderQuantity($el, $doc);
-        $this->renderExpectedUseTime($el, $doc);
-        $this->renderSubject($el, $doc);
-        $this->renderSpecimens($el, $doc);
-        $this->renderProduct($el, $doc);
-        $this->renderPerformers($el, $doc);
-        $this->renderAuthors($el, $doc);
-        $this->renderInformants($el, $doc);
-        $this->renderParticipants($el, $doc);
-        $this->renderEntryRelationships($el, $doc);
-        $this->renderReferences($el, $doc);
-        $this->renderPreconditions($el, $doc);
-        $this->renderExtSubjectOf2($el, $doc);
-        $this->renderExtCoverages($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    $this->renderCode($el, $doc);
+    $this->renderText($el, $doc);
+    $this->renderStatusCode($el, $doc);
+    $this->renderEffectiveTimes($el, $doc);
+    $this->renderPriorityCodes($el, $doc);
+    $this->renderRepeatNumber($el, $doc);
+    $this->renderIndependentInd($el, $doc);
+    $this->renderQuantity($el, $doc);
+    $this->renderExpectedUseTime($el, $doc);
+    $this->renderSubject($el, $doc);
+    $this->renderSpecimens($el, $doc);
+    $this->renderProduct($el, $doc);
+    $this->renderPerformers($el, $doc);
+    $this->renderAuthors($el, $doc);
+    $this->renderInformants($el, $doc);
+    $this->renderParticipants($el, $doc);
+    $this->renderEntryRelationships($el, $doc);
+    $this->renderReferences($el, $doc);
+    $this->renderPreconditions($el, $doc);
+    $this->renderExtSubjectOf2($el, $doc);
+    $this->renderExtCoverages($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'supply';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'supply';
+  }
 
 
 }

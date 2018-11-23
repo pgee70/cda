@@ -37,67 +37,71 @@ use i3Soft\CDA\DataType\Code\CodedWithEquivalents;
  */
 trait ApproachSiteCodesTrait
 {
-    /** @var CodedWithEquivalents[] */
-    private $approachSiteCodes = [];
+  /** @var CodedWithEquivalents[] */
+  private $approachSiteCodes = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderApproachSiteCodes(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderApproachSiteCodes (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasApproachSiteCodes())
     {
-        if ($this->hasApproachSiteCodes()) {
-            foreach ($this->getApproachSiteCodes() as $approach_site_code) {
-                $approach_site_code->setValueToElement($el, $doc);
-            }
-        }
-        return $this;
+      foreach ($this->getApproachSiteCodes() as $approach_site_code)
+      {
+        $approach_site_code->setValueToElement($el, $doc);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasApproachSiteCodes(): bool
-    {
-        return \count($this->approachSiteCodes) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasApproachSiteCodes (): bool
+  {
+    return \count($this->approachSiteCodes) > 0;
+  }
 
-    /**
-     *
-     * @return CodedWithEquivalents[]
-     */
-    public function getApproachSiteCodes(): array
-    {
-        return $this->approachSiteCodes;
-    }
+  /**
+   *
+   * @return CodedWithEquivalents[]
+   */
+  public function getApproachSiteCodes (): array
+  {
+    return $this->approachSiteCodes;
+  }
 
-    /**
-     *
-     * @param CodedWithEquivalents[] $approach_site_codes
-     *
-     * @return self
-     */
-    public function setApproachSiteCodes(array $approach_site_codes): self
+  /**
+   *
+   * @param CodedWithEquivalents[] $approach_site_codes
+   *
+   * @return self
+   */
+  public function setApproachSiteCodes (array $approach_site_codes): self
+  {
+    foreach ($approach_site_codes as $approach_site_code)
     {
-        foreach ($approach_site_codes as $approach_site_code) {
-            if ($approach_site_code instanceof CodedWithEquivalents) {
-                $this->addApproachSiteCode($approach_site_code);
-            }
-        }
-        return $this;
+      if ($approach_site_code instanceof CodedWithEquivalents)
+      {
+        $this->addApproachSiteCode($approach_site_code);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param CodedWithEquivalents $approach_site_code
-     *
-     * @return self
-     */
-    public function addApproachSiteCode(CodedWithEquivalents $approach_site_code): self
-    {
-        $this->approachSiteCodes[] = $approach_site_code;
-        return $this;
-    }
+  /**
+   * @param CodedWithEquivalents $approach_site_code
+   *
+   * @return self
+   */
+  public function addApproachSiteCode (CodedWithEquivalents $approach_site_code): self
+  {
+    $this->approachSiteCodes[] = $approach_site_code;
+    return $this;
+  }
 
 }

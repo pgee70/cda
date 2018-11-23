@@ -41,32 +41,33 @@ use i3Soft\CDA\Traits\ExtIdTrait;
 
 class ExtContainer extends AbstractElement
 {
-    use ExtIdTrait;
+  use ExtIdTrait;
 
-    public function __construct($ext_id = null)
+  public function __construct ($ext_id = NULL)
+  {
+    if ($ext_id && $ext_id instanceof ExtId)
     {
-        if ($ext_id && $ext_id instanceof ExtId) {
-            $this->setExtId($ext_id);
-        }
+      $this->setExtId($ext_id);
     }
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getExtId()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getExtId()->toDOMElement($doc));
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:container';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:container';
+  }
 
 
 }

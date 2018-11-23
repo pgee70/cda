@@ -49,27 +49,27 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class Occupation_test extends MyTestCase
 {
-    public function test_found()
-    {
-        $expected          = <<<XML
+  public function test_found ()
+  {
+    $expected          = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <code code="253111" codeSystem="2.16.840.1.113883.13.62" codeSystemName="1220.0 - ANZSCO -- Australian and New Zealand Standard Classification of Occupations, 2013, Version 1.2" displayName="General Practitioner"/>
 
 XML;
-        $occupation        = Code::Occupation(253111);
-        $dom               = new \DOMDocument('1.0', 'UTF-8');
-        $doc               = $occupation->toDOMElement($dom);
-        $dom->formatOutput = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $occupation        = Code::Occupation(253111);
+    $dom               = new \DOMDocument('1.0', 'UTF-8');
+    $doc               = $occupation->toDOMElement($dom);
+    $dom->formatOutput = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_exception()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The code -1 is invalid');
-        Code::Occupation(-1);
-    }
+  public function test_exception ()
+  {
+    $this->expectException(\InvalidArgumentException::class);
+    $this->expectExceptionMessage('The code -1 is invalid');
+    Code::Occupation(-1);
+  }
 
 }

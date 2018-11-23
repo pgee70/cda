@@ -52,66 +52,66 @@ use i3Soft\CDA\ClinicalDocument as CD;
  */
 class IntegerType extends AnyType
 {
-    protected $value;
+  protected $value;
 
-    protected $tag;
+  protected $tag;
 
-    /**
-     * IntegerType constructor.
-     *
-     * @param int    $value
-     * @param string $tag
-     */
-    public function __construct(int $value, string $tag)
-    {
-        $this->setValue($value)
-          ->setTag($tag);
-    }
+  /**
+   * IntegerType constructor.
+   *
+   * @param int    $value
+   * @param string $tag
+   */
+  public function __construct (int $value, string $tag)
+  {
+    $this->setValue($value)
+      ->setTag($tag);
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
-    {
-        $el->setAttributeNS(CD::NS_CDA, $this->getTag(), $this->getValue());
-    }
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    $el->setAttributeNS(CD::getNS(), $this->getTag(), $this->getValue());
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getTag()
-    {
-        return $this->tag;
-    }
+  /**
+   * @return mixed
+   */
+  public function getTag ()
+  {
+    return $this->tag;
+  }
 
-    /**
-     * @param $tag
-     *
-     * @return IntegerType
-     */
-    public function setTag($tag): IntegerType
-    {
-        $this->tag = $tag;
-        return $this;
-    }
+  /**
+   * @param $tag
+   *
+   * @return IntegerType
+   */
+  public function setTag ($tag): IntegerType
+  {
+    $this->tag = $tag;
+    return $this;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
+  /**
+   * @return mixed
+   */
+  public function getValue ()
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param $value
-     *
-     * @return self
-     */
-    public function setValue($value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
+  /**
+   * @param $value
+   *
+   * @return self
+   */
+  public function setValue ($value): self
+  {
+    $this->value = $value;
+    return $this;
+  }
 }

@@ -47,35 +47,35 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class MultipleBirthInd_test extends MyTestCase
 {
-    public function test_true()
-    {
-        $expected = <<<XML
+  public function test_true ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:multipleBirthInd value="true"/>
 
 XML;
 
-        $mult_birth_ind = new MultipleBirthInd('true');
-        $dom            = new \DOMDocument('1.0', 'UTF-8');
-        $doc            = $mult_birth_ind->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $mult_birth_ind = new MultipleBirthInd('true');
+    $dom            = new \DOMDocument('1.0', 'UTF-8');
+    $doc            = $mult_birth_ind->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_false()
-    {
-        $expected = <<<XML
+  public function test_false ()
+  {
+    $expected = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:multipleBirthInd value="false"/>
 
 XML;
 
-        $mult_birth_ind = new MultipleBirthInd('not true');
-        $dom            = new \DOMDocument('1.0', 'UTF-8');
-        $doc            = $mult_birth_ind->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $mult_birth_ind = new MultipleBirthInd('not true');
+    $dom            = new \DOMDocument('1.0', 'UTF-8');
+    $doc            = $mult_birth_ind->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

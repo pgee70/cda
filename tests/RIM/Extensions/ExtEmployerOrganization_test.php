@@ -53,9 +53,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class ExtEmployerOrganization_test extends MyTestCase
 {
-    public function test_tag()
-    {
-        $expected = <<<CDA
+  public function test_tag ()
+  {
+    $expected = <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:employerOrganization>
   <name>ACME Hospital One</name>
@@ -85,29 +85,29 @@ class ExtEmployerOrganization_test extends MyTestCase
 </ext:employerOrganization>
 
 CDA;
-        $tag      = new ExtEmployerOrganization(
-          new EntityName('ACME Hospital One'),
-          new AsOrganizationPartOf(
-            new WholeOrganisation(
-              (new EntityName('ACME Hospital Group'))->setUseAttribute('ORGB'),
-              new AsEntityIdentifier(
-                new ExtId('HPI-O', '1.2.36.1.2001.1003.0', '8003621566684455'),
-                new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
-              ),
-              (new Addr(
-                '1 Clinician street',
-                'Nehtaville',
-                'QLD',
-                '5555',
-                '32568931'))->setUseAttribute('WP'),
-              new Telecom('WP', 'tel:0712341234')
-            )
-          )
-        );
-        $dom      = new \DOMDocument('1.0', 'UTF-8');
-        $doc      = $tag->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag      = new ExtEmployerOrganization(
+      new EntityName('ACME Hospital One'),
+      new AsOrganizationPartOf(
+        new WholeOrganisation(
+          (new EntityName('ACME Hospital Group'))->setUseAttribute('ORGB'),
+          new AsEntityIdentifier(
+            new ExtId('HPI-O', '1.2.36.1.2001.1003.0', '8003621566684455'),
+            new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
+          ),
+          (new Addr(
+            '1 Clinician street',
+            'Nehtaville',
+            'QLD',
+            '5555',
+            '32568931'))->setUseAttribute('WP'),
+          new Telecom('WP', 'tel:0712341234')
+        )
+      )
+    );
+    $dom      = new \DOMDocument('1.0', 'UTF-8');
+    $doc      = $tag->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

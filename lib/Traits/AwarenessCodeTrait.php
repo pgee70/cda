@@ -37,47 +37,48 @@ use i3Soft\CDA\DataType\Code\CodedWithEquivalents;
  */
 trait AwarenessCodeTrait
 {
-    /** @var CodedWithEquivalents */
-    private $awarenessCode;
+  /** @var CodedWithEquivalents */
+  private $awarenessCode;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAwarenessCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAwarenessCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAwarenessCode())
     {
-        if ($this->hasAwarenessCode()) {
-            $this->getAwarenessCode()->setValueToElement($el, $doc);
-        }
-        return $this;
+      $this->getAwarenessCode()->setValueToElement($el, $doc);
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAwarenessCode(): bool
-    {
-        return null !== $this->awarenessCode;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAwarenessCode (): bool
+  {
+    return NULL !== $this->awarenessCode;
+  }
 
-    /**
-     * @return CodedWithEquivalents
-     */
-    public function getAwarenessCode(): CodedWithEquivalents
-    {
-        return $this->awarenessCode;
-    }
+  /**
+   * @return CodedWithEquivalents
+   */
+  public function getAwarenessCode (): CodedWithEquivalents
+  {
+    return $this->awarenessCode;
+  }
 
-    /**
-     * @param CodedWithEquivalents $awarenessCode
-     *
-     * @return AwarenessCodeTrait
-     */
-    public function setAwarenessCode(CodedWithEquivalents $awarenessCode): AwarenessCodeTrait
-    {
-        $this->awarenessCode = $awarenessCode;
-        return $this;
-    }
+  /**
+   * @param CodedWithEquivalents $awarenessCode
+   *
+   * @return AwarenessCodeTrait
+   */
+  public function setAwarenessCode (CodedWithEquivalents $awarenessCode): AwarenessCodeTrait
+  {
+    $this->awarenessCode = $awarenessCode;
+    return $this;
+  }
 }

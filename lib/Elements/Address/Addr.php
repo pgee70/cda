@@ -47,367 +47,398 @@ use i3Soft\CDA\Elements\AbstractElement;
 class Addr extends AbstractElement
 {
 
-    /** @var AddressCodeType $address_code_use_attribute */
-    protected $address_code_use_attribute;
-    /** @var HouseNumber */
-    private $house_number;
-    /** @var StreetName */
-    private $street_name;
-    /** @var StreetNameType */
-    private $street_name_type;
-    /** @var StreetAddressLine */
-    private $street_address_line;
-    /** @var City */
-    private $city;
-    /** @var PostalCode */
-    private $postal_code;
-    /** @var State */
-    private $state;
-    /** @var Country */
-    private $country;
-    /** @var AdditionalLocator */
-    private $additional_locator;
+  /** @var AddressCodeType $address_code_use_attribute */
+  protected $address_code_use_attribute;
+  /** @var HouseNumber */
+  private $house_number;
+  /** @var StreetName */
+  private $street_name;
+  /** @var StreetNameType */
+  private $street_name_type;
+  /** @var StreetAddressLine */
+  private $street_address_line;
+  /** @var City */
+  private $city;
+  /** @var PostalCode */
+  private $postal_code;
+  /** @var State */
+  private $state;
+  /** @var Country */
+  private $country;
+  /** @var AdditionalLocator */
+  private $additional_locator;
 
-    /**
-     * Addr constructor.
-     *
-     * @param null $street_address_line
-     * @param null $city
-     * @param null $state
-     * @param null $postal_code
-     * @param null $additional_locator
-     */
-    public function __construct(
-      $street_address_line = null,
-      $city = null,
-      $state = null,
-      $postal_code = null,
-      $additional_locator = null
-    ) {
-        if ($street_address_line) {
-            if ($street_address_line instanceof StreetAddressLine) {
-                $this->setStreetAddressLine($street_address_line);
-            } elseif (\is_string($street_address_line)) {
-                $this->setStreetAddressLine(new StreetAddressLine($street_address_line));
-            }
-        }
-        if ($city) {
-            if ($city instanceof City) {
-                $this->setCity($city);
-            } elseif (\is_string($city)) {
-                $this->setCity(new City($city));
-            }
-        }
-        if ($state) {
-            if ($state instanceof State) {
-                $this->setState($state);
-            } elseif (\is_string($state)) {
-                $this->setState(new State($state));
-            }
-        }
-        if ($postal_code) {
-            if ($postal_code instanceof PostalCode) {
-                $this->setPostalCode($postal_code);
-            } elseif (\is_string($postal_code)) {
-                $this->setPostalCode(new PostalCode($postal_code));
-            }
-        }
-        if ($additional_locator) {
-            if ($additional_locator instanceof AdditionalLocator) {
-                $this->setAdditionalLocator($additional_locator);
-            } elseif (\is_string($additional_locator)) {
-                $this->setAdditionalLocator(new AdditionalLocator($additional_locator));
-            }
-        }
-        $this->address_code_use_attribute = new AddressCodeType('');
-    }
-
-    /**
-     * @return AddressCodeType
-     */
-    public function getUseAttribute(): AddressCodeType
+  /**
+   * Addr constructor.
+   *
+   * @param null $street_address_line
+   * @param null $city
+   * @param null $state
+   * @param null $postal_code
+   * @param null $additional_locator
+   */
+  public function __construct (
+    $street_address_line = NULL,
+    $city = NULL,
+    $state = NULL,
+    $postal_code = NULL,
+    $additional_locator = NULL
+  ) {
+    if ($street_address_line)
     {
-        return $this->address_code_use_attribute;
+      if ($street_address_line instanceof StreetAddressLine)
+      {
+        $this->setStreetAddressLine($street_address_line);
+      }
+      elseif (\is_string($street_address_line))
+      {
+        $this->setStreetAddressLine(new StreetAddressLine($street_address_line));
+      }
     }
-
-    /**
-     * @param $address_code_type
-     *
-     * @return Addr
-     */
-    public function setUseAttribute($address_code_type): Addr
+    if ($city)
     {
-        $this->address_code_use_attribute = $address_code_type instanceof AddressCodeType
-          ? $address_code_type
-          : new AddressCodeType($address_code_type);
-        return $this;
+      if ($city instanceof City)
+      {
+        $this->setCity($city);
+      }
+      elseif (\is_string($city))
+      {
+        $this->setCity(new City($city));
+      }
     }
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+    if ($state)
     {
-        $el = $this->createElement($doc, ['address_code_use_attribute']);
-        // if the street address line is present use it, otherwise see if the individual components were set.
-        if ($this->hasStreetAddressLine()) {
-            $el->appendChild($this->getStreetAddressLine()->toDOMElement($doc));
-        } else {
-            if (null !== $this->house_number) {
-                $el->appendChild($this->getHouseNumber()->toDOMElement($doc));
-            }
-            if (null !== $this->street_name) {
-                $el->appendChild($this->getStreetName()->toDOMElement($doc));
-            }
-            if (null !== $this->street_name_type) {
-                $el->appendChild($this->getStreetNameType()->toDOMElement($doc));
-            }
-        }
-
-        if ($this->hasCity()) {
-            $el->appendChild($this->getCity()->toDOMElement($doc));
-        }
-        if ($this->hasState()) {
-            $el->appendChild($this->getState()->toDOMElement($doc));
-        }
-        if ($this->hasPostalCode()) {
-            $el->appendChild($this->getPostalCode()->toDOMElement($doc));
-        }
-        if ($this->hasAdditionalLocator()) {
-            $el->appendChild($this->getAdditionalLocator()->toDOMElement($doc));
-        }
-        if ($this->hasCountry()) {
-            $el->appendChild($this->getCountry()->toDOMElement($doc));
-        }
-        return $el;
+      if ($state instanceof State)
+      {
+        $this->setState($state);
+      }
+      elseif (\is_string($state))
+      {
+        $this->setState(new State($state));
+      }
     }
-
-    /**
-     * @return bool
-     */
-    public function hasStreetAddressLine(): bool
+    if ($postal_code)
     {
-        return $this->street_address_line !== null;
+      if ($postal_code instanceof PostalCode)
+      {
+        $this->setPostalCode($postal_code);
+      }
+      elseif (\is_string($postal_code))
+      {
+        $this->setPostalCode(new PostalCode($postal_code));
+      }
+    }
+    if ($additional_locator)
+    {
+      if ($additional_locator instanceof AdditionalLocator)
+      {
+        $this->setAdditionalLocator($additional_locator);
+      }
+      elseif (\is_string($additional_locator))
+      {
+        $this->setAdditionalLocator(new AdditionalLocator($additional_locator));
+      }
+    }
+    $this->address_code_use_attribute = new AddressCodeType('');
+  }
+
+  /**
+   * @return AddressCodeType
+   */
+  public function getUseAttribute (): AddressCodeType
+  {
+    return $this->address_code_use_attribute;
+  }
+
+  /**
+   * @param $address_code_type
+   *
+   * @return Addr
+   */
+  public function setUseAttribute ($address_code_type): Addr
+  {
+    $this->address_code_use_attribute = $address_code_type instanceof AddressCodeType
+      ? $address_code_type
+      : new AddressCodeType($address_code_type);
+    return $this;
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc, ['address_code_use_attribute']);
+    // if the street address line is present use it, otherwise see if the individual components were set.
+    if ($this->hasStreetAddressLine())
+    {
+      $el->appendChild($this->getStreetAddressLine()->toDOMElement($doc));
+    }
+    else
+    {
+      if (NULL !== $this->house_number)
+      {
+        $el->appendChild($this->getHouseNumber()->toDOMElement($doc));
+      }
+      if (NULL !== $this->street_name)
+      {
+        $el->appendChild($this->getStreetName()->toDOMElement($doc));
+      }
+      if (NULL !== $this->street_name_type)
+      {
+        $el->appendChild($this->getStreetNameType()->toDOMElement($doc));
+      }
     }
 
-    /**
-     * @return StreetAddressLine
-     */
-    public function getStreetAddressLine(): StreetAddressLine
+    if ($this->hasCity())
     {
-        return $this->street_address_line;
+      $el->appendChild($this->getCity()->toDOMElement($doc));
     }
+    if ($this->hasState())
+    {
+      $el->appendChild($this->getState()->toDOMElement($doc));
+    }
+    if ($this->hasPostalCode())
+    {
+      $el->appendChild($this->getPostalCode()->toDOMElement($doc));
+    }
+    if ($this->hasAdditionalLocator())
+    {
+      $el->appendChild($this->getAdditionalLocator()->toDOMElement($doc));
+    }
+    if ($this->hasCountry())
+    {
+      $el->appendChild($this->getCountry()->toDOMElement($doc));
+    }
+    return $el;
+  }
 
-    /**
-     * @param StreetAddressLine $street_address_line
-     *
-     * @return Addr
-     */
-    public function setStreetAddressLine(StreetAddressLine $street_address_line): Addr
-    {
-        $this->street_address_line = $street_address_line;
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasStreetAddressLine (): bool
+  {
+    return $this->street_address_line !== NULL;
+  }
 
-    /**
-     * @return HouseNumber
-     */
-    public function getHouseNumber(): HouseNumber
-    {
-        return $this->house_number;
-    }
+  /**
+   * @return StreetAddressLine
+   */
+  public function getStreetAddressLine (): StreetAddressLine
+  {
+    return $this->street_address_line;
+  }
 
-    /**
-     * @param HouseNumber $house_number
-     *
-     * @return Addr
-     */
-    public function setHouseNumber(HouseNumber $house_number): Addr
-    {
-        $this->house_number = $house_number;
-        return $this;
-    }
+  /**
+   * @param StreetAddressLine $street_address_line
+   *
+   * @return Addr
+   */
+  public function setStreetAddressLine (StreetAddressLine $street_address_line): Addr
+  {
+    $this->street_address_line = $street_address_line;
+    return $this;
+  }
 
-    /**
-     * @return StreetName
-     */
-    public function getStreetName(): StreetName
-    {
-        return $this->street_name;
-    }
+  /**
+   * @return HouseNumber
+   */
+  public function getHouseNumber (): HouseNumber
+  {
+    return $this->house_number;
+  }
 
-    /**
-     * @param StreetName $street_name
-     *
-     * @return Addr
-     */
-    public function setStreetName(StreetName $street_name): Addr
-    {
-        $this->street_name = $street_name;
-        return $this;
-    }
+  /**
+   * @param HouseNumber $house_number
+   *
+   * @return Addr
+   */
+  public function setHouseNumber (HouseNumber $house_number): Addr
+  {
+    $this->house_number = $house_number;
+    return $this;
+  }
 
-    /**
-     * @return StreetNameType
-     */
-    public function getStreetNameType(): StreetNameType
-    {
-        return $this->street_name_type;
-    }
+  /**
+   * @return StreetName
+   */
+  public function getStreetName (): StreetName
+  {
+    return $this->street_name;
+  }
 
-    /**
-     * @param StreetNameType $street_name_type
-     *
-     * @return Addr
-     */
-    public function setStreetNameType(StreetNameType $street_name_type): Addr
-    {
-        $this->street_name_type = $street_name_type;
-        return $this;
-    }
+  /**
+   * @param StreetName $street_name
+   *
+   * @return Addr
+   */
+  public function setStreetName (StreetName $street_name): Addr
+  {
+    $this->street_name = $street_name;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasCity(): bool
-    {
-        return null !== $this->city;
-    }
+  /**
+   * @return StreetNameType
+   */
+  public function getStreetNameType (): StreetNameType
+  {
+    return $this->street_name_type;
+  }
 
-    /**
-     * @return City
-     */
-    public function getCity(): City
-    {
-        return $this->city;
-    }
+  /**
+   * @param StreetNameType $street_name_type
+   *
+   * @return Addr
+   */
+  public function setStreetNameType (StreetNameType $street_name_type): Addr
+  {
+    $this->street_name_type = $street_name_type;
+    return $this;
+  }
 
-    /**
-     * @param City $city
-     *
-     * @return Addr
-     */
-    public function setCity(City $city): Addr
-    {
-        $this->city = $city;
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCity (): bool
+  {
+    return NULL !== $this->city;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasState(): bool
-    {
-        return null !== $this->state;
-    }
+  /**
+   * @return City
+   */
+  public function getCity (): City
+  {
+    return $this->city;
+  }
 
-    /**
-     * @return State
-     */
-    public function getState(): State
-    {
-        return $this->state;
-    }
+  /**
+   * @param City $city
+   *
+   * @return Addr
+   */
+  public function setCity (City $city): Addr
+  {
+    $this->city = $city;
+    return $this;
+  }
 
-    /**
-     * @param State $state
-     *
-     * @return Addr
-     */
-    public function setState(State $state): Addr
-    {
-        $this->state = $state;
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasState (): bool
+  {
+    return NULL !== $this->state;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasPostalCode(): bool
-    {
-        return null !== $this->postal_code;
-    }
+  /**
+   * @return State
+   */
+  public function getState (): State
+  {
+    return $this->state;
+  }
 
-    /**
-     * @return PostalCode
-     */
-    public function getPostalCode(): PostalCode
-    {
-        return $this->postal_code;
-    }
+  /**
+   * @param State $state
+   *
+   * @return Addr
+   */
+  public function setState (State $state): Addr
+  {
+    $this->state = $state;
+    return $this;
+  }
 
-    /**
-     * @param PostalCode $postal_code
-     *
-     * @return Addr
-     */
-    public function setPostalCode(PostalCode $postal_code): Addr
-    {
-        $this->postal_code = $postal_code;
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasPostalCode (): bool
+  {
+    return NULL !== $this->postal_code;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAdditionalLocator(): bool
-    {
-        return null !== $this->additional_locator;
-    }
+  /**
+   * @return PostalCode
+   */
+  public function getPostalCode (): PostalCode
+  {
+    return $this->postal_code;
+  }
 
-    /**
-     * @return AdditionalLocator
-     */
-    public function getAdditionalLocator(): AdditionalLocator
-    {
-        return $this->additional_locator;
-    }
+  /**
+   * @param PostalCode $postal_code
+   *
+   * @return Addr
+   */
+  public function setPostalCode (PostalCode $postal_code): Addr
+  {
+    $this->postal_code = $postal_code;
+    return $this;
+  }
 
-    /**
-     * @param AdditionalLocator $additional_locator
-     *
-     * @return Addr
-     */
-    public function setAdditionalLocator(AdditionalLocator $additional_locator): Addr
-    {
-        $this->additional_locator = $additional_locator;
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAdditionalLocator (): bool
+  {
+    return NULL !== $this->additional_locator;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasCountry(): bool
-    {
-        return null !== $this->country;
-    }
+  /**
+   * @return AdditionalLocator
+   */
+  public function getAdditionalLocator (): AdditionalLocator
+  {
+    return $this->additional_locator;
+  }
 
-    /**
-     * @return Country
-     */
-    public function getCountry(): Country
-    {
-        return $this->country;
-    }
+  /**
+   * @param AdditionalLocator $additional_locator
+   *
+   * @return Addr
+   */
+  public function setAdditionalLocator (AdditionalLocator $additional_locator): Addr
+  {
+    $this->additional_locator = $additional_locator;
+    return $this;
+  }
 
-    /**
-     * @param Country $country
-     *
-     * @return Addr
-     */
-    public function setCountry(Country $country): Addr
-    {
-        $this->country = $country;
-        return $this;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCountry (): bool
+  {
+    return NULL !== $this->country;
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'addr';
-    }
+  /**
+   * @return Country
+   */
+  public function getCountry (): Country
+  {
+    return $this->country;
+  }
+
+  /**
+   * @param Country $country
+   *
+   * @return Addr
+   */
+  public function setCountry (Country $country): Addr
+  {
+    $this->country = $country;
+    return $this;
+  }
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'addr';
+  }
 }

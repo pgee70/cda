@@ -54,57 +54,61 @@ use i3Soft\CDA\Traits\TelecomsTrait;
  */
 class WholeOrganisation extends AbstractElement
 {
-    use EntityNameTrait;
-    use AsEntityIdentifierTrait;
-    use AddrsTrait;
-    use TelecomsTrait;
+  use EntityNameTrait;
+  use AsEntityIdentifierTrait;
+  use AddrsTrait;
+  use TelecomsTrait;
 
-    /**
-     * WholeOrganisation constructor.
-     *
-     * @param null $name
-     * @param null $as_identifier
-     * @param null $addr
-     * @param null $telecom
-     */
-    public function __construct($name = null, $as_identifier = null, $addr = null, $telecom = null)
+  /**
+   * WholeOrganisation constructor.
+   *
+   * @param null $name
+   * @param null $as_identifier
+   * @param null $addr
+   * @param null $telecom
+   */
+  public function __construct ($name = NULL, $as_identifier = NULL, $addr = NULL, $telecom = NULL)
+  {
+    if ($name && $name instanceof EntityName)
     {
-        if ($name && $name instanceof EntityName) {
-            $this->setName($name);
-        }
-        if ($as_identifier && $as_identifier instanceof AsEntityIdentifier) {
-            $this->setAsEntityIdentifier($as_identifier);
-        }
-        if ($addr && $addr instanceof Addr) {
-            $this->addAddr($addr);
-        }
-        if ($telecom && $telecom instanceof Telecom) {
-            $this->addTelecom($telecom);
-        }
+      $this->setName($name);
     }
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+    if ($as_identifier && $as_identifier instanceof AsEntityIdentifier)
     {
-        $el = $this->createElement($doc);
-        $this->renderEntityName($el, $doc);
-        $this->renderAsEntityIdentifier($el, $doc);
-        $this->renderAddrs($el, $doc);
-        $this->renderTelecoms($el, $doc);
-        return $el;
+      $this->setAsEntityIdentifier($as_identifier);
     }
-
-
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
+    if ($addr && $addr instanceof Addr)
     {
-        return 'wholeOrganization';
+      $this->addAddr($addr);
     }
+    if ($telecom && $telecom instanceof Telecom)
+    {
+      $this->addTelecom($telecom);
+    }
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderEntityName($el, $doc);
+    $this->renderAsEntityIdentifier($el, $doc);
+    $this->renderAddrs($el, $doc);
+    $this->renderTelecoms($el, $doc);
+    return $el;
+  }
+
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'wholeOrganization';
+  }
 
 }

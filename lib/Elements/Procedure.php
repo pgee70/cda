@@ -64,82 +64,82 @@ use i3Soft\CDA\Traits\TextTrait;
 
 class Procedure extends AbstractElement implements ClassCodeInterface, MoodCodeInterface, NegationInterface
 {
-    use IdsTrait;
-    use CodeTrait;
-    use TextTrait;
-    use StatusCodeTrait;
-    use EffectiveTimeTrait;
-    use PriorityCodeTrait;
-    use LanguageCodeTrait;
-    use MethodCodesTrait;
-    use ApproachSiteCodesTrait;
-    use TargetSiteCodesTrait;
-    use SubjectTrait;
-    use SpecimensTrait;
-    use PerformersTrait;
-    use AuthorsTrait;
-    use InformantsTrait;
-    use ParticipantsTrait;
-    use EntryRelationshipsTrait;
-    use ReferencesTrait;
-    use PreconditionsTrait;
+  use IdsTrait;
+  use CodeTrait;
+  use TextTrait;
+  use StatusCodeTrait;
+  use EffectiveTimeTrait;
+  use PriorityCodeTrait;
+  use LanguageCodeTrait;
+  use MethodCodesTrait;
+  use ApproachSiteCodesTrait;
+  use TargetSiteCodesTrait;
+  use SubjectTrait;
+  use SpecimensTrait;
+  use PerformersTrait;
+  use AuthorsTrait;
+  use InformantsTrait;
+  use ParticipantsTrait;
+  use EntryRelationshipsTrait;
+  use ReferencesTrait;
+  use PreconditionsTrait;
 
-    use MoodCodeTrait;
-    use ClassCodeTrait;
-    use NegationIndTrait;
+  use MoodCodeTrait;
+  use ClassCodeTrait;
+  use NegationIndTrait;
 
-    /**
-     * Procedure constructor.
-     */
-    public function __construct()
-    {
-        $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
-          ->setClassCode(ClassCodeInterface::PROCEDURE)
-          ->setAcceptableMoodCodes(MoodCodeInterface::x_DocumentProcedureMood)
-          ->setMoodCode(MoodCodeInterface::EVENT);
-    }
+  /**
+   * Procedure constructor.
+   */
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
+      ->setClassCode(ClassCodeInterface::PROCEDURE)
+      ->setAcceptableMoodCodes(MoodCodeInterface::x_DocumentProcedureMood)
+      ->setMoodCode(MoodCodeInterface::EVENT);
+  }
 
-    /**
-     * Transforms the element into a DOMElement, which will be included
-     * into the final CDA XML
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc)
-          ->renderCode($el, $doc)
-          ->renderText($el, $doc)
-          ->renderStatusCode($el, $doc)
-          ->renderEffectiveTime($el, $doc)
-          ->renderPriorityCode($el, $doc)
-          ->renderLanguageCode($el, $doc)
-          ->renderMethodCodes($el, $doc)
-          ->renderApproachSiteCodes($el, $doc)
-          ->renderTargetSiteCodes($el, $doc)
-          ->renderSubject($el, $doc)
-          ->renderSpecimens($el, $doc)
-          ->renderPerformers($el, $doc)
-          ->renderAuthors($el, $doc)
-          ->renderInformants($el, $doc)
-          ->renderParticipants($el, $doc)
-          ->renderEntryRelationships($el, $doc)
-          ->renderReferences($el, $doc)
-          ->renderPreconditions($el, $doc);
-        return $el;
-    }
+  /**
+   * Transforms the element into a DOMElement, which will be included
+   * into the final CDA XML
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc)
+      ->renderCode($el, $doc)
+      ->renderText($el, $doc)
+      ->renderStatusCode($el, $doc)
+      ->renderEffectiveTime($el, $doc)
+      ->renderPriorityCode($el, $doc)
+      ->renderLanguageCode($el, $doc)
+      ->renderMethodCodes($el, $doc)
+      ->renderApproachSiteCodes($el, $doc)
+      ->renderTargetSiteCodes($el, $doc)
+      ->renderSubject($el, $doc)
+      ->renderSpecimens($el, $doc)
+      ->renderPerformers($el, $doc)
+      ->renderAuthors($el, $doc)
+      ->renderInformants($el, $doc)
+      ->renderParticipants($el, $doc)
+      ->renderEntryRelationships($el, $doc)
+      ->renderReferences($el, $doc)
+      ->renderPreconditions($el, $doc);
+    return $el;
+  }
 
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'procedure';
-    }
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'procedure';
+  }
 }

@@ -74,9 +74,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class AssignedAuthor_test extends MyTestCase
 {
-    public function test_tag()
-    {
-        $expected = <<<CDA
+  public function test_tag ()
+  {
+    $expected = <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 <assignedAuthor>
   <!-- ID is used for system purposes such as matching -->
@@ -151,61 +151,61 @@ class AssignedAuthor_test extends MyTestCase
     </assignedPerson>
 </assignedAuthor>
 CDA;
-        $names    = new Set(PersonName::class);
-        $names->add((new PersonName())
-          ->addPart(PersonName::HONORIFIC, 'Dr.')
-          ->addPart(PersonName::FIRST_NAME, 'Good')
-          ->addPart(PersonName::LAST_NAME, 'Doctor')
-        );
-        $assigned_author = new AssignedAuthor(
-          Id::fromString('7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085'),
+    $names    = new Set(PersonName::class);
+    $names->add((new PersonName())
+      ->addPart(PersonName::HONORIFIC, 'Dr.')
+      ->addPart(PersonName::FIRST_NAME, 'Good')
+      ->addPart(PersonName::LAST_NAME, 'Doctor')
+    );
+    $assigned_author = new AssignedAuthor(
+      Id::fromString('7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085'),
+      Code::Occupation(253111),
+      (new Addr(
+        '1 Clinician street',
+        'Nehtaville',
+        'QLD',
+        '5555',
+        '32568931'
+      ))->setCountry(new Country('Australia'))
+        ->setUseAttribute(new AddressCodeType('WP')),
+      array(new Telecom('WP', 'tel:0712341234'),),
+      (new AssignedPerson(
+        $names,
+        new AsEntityIdentifier(
+          new ExtId('HPI-I', '1.2.36.1.2001.1003.0', '8003619900015717'),
+          new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
+        ),
+        new AsEmployment(
+          new ExtCode(new OriginalText('GP')),
           Code::Occupation(253111),
-          (new Addr(
-            '1 Clinician street',
-            'Nehtaville',
-            'QLD',
-            '5555',
-            '32568931'
-          ))->setCountry(new Country('Australia'))
-            ->setUseAttribute(new AddressCodeType('WP')),
-          array(new Telecom('WP', 'tel:0712341234'),),
-          (new AssignedPerson(
-            $names,
-            new AsEntityIdentifier(
-              new ExtId('HPI-I', '1.2.36.1.2001.1003.0', '8003619900015717'),
-              new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
-            ),
-            new AsEmployment(
-              new ExtCode(new OriginalText('GP')),
-              Code::Occupation(253111),
-              new JobClassCode(JobClassCode::CODE_FULL_TIME),
-              new ExtEmployerOrganization(
-                new EntityName('ACME Hospital One'),
-                new AsOrganizationPartOf(
-                  new WholeOrganisation(
-                    (new EntityName('ACME Hospital Group'))->setUseAttribute('ORGB'),
-                    new AsEntityIdentifier(
-                      new ExtId('HPI-O', '1.2.36.1.2001.1003.0', '8003621566684455'),
-                      new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
-                    ),
-                    (new Addr(
-                      '1 Clinician street',
-                      'Nehtaville',
-                      'QLD',
-                      '5555',
-                      '32568931'))->setUseAttribute('WP'),
-                    new Telecom('WP', 'tel:0712341234')
-                  )
-                )
+          new JobClassCode(JobClassCode::CODE_FULL_TIME),
+          new ExtEmployerOrganization(
+            new EntityName('ACME Hospital One'),
+            new AsOrganizationPartOf(
+              new WholeOrganisation(
+                (new EntityName('ACME Hospital Group'))->setUseAttribute('ORGB'),
+                new AsEntityIdentifier(
+                  new ExtId('HPI-O', '1.2.36.1.2001.1003.0', '8003621566684455'),
+                  new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))
+                ),
+                (new Addr(
+                  '1 Clinician street',
+                  'Nehtaville',
+                  'QLD',
+                  '5555',
+                  '32568931'))->setUseAttribute('WP'),
+                new Telecom('WP', 'tel:0712341234')
               )
-            ),
-            new AsQualifications(new ExtCode(new OriginalText('M.B.B.S')))
-          ))->setClassCode(''));
-        $assigned_author->setClassCode('');
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $doc = $assigned_author->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+            )
+          )
+        ),
+        new AsQualifications(new ExtCode(new OriginalText('M.B.B.S')))
+      ))->setClassCode(''));
+    $assigned_author->setClassCode('');
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $doc = $assigned_author->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

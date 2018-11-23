@@ -38,47 +38,48 @@ use i3Soft\CDA\Elements\DischargeDispositionCode;
  */
 trait DischargeDispositionCodeTrait
 {
-    /** @var DischargeDispositionCode */
-    private $discharge_disposition_code;
+  /** @var DischargeDispositionCode */
+  private $discharge_disposition_code;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderDischargeDispositionCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderDischargeDispositionCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasDischargeDispositionCode())
     {
-        if ($this->hasDischargeDispositionCode()) {
-            $el->appendChild($this->getDischargeDispositionCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getDischargeDispositionCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasDischargeDispositionCode(): bool
-    {
-        return null !== $this->discharge_disposition_code;
-    }
+  /**
+   * @return bool
+   */
+  public function hasDischargeDispositionCode (): bool
+  {
+    return NULL !== $this->discharge_disposition_code;
+  }
 
-    /**
-     * @return DischargeDispositionCode
-     */
-    public function getDischargeDispositionCode(): DischargeDispositionCode
-    {
-        return $this->discharge_disposition_code;
-    }
+  /**
+   * @return DischargeDispositionCode
+   */
+  public function getDischargeDispositionCode (): DischargeDispositionCode
+  {
+    return $this->discharge_disposition_code;
+  }
 
-    /**
-     * @param CodedWithEquivalents $coded_with_equivalents
-     *
-     * @return self
-     */
-    public function setDischargeDispositionCode(CodedWithEquivalents $coded_with_equivalents): self
-    {
-        $this->discharge_disposition_code = new DischargeDispositionCode($coded_with_equivalents);
-        return $this;
-    }
+  /**
+   * @param CodedWithEquivalents $coded_with_equivalents
+   *
+   * @return self
+   */
+  public function setDischargeDispositionCode (CodedWithEquivalents $coded_with_equivalents): self
+  {
+    $this->discharge_disposition_code = new DischargeDispositionCode($coded_with_equivalents);
+    return $this;
+  }
 }

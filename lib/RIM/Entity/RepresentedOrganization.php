@@ -58,153 +58,159 @@ use i3Soft\CDA\Traits\TelecomsTrait;
  */
 class RepresentedOrganization extends AbstractElement implements ClassCodeInterface, DeterminerCodeInterface
 {
-    use IdsTrait;
-    use NamesTrait;
-    use TelecomsTrait;
-    use AddrsTrait;
-    use ClassCodeTrait;
-    use AsEntityIdentifierTrait;
+  use IdsTrait;
+  use NamesTrait;
+  use TelecomsTrait;
+  use AddrsTrait;
+  use ClassCodeTrait;
+  use AsEntityIdentifierTrait;
 
 
-    use DeterminerCodeTrait;
+  use DeterminerCodeTrait;
 
 
-    /** @var StandardIndustryClassCode */
-    protected $standardIndustryClassCode;
-    /** @var AsOrganizationPartOf */
-    protected $asOrganizationPartOf;
+  /** @var StandardIndustryClassCode */
+  protected $standardIndustryClassCode;
+  /** @var AsOrganizationPartOf */
+  protected $asOrganizationPartOf;
 
-    /**
-     * RepresentedOrganization constructor.
-     *
-     * @param EntityName         $name
-     * @param AsEntityIdentifier $as_entity_identifier
-     */
-    public function __construct($name = null, $as_entity_identifier = null)
+  /**
+   * RepresentedOrganization constructor.
+   *
+   * @param EntityName         $name
+   * @param AsEntityIdentifier $as_entity_identifier
+   */
+  public function __construct ($name = NULL, $as_entity_identifier = NULL)
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassOrganization)
+      ->setClassCode(ClassCodeInterface::IDENTITY)
+      ->setDeterminerCode('');
+    if ($name && $name instanceof EntityName)
     {
-        $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassOrganization)
-          ->setClassCode(ClassCodeInterface::IDENTITY)
-          ->setDeterminerCode('');
-        if ($name && $name instanceof EntityName) {
-            $this->addName($name);
-        }
-        if ($as_entity_identifier && $as_entity_identifier instanceof AsEntityIdentifier) {
-            $this->setAsEntityIdentifier($as_entity_identifier);
-        }
+      $this->addName($name);
     }
-
-    /**
-     * @param EntityName $name
-     *
-     * @return self
-     */
-    public function addName(EntityName $name): self
+    if ($as_entity_identifier && $as_entity_identifier instanceof AsEntityIdentifier)
     {
-        $this->names[] = $name;
-        return $this;
+      $this->setAsEntityIdentifier($as_entity_identifier);
     }
+  }
 
-    /**
-     * @return string
-     */
-    public function getElementTag(): string
+  /**
+   * @param EntityName $name
+   *
+   * @return self
+   */
+  public function addName (EntityName $name): self
+  {
+    $this->names[] = $name;
+    return $this;
+  }
+
+  /**
+   * @return string
+   */
+  public function getElementTag (): string
+  {
+    return 'representedOrganization';
+  }
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    if ($this->hasIds())
     {
-        return 'representedOrganization';
+      foreach ($this->getIds() as $id)
+      {
+        $el->appendChild($id->toDOMElement($doc));
+      }
     }
+    $this->renderIds($el, $doc);
+    $this->renderNames($el, $doc);
+    $this->renderTelecoms($el, $doc);
+    $this->renderAddrs($el, $doc);
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+
+    if ($this->hasStandardIndustryClassCode())
     {
-        $el = $this->createElement($doc);
-        if ($this->hasIds()) {
-            foreach ($this->getIds() as $id) {
-                $el->appendChild($id->toDOMElement($doc));
-            }
-        }
-        $this->renderIds($el, $doc);
-        $this->renderNames($el, $doc);
-        $this->renderTelecoms($el, $doc);
-        $this->renderAddrs($el, $doc);
-
-
-        if ($this->hasStandardIndustryClassCode()) {
-            $el->appendChild($this->getStandardIndustryClassCode()->toDOMElement($doc));
-        }
-        $this->renderAsOrganizationPartOf($el, $doc);
-        $this->renderAsEntityIdentifier($el, $doc);
-
-        return $el;
+      $el->appendChild($this->getStandardIndustryClassCode()->toDOMElement($doc));
     }
+    $this->renderAsOrganizationPartOf($el, $doc);
+    $this->renderAsEntityIdentifier($el, $doc);
+
+    return $el;
+  }
 
 
-    /**
-     * @return bool
-     */
-    public function hasStandardIndustryClassCode(): bool
+  /**
+   * @return bool
+   */
+  public function hasStandardIndustryClassCode (): bool
+  {
+    return NULL !== $this->standardIndustryClassCode;
+  }
+
+  /**
+   * @return StandardIndustryClassCode
+   */
+  public function getStandardIndustryClassCode (): StandardIndustryClassCode
+  {
+    return $this->standardIndustryClassCode;
+  }
+
+  /**
+   * @param StandardIndustryClassCode $standardIndustryClassCode
+   *
+   * @return self
+   */
+  public function setStandardIndustryClassCode (StandardIndustryClassCode $standardIndustryClassCode): self
+  {
+    $this->standardIndustryClassCode = $standardIndustryClassCode;
+    return $this;
+  }
+
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   */
+  public function renderAsOrganizationPartOf (\DOMElement $el, \DOMDocument $doc)
+  {
+    if ($this->hasAsOrganizationPartOf())
     {
-        return null !== $this->standardIndustryClassCode;
+      $el->appendChild($this->getAsOrganizationPartOf()->toDOMElement($doc));
     }
+  }
 
-    /**
-     * @return StandardIndustryClassCode
-     */
-    public function getStandardIndustryClassCode(): StandardIndustryClassCode
-    {
-        return $this->standardIndustryClassCode;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAsOrganizationPartOf (): bool
+  {
+    return NULL !== $this->asOrganizationPartOf;
+  }
 
-    /**
-     * @param StandardIndustryClassCode $standardIndustryClassCode
-     *
-     * @return self
-     */
-    public function setStandardIndustryClassCode(StandardIndustryClassCode $standardIndustryClassCode): self
-    {
-        $this->standardIndustryClassCode = $standardIndustryClassCode;
-        return $this;
-    }
+  /**
+   * @return AsOrganizationPartOf
+   */
+  public function getAsOrganizationPartOf (): AsOrganizationPartOf
+  {
+    return $this->asOrganizationPartOf;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     */
-    public function renderAsOrganizationPartOf(\DOMElement $el, \DOMDocument $doc)
-    {
-        if ($this->hasAsOrganizationPartOf()) {
-            $el->appendChild($this->getAsOrganizationPartOf()->toDOMElement($doc));
-        }
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasAsOrganizationPartOf(): bool
-    {
-        return null !== $this->asOrganizationPartOf;
-    }
-
-    /**
-     * @return AsOrganizationPartOf
-     */
-    public function getAsOrganizationPartOf(): AsOrganizationPartOf
-    {
-        return $this->asOrganizationPartOf;
-    }
-
-    /**
-     * @param AsOrganizationPartOf $asOrganizationPartOf
-     *
-     * @return self
-     */
-    public function setAsOrganizationPartOf(AsOrganizationPartOf $asOrganizationPartOf): self
-    {
-        $this->asOrganizationPartOf = $asOrganizationPartOf;
-        return $this;
-    }
+  /**
+   * @param AsOrganizationPartOf $asOrganizationPartOf
+   *
+   * @return self
+   */
+  public function setAsOrganizationPartOf (AsOrganizationPartOf $asOrganizationPartOf): self
+  {
+    $this->asOrganizationPartOf = $asOrganizationPartOf;
+    return $this;
+  }
 
 
 }

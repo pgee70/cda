@@ -48,50 +48,52 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
  */
 class ComponentOf extends AbstractElement implements TypeCodeInterface
 {
-    use TypeCodeTrait;
-    use EncompassingEncounterTrait;
+  use TypeCodeTrait;
+  use EncompassingEncounterTrait;
 
-    /**
-     * ComponentOf constructor.
-     *
-     * @param null   $encompassing_encounter
-     * @param string $type_code
-     */
-    public function __construct($encompassing_encounter = null, $type_code = '')
+  /**
+   * ComponentOf constructor.
+   *
+   * @param null   $encompassing_encounter
+   * @param string $type_code
+   */
+  public function __construct ($encompassing_encounter = NULL, $type_code = '')
+  {
+    $this->setAcceptableTypeCodes(array('', TypeCodeInterface::COMPONENT))
+      ->setTypeCode($type_code);
+    $this->templateIds = array();
+    if ($encompassing_encounter)
     {
-        $this->setAcceptableTypeCodes(array('', TypeCodeInterface::COMPONENT))
-          ->setTypeCode($type_code);
-        $this->templateIds = array();
-        if ($encompassing_encounter) {
-            $this->setEncompassingEncounter($encompassing_encounter);
-        }
+      $this->setEncompassingEncounter($encompassing_encounter);
     }
+  }
 
-    /**
-     * Transforms the element into a DOMElement, which will be included
-     * into the final CDA XML
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   * Transforms the element into a DOMElement, which will be included
+   * into the final CDA XML
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    if ($this->hasEncompassingEncounter())
     {
-        $el = $this->createElement($doc);
-
-        if ($this->hasEncompassingEncounter()) {
-            $el->appendChild($this->getEncompassingEncounter()->toDOMElement($doc));
-        }
-        return $el;
+      $el->appendChild($this->getEncompassingEncounter()->toDOMElement($doc));
     }
+    return $el;
+  }
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'componentOf';
-    }
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'componentOf';
+  }
 }

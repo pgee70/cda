@@ -38,47 +38,48 @@ use i3Soft\CDA\Elements\Code;
  */
 trait CodedWithEquivalentsTrait
 {
-    /** @var CodedWithEquivalents */
-    private $codedWithEquivalents;
+  /** @var CodedWithEquivalents */
+  private $codedWithEquivalents;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderCodedWithEquivalents(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderCodedWithEquivalents (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasCodedWithEquivalents())
     {
-        if ($this->hasCodedWithEquivalents()) {
-            $el->appendChild((new Code($this->getCodedWithEquivalents()))->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild((new Code($this->getCodedWithEquivalents()))->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasCodedWithEquivalents(): bool
-    {
-        return null !== $this->codedWithEquivalents;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCodedWithEquivalents (): bool
+  {
+    return NULL !== $this->codedWithEquivalents;
+  }
 
-    /**
-     * @return CodedWithEquivalents
-     */
-    public function getCodedWithEquivalents(): CodedWithEquivalents
-    {
-        return $this->codedWithEquivalents;
-    }
+  /**
+   * @return CodedWithEquivalents
+   */
+  public function getCodedWithEquivalents (): CodedWithEquivalents
+  {
+    return $this->codedWithEquivalents;
+  }
 
-    /**
-     * @param CodedWithEquivalents $codedWithEquivalents
-     *
-     * @return self
-     */
-    public function setCodedWithEquivalents(CodedWithEquivalents $codedWithEquivalents): self
-    {
-        $this->codedWithEquivalents = $codedWithEquivalents;
-        return $this;
-    }
+  /**
+   * @param CodedWithEquivalents $codedWithEquivalents
+   *
+   * @return self
+   */
+  public function setCodedWithEquivalents (CodedWithEquivalents $codedWithEquivalents): self
+  {
+    $this->codedWithEquivalents = $codedWithEquivalents;
+    return $this;
+  }
 }

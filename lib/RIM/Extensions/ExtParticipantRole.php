@@ -46,40 +46,40 @@ use i3Soft\CDA\Traits\ExtIdTrait;
  */
 class ExtParticipantRole extends Role
 {
-    use ExtIdTrait;
+  use ExtIdTrait;
 
-    /**
-     * ExtParticipantRole constructor.
-     *
-     * @param ExtId $ext_id
-     */
-    public function __construct(ExtId $ext_id)
-    {
-        $this->setExtId($ext_id)
-          ->setAcceptableClassCodes(array('', ClassCodeInterface::ASSIGNED, ClassCodeInterface::PATIENT))
-          ->setClassCode(ClassCodeInterface::ASSIGNED);
+  /**
+   * ExtParticipantRole constructor.
+   *
+   * @param ExtId $ext_id
+   */
+  public function __construct (ExtId $ext_id)
+  {
+    $this->setExtId($ext_id)
+      ->setAcceptableClassCodes(array('', ClassCodeInterface::ASSIGNED, ClassCodeInterface::PATIENT))
+      ->setClassCode(ClassCodeInterface::ASSIGNED);
 
-    }
-
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getExtId()->toDOMElement($doc));
-        return $el;
-    }
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:participantRole';
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getExtId()->toDOMElement($doc));
+    return $el;
+  }
+
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:participantRole';
+  }
 }

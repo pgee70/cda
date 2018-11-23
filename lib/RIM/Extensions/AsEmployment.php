@@ -50,64 +50,68 @@ use i3Soft\CDA\Traits\OccupationTrait;
  */
 class AsEmployment extends Entity
 {
-    use ExtCodeTrait;
-    use OccupationTrait;
-    use JobClassCodeTrait;
-    use ExtEmployerOrganizationTrait;
+  use ExtCodeTrait;
+  use OccupationTrait;
+  use JobClassCodeTrait;
+  use ExtEmployerOrganizationTrait;
 
-    /**
-     * AsEmployment constructor.
-     *
-     * @param null $ext_code
-     * @param null $occupation
-     * @param null $job_class_code
-     * @param null $ext_employer_organization
-     */
-    public function __construct(
-      $ext_code = null,
-      $occupation = null,
-      $job_class_code = null,
-      $ext_employer_organization = null
-    ) {
-        $this->setAcceptableClassCodes(array('', ClassCodeInterface::EMPLOYMENT))
-          ->setClassCode(ClassCodeInterface::EMPLOYMENT);
+  /**
+   * AsEmployment constructor.
+   *
+   * @param null $ext_code
+   * @param null $occupation
+   * @param null $job_class_code
+   * @param null $ext_employer_organization
+   */
+  public function __construct (
+    $ext_code = NULL,
+    $occupation = NULL,
+    $job_class_code = NULL,
+    $ext_employer_organization = NULL
+  ) {
+    $this->setAcceptableClassCodes(array('', ClassCodeInterface::EMPLOYMENT))
+      ->setClassCode(ClassCodeInterface::EMPLOYMENT);
 
-        if ($ext_code) {
-            $this->setExtCode($ext_code);
-        }
-        if ($occupation) {
-            $this->setOccupation($occupation);
-        }
-        if ($job_class_code) {
-            $this->setJobClassCode($job_class_code);
-        }
-        if ($ext_employer_organization) {
-            $this->setExtEmployerOrganization($ext_employer_organization);
-        }
-    }
-
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+    if ($ext_code)
     {
-        $el = $this->createElement($doc);
-        $this->renderExtCode($el, $doc)
-          ->renderOccupation($el, $doc)
-          ->renderJobClassCode($el, $doc)
-          ->renderExtEmployerOrganization($el, $doc);
-        return $el;
+      $this->setExtCode($ext_code);
     }
-
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
+    if ($occupation)
     {
-        return 'ext:asEmployment';
+      $this->setOccupation($occupation);
     }
+    if ($job_class_code)
+    {
+      $this->setJobClassCode($job_class_code);
+    }
+    if ($ext_employer_organization)
+    {
+      $this->setExtEmployerOrganization($ext_employer_organization);
+    }
+  }
+
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderExtCode($el, $doc)
+      ->renderOccupation($el, $doc)
+      ->renderJobClassCode($el, $doc)
+      ->renderExtEmployerOrganization($el, $doc);
+    return $el;
+  }
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:asEmployment';
+  }
 
 }

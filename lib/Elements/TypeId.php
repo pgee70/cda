@@ -34,35 +34,35 @@ use i3Soft\CDA\Traits\InstanceIdentifierTrait;
  */
 class TypeId extends AbstractElement
 {
-    use InstanceIdentifierTrait;
+  use InstanceIdentifierTrait;
 
-    /**
-     * TypeId constructor.
-     *
-     * @param InstanceIdentifier $identifier
-     */
-    public function __construct(InstanceIdentifier $identifier)
-    {
-        $this->setIdentifier($identifier);
-    }
+  /**
+   * TypeId constructor.
+   *
+   * @param InstanceIdentifier $identifier
+   */
+  public function __construct (InstanceIdentifier $identifier)
+  {
+    $this->setIdentifier($identifier);
+  }
 
-    /**
-     * {@overrideDoc}
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, array('instance_identifier'));
-    }
+  /**
+   * {@overrideDoc}
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, array('instance_identifier'));
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'typeId';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'typeId';
+  }
 }

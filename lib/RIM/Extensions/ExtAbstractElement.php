@@ -48,42 +48,47 @@ use i3Soft\CDA\Interfaces\TypeCodeInterface;
 abstract class ExtAbstractElement implements ElementInterface, NullFlavourInterface
 {
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    protected function createElement(\DOMDocument $doc): \DOMElement
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  protected function createElement (\DOMDocument $doc): \DOMElement
+  {
+    /* @var $el \DOMElement */
+    $el = $doc->createElement(CDA::getNS() . $this->getElementTag());
+    /** @noinspection PhpUndefinedMethodInspection */
+    if ($this->hasNullFlavour())
     {
-        /* @var $el \DOMElement */
-        $el = $doc->createElement(CDA::NS_CDA . $this->getElementTag());
-        /** @noinspection PhpUndefinedMethodInspection */
-        if ($this->hasNullFlavour()) {
-            $el->setAttribute(CDA::NS_CDA . 'nullFlavor', $this->getNullFlavour());
-            return $el;
-        }
-        // tag can have class code or type code, but not both.
-        // can have a class code and a mood code, but not type code and mood code
-        /** @noinspection PhpUndefinedMethodInspection */
-        if ($this instanceof ClassCodeInterface
-            && $this->hasClassCode()) {
-            $el->setAttribute(CDA::NS_CDA . 'classCode', $this->getClassCode());
-            /** @noinspection PhpUndefinedMethodInspection */
-            if ($this instanceof MoodCodeInterface
-                && $this->hasMoodCode()) {
-                $el->setAttribute(CDA::NS_CDA . 'moodCode', $this->getMoodCode());
-            }
-        } /** @noinspection PhpUndefinedMethodInspection */
-        elseif ($this instanceof TypeCodeInterface && $this->hasTypeCode()) {
-            $el->setAttribute(CDA::NS_CDA . 'typeCode', $this->getTypeCode());
-        }
-        return $el;
+      $el->setAttribute(CDA::getNS() . 'nullFlavor', $this->getNullFlavour());
+      return $el;
     }
+    // tag can have class code or type code, but not both.
+    // can have a class code and a mood code, but not type code and mood code
+    /** @noinspection PhpUndefinedMethodInspection */
+    if ($this instanceof ClassCodeInterface
+        && $this->hasClassCode())
+    {
+      $el->setAttribute(CDA::getNS() . 'classCode', $this->getClassCode());
+      /** @noinspection PhpUndefinedMethodInspection */
+      if ($this instanceof MoodCodeInterface
+          && $this->hasMoodCode())
+      {
+        $el->setAttribute(CDA::getNS() . 'moodCode', $this->getMoodCode());
+      }
+    }
+    /** @noinspection PhpUndefinedMethodInspection */
+    elseif ($this instanceof TypeCodeInterface && $this->hasTypeCode())
+    {
+      $el->setAttribute(CDA::getNS() . 'typeCode', $this->getTypeCode());
+    }
+    return $el;
+  }
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    abstract protected function getElementTag(): string;
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  abstract protected function getElementTag (): string;
 }

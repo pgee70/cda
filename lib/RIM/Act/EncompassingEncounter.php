@@ -59,63 +59,64 @@ use i3Soft\CDA\Traits\ResponsiblePartyTrait;
  */
 class EncompassingEncounter extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {
-    use IdsTrait;
-    use CodedValueTrait;
-    use EffectiveTimeTrait;
-    use EncounterParticipantsTrait;
-    use DischargeDispositionCodeTrait;
-    use ResponsiblePartyTrait;
-    use LocationTrait;
+  use IdsTrait;
+  use CodedValueTrait;
+  use EffectiveTimeTrait;
+  use EncounterParticipantsTrait;
+  use DischargeDispositionCodeTrait;
+  use ResponsiblePartyTrait;
+  use LocationTrait;
 
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    /**
-     * EncompassingEncounter constructor.
-     *
-     * @param TimeStamp|PeriodicIntervalOfTime|IntervalOfTime $effectiveTime
-     */
-    public function __construct($effectiveTime = null)
+  /**
+   * EncompassingEncounter constructor.
+   *
+   * @param TimeStamp|PeriodicIntervalOfTime|IntervalOfTime $effectiveTime
+   */
+  public function __construct ($effectiveTime = NULL)
+  {
+    $this->setAcceptableClassCodes(['', ClassCodeInterface::ENCOUNTER])
+      ->setAcceptableMoodCodes(['', MoodCodeInterface::EVENT])
+      ->setClassCode(ClassCodeInterface::ENCOUNTER)
+      ->setMoodCode('');
+    if ($effectiveTime)
     {
-        $this->setAcceptableClassCodes(['', ClassCodeInterface::ENCOUNTER])
-          ->setAcceptableMoodCodes(['', MoodCodeInterface::EVENT])
-          ->setClassCode(ClassCodeInterface::ENCOUNTER)
-          ->setMoodCode('');
-        if ($effectiveTime) {
-            $this->setEffectiveTime($effectiveTime);
-        }
+      $this->setEffectiveTime($effectiveTime);
     }
+  }
 
-    /**
-     * Transforms the element into a DOMElement, which will be included
-     * into the final CDA XML
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        $this->renderCodedValue($el, $doc);
-        $this->renderEffectiveTime($el, $doc);
-        $this->renderDischargeDispositionCode($el, $doc);
+  /**
+   * Transforms the element into a DOMElement, which will be included
+   * into the final CDA XML
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    $this->renderCodedValue($el, $doc);
+    $this->renderEffectiveTime($el, $doc);
+    $this->renderDischargeDispositionCode($el, $doc);
 
-        // responsibleParty
-        $this->renderEncounterParticipants($el, $doc);
-        $this->renderLocation($el, $doc);
-        // location
-        return $el;
-    }
+    // responsibleParty
+    $this->renderEncounterParticipants($el, $doc);
+    $this->renderLocation($el, $doc);
+    // location
+    return $el;
+  }
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'encompassingEncounter';
-    }
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'encompassingEncounter';
+  }
 }

@@ -50,27 +50,27 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class Telecom_test extends MyTestCase
 {
-    public function test_with_strings()
-    {
-        $expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<telecom use=\"WP\" value=\"tel:123456789\"/>\n";
-        $telecom  = new Telecom('WP', 'tel:123456789');
-        $dom      = new \DOMDocument('1.0', 'UTF-8');
-        $doc      = $telecom->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+  public function test_with_strings ()
+  {
+    $expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<telecom use=\"WP\" value=\"tel:123456789\"/>\n";
+    $telecom  = new Telecom('WP', 'tel:123456789');
+    $dom      = new \DOMDocument('1.0', 'UTF-8');
+    $doc      = $telecom->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
-    public function test_with_classes()
-    {
-        $expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<telecom use=\"WP\" value=\"tel:123456789\"/>\n";
-        $telecom  = new Telecom(new AddressCodeType('WP'), new ValueType('tel:123456789'));
-        $dom      = new \DOMDocument('1.0', 'UTF-8');
-        $doc      = $telecom->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+  public function test_with_classes ()
+  {
+    $expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<telecom use=\"WP\" value=\"tel:123456789\"/>\n";
+    $telecom  = new Telecom(new AddressCodeType('WP'), new ValueType('tel:123456789'));
+    $dom      = new \DOMDocument('1.0', 'UTF-8');
+    $doc      = $telecom->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 
 
 }

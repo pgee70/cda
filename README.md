@@ -89,6 +89,8 @@ phpunit --no-coverage --group CDA_RIM_Authorization
 ```
 
 ## Version History
+### Version 1.0.6
+Added static methods to Clinical Document so NS can be overloaded.
 ### Version 1.0.5
 Added support for multiple family names and name qualifiers.
 ### Version 1.0.3

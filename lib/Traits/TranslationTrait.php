@@ -45,47 +45,48 @@ use i3Soft\CDA\Elements\Translation;
  */
 trait TranslationTrait
 {
-    /** @var Translation */
-    private $translation;
+  /** @var Translation */
+  private $translation;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderTranslation(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderTranslation (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasTranslation())
     {
-        if ($this->hasTranslation()) {
-            $el->appendChild($this->getTranslation()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getTranslation()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**\
-     * @return bool
-     */
-    public function hasTranslation(): bool
-    {
-        return null !== $this->translation;
-    }
+  /**\
+   * @return bool
+   */
+  public function hasTranslation (): bool
+  {
+    return NULL !== $this->translation;
+  }
 
-    /**
-     * @return Translation
-     */
-    public function getTranslation(): Translation
-    {
-        return $this->translation;
-    }
+  /**
+   * @return Translation
+   */
+  public function getTranslation (): Translation
+  {
+    return $this->translation;
+  }
 
-    /**
-     * @param Translation $translation
-     *
-     * @return self
-     */
-    final public function setTranslation(Translation $translation): self
-    {
-        $this->translation = $translation;
-        return $this;
-    }
+  /**
+   * @param Translation $translation
+   *
+   * @return self
+   */
+  final public function setTranslation (Translation $translation): self
+  {
+    $this->translation = $translation;
+    return $this;
+  }
 }

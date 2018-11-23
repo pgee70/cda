@@ -52,49 +52,49 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
  */
 class Participant extends AbstractElement implements TypeCodeInterface
 {
-    use AwarenessCodeTrait;
-    use ContextControlCodeTrait;
-    use ParticipantRoleTrait;
-    use TimeTrait;
-    use TypeCodeTrait;
+  use AwarenessCodeTrait;
+  use ContextControlCodeTrait;
+  use ParticipantRoleTrait;
+  use TimeTrait;
+  use TypeCodeTrait;
 
 
-    public function __construct(ParticipantRole $participant_role)
-    {
-        $this->setAcceptableTypeCodes(['', TypeCodeInterface::CAUSATIVE_AGENT])
-          ->setTypeCode(TypeCodeInterface::CAUSATIVE_AGENT)
-          ->setContextControlCode('OP')
-          ->setParticipantRole($participant_role);
-    }
+  public function __construct (ParticipantRole $participant_role)
+  {
+    $this->setAcceptableTypeCodes(['', TypeCodeInterface::CAUSATIVE_AGENT])
+      ->setTypeCode(TypeCodeInterface::CAUSATIVE_AGENT)
+      ->setContextControlCode('OP')
+      ->setParticipantRole($participant_role);
+  }
 
-    /**
-     * Transforms the element into a DOMElement, which will be included
-     * into the final CDA XML
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderContextControlCode($el, $doc)
-          ->renderTime($el, $doc)
-          ->renderAwarenessCode($el, $doc)
-          ->renderParticipantRole($el, $doc);
-        return $el;
-    }
+  /**
+   * Transforms the element into a DOMElement, which will be included
+   * into the final CDA XML
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderContextControlCode($el, $doc)
+      ->renderTime($el, $doc)
+      ->renderAwarenessCode($el, $doc)
+      ->renderParticipantRole($el, $doc);
+    return $el;
+  }
 
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'participant';
-    }
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'participant';
+  }
 
 
 }

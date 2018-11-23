@@ -40,28 +40,29 @@ use i3Soft\CDA\Traits\ExtAsSpecimenInContainerTrait;
 
 class SpecimenPlayingEntity extends PlayingEntity
 {
-    use ExtAsSpecimenInContainerTrait;
+  use ExtAsSpecimenInContainerTrait;
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = parent::toDOMElement($doc);
+    if ($this->hasExtAsSpecimenInContainer())
     {
-        $el = parent::toDOMElement($doc);
-        if ($this->hasExtAsSpecimenInContainer()) {
-            $el->appendChild($this->getExtAsSpecimenInContainer()->toDOMElement($doc));
-        }
-        return $el;
+      $el->appendChild($this->getExtAsSpecimenInContainer()->toDOMElement($doc));
     }
+    return $el;
+  }
 
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'specimenPlayingEntity';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'specimenPlayingEntity';
+  }
 
 
 }

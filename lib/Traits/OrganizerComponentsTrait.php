@@ -37,65 +37,69 @@ use i3Soft\CDA\RIM\Act\OrganizerComponent;
  */
 trait OrganizerComponentsTrait
 {
-    /** @var  OrganizerComponent[] */
-    private $components = [];
+  /** @var  OrganizerComponent[] */
+  private $components = [];
 
-    /**
-     * @return bool
-     */
-    public function hasComponents(): bool
-    {
-        return \count($this->components) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasComponents (): bool
+  {
+    return \count($this->components) > 0;
+  }
 
-    /**
-     * @return OrganizerComponent[]
-     */
-    public function getComponents(): array
-    {
-        return $this->components;
-    }
+  /**
+   * @return OrganizerComponent[]
+   */
+  public function getComponents (): array
+  {
+    return $this->components;
+  }
 
-    /**
-     * @param OrganizerComponent[] $components
-     *
-     * @return self
-     */
-    public function setComponents(array $components): self
+  /**
+   * @param OrganizerComponent[] $components
+   *
+   * @return self
+   */
+  public function setComponents (array $components): self
+  {
+    foreach ($components as $component)
     {
-        foreach ($components as $component) {
-            if ($component instanceof OrganizerComponent) {
-                $this->addComponent($component);
-            }
-        }
-        return $this;
+      if ($component instanceof OrganizerComponent)
+      {
+        $this->addComponent($component);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param OrganizerComponent $component
-     *
-     * @return self
-     */
-    public function addComponent(OrganizerComponent $component): self
-    {
-        $this->components[] = $component;
-        return $this;
-    }
+  /**
+   * @param OrganizerComponent $component
+   *
+   * @return self
+   */
+  public function addComponent (OrganizerComponent $component): self
+  {
+    $this->components[] = $component;
+    return $this;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderComponents(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderComponents (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasComponents())
     {
-        if ($this->hasComponents()) {
-            foreach ($this->getComponents() as $component) {
-                $el->appendChild($component->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getComponents() as $component)
+      {
+        $el->appendChild($component->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
 }

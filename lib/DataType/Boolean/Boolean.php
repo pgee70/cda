@@ -37,68 +37,68 @@ use i3Soft\CDA\DataType\AnyType;
  */
 class Boolean extends AnyType
 {
-    protected $value;
-    protected $attribute;
+  protected $value;
+  protected $attribute;
 
-    /**
-     * Boolean constructor.
-     *
-     * @param      $attribute
-     * @param      $value
-     */
-    public function __construct($attribute, $value)
-    {
-        $this->setAttribute($attribute);
-        $this->setValue($value);
-    }
+  /**
+   * Boolean constructor.
+   *
+   * @param      $attribute
+   * @param      $value
+   */
+  public function __construct ($attribute, $value)
+  {
+    $this->setAttribute($attribute);
+    $this->setValue($value);
+  }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
-    {
-        \assert($this->getAttribute() !== null, new \RuntimeException('The tag on boolean must be defined'));
-        $el->setAttributeNS(CDA::NS_CDA, $this->getAttribute(), $this->getValue());
-    }
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    \assert($this->getAttribute() !== NULL, new \RuntimeException('The tag on boolean must be defined'));
+    $el->setAttributeNS(CDA::getNS(), $this->getAttribute(), $this->getValue());
+  }
 
-    /**
-     * @return null
-     */
-    public function getAttribute()
-    {
-        return $this->attribute;
-    }
+  /**
+   * @return null
+   */
+  public function getAttribute ()
+  {
+    return $this->attribute;
+  }
 
-    /**
-     * @param $attribute
-     *
-     * @return self
-     */
-    public function setAttribute($attribute): self
-    {
-        $this->attribute = $attribute;
-        return $this;
-    }
+  /**
+   * @param $attribute
+   *
+   * @return self
+   */
+  public function setAttribute ($attribute): self
+  {
+    $this->attribute = $attribute;
+    return $this;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
+  /**
+   * @return mixed
+   */
+  public function getValue ()
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param $value
-     *
-     * @return self
-     */
-    public function setValue($value): self
-    {
-        $this->value = $value === 'true' || $value
-          ? 'true'
-          : 'false';
-        return $this;
-    }
+  /**
+   * @param $value
+   *
+   * @return self
+   */
+  public function setValue ($value): self
+  {
+    $this->value = $value === 'true' || $value
+      ? 'true'
+      : 'false';
+    return $this;
+  }
 }

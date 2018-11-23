@@ -39,70 +39,72 @@ namespace i3Soft\CDA\Component;
  */
 class RootBodyComponent extends AbstractComponent
 {
-    /**
-     *
-     * @var AbstractComponent[]
-     */
-    private $components = array();
+  /**
+   *
+   * @var AbstractComponent[]
+   */
+  private $components = array();
 
-    /**
-     * RootBodyComponent constructor.
-     *
-     * @param null $component
-     */
-    public function __construct($component = null)
+  /**
+   * RootBodyComponent constructor.
+   *
+   * @param null $component
+   */
+  public function __construct ($component = NULL)
+  {
+    if ($component instanceof AbstractComponent)
     {
-        if ($component instanceof AbstractComponent) {
-            $this->addComponent($component);
-        }
+      $this->addComponent($component);
     }
+  }
 
-    /**
-     * @param AbstractComponent $component
-     */
-    public function addComponent(AbstractComponent $component)
-    {
-        $this->components[] = $component;
-    }
+  /**
+   * @param AbstractComponent $component
+   */
+  public function addComponent (AbstractComponent $component)
+  {
+    $this->components[] = $component;
+  }
 
-    /**
-     * @return bool
-     */
-    public function isEmpty(): bool
-    {
-        return \count($this->components) === 0;
-    }
+  /**
+   * @return bool
+   */
+  public function isEmpty (): bool
+  {
+    return \count($this->components) === 0;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $component = $this->createElement($doc);
+    foreach ($this->getComponents() as $subComponent)
     {
-        $component = $this->createElement($doc);
-        foreach ($this->getComponents() as $subComponent) {
-            $component->appendChild($subComponent->toDOMElement($doc));
-        }
-        return $component;
+      $component->appendChild($subComponent->toDOMElement($doc));
     }
+    return $component;
+  }
 
-    /**
-     *
-     * @return AbstractComponent[]
-     */
-    public function getComponents(): array
-    {
-        return $this->components;
-    }
+  /**
+   *
+   * @return AbstractComponent[]
+   */
+  public function getComponents (): array
+  {
+    return $this->components;
+  }
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'component';
-    }
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'component';
+  }
 }

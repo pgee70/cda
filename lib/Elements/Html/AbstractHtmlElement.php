@@ -40,322 +40,350 @@ use i3Soft\CDA\Elements\AbstractElement;
 
 abstract class AbstractHtmlElement extends AbstractElement
 {
-    /** @var string */
-    protected $content;
+  /** @var string */
+  protected $content;
 
-    /** @var array */
-    protected $tags;
+  /** @var array */
+  protected $tags;
 
-    protected $tag_attributes;
+  protected $tag_attributes;
 
-    /**
-     * AbstractHtmlElement constructor.
-     *
-     * @param string $choice
-     */
-    public function __construct($choice = '')
+  /**
+   * AbstractHtmlElement constructor.
+   *
+   * @param string $choice
+   */
+  public function __construct ($choice = '')
+  {
+    $this->tags           = array();
+    $this->tag_attributes = array();
+    if ($choice)
     {
-        $this->tags           = array();
-        $this->tag_attributes = array();
-        if ($choice) {
-            if (\is_string($choice)) {
-                $this->setContent($choice);
-            } else {
-                $this->addTag($choice);
-            }
-        }
+      if (\is_string($choice))
+      {
+        $this->setContent($choice);
+      }
+      else
+      {
+        $this->addTag($choice);
+      }
     }
+  }
 
-    /**
-     * @param $choice
-     *
-     * @return self
-     */
-    public function addTag($choice): self
+  /**
+   * @param $choice
+   *
+   * @return self
+   */
+  public function addTag ($choice): self
+  {
+    if ($this->canAddTag($choice))
     {
-        if ($this->canAddTag($choice)) {
-            $this->tags[] = $choice;
-        }
-        return $this;
+      $this->tags[] = $choice;
     }
+    return $this;
+  }
 
-    /**
-     * Checks to see if the choice can be added to the tags array of this class.
-     *
-     * @param $choice
-     *
-     * @return bool
-     */
-    abstract protected function canAddTag($choice): bool;
+  /**
+   * Checks to see if the choice can be added to the tags array of this class.
+   *
+   * @param $choice
+   *
+   * @return bool
+   */
+  abstract protected function canAddTag ($choice): bool;
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc, $this->tag_attributes);
+    if ($this->hasContent())
     {
-        $el = $this->createElement($doc, $this->tag_attributes);
-        if ($this->hasContent()) {
-            $el->appendChild($doc->createTextNode($this->getContent()));
-        } else {
-            foreach ($this->getTags() as $tag) {
-                $el->appendChild($tag->toDOMElement($doc));
-            }
-        }
-        return $el;
+      $el->appendChild($doc->createTextNode($this->getContent()));
     }
-
-    /**
-     * @return bool
-     */
-    public function hasContent(): bool
+    else
     {
-        return empty($this->content) === false;
+      foreach ($this->getTags() as $tag)
+      {
+        $el->appendChild($tag->toDOMElement($doc));
+      }
     }
+    return $el;
+  }
 
-    /**
-     * @return string
-     */
-    public function getContent(): string
-    {
-        return $this->content;
-    }
+  /**
+   * @return bool
+   */
+  public function hasContent (): bool
+  {
+    return empty($this->content) === FALSE;
+  }
 
-    /**
-     * @param string $content
-     *
-     * @return self
-     */
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
+  /**
+   * @return string
+   */
+  public function getContent (): string
+  {
+    return $this->content;
+  }
 
-    /**
-     * @return array
-     */
-    public function getTags(): array
-    {
-        return $this->tags;
-    }
+  /**
+   * @param string $content
+   *
+   * @return self
+   */
+  public function setContent (string $content): self
+  {
+    $this->content = $content;
+    return $this;
+  }
 
-    /**
-     * @param array $tags
-     *
-     * @return self
-     */
-    public function setTags(array $tags): self
-    {
-        $this->tags = $tags;
-        return $this;
-    }
+  /**
+   * @return array
+   */
+  public function getTags (): array
+  {
+    return $this->tags;
+  }
 
-    /**
-     * @return Br
-     */
-    public function returnBr(): Br
-    {
-        if ($this instanceof Br) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class Br');
-    }
+  /**
+   * @param array $tags
+   *
+   * @return self
+   */
+  public function setTags (array $tags): self
+  {
+    $this->tags = $tags;
+    return $this;
+  }
 
-    /**
-     * @return Caption
-     */
-    public function returnCaption(): Caption
+  /**
+   * @return Br
+   */
+  public function returnBr (): Br
+  {
+    if ($this instanceof Br)
     {
-        if ($this instanceof Caption) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class Caption');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class Br');
+  }
 
-    /**
-     * @return FootNote
-     */
-    public function returnFootNote(): FootNote
+  /**
+   * @return Caption
+   */
+  public function returnCaption (): Caption
+  {
+    if ($this instanceof Caption)
     {
-        if ($this instanceof FootNote) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class FootNote');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class Caption');
+  }
 
-    /**
-     * @return FootNoteRef
-     */
-    public function returnFootNoteRef(): FootNoteRef
+  /**
+   * @return FootNote
+   */
+  public function returnFootNote (): FootNote
+  {
+    if ($this instanceof FootNote)
     {
-        if ($this instanceof FootNoteRef) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class FootNoteRef');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class FootNote');
+  }
 
-    /**
-     * @return Item
-     */
-    public function returnItem(): Item
+  /**
+   * @return FootNoteRef
+   */
+  public function returnFootNoteRef (): FootNoteRef
+  {
+    if ($this instanceof FootNoteRef)
     {
-        if ($this instanceof Item) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class Item');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class FootNoteRef');
+  }
 
-    /**
-     * @return LinkHtml
-     */
-    public function returnLinkHtml(): LinkHtml
+  /**
+   * @return Item
+   */
+  public function returnItem (): Item
+  {
+    if ($this instanceof Item)
     {
-        if ($this instanceof LinkHtml) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class LinkHtml');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class Item');
+  }
 
-    /**
-     * @return ListElement
-     */
-    public function returnListElement(): ListElement
+  /**
+   * @return LinkHtml
+   */
+  public function returnLinkHtml (): LinkHtml
+  {
+    if ($this instanceof LinkHtml)
     {
-        if ($this instanceof ListElement) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class ListElement');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class LinkHtml');
+  }
 
-    /**
-     * @return Paragraph
-     */
-    public function returnParagraph(): Paragraph
+  /**
+   * @return ListElement
+   */
+  public function returnListElement (): ListElement
+  {
+    if ($this instanceof ListElement)
     {
-        if ($this instanceof Paragraph) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class Paragraph');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class ListElement');
+  }
 
-    /**
-     * @return ReferenceElement
-     */
-    public function returnReferenceElement(): ReferenceElement
+  /**
+   * @return Paragraph
+   */
+  public function returnParagraph (): Paragraph
+  {
+    if ($this instanceof Paragraph)
     {
-        if ($this instanceof ReferenceElement) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class ReferenceElement');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class Paragraph');
+  }
 
-    /**
-     * @return RenderMultiMedia
-     */
-    public function returnRenderMultiMedia(): RenderMultiMedia
+  /**
+   * @return ReferenceElement
+   */
+  public function returnReferenceElement (): ReferenceElement
+  {
+    if ($this instanceof ReferenceElement)
     {
-        if ($this instanceof RenderMultiMedia) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class RenderMultiMedia');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class ReferenceElement');
+  }
 
-    /**
-     * @return Sub
-     */
-    public function returnSub(): Sub
+  /**
+   * @return RenderMultiMedia
+   */
+  public function returnRenderMultiMedia (): RenderMultiMedia
+  {
+    if ($this instanceof RenderMultiMedia)
     {
-        if ($this instanceof Sub) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class Sub');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class RenderMultiMedia');
+  }
 
-    /**
-     * @return Sup
-     */
-    public function returnSup(): Sup
+  /**
+   * @return Sub
+   */
+  public function returnSub (): Sub
+  {
+    if ($this instanceof Sub)
     {
-        if ($this instanceof Sup) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class Sup');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class Sub');
+  }
 
-    /**
-     * @return Table
-     */
-    public function returnTable(): Table
+  /**
+   * @return Sup
+   */
+  public function returnSup (): Sup
+  {
+    if ($this instanceof Sup)
     {
-        if ($this instanceof Table) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class Table');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class Sup');
+  }
 
-    /**
-     * @return TableBody
-     */
-    public function returnTableBody(): TableBody
+  /**
+   * @return Table
+   */
+  public function returnTable (): Table
+  {
+    if ($this instanceof Table)
     {
-        if ($this instanceof TableBody) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class TableBody');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class Table');
+  }
 
-    /**
-     * @return TableCell
-     */
-    public function returnTableCell(): TableCell
+  /**
+   * @return TableBody
+   */
+  public function returnTableBody (): TableBody
+  {
+    if ($this instanceof TableBody)
     {
-        if ($this instanceof TableCell) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class TableCell');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class TableBody');
+  }
 
-    /**
-     * @return TableHead
-     */
-    public function returnTableHead(): TableHead
+  /**
+   * @return TableCell
+   */
+  public function returnTableCell (): TableCell
+  {
+    if ($this instanceof TableCell)
     {
-        if ($this instanceof TableHead) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class TableHead');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class TableCell');
+  }
 
-    /**
-     * @return TableRow
-     */
-    public function returnTableRow(): TableRow
+  /**
+   * @return TableHead
+   */
+  public function returnTableHead (): TableHead
+  {
+    if ($this instanceof TableHead)
     {
-        if ($this instanceof TableRow) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class TableRow');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class TableHead');
+  }
 
-    /**
-     * @return Text
-     */
-    public function returnText(): Text
+  /**
+   * @return TableRow
+   */
+  public function returnTableRow (): TableRow
+  {
+    if ($this instanceof TableRow)
     {
-        if ($this instanceof Text) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class Text');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class TableRow');
+  }
 
-    /**
-     * @return Title
-     */
-    public function returnTitle(): Title
+  /**
+   * @return Text
+   */
+  public function returnText (): Text
+  {
+    if ($this instanceof Text)
     {
-        if ($this instanceof Title) {
-            return $this;
-        }
-        throw new \RuntimeException('The element is not an instance of Class Title');
+      return $this;
     }
+    throw new \RuntimeException('The element is not an instance of Class Text');
+  }
+
+  /**
+   * @return Title
+   */
+  public function returnTitle (): Title
+  {
+    if ($this instanceof Title)
+    {
+      return $this;
+    }
+    throw new \RuntimeException('The element is not an instance of Class Title');
+  }
 }

@@ -45,48 +45,49 @@ use i3Soft\CDA\Elements\CompletionCode;
  */
 trait CompletionCodeTrait
 {
-    /** @var CompletionCode */
-    private $completionCode;
+  /** @var CompletionCode */
+  private $completionCode;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return CompletionCodeTrait
-     */
-    public function renderCompletionCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return CompletionCodeTrait
+   */
+  public function renderCompletionCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasCompletionCode())
     {
-        if ($this->hasCompletionCode()) {
-            $el->appendChild($this->getCompletionCode()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getCompletionCode()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasCompletionCode(): bool
-    {
-        return $this->completionCode !== null;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCompletionCode (): bool
+  {
+    return $this->completionCode !== NULL;
+  }
 
-    /**
-     * @return CompletionCode
-     */
-    public function getCompletionCode(): CompletionCode
-    {
-        return $this->completionCode;
-    }
+  /**
+   * @return CompletionCode
+   */
+  public function getCompletionCode (): CompletionCode
+  {
+    return $this->completionCode;
+  }
 
-    /**
-     * @param CompletionCode $completion_code
-     *
-     * @return self
-     */
-    public function setCompletionCode(CompletionCode $completion_code): self
-    {
-        $this->completionCode = $completion_code;
-        return $this;
-    }
+  /**
+   * @param CompletionCode $completion_code
+   *
+   * @return self
+   */
+  public function setCompletionCode (CompletionCode $completion_code): self
+  {
+    $this->completionCode = $completion_code;
+    return $this;
+  }
 
 }

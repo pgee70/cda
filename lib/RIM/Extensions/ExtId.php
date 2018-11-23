@@ -46,56 +46,58 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 class ExtId extends AbstractElement
 {
-    const oid_nehta = '1.2.36.1.2001.1003.0';
-    /** @var AssigningAuthorityNameCode */
-    protected $assigningAuthorityName;
+  const oid_nehta = '1.2.36.1.2001.1003.0';
+  /** @var AssigningAuthorityNameCode */
+  protected $assigningAuthorityName;
 
-    /**
-     * Id constructor.
-     *
-     * @param null $authority_name
-     * @param null $root
-     * @param null $extension
-     */
-    public function __construct($authority_name = null, $root = null, $extension = null)
+  /**
+   * Id constructor.
+   *
+   * @param null $authority_name
+   * @param null $root
+   * @param null $extension
+   */
+  public function __construct ($authority_name = NULL, $root = NULL, $extension = NULL)
+  {
+    $this->assigningAuthorityName = new AssigningAuthorityNameCode();
+    $this->assigningAuthorityName->setRoot($root ?? self::oid_nehta);
+    if ($authority_name)
     {
-        $this->assigningAuthorityName = new AssigningAuthorityNameCode();
-        $this->assigningAuthorityName->setRoot($root ?? self::oid_nehta);
-        if ($authority_name) {
-            $this->assigningAuthorityName->setAssigningAuthorityName($authority_name);
-        }
-        if ($extension) {
-            $this->assigningAuthorityName->setExtension($extension);
-        }
+      $this->assigningAuthorityName->setAssigningAuthorityName($authority_name);
     }
-
-    /**
-     * @param $root
-     * @param $extension
-     *
-     * @return ExtId
-     */
-    public static function fromString($root, $extension = null): ExtId
+    if ($extension)
     {
-        return new ExtId('', $root, $extension);
+      $this->assigningAuthorityName->setExtension($extension);
     }
+  }
+
+  /**
+   * @param $root
+   * @param $extension
+   *
+   * @return ExtId
+   */
+  public static function fromString ($root, $extension = NULL): ExtId
+  {
+    return new ExtId('', $root, $extension);
+  }
 
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, ['assigningAuthorityName']);
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, ['assigningAuthorityName']);
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:id';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:id';
+  }
 }

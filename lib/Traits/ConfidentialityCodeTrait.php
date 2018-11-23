@@ -37,47 +37,48 @@ use i3Soft\CDA\Elements\ConfidentialityCode;
  */
 trait ConfidentialityCodeTrait
 {
-    /** @var ConfidentialityCode */
-    private $confidentialityCode;
+  /** @var ConfidentialityCode */
+  private $confidentialityCode;
 
-    /**
-     * @return ConfidentialityCode
-     */
-    public function getConfidentialityCode(): ConfidentialityCode
-    {
-        return $this->confidentialityCode;
-    }
+  /**
+   * @return ConfidentialityCode
+   */
+  public function getConfidentialityCode (): ConfidentialityCode
+  {
+    return $this->confidentialityCode;
+  }
 
-    /**
-     * @param ConfidentialityCode $confidentialityCode
-     *
-     * @return self
-     */
-    public function setConfidentialityCode(ConfidentialityCode $confidentialityCode): self
-    {
-        $this->confidentialityCode = $confidentialityCode;
-        return $this;
-    }
+  /**
+   * @param ConfidentialityCode $confidentialityCode
+   *
+   * @return self
+   */
+  public function setConfidentialityCode (ConfidentialityCode $confidentialityCode): self
+  {
+    $this->confidentialityCode = $confidentialityCode;
+    return $this;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderConfidentialityCode(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderConfidentialityCode (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasConfidentialityCode())
     {
-        if ($this->hasConfidentialityCode()) {
-            $el->appendChild($this->confidentialityCode->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->confidentialityCode->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasConfidentialityCode(): bool
-    {
-        return null !== $this->confidentialityCode;
-    }
+  /**
+   * @return bool
+   */
+  public function hasConfidentialityCode (): bool
+  {
+    return NULL !== $this->confidentialityCode;
+  }
 }

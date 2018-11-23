@@ -37,47 +37,48 @@ use i3Soft\CDA\RIM\Role\SpecimenRole;
  */
 trait SpecimenRoleTrait
 {
-    /** @var SpecimenRole */
-    private $specimenRole;
+  /** @var SpecimenRole */
+  private $specimenRole;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderSpecimenRole(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderSpecimenRole (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasSpecimenRole())
     {
-        if ($this->hasSpecimenRole()) {
-            $el->appendChild($this->getSpecimenRole()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getSpecimenRole()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasSpecimenRole(): bool
-    {
-        return null !== $this->specimenRole;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSpecimenRole (): bool
+  {
+    return NULL !== $this->specimenRole;
+  }
 
-    /**
-     * @return SpecimenRole
-     */
-    public function getSpecimenRole(): SpecimenRole
-    {
-        return $this->specimenRole;
-    }
+  /**
+   * @return SpecimenRole
+   */
+  public function getSpecimenRole (): SpecimenRole
+  {
+    return $this->specimenRole;
+  }
 
-    /**
-     * @param SpecimenRole $specimenRole
-     *
-     * @return self
-     */
-    public function setSpecimenRole(SpecimenRole $specimenRole): self
-    {
-        $this->specimenRole = $specimenRole;
-        return $this;
-    }
+  /**
+   * @param SpecimenRole $specimenRole
+   *
+   * @return self
+   */
+  public function setSpecimenRole (SpecimenRole $specimenRole): self
+  {
+    $this->specimenRole = $specimenRole;
+    return $this;
+  }
 }

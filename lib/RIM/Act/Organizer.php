@@ -61,64 +61,64 @@ use i3Soft\CDA\Traits\SubjectTrait;
  */
 class Organizer extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {
-    use IdsTrait;
-    use CodeTrait;
-    use StatusCodeTrait;
-    use EffectiveTimeTrait;
-    use SubjectTrait;
-    use SpecimensTrait;
-    use PerformersTrait;
-    use AuthorsTrait;
-    use InformantsTrait;
-    use ParticipantsTrait;
-    use ReferencesTrait;
-    use PreconditionsTrait;
-    use OrganizerComponentsTrait;
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  use IdsTrait;
+  use CodeTrait;
+  use StatusCodeTrait;
+  use EffectiveTimeTrait;
+  use SubjectTrait;
+  use SpecimensTrait;
+  use PerformersTrait;
+  use AuthorsTrait;
+  use InformantsTrait;
+  use ParticipantsTrait;
+  use ReferencesTrait;
+  use PreconditionsTrait;
+  use OrganizerComponentsTrait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    /**
-     * Organizer constructor.
-     *
-     */
-    public function __construct()
-    {
-        $this->setAcceptableClassCodes(ClassCodeInterface::x_ActClassDocumentEntryOrganizer)
-          ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
-          ->setClassCode(ClassCodeInterface::BATTERY)
-          ->setMoodCode(MoodCodeInterface::EVENT);
-        $this->ids = array();
-    }
+  /**
+   * Organizer constructor.
+   *
+   */
+  public function __construct ()
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::x_ActClassDocumentEntryOrganizer)
+      ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
+      ->setClassCode(ClassCodeInterface::BATTERY)
+      ->setMoodCode(MoodCodeInterface::EVENT);
+    $this->ids = array();
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderIds($el, $doc);
-        $this->renderCode($el, $doc);
-        $this->renderStatusCode($el, $doc);
-        $this->renderEffectiveTime($el, $doc);
-        $this->renderSubject($el, $doc);
-        $this->renderSpecimens($el, $doc);
-        $this->renderPerformers($el, $doc);
-        $this->renderAuthors($el, $doc);
-        $this->renderInformants($el, $doc);
-        $this->renderParticipants($el, $doc);
-        $this->renderReferences($el, $doc);
-        $this->renderPreconditions($el, $doc);
-        $this->renderComponents($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderIds($el, $doc);
+    $this->renderCode($el, $doc);
+    $this->renderStatusCode($el, $doc);
+    $this->renderEffectiveTime($el, $doc);
+    $this->renderSubject($el, $doc);
+    $this->renderSpecimens($el, $doc);
+    $this->renderPerformers($el, $doc);
+    $this->renderAuthors($el, $doc);
+    $this->renderInformants($el, $doc);
+    $this->renderParticipants($el, $doc);
+    $this->renderReferences($el, $doc);
+    $this->renderPreconditions($el, $doc);
+    $this->renderComponents($el, $doc);
+    return $el;
+  }
 
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'organizer';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'organizer';
+  }
 
 }

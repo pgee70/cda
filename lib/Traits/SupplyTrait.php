@@ -35,47 +35,48 @@ namespace i3Soft\CDA\Traits;
  */
 trait SupplyTrait
 {
-    /** @var */
-    private $supply;
+  /** @var */
+  private $supply;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderSupply(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderSupply (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasSupply())
     {
-        if ($this->hasSupply()) {
-            $el->appendChild($this->getSupply()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getSupply()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasSupply(): bool
-    {
-        return null !== $this->supply;
-    }
+  /**
+   * @return bool
+   */
+  public function hasSupply (): bool
+  {
+    return NULL !== $this->supply;
+  }
 
-    /**
-     * @return mixed
-     */
-    public function getSupply()
-    {
-        return $this->supply;
-    }
+  /**
+   * @return mixed
+   */
+  public function getSupply ()
+  {
+    return $this->supply;
+  }
 
-    /**
-     * @param mixed $supply
-     *
-     * @return self
-     */
-    public function setSupply($supply): self
-    {
-        $this->supply = $supply;
-        return $this;
-    }
+  /**
+   * @param mixed $supply
+   *
+   * @return self
+   */
+  public function setSupply ($supply): self
+  {
+    $this->supply = $supply;
+    return $this;
+  }
 }

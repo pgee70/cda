@@ -41,34 +41,35 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class ExtCoverage extends ExtAbstractElement implements TypeCodeInterface
 {
-    use TypeCodeTrait;
-    use ExtPolicyOrAccountTrait;
+  use TypeCodeTrait;
+  use ExtPolicyOrAccountTrait;
 
-    public function __construct($policyOrAccount = null)
+  public function __construct ($policyOrAccount = NULL)
+  {
+    $this->setAcceptableTypeCodes(['', TypeCodeInterface::COVERED_BY])
+      ->setTypeCode('');
+    if ($policyOrAccount && $policyOrAccount instanceof ExtPolicyOrAccount)
     {
-        $this->setAcceptableTypeCodes(['', TypeCodeInterface::COVERED_BY])
-          ->setTypeCode('');
-        if ($policyOrAccount && $policyOrAccount instanceof ExtPolicyOrAccount) {
-            $this->setExtPolicyOrAccount($policyOrAccount);
-        }
+      $this->setExtPolicyOrAccount($policyOrAccount);
     }
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderExtPolicyOrAccount($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderExtPolicyOrAccount($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:coverage';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:coverage';
+  }
 
 }

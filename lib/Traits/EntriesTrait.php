@@ -37,68 +37,72 @@ use i3Soft\CDA\Elements\Entry;
  */
 trait EntriesTrait
 {
-    /** @var Entry[] */
-    private $entries = [];
-    /**
-     * @return bool
-     */
+  /** @var Entry[] */
+  private $entries = [];
+  /**
+   * @return bool
+   */
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderEntries(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderEntries (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasEntries())
     {
-        if ($this->hasEntries()) {
-            foreach ($this->getEntries() as $entry) {
-                $el->appendChild($entry->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getEntries() as $entry)
+      {
+        $el->appendChild($entry->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasEntries(): bool
-    {
-        return \count($this->entries) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasEntries (): bool
+  {
+    return \count($this->entries) > 0;
+  }
 
-    /**
-     * @return Entry[]
-     */
-    public function getEntries(): array
-    {
-        return $this->entries;
-    }
+  /**
+   * @return Entry[]
+   */
+  public function getEntries (): array
+  {
+    return $this->entries;
+  }
 
-    /**
-     * @param array $entries
-     *
-     * @return EntriesTrait
-     */
-    public function setEntries(array $entries): self
+  /**
+   * @param array $entries
+   *
+   * @return EntriesTrait
+   */
+  public function setEntries (array $entries): self
+  {
+    foreach ($entries as $entry)
     {
-        foreach ($entries as $entry) {
-            if ($entry instanceof Entry) {
-                $this->addEntry($entry);
-            }
-        }
-        return $this;
+      if ($entry instanceof Entry)
+      {
+        $this->addEntry($entry);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param Entry $entry
-     *
-     * @return self
-     */
-    public function addEntry(Entry $entry): self
-    {
-        $this->entries[] = $entry;
-        return $this;
-    }
+  /**
+   * @param Entry $entry
+   *
+   * @return self
+   */
+  public function addEntry (Entry $entry): self
+  {
+    $this->entries[] = $entry;
+    return $this;
+  }
 }
 

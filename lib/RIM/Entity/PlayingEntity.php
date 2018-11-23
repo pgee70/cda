@@ -54,55 +54,56 @@ use i3Soft\CDA\Traits\SpecimenPlayingEntityTrait;
  */
 class PlayingEntity extends AbstractElement implements ClassCodeInterface
 {
-    use CodeTrait;
-    use QuantitiesTrait;
-    use NamesTrait;
-    use DescTrait;
-    use SpecimenPlayingEntityTrait;
-    use ClassCodeTrait;
-    use DeterminerCodeTrait;
+  use CodeTrait;
+  use QuantitiesTrait;
+  use NamesTrait;
+  use DescTrait;
+  use SpecimenPlayingEntityTrait;
+  use ClassCodeTrait;
+  use DeterminerCodeTrait;
 
-    /**
-     * PlayingEntity constructor.
-     *
-     * @param null $code
-     */
-    public function __construct($code = null)
+  /**
+   * PlayingEntity constructor.
+   *
+   * @param null $code
+   */
+  public function __construct ($code = NULL)
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassRoot)
+      ->setClassCode(ClassCodeInterface::ENTITY)
+      ->setDeterminerCode('');
+    if ($code && $code instanceof Code)
     {
-        $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassRoot)
-          ->setClassCode(ClassCodeInterface::ENTITY)
-          ->setDeterminerCode('');
-        if ($code && $code instanceof Code) {
-            $this->setCode($code);
-        }
+      $this->setCode($code);
     }
+  }
 
 
-    /**
-     * Transforms the element into a DOMElement, which will be included
-     * into the final CDA XML
-     *
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderCode($el, $doc);
-        $this->renderQuantities($el, $doc);
-        $this->renderNames($el, $doc);
-        $this->renderDesc($el, $doc);
-        return $el;
-    }
+  /**
+   * Transforms the element into a DOMElement, which will be included
+   * into the final CDA XML
+   *
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderCode($el, $doc);
+    $this->renderQuantities($el, $doc);
+    $this->renderNames($el, $doc);
+    $this->renderDesc($el, $doc);
+    return $el;
+  }
 
-    /**
-     * get the element tag name
-     *
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'playingEntity';
-    }
+  /**
+   * get the element tag name
+   *
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'playingEntity';
+  }
 }

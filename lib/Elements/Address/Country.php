@@ -38,11 +38,11 @@ use i3Soft\CDA\Elements\AbstractSimpleElement;
  */
 class Country extends AbstractSimpleElement
 {
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'country';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'country';
+  }
 }

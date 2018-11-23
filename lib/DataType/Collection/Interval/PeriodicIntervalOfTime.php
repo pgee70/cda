@@ -35,198 +35,206 @@ use i3Soft\CDA\Traits\XSITypeTrait;
  */
 class PeriodicIntervalOfTime extends AbstractInterval
 {
-    use XSITypeTrait;
-    /**
-     *
-     * @var \DateInterval
-     */
-    protected $period;
+  use XSITypeTrait;
+  /**
+   *
+   * @var \DateInterval
+   */
+  protected $period;
 
-    /**
-     *
-     * @var boolean
-     */
-    protected $institutionSpecified;
+  /**
+   *
+   * @var boolean
+   */
+  protected $institutionSpecified;
 
 
-    /** @var string */
-    private $tag;
+  /** @var string */
+  private $tag;
 
-    /** @var TimeStamp */
-    private $center;
+  /** @var TimeStamp */
+  private $center;
 
-    /**
-     * PeriodicIntervalOfTime constructor.
-     *
-     * @param \DateInterval $period
-     */
-    public function __construct(\DateInterval $period)
+  /**
+   * PeriodicIntervalOfTime constructor.
+   *
+   * @param \DateInterval $period
+   */
+  public function __construct (\DateInterval $period)
+  {
+    $this->setPeriod($period)
+      ->setXSIType(XSITypeInterface::PERIODIC_TIME_INTERVAL)
+      ->setTag('period');
+  }
+
+  /**
+   * @param \DOMElement       $el
+   * @param \DOMDocument|NULL $doc
+   *
+   * @throws \Exception
+   */
+  public function setValueToElement (\DOMElement $el, \DOMDocument $doc)
+  {
+    if ($this->getXSIType())
     {
-        $this->setPeriod($period)
-          ->setXSIType(XSITypeInterface::PERIODIC_TIME_INTERVAL)
-          ->setTag('period');
+      $el->setAttributeNS(CDA::getNS_XSI_URI(), 'xsi:type', $this->getXSIType());
+    }
+    if ($this->hasInstitutionSpecified())
+    {
+      $el->setAttribute(CDA::getNS() . 'institutionSpecified',
+        $this->getInstitutionSpecified()
+          ? 'true'
+          : 'false');
     }
 
-    /**
-     * @param \DOMElement       $el
-     * @param \DOMDocument|NULL $doc
-     *
-     * @throws \Exception
-     */
-    public function setValueToElement(\DOMElement $el, \DOMDocument $doc)
+    if ($this->hasCenter())
     {
-        if ($this->getXSIType()) {
-            $el->setAttributeNS(CDA::NS_XSI_URI, 'xsi:type', $this->getXSIType());
-        }
-        if ($this->hasInstitutionSpecified()) {
-            $el->setAttribute(CDA::NS_CDA . 'institutionSpecified',
-              $this->getInstitutionSpecified()
-                ? 'true'
-                : 'false');
-        }
-
-        if ($this->hasCenter()) {
-            $center = $doc->createElement(CDA::NS_CDA . 'center');
-            $this->getCenter()->setValueToElement($center, $doc);
-            $el->appendChild($center);
-        }
-        list($unit, $value) = $this->processPeriod();
-        $period = $doc->createElement(CDA::NS_CDA . $this->getTag());
-        $period->setAttribute(CDA::NS_CDA . 'unit', $unit);
-        $period->setAttribute(CDA::NS_CDA . 'value', $value);
-
-        $el->appendChild($period);
+      $center = $doc->createElement(CDA::getNS() . 'center');
+      $this->getCenter()->setValueToElement($center, $doc);
+      $el->appendChild($center);
     }
+    list($unit, $value) = $this->processPeriod();
+    $period = $doc->createElement(CDA::getNS() . $this->getTag());
+    $period->setAttribute(CDA::getNS() . 'unit', $unit);
+    $period->setAttribute(CDA::getNS() . 'value', $value);
+
+    $el->appendChild($period);
+  }
 
 
-    /**
-     * @return bool
-     */
-    public function hasInstitutionSpecified(): bool
+  /**
+   * @return bool
+   */
+  public function hasInstitutionSpecified (): bool
+  {
+    return NULL !== $this->institutionSpecified;
+  }
+
+  /**
+   * @return bool
+   */
+  public function getInstitutionSpecified (): bool
+  {
+    return $this->institutionSpecified;
+  }
+
+  /**
+   * @param $institutionSpecified
+   *
+   * @return self
+   */
+  public function setInstitutionSpecified ($institutionSpecified): self
+  {
+    $this->institutionSpecified = $institutionSpecified;
+    return $this;
+  }
+
+  /**
+   * @return bool
+   */
+  public function hasCenter (): bool
+  {
+    return NULL !== $this->center;
+  }
+
+  /**
+   * @return TimeStamp
+   */
+  public function getCenter (): TimeStamp
+  {
+    return $this->center;
+  }
+
+  /**
+   * @param TimeStamp $center
+   *
+   * @return PeriodicIntervalOfTime
+   */
+  public function setCenter (TimeStamp $center): self
+  {
+    $this->center = $center;
+    return $this;
+  }
+
+  /**
+   * return an array where the first element is the unit, and the
+   * second the unit
+   */
+  protected function processPeriod (): array
+  {
+    $seconds = (int)$this->getPeriod()->format('%s');
+    $minutes = (int)$this->getPeriod()->format('%i');
+    $hours   = (int)$this->getPeriod()->format('%h');
+    $days    = (int)$this->getPeriod()->format('%d');
+    $months  = (int)$this->getPeriod()->format('%m');
+
+    if ($months !== 0)
     {
-        return null !== $this->institutionSpecified;
+      return ['mo', $months];
     }
-
-    /**
-     * @return bool
-     */
-    public function getInstitutionSpecified(): bool
+    if ($days !== 0)
     {
-        return $this->institutionSpecified;
+      return ['d', $days];
     }
-
-    /**
-     * @param $institutionSpecified
-     *
-     * @return self
-     */
-    public function setInstitutionSpecified($institutionSpecified): self
+    if ($hours !== 0)
     {
-        $this->institutionSpecified = $institutionSpecified;
-        return $this;
+      return ['h', $hours];
     }
-
-    /**
-     * @return bool
-     */
-    public function hasCenter(): bool
+    if ($minutes !== 0)
     {
-        return null !== $this->center;
+      return ['min', $minutes];
     }
-
-    /**
-     * @return TimeStamp
-     */
-    public function getCenter(): TimeStamp
+    if ($seconds !== 0)
     {
-        return $this->center;
+      return ['s', $seconds];
     }
+    return ['', ''];
+  }
 
-    /**
-     * @param TimeStamp $center
-     *
-     * @return PeriodicIntervalOfTime
-     */
-    public function setCenter(TimeStamp $center): self
-    {
-        $this->center = $center;
-        return $this;
-    }
+  /**
+   * @return string
+   */
+  public function getTag (): string
+  {
+    return $this->tag;
+  }
 
-    /**
-     * return an array where the first element is the unit, and the
-     * second the unit
-     */
-    protected function processPeriod(): array
-    {
-        $seconds = (int)$this->getPeriod()->format('%s');
-        $minutes = (int)$this->getPeriod()->format('%i');
-        $hours   = (int)$this->getPeriod()->format('%h');
-        $days    = (int)$this->getPeriod()->format('%d');
-        $months  = (int)$this->getPeriod()->format('%m');
+  /**
+   * @param string $tag
+   *
+   * @return self
+   */
+  public function setTag (string $tag): self
+  {
+    $this->tag = $tag;
+    return $this;
+  }
 
-        if ($months !== 0) {
-            return ['mo', $months];
-        }
-        if ($days !== 0) {
-            return ['d', $days];
-        }
-        if ($hours !== 0) {
-            return ['h', $hours];
-        }
-        if ($minutes !== 0) {
-            return ['min', $minutes];
-        }
-        if ($seconds !== 0) {
-            return ['s', $seconds];
-        }
-        return ['', ''];
-    }
+  /**
+   * @return \DateInterval
+   */
+  public function getPeriod (): \DateInterval
+  {
+    return $this->period;
+  }
 
-    /**
-     * @return string
-     */
-    public function getTag(): string
-    {
-        return $this->tag;
-    }
+  /**
+   * @param \DateInterval $period
+   *
+   * @return self
+   */
+  public function setPeriod (\DateInterval $period): self
+  {
+    $this->period = $period;
+    return $this;
+  }
 
-    /**
-     * @param string $tag
-     *
-     * @return self
-     */
-    public function setTag(string $tag): self
-    {
-        $this->tag = $tag;
-        return $this;
-    }
-
-    /**
-     * @return \DateInterval
-     */
-    public function getPeriod(): \DateInterval
-    {
-        return $this->period;
-    }
-
-    /**
-     * @param \DateInterval $period
-     *
-     * @return self
-     */
-    public function setPeriod(\DateInterval $period): self
-    {
-        $this->period = $period;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasPeriod(): bool
-    {
-        return null !== $this->period;
-    }
+  /**
+   * @return bool
+   */
+  public function hasPeriod (): bool
+  {
+    return NULL !== $this->period;
+  }
 
 }

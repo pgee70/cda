@@ -49,20 +49,20 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class ExtCode_test extends MyTestCase
 {
-    public function test_tag()
-    {
-        $expected = <<<CDA
+  public function test_tag ()
+  {
+    $expected = <<<CDA
 <?xml version="1.0" encoding="UTF-8"?>
 <ext:code>
     <originalText>GP</originalText>
 </ext:code>
 CDA;
 
-        $tag = new ExtCode(new OriginalText('GP'));
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $doc = $tag->toDOMElement($dom);
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $tag = new ExtCode(new OriginalText('GP'));
+    $dom = new \DOMDocument('1.0', 'UTF-8');
+    $doc = $tag->toDOMElement($dom);
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

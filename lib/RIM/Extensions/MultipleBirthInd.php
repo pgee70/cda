@@ -45,56 +45,56 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 class MultipleBirthInd extends AbstractElement
 {
-    /** @var ValueType */
-    protected $value;
+  /** @var ValueType */
+  protected $value;
 
-    /**
-     * MultipleBirthInd constructor.
-     *
-     * @param string $value
-     */
-    public function __construct(string $value)
-    {
-        $this->setValue($value);
-    }
+  /**
+   * MultipleBirthInd constructor.
+   *
+   * @param string $value
+   */
+  public function __construct (string $value)
+  {
+    $this->setValue($value);
+  }
 
-    /**
-     * @return ValueType
-     */
-    public function getValue(): ValueType
-    {
-        return $this->value;
-    }
+  /**
+   * @return ValueType
+   */
+  public function getValue (): ValueType
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param $value
-     *
-     * @return MultipleBirthInd
-     */
-    public function setValue($value): MultipleBirthInd
-    {
-        // this value can be 'true' or 'false'
-        $this->value = new ValueType($value === 'true'
-          ? 'true'
-          : 'false');
-        return $this;
-    }
+  /**
+   * @param $value
+   *
+   * @return MultipleBirthInd
+   */
+  public function setValue ($value): MultipleBirthInd
+  {
+    // this value can be 'true' or 'false'
+    $this->value = new ValueType($value === 'true'
+      ? 'true'
+      : 'false');
+    return $this;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        return $this->createElement($doc, array('value'));
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    return $this->createElement($doc, array('value'));
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:multipleBirthInd';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:multipleBirthInd';
+  }
 }

@@ -38,83 +38,85 @@ use i3Soft\CDA\RIM\Extensions\DeceasedTime;
  */
 trait DeceasedPersonTrait
 {
-    /** @var DeceasedInd */
-    private $deceased_ind;
-    /** @var DeceasedTime */
-    private $deceased_time;
+  /** @var DeceasedInd */
+  private $deceased_ind;
+  /** @var DeceasedTime */
+  private $deceased_time;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderDeceasedPerson(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderDeceasedPerson (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasDeceasedInd())
     {
-        if ($this->hasDeceasedInd()) {
-            $el->appendChild($this->getDeceasedInd()->toDOMElement($doc));
-            if ($this->hasDeceasedTime()) {
-                $el->appendChild($this->getDeceasedTime()->toDOMElement($doc));
-            }
-        }
-        return $this;
+      $el->appendChild($this->getDeceasedInd()->toDOMElement($doc));
+      if ($this->hasDeceasedTime())
+      {
+        $el->appendChild($this->getDeceasedTime()->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasDeceasedInd(): bool
-    {
-        return null !== $this->deceased_ind;
-    }
+  /**
+   * @return bool
+   */
+  public function hasDeceasedInd (): bool
+  {
+    return NULL !== $this->deceased_ind;
+  }
 
-    /**
-     * @return DeceasedInd
-     */
-    public function getDeceasedInd(): DeceasedInd
-    {
-        return $this->deceased_ind;
-    }
+  /**
+   * @return DeceasedInd
+   */
+  public function getDeceasedInd (): DeceasedInd
+  {
+    return $this->deceased_ind;
+  }
 
-    /**
-     * @param DeceasedInd $deceased_ind
-     *
-     * @return self
-     */
-    public function setDeceasedInd(DeceasedInd $deceased_ind): self
-    {
-        $this->deceased_ind = $deceased_ind;
-        return $this;
-    }
+  /**
+   * @param DeceasedInd $deceased_ind
+   *
+   * @return self
+   */
+  public function setDeceasedInd (DeceasedInd $deceased_ind): self
+  {
+    $this->deceased_ind = $deceased_ind;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public
-    function hasDeceasedTime(): bool
-    {
-        return null !== $this->deceased_time;
-    }
+  /**
+   * @return bool
+   */
+  public
+  function hasDeceasedTime (): bool
+  {
+    return NULL !== $this->deceased_time;
+  }
 
-    /**
-     * @return DeceasedTime
-     */
-    public
-    function getDeceasedTime(): DeceasedTime
-    {
-        return $this->deceased_time;
-    }
+  /**
+   * @return DeceasedTime
+   */
+  public
+  function getDeceasedTime (): DeceasedTime
+  {
+    return $this->deceased_time;
+  }
 
-    /**
-     * @param DeceasedTime $deceased_time
-     *
-     * @return self
-     */
-    public
-    function setDeceasedTime(
-      DeceasedTime $deceased_time
-    ): self {
-        $this->deceased_time = $deceased_time;
-        return $this;
-    }
+  /**
+   * @param DeceasedTime $deceased_time
+   *
+   * @return self
+   */
+  public
+  function setDeceasedTime (
+    DeceasedTime $deceased_time
+  ): self {
+    $this->deceased_time = $deceased_time;
+    return $this;
+  }
 }

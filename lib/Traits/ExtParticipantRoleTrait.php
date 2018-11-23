@@ -37,48 +37,49 @@ use i3Soft\CDA\RIM\Extensions\ExtParticipantRole;
  */
 trait ExtParticipantRoleTrait
 {
-    /** @var ExtParticipantRole */
-    private $ext_participant_role;
+  /** @var ExtParticipantRole */
+  private $ext_participant_role;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderExtParticipantRole(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderExtParticipantRole (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasExtParticipantRole())
     {
-        if ($this->hasExtParticipantRole()) {
-            $el->appendChild($this->getExtParticipantRole()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getExtParticipantRole()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasExtParticipantRole(): bool
-    {
-        return null !== $this->ext_participant_role;
-    }
+  /**
+   * @return bool
+   */
+  public function hasExtParticipantRole (): bool
+  {
+    return NULL !== $this->ext_participant_role;
+  }
 
-    /**
-     * @return ExtParticipantRole
-     */
-    public function getExtParticipantRole(): ExtParticipantRole
-    {
-        return $this->ext_participant_role;
-    }
+  /**
+   * @return ExtParticipantRole
+   */
+  public function getExtParticipantRole (): ExtParticipantRole
+  {
+    return $this->ext_participant_role;
+  }
 
-    /**
-     * @param ExtParticipantRole $ext_participant_role
-     *
-     * @return self
-     */
-    public function setExtParticipantRole(ExtParticipantRole $ext_participant_role): self
-    {
-        $this->ext_participant_role = $ext_participant_role;
-        return $this;
-    }
+  /**
+   * @param ExtParticipantRole $ext_participant_role
+   *
+   * @return self
+   */
+  public function setExtParticipantRole (ExtParticipantRole $ext_participant_role): self
+  {
+    $this->ext_participant_role = $ext_participant_role;
+    return $this;
+  }
 
 }

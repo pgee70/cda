@@ -61,54 +61,62 @@ use i3Soft\CDA\Interfaces\ClassCodeInterface;
 class RepresentedCustodianOrganization extends Organization
 {
 
-    public function __construct(Set $names, Id $id)
+  public function __construct (Set $names, Id $id)
+  {
+    parent::__construct($names, $id);
+    $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassOrganization);
+  }
+
+
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+
+    if ($this->hasIds())
     {
-        parent::__construct($names, $id);
-        $this->setAcceptableClassCodes(ClassCodeInterface::EntityClassOrganization);
+      foreach ($this->getIds() as $id)
+      {
+        $el->appendChild($id->toDOMElement($doc));
+      }
     }
 
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
+    foreach ($this->getNames()->get() as $name)
     {
-        $el = $this->createElement($doc);
-
-        if ($this->hasIds()) {
-            foreach ($this->getIds() as $id) {
-                $el->appendChild($id->toDOMElement($doc));
-            }
-        }
-
-        foreach ($this->getNames()->get() as $name) {
-            /* @var $name \i3Soft\CDA\DataType\Name\EntityName */
-            $name->setValueToElement($el, $doc);
-        }
-        if ($this->hasTelecoms()) {
-            foreach ($this->getTelecoms() as $telecom) {
-                $el->appendChild($telecom->toDOMElement($doc));
-            }
-        }
-        if ($this->hasAddrs()) {
-            foreach ($this->getAddrs() as $addr) {
-                $el->appendChild($addr->toDOMElement($doc));
-            }
-        }
-        if ($this->hasAsEntityIdentifier()) {
-            $el->appendChild($this->getAsEntityIdentifier()->toDOMElement($doc));
-        }
-        return $el;
+      /* @var $name \i3Soft\CDA\DataType\Name\EntityName */
+      $name->setValueToElement($el, $doc);
     }
-
-
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
+    if ($this->hasTelecoms())
     {
-        return 'representedCustodianOrganization';
+      foreach ($this->getTelecoms() as $telecom)
+      {
+        $el->appendChild($telecom->toDOMElement($doc));
+      }
     }
+    if ($this->hasAddrs())
+    {
+      foreach ($this->getAddrs() as $addr)
+      {
+        $el->appendChild($addr->toDOMElement($doc));
+      }
+    }
+    if ($this->hasAsEntityIdentifier())
+    {
+      $el->appendChild($this->getAsEntityIdentifier()->toDOMElement($doc));
+    }
+    return $el;
+  }
+
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'representedCustodianOrganization';
+  }
 }

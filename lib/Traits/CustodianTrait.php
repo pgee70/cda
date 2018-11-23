@@ -37,49 +37,50 @@ use i3Soft\CDA\RIM\Participation\Custodian;
  */
 trait CustodianTrait
 {
-    /** @var Custodian */
-    private $custodian;
+  /** @var Custodian */
+  private $custodian;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return CustodianTrait
-     */
-    public function renderCustodian(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return CustodianTrait
+   */
+  public function renderCustodian (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasCustodian())
     {
-        if ($this->hasCustodian()) {
-            $el->appendChild($this->getCustodian()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getCustodian()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasCustodian(): bool
-    {
-        return null !== $this->custodian;
-    }
+  /**
+   * @return bool
+   */
+  public function hasCustodian (): bool
+  {
+    return NULL !== $this->custodian;
+  }
 
-    /**
-     *
-     * @return Custodian
-     */
-    public function getCustodian(): Custodian
-    {
-        return $this->custodian;
-    }
+  /**
+   *
+   * @return Custodian
+   */
+  public function getCustodian (): Custodian
+  {
+    return $this->custodian;
+  }
 
-    /**
-     *
-     * @param Custodian $custodian
-     *
-     * @return self
-     */
-    public function setCustodian(Custodian $custodian): self
-    {
-        $this->custodian = $custodian;
-        return $this;
-    }
+  /**
+   *
+   * @param Custodian $custodian
+   *
+   * @return self
+   */
+  public function setCustodian (Custodian $custodian): self
+  {
+    $this->custodian = $custodian;
+    return $this;
+  }
 }

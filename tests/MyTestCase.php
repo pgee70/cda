@@ -24,6 +24,7 @@
  */
 
 namespace i3Soft\CDA\tests;
+
 use PHPUnit\Framework\TestCase;
 
 

@@ -30,11 +30,11 @@ namespace i3Soft\CDA\Elements\Html;
  */
 class TableBody extends AbstractTableSection
 {
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'tbody';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'tbody';
+  }
 }

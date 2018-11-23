@@ -30,33 +30,33 @@ namespace i3Soft\CDA\Traits;
 
 trait InversionIndTrait
 {
-    /** @var bool */
-    private $inversionInd;
+  /** @var bool */
+  private $inversionInd;
 
-    /**
-     * @return bool
-     */
-    public function getInversionInd(): bool
-    {
-        return $this->inversionInd;
-    }/** @noinspection ReturnTypeCanBeDeclaredInspection */
+  /**
+   * @return bool
+   */
+  public function getInversionInd (): bool
+  {
+    return $this->inversionInd;
+  }/** @noinspection ReturnTypeCanBeDeclaredInspection */
 
-    /**
-     * @param bool $inversionInd
-     *
-     * @return self
-     */
-    public function setInversionInd(bool $inversionInd)
-    {
-        $this->inversionInd = $inversionInd;
-        return $this;
-    }
+  /**
+   * @param bool $inversionInd
+   *
+   * @return self
+   */
+  public function setInversionInd (bool $inversionInd)
+  {
+    $this->inversionInd = $inversionInd;
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasInversionInd(): bool
-    {
-        return null !== $this->inversionInd;
-    }
+  /**
+   * @return bool
+   */
+  public function hasInversionInd (): bool
+  {
+    return NULL !== $this->inversionInd;
+  }
 }

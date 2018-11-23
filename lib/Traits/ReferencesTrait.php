@@ -46,66 +46,70 @@ use i3Soft\CDA\Elements\Html\ReferenceElement;
 trait ReferencesTrait
 {
 
-    /** @var ReferenceElement[] */
-    private $references = [];
+  /** @var ReferenceElement[] */
+  private $references = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderReferences(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderReferences (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasReferences())
     {
-        if ($this->hasReferences()) {
-            foreach ($this->getReferences() as $reference) {
-                $el->appendChild($reference->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getReferences() as $reference)
+      {
+        $el->appendChild($reference->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasReferences(): bool
-    {
-        return \count($this->references) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasReferences (): bool
+  {
+    return \count($this->references) > 0;
+  }
 
-    /**
-     * @return ReferenceElement[]
-     */
-    public function getReferences(): array
-    {
-        return $this->references;
-    }
+  /**
+   * @return ReferenceElement[]
+   */
+  public function getReferences (): array
+  {
+    return $this->references;
+  }
 
-    /**
-     * @param ReferenceElement[] $references
-     *
-     * @return self
-     */
-    public function setReferences(array $references): self
+  /**
+   * @param ReferenceElement[] $references
+   *
+   * @return self
+   */
+  public function setReferences (array $references): self
+  {
+    foreach ($references as $reference)
     {
-        foreach ($references as $reference) {
-            if ($reference instanceof ReferenceElement) {
-                $this->addReference($reference);
-            }
-        }
-        return $this;
+      if ($reference instanceof ReferenceElement)
+      {
+        $this->addReference($reference);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param ReferenceElement $reference_element
-     *
-     * @return self
-     */
-    public function addReference(ReferenceElement $reference_element): self
-    {
-        $this->references[] = $reference_element;
-        return $this;
-    }
+  /**
+   * @param ReferenceElement $reference_element
+   *
+   * @return self
+   */
+  public function addReference (ReferenceElement $reference_element): self
+  {
+    $this->references[] = $reference_element;
+    return $this;
+  }
 
 
 }

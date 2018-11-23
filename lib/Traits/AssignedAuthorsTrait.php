@@ -37,65 +37,69 @@ use i3Soft\CDA\RIM\Role\AssignedAuthor;
  */
 trait AssignedAuthorsTrait
 {
-    /** @var AssignedAuthor[] */
-    private $assignedAuthors = [];
+  /** @var AssignedAuthor[] */
+  private $assignedAuthors = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAssignedAuthors(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAssignedAuthors (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAssignedAuthors())
     {
-        if ($this->hasAssignedAuthors()) {
-            foreach ($this->getAssignedAuthors() as $assigned_author) {
-                $el->appendChild($assigned_author->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getAssignedAuthors() as $assigned_author)
+      {
+        $el->appendChild($assigned_author->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasAssignedAuthors(): bool
-    {
-        return \count($this->assignedAuthors) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasAssignedAuthors (): bool
+  {
+    return \count($this->assignedAuthors) > 0;
+  }
 
-    /**
-     * @return AssignedAuthor[]
-     */
-    public function getAssignedAuthors(): array
-    {
-        return $this->assignedAuthors;
-    }
+  /**
+   * @return AssignedAuthor[]
+   */
+  public function getAssignedAuthors (): array
+  {
+    return $this->assignedAuthors;
+  }
 
-    /**
-     * @param $assigned_authors
-     *
-     * @return AssignedAuthorsTrait
-     */
-    public function setAssignedAuthors($assigned_authors): self
+  /**
+   * @param $assigned_authors
+   *
+   * @return AssignedAuthorsTrait
+   */
+  public function setAssignedAuthors ($assigned_authors): self
+  {
+    foreach ($assigned_authors as $assigned_author)
     {
-        foreach ($assigned_authors as $assigned_author) {
-            if ($assigned_author instanceof AssignedAuthor) {
-                $this->addAssignedAuthor($assigned_author);
-            }
-        }
-        return $this;
+      if ($assigned_author instanceof AssignedAuthor)
+      {
+        $this->addAssignedAuthor($assigned_author);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param AssignedAuthor $assigned_author
-     *
-     * @return AssignedAuthorsTrait
-     */
-    public function addAssignedAuthor(AssignedAuthor $assigned_author): self
-    {
-        $this->assignedAuthors = $assigned_author;
-        return $this;
-    }
+  /**
+   * @param AssignedAuthor $assigned_author
+   *
+   * @return AssignedAuthorsTrait
+   */
+  public function addAssignedAuthor (AssignedAuthor $assigned_author): self
+  {
+    $this->assignedAuthors = $assigned_author;
+    return $this;
+  }
 
 }

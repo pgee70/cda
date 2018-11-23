@@ -37,66 +37,70 @@ use i3Soft\CDA\RIM\Participation\Performer;
  */
 trait PerformersTrait
 {
-    /** @var */
-    private $performers = [];
+  /** @var */
+  private $performers = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderPerformers(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderPerformers (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasPerformers())
     {
-        if ($this->hasPerformers()) {
-            foreach ($this->getPerformers() as $performer) {
-                $el->appendChild($performer->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getPerformers() as $performer)
+      {
+        $el->appendChild($performer->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasPerformers(): bool
-    {
-        return \count($this->performers) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasPerformers (): bool
+  {
+    return \count($this->performers) > 0;
+  }
 
-    /**
-     * @return Performer[]
-     */
-    public function getPerformers(): array
-    {
-        return $this->performers;
-    }
+  /**
+   * @return Performer[]
+   */
+  public function getPerformers (): array
+  {
+    return $this->performers;
+  }
 
-    /**
-     * @param Performer[] $performers
-     *
-     * @return self
-     */
-    public function setPerformers(array $performers): self
+  /**
+   * @param Performer[] $performers
+   *
+   * @return self
+   */
+  public function setPerformers (array $performers): self
+  {
+    foreach ($performers as $performer)
     {
-        foreach ($performers as $performer) {
-            if ($performer instanceof Performer) {
-                $this->addPerformer($performer);
-            }
-        }
-        return $this;
+      if ($performer instanceof Performer)
+      {
+        $this->addPerformer($performer);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param Performer $performer
-     *
-     * @return self
-     */
-    public function addPerformer(Performer $performer): self
-    {
-        $this->performers[] = $performer;
-        return $this;
-    }
+  /**
+   * @param Performer $performer
+   *
+   * @return self
+   */
+  public function addPerformer (Performer $performer): self
+  {
+    $this->performers[] = $performer;
+    return $this;
+  }
 
 
 }

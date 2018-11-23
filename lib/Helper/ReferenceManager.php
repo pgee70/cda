@@ -56,64 +56,66 @@ use i3Soft\CDA\Elements\Html\ReferenceElement;
  */
 class ReferenceManager
 {
-    /**
-     *
-     * @var ReferenceType[]
-     */
-    private $typeReferences = array();
+  /**
+   *
+   * @var ReferenceType[]
+   */
+  private $typeReferences = array();
 
-    /**
-     *
-     * @var ReferenceElement[]
-     */
-    private $elementReferences = array();
+  /**
+   *
+   * @var ReferenceElement[]
+   */
+  private $elementReferences = array();
 
-    /**
-     * Get the Reference type for the given $ref
-     *
-     * If $ref does not exist as reference, it will be created.
-     *
-     * @param string $ref
-     *
-     * @return ReferenceType
-     */
-    public function getReferenceType($ref): ReferenceType
+  /**
+   * Get the Reference type for the given $ref
+   *
+   * If $ref does not exist as reference, it will be created.
+   *
+   * @param string $ref
+   *
+   * @return ReferenceType
+   */
+  public function getReferenceType ($ref): ReferenceType
+  {
+    if (!array_key_exists($ref, $this->typeReferences))
     {
-        if (!array_key_exists($ref, $this->typeReferences)) {
-            $this->createReference($ref);
-        }
-
-        return $this->typeReferences[$ref];
+      $this->createReference($ref);
     }
 
-    /**
-     * Will create a reference inside the manager.
-     *
-     *
-     * @param string $name will be replaced by an unique id if not set
-     */
-    public function createReference($name = null)
+    return $this->typeReferences[$ref];
+  }
+
+  /**
+   * Will create a reference inside the manager.
+   *
+   *
+   * @param string $name will be replaced by an unique id if not set
+   */
+  public function createReference ($name = NULL)
+  {
+    $ref                           = $name ?? \uniqid(__CLASS__, TRUE);
+    $this->typeReferences[$ref]    = new ReferenceType($ref);
+    $this->elementReferences[$ref] = new ReferenceElement($ref);
+  }
+
+  /**
+   * Get the ReferenceElement for the given $ref
+   *
+   * If $ref does not exists as reference, it will be created.
+   *
+   * @param string $ref
+   *
+   * @return ReferenceElement
+   */
+  public function getReferenceElement ($ref): ReferenceElement
+  {
+    if (!array_key_exists($ref, $this->elementReferences))
     {
-        $ref                           = $name ?? \uniqid(__CLASS__, true);
-        $this->typeReferences[$ref]    = new ReferenceType($ref);
-        $this->elementReferences[$ref] = new ReferenceElement($ref);
+      $this->createReference($ref);
     }
 
-    /**
-     * Get the ReferenceElement for the given $ref
-     *
-     * If $ref does not exists as reference, it will be created.
-     *
-     * @param string $ref
-     *
-     * @return ReferenceElement
-     */
-    public function getReferenceElement($ref): ReferenceElement
-    {
-        if (!array_key_exists($ref, $this->elementReferences)) {
-            $this->createReference($ref);
-        }
-
-        return $this->elementReferences[$ref];
-    }
+    return $this->elementReferences[$ref];
+  }
 }

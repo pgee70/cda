@@ -39,24 +39,24 @@ namespace i3Soft\CDA\Elements\Html;
 class FootNoteRef extends AbstractHtmlElement
 {
 
-    protected function getElementTag(): string
-    {
-        return 'footNoteRef';
-    }
+  protected function getElementTag (): string
+  {
+    return 'footNoteRef';
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function canAddTag($choice): bool
-    {
-        return ($choice
-                && ($choice instanceof Sub
-                    || $choice instanceof Sup
-                    || $choice instanceof Br
-                    || $choice instanceof Footnote
-                    || $choice instanceof self
-                ));
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function canAddTag ($choice): bool
+  {
+    return ($choice
+            && ($choice instanceof Sub
+                || $choice instanceof Sup
+                || $choice instanceof Br
+                || $choice instanceof Footnote
+                || $choice instanceof self
+            ));
+  }
 
 
 }

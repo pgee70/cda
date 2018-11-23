@@ -39,150 +39,151 @@ use i3Soft\CDA\DataType\ValueType;
 
 class LinkHtml extends AbstractHtmlElement
 {
-    /** @var ValueType */
-    protected $href;
-    /** @var ValueType */
-    protected $name;
-    /** @var ValueType */
-    protected $rel;
-    /** @var ValueType */
-    protected $rev;
-    /** @var ValueType */
-    protected $title;
+  /** @var ValueType */
+  protected $href;
+  /** @var ValueType */
+  protected $name;
+  /** @var ValueType */
+  protected $rel;
+  /** @var ValueType */
+  protected $rev;
+  /** @var ValueType */
+  protected $title;
 
-    protected $language;
-    protected $styleCode;
+  protected $language;
+  protected $styleCode;
 
-    public function __construct(string $choice = '', string $href = '')
+  public function __construct (string $choice = '', string $href = '')
+  {
+    parent::__construct($choice);
+    $this->tag_attributes = array('href', 'name', 'rel', 'rev', 'title');
+    if ($href)
     {
-        parent::__construct($choice);
-        $this->tag_attributes = array('href', 'name', 'rel', 'rev', 'title');
-        if ($href) {
-            $this->setHref($href);
-        }
+      $this->setHref($href);
     }
+  }
 
-    /**
-     * @return ValueType
-     */
-    public function getHref(): ValueType
-    {
-        return $this->href;
-    }
+  /**
+   * @return ValueType
+   */
+  public function getHref (): ValueType
+  {
+    return $this->href;
+  }
 
-    /**
-     * @param string $href
-     *
-     * @return self
-     */
-    public function setHref(string $href): self
-    {
-        $this->href = new ValueType($href, 'href');
-        return $this;
-    }
+  /**
+   * @param string $href
+   *
+   * @return self
+   */
+  public function setHref (string $href): self
+  {
+    $this->href = new ValueType($href, 'href');
+    return $this;
+  }
 
-    /**
-     * @return ValueType
-     */
-    public function getName(): ValueType
-    {
-        return $this->name;
-    }
+  /**
+   * @return ValueType
+   */
+  public function getName (): ValueType
+  {
+    return $this->name;
+  }
 
-    /**
-     * @param string $name
-     *
-     * @return self
-     */
-    public function setName(string $name): self
-    {
-        $this->name = new ValueType($name, 'name');
-        return $this;
-    }
+  /**
+   * @param string $name
+   *
+   * @return self
+   */
+  public function setName (string $name): self
+  {
+    $this->name = new ValueType($name, 'name');
+    return $this;
+  }
 
-    /**
-     * @return ValueType
-     */
-    public function getRel(): ValueType
-    {
-        return $this->rel;
-    }
+  /**
+   * @return ValueType
+   */
+  public function getRel (): ValueType
+  {
+    return $this->rel;
+  }
 
-    /**
-     * @param string $rel
-     *
-     * @return self
-     */
-    public function setRel(string $rel): self
-    {
-        $this->rel = new ValueType($rel, 'rel');
-        return $this;
-    }
+  /**
+   * @param string $rel
+   *
+   * @return self
+   */
+  public function setRel (string $rel): self
+  {
+    $this->rel = new ValueType($rel, 'rel');
+    return $this;
+  }
 
-    /**
-     * @return ValueType
-     */
-    public function getRev(): ValueType
-    {
-        return $this->rev;
-    }
+  /**
+   * @return ValueType
+   */
+  public function getRev (): ValueType
+  {
+    return $this->rev;
+  }
 
-    /**
-     * @param string $rev
-     *
-     * @return self
-     */
-    public function setRev(string $rev): self
-    {
-        $this->rev = new ValueType($rev, 'rev');
-        return $this;
-    }
+  /**
+   * @param string $rev
+   *
+   * @return self
+   */
+  public function setRev (string $rev): self
+  {
+    $this->rev = new ValueType($rev, 'rev');
+    return $this;
+  }
 
-    /**
-     * @return ValueType
-     */
-    public function getTitle(): ValueType
-    {
-        return $this->title;
-    }
+  /**
+   * @return ValueType
+   */
+  public function getTitle (): ValueType
+  {
+    return $this->title;
+  }
 
-    /**
-     * @param string $title
-     *
-     * @return self
-     */
-    public function setTitle(string $title): self
-    {
-        $this->title = new ValueType($title, 'title');
-        return $this;
-    }
+  /**
+   * @param string $title
+   *
+   * @return self
+   */
+  public function setTitle (string $title): self
+  {
+    $this->title = new ValueType($title, 'title');
+    return $this;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc, array('href'));
-        $el->appendChild($doc->createTextNode($this->getContent()));
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc, array('href'));
+    $el->appendChild($doc->createTextNode($this->getContent()));
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function canAddTag($choice): bool
-    {
-        return ($choice
-                && ($choice instanceof FootNote
-                    || $choice instanceof FootNoteRef));
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function canAddTag ($choice): bool
+  {
+    return ($choice
+            && ($choice instanceof FootNote
+                || $choice instanceof FootNoteRef));
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'linkHtml';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'linkHtml';
+  }
 
 }

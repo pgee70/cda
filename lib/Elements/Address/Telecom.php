@@ -47,98 +47,105 @@ use i3Soft\CDA\Elements\AbstractElement;
  */
 class Telecom extends AbstractElement
 {
-    /** @var ValueType */
-    protected $value;
-    /** @var AddressCodeType */
-    protected $address_code_use_attribute;
+  /** @var ValueType */
+  protected $value;
+  /** @var AddressCodeType */
+  protected $address_code_use_attribute;
 
-    /**
-     * Telecom constructor.
-     *
-     * @param $address_code_use_attribute
-     * @param $value
-     */
-    public function __construct($address_code_use_attribute, $value)
+  /**
+   * Telecom constructor.
+   *
+   * @param $address_code_use_attribute
+   * @param $value
+   */
+  public function __construct ($address_code_use_attribute, $value)
+  {
+    if ($address_code_use_attribute instanceof AddressCodeType)
     {
-        if ($address_code_use_attribute instanceof AddressCodeType) {
-            $this->setUseAttribute($address_code_use_attribute);
-        } elseif (\is_string($address_code_use_attribute)) {
-            $this->setUseAttribute(new AddressCodeType($address_code_use_attribute));
-        }
-
-        if ($value instanceof ValueType) {
-            $this->setValue($value);
-        } elseif (\is_string($value)) {
-            $this->setValue(new ValueType($value));
-        }
-
+      $this->setUseAttribute($address_code_use_attribute);
+    }
+    elseif (\is_string($address_code_use_attribute))
+    {
+      $this->setUseAttribute(new AddressCodeType($address_code_use_attribute));
     }
 
-    /**
-     * @param AddressCodeType $address_code_use_attribute
-     *
-     * @return Telecom
-     */
-    public function setUseAttribute(AddressCodeType $address_code_use_attribute): Telecom
+    if ($value instanceof ValueType)
     {
-        $this->address_code_use_attribute = $address_code_use_attribute;
-        return $this;
+      $this->setValue($value);
+    }
+    elseif (\is_string($value))
+    {
+      $this->setValue(new ValueType($value));
     }
 
-    /**
-     * @return ValueType
-     */
-    public function getValue(): ValueType
-    {
-        return $this->value;
-    }
+  }
 
-    /**
-     * @param $value
-     *
-     * @return Telecom
-     */
-    public function setValue($value): Telecom
-    {
-        $this->value = $value;
-        return $this;
-    }
+  /**
+   * @param AddressCodeType $address_code_use_attribute
+   *
+   * @return Telecom
+   */
+  public function setUseAttribute (AddressCodeType $address_code_use_attribute): Telecom
+  {
+    $this->address_code_use_attribute = $address_code_use_attribute;
+    return $this;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $parameters = [];
-        if ($this->hasUseAttribute()) {
-            $parameters[] = 'address_code_use_attribute';
-        }
-        $parameters[] = 'value';
-        return $this->createElement($doc, $parameters);
-    }
+  /**
+   * @return ValueType
+   */
+  public function getValue (): ValueType
+  {
+    return $this->value;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasUseAttribute(): bool { return null !== $this->address_code_use_attribute; }
+  /**
+   * @param $value
+   *
+   * @return Telecom
+   */
+  public function setValue ($value): Telecom
+  {
+    $this->value = $value;
+    return $this;
+  }
 
-    /**
-     * @return AddressCodeType
-     */
-    public function getUseAttribute(): AddressCodeType
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $parameters = [];
+    if ($this->hasUseAttribute())
     {
-        return $this->address_code_use_attribute;
+      $parameters[] = 'address_code_use_attribute';
     }
+    $parameters[] = 'value';
+    return $this->createElement($doc, $parameters);
+  }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'telecom';
-    }
+  /**
+   * @return bool
+   */
+  public function hasUseAttribute (): bool { return NULL !== $this->address_code_use_attribute; }
+
+  /**
+   * @return AddressCodeType
+   */
+  public function getUseAttribute (): AddressCodeType
+  {
+    return $this->address_code_use_attribute;
+  }
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'telecom';
+  }
 
 
 }

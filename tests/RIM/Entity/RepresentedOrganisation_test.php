@@ -52,9 +52,9 @@ use i3Soft\CDA\tests\MyTestCase;
 
 class RepresentedOrganisation_test extends MyTestCase
 {
-    public function test_Id()
-    {
-        $expected                 = <<<XML
+  public function test_Id ()
+  {
+    $expected                 = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <representedOrganization classCode="IDENT">
   <name>Good Health Clinic</name>
@@ -67,16 +67,16 @@ class RepresentedOrganisation_test extends MyTestCase
 </representedOrganization>
 
 XML;
-        $represented_organisation = new RepresentedOrganization(
-          new EntityName('Good Health Clinic'),
-          new AsEntityIdentifier(
-            new ExtId('HPI-O', '1.2.36.1.2001.1003.0', '8003621566684455'),
-            new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))));
-        $dom                      = new \DOMDocument('1.0', 'UTF-8');
-        $doc                      = $represented_organisation->toDOMElement($dom);
-        $dom->formatOutput        = true;
-        $dom->appendChild($doc);
-        $cda = $dom->saveXML();
-        $this->assertXmlStringEqualsXmlString($expected, $cda);
-    }
+    $represented_organisation = new RepresentedOrganization(
+      new EntityName('Good Health Clinic'),
+      new AsEntityIdentifier(
+        new ExtId('HPI-O', '1.2.36.1.2001.1003.0', '8003621566684455'),
+        new AssigningGeographicArea(new ExtEntityName(new SimpleString('National Identifier')))));
+    $dom                      = new \DOMDocument('1.0', 'UTF-8');
+    $doc                      = $represented_organisation->toDOMElement($dom);
+    $dom->formatOutput        = TRUE;
+    $dom->appendChild($doc);
+    $cda = $dom->saveXML();
+    $this->assertXmlStringEqualsXmlString($expected, $cda);
+  }
 }

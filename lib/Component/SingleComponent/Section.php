@@ -65,117 +65,125 @@ use i3Soft\CDA\Traits\TitleTrait;
  */
 class Section extends AbstractElement implements ClassCodeInterface, MoodCodeInterface
 {
-    use AuthorTrait;
-    use CodeTrait;
-    use ConfidentialityCodeTrait;
-    use EntriesTrait;
-    use IdTrait;
-    use LanguageCodeTrait;
-    use SingleComponentTrait;
-    use SubjectTrait;
-    use TextTrait;
-    use TitleTrait;
-    use InformantsTrait;
-    use ExtCoverage2Trait;
-    use ClassCodeTrait;
-    use MoodCodeTrait;
+  use AuthorTrait;
+  use CodeTrait;
+  use ConfidentialityCodeTrait;
+  use EntriesTrait;
+  use IdTrait;
+  use LanguageCodeTrait;
+  use SingleComponentTrait;
+  use SubjectTrait;
+  use TextTrait;
+  use TitleTrait;
+  use InformantsTrait;
+  use ExtCoverage2Trait;
+  use ClassCodeTrait;
+  use MoodCodeTrait;
 
-    /** @noinspection ArrayTypeOfParameterByDefaultValueInspection */
+  /** @noinspection ArrayTypeOfParameterByDefaultValueInspection */
 
-    /**
-     * Section constructor.
-     *
-     * @param Id    $id
-     * @param Code  $code
-     * @param Title $title
-     * @param Text  $text
-     * @param       $entry
-     */
-    public function __construct($id = null, $code = null, $title = null, $text = null, $entry = [])
+  /**
+   * Section constructor.
+   *
+   * @param Id    $id
+   * @param Code  $code
+   * @param Title $title
+   * @param Text  $text
+   * @param       $entry
+   */
+  public function __construct ($id = NULL, $code = NULL, $title = NULL, $text = NULL, $entry = [])
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
+      ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
+      ->setClassCode(ClassCodeInterface::DOCUMENT_SECTION)
+      ->setMoodCode(MoodCodeInterface::EVENT);
+
+    $this->entries = [];
+
+    if ($id && $id instanceof Id)
     {
-        $this->setAcceptableClassCodes(ClassCodeInterface::ActClass)
-          ->setAcceptableMoodCodes(MoodCodeInterface::ActMood)
-          ->setClassCode(ClassCodeInterface::DOCUMENT_SECTION)
-          ->setMoodCode(MoodCodeInterface::EVENT);
-
-        $this->entries = [];
-
-        if ($id && $id instanceof Id) {
-            $this->setId($id);
-        }
-        if ($code && $code instanceof Code) {
-            $this->setCode($code);
-        }
-
-        if ($title && $title instanceof Title) {
-            $this->setTitle($title);
-        }
-
-        if ($text && $text instanceof Text) {
-            $this->setText($text);
-        }
-        if ($entry) {
-            if (\is_array($entry)) {
-                $this->setEntries($entry);
-            } elseif ($entry instanceof Entry) {
-                $this->addEntry($entry);
-            }
-        }
+      $this->setId($id);
+    }
+    if ($code && $code instanceof Code)
+    {
+      $this->setCode($code);
     }
 
-
-    /**
-     * @return self
-     */
-    public function clearEntries(): self
+    if ($title && $title instanceof Title)
     {
-        $this->entries = array();
-        return $this;
+      $this->setTitle($title);
     }
 
-    /**
-     * create an entry, which is already bound to the current section
-     *
-     * @return Entry
-     */
-    public function createEntry(): Entry
+    if ($text && $text instanceof Text)
     {
-        $entry = new Entry();
+      $this->setText($text);
+    }
+    if ($entry)
+    {
+      if (\is_array($entry))
+      {
+        $this->setEntries($entry);
+      }
+      elseif ($entry instanceof Entry)
+      {
         $this->addEntry($entry);
-        return $entry;
+      }
     }
+  }
 
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderId($el, $doc)
-          ->renderCode($el, $doc)
-          ->renderTitle($el, $doc)
-          ->renderText($el, $doc)
-          ->renderConfidentialityCode($el, $doc)
-          ->renderLanguageCode($el, $doc)
-          ->renderSubject($el, $doc)
-          ->renderAuthor($el, $doc)
-          ->renderInformants($el, $doc)
-          ->renderEntries($el, $doc)
-          ->renderComponents($el, $doc)
-          ->renderExtCoverage2($el, $doc);
-        return $el;
-    }
+  /**
+   * @return self
+   */
+  public function clearEntries (): self
+  {
+    $this->entries = array();
+    return $this;
+  }
+
+  /**
+   * create an entry, which is already bound to the current section
+   *
+   * @return Entry
+   */
+  public function createEntry (): Entry
+  {
+    $entry = new Entry();
+    $this->addEntry($entry);
+    return $entry;
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'section';
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderId($el, $doc)
+      ->renderCode($el, $doc)
+      ->renderTitle($el, $doc)
+      ->renderText($el, $doc)
+      ->renderConfidentialityCode($el, $doc)
+      ->renderLanguageCode($el, $doc)
+      ->renderSubject($el, $doc)
+      ->renderAuthor($el, $doc)
+      ->renderInformants($el, $doc)
+      ->renderEntries($el, $doc)
+      ->renderComponents($el, $doc)
+      ->renderExtCoverage2($el, $doc);
+    return $el;
+  }
+
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'section';
+  }
 
 }

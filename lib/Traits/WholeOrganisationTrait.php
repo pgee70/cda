@@ -32,47 +32,48 @@ use i3Soft\CDA\RIM\Entity\WholeOrganisation;
 
 trait WholeOrganisationTrait
 {
-    /** @var WholeOrganisation */
-    private $whole_organisation;
+  /** @var WholeOrganisation */
+  private $whole_organisation;
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderWholeOrganisation(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderWholeOrganisation (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasWholeOrganisation())
     {
-        if ($this->hasWholeOrganisation()) {
-            $el->appendChild($this->getWholeOrganisation()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getWholeOrganisation()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasWholeOrganisation(): bool
-    {
-        return null !== $this->whole_organisation;
-    }
+  /**
+   * @return bool
+   */
+  public function hasWholeOrganisation (): bool
+  {
+    return NULL !== $this->whole_organisation;
+  }
 
-    /**
-     * @return WholeOrganisation
-     */
-    public function getWholeOrganisation(): WholeOrganisation
-    {
-        return $this->whole_organisation;
-    }
+  /**
+   * @return WholeOrganisation
+   */
+  public function getWholeOrganisation (): WholeOrganisation
+  {
+    return $this->whole_organisation;
+  }
 
-    /**
-     * @param WholeOrganisation $whole_organisation
-     *
-     * @return self
-     */
-    public function setWholeOrganisation(WholeOrganisation $whole_organisation): self
-    {
-        $this->whole_organisation = $whole_organisation;
-        return $this;
-    }
+  /**
+   * @param WholeOrganisation $whole_organisation
+   *
+   * @return self
+   */
+  public function setWholeOrganisation (WholeOrganisation $whole_organisation): self
+  {
+    $this->whole_organisation = $whole_organisation;
+    return $this;
+  }
 }

@@ -38,52 +38,52 @@ use i3Soft\CDA\DataType\IntegerType;
 
 class SequenceNumber extends AbstractElement
 {
-    /** @var IntegerType */
-    protected $value;
+  /** @var IntegerType */
+  protected $value;
 
 
-    public function __construct(IntegerType $value)
-    {
-        $this->setValue($value);
-    }
+  public function __construct (IntegerType $value)
+  {
+    $this->setValue($value);
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->getValue()->setValueToElement($el, $doc);
-        return $el;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->getValue()->setValueToElement($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @return IntegerType
-     */
-    public function getValue(): IntegerType
-    {
-        return $this->value;
-    }
+  /**
+   * @return IntegerType
+   */
+  public function getValue (): IntegerType
+  {
+    return $this->value;
+  }
 
-    /**
-     * @param IntegerType $value
-     *
-     * @return SequenceNumber
-     */
-    public function setValue(IntegerType $value): self
-    {
-        $this->value = $value;
-        return $this;
-    }
+  /**
+   * @param IntegerType $value
+   *
+   * @return SequenceNumber
+   */
+  public function setValue (IntegerType $value): self
+  {
+    $this->value = $value;
+    return $this;
+  }
 
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'sequenceNumber';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'sequenceNumber';
+  }
 }

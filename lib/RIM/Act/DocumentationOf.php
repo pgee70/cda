@@ -43,32 +43,32 @@ use i3Soft\CDA\Traits\TypeCodeTrait;
 
 class DocumentationOf extends AbstractElement implements TypeCodeInterface
 {
-    use ServiceEventTrait;
-    use TypeCodeTrait;
+  use ServiceEventTrait;
+  use TypeCodeTrait;
 
-    public function __construct(ServiceEvent $service_event)
-    {
-        $this->setAcceptableTypeCodes(TypeCodeInterface::ActRelationshipType)
-          ->setTypeCode(TypeCodeInterface::DOCUMENTS)
-          ->setServiceEvent($service_event);
-    }
+  public function __construct (ServiceEvent $service_event)
+  {
+    $this->setAcceptableTypeCodes(TypeCodeInterface::ActRelationshipType)
+      ->setTypeCode(TypeCodeInterface::DOCUMENTS)
+      ->setServiceEvent($service_event);
+  }
 
-    /**
-     * @inheritDoc
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $this->renderServiceEvent($el, $doc);
-        return $el;
-    }
+  /**
+   * @inheritDoc
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $this->renderServiceEvent($el, $doc);
+    return $el;
+  }
 
-    /**
-     * @inheritDoc
-     */
-    protected function getElementTag(): string
-    {
-        return 'documentationOf';
-    }
+  /**
+   * @inheritDoc
+   */
+  protected function getElementTag (): string
+  {
+    return 'documentationOf';
+  }
 
 }

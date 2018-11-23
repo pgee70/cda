@@ -33,64 +33,68 @@ use i3Soft\CDA\RIM\Participation\Participant;
 trait ParticipantsTrait
 {
 
-    /** @var Participant[] */
-    private $participants = [];
+  /** @var Participant[] */
+  private $participants = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderParticipants(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderParticipants (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasParticipants())
     {
-        if ($this->hasParticipants()) {
-            foreach ($this->getParticipants() as $participant) {
-                $el->appendChild($participant->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getParticipants() as $participant)
+      {
+        $el->appendChild($participant->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasParticipants(): bool
-    {
-        return \count($this->participants) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasParticipants (): bool
+  {
+    return \count($this->participants) > 0;
+  }
 
-    /**
-     * @return Participant[]
-     */
-    public function getParticipants(): array
-    {
-        return $this->participants;
-    }
+  /**
+   * @return Participant[]
+   */
+  public function getParticipants (): array
+  {
+    return $this->participants;
+  }
 
-    /**
-     * @param Participant[] $participants
-     *
-     * @return self
-     */
-    public function setParticipants(array $participants): self
+  /**
+   * @param Participant[] $participants
+   *
+   * @return self
+   */
+  public function setParticipants (array $participants): self
+  {
+    foreach ($participants as $participant)
     {
-        foreach ($participants as $participant) {
-            if ($participant instanceof Participant) {
-                $this->addParticipant($participant);
-            }
-        }
-        return $this;
+      if ($participant instanceof Participant)
+      {
+        $this->addParticipant($participant);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param Participant $participant
-     *
-     * @return self
-     */
-    public function addParticipant(Participant $participant): self
-    {
-        $this->participants[] = $participant;
-        return $this;
-    }
+  /**
+   * @param Participant $participant
+   *
+   * @return self
+   */
+  public function addParticipant (Participant $participant): self
+  {
+    $this->participants[] = $participant;
+    return $this;
+  }
 }

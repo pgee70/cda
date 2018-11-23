@@ -37,45 +37,46 @@ use i3Soft\CDA\RIM\Extensions\AsEntityIdentifier;
  */
 trait AsEntityIdentifierTrait
 {
-    /** @var AsEntityIdentifier */
-    private $as_entity_identifier;
+  /** @var AsEntityIdentifier */
+  private $as_entity_identifier;
 
-    /**
-     * @return bool
-     */
-    public function hasAsEntityIdentifier(): bool { return null !== $this->as_entity_identifier; }
+  /**
+   * @return bool
+   */
+  public function hasAsEntityIdentifier (): bool { return NULL !== $this->as_entity_identifier; }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderAsEntityIdentifier(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderAsEntityIdentifier (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasAsEntityIdentifier())
     {
-        if ($this->hasAsEntityIdentifier()) {
-            $el->appendChild($this->getAsEntityIdentifier()->toDOMElement($doc));
-        }
-        return $this;
+      $el->appendChild($this->getAsEntityIdentifier()->toDOMElement($doc));
     }
+    return $this;
+  }
 
-    /**
-     * @return AsEntityIdentifier
-     */
-    public function getAsEntityIdentifier(): AsEntityIdentifier
-    {
-        return $this->as_entity_identifier;
-    }
+  /**
+   * @return AsEntityIdentifier
+   */
+  public function getAsEntityIdentifier (): AsEntityIdentifier
+  {
+    return $this->as_entity_identifier;
+  }
 
-    /**
-     * @param AsEntityIdentifier $as_entity_identifier
-     *
-     * @return self
-     */
-    public function setAsEntityIdentifier(AsEntityIdentifier $as_entity_identifier): self
-    {
-        $this->as_entity_identifier = $as_entity_identifier;
-        return $this;
-    }
+  /**
+   * @param AsEntityIdentifier $as_entity_identifier
+   *
+   * @return self
+   */
+  public function setAsEntityIdentifier (AsEntityIdentifier $as_entity_identifier): self
+  {
+    $this->as_entity_identifier = $as_entity_identifier;
+    return $this;
+  }
 
 }

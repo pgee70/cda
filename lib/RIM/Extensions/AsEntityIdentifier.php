@@ -47,63 +47,63 @@ use i3Soft\CDA\Traits\ExtIdTrait;
  */
 class AsEntityIdentifier extends Entity
 {
-    use ExtIdTrait;
-    /** @var AssigningGeographicArea */
-    protected $assigningGeographicArea;
+  use ExtIdTrait;
+  /** @var AssigningGeographicArea */
+  protected $assigningGeographicArea;
 
-    /**
-     * AsEntityIdentifier constructor.
-     *
-     * @param ExtId                   $id
-     * @param AssigningGeographicArea $geographic_area
-     */
-    public function __construct(ExtId $id, AssigningGeographicArea $geographic_area)
-    {
-        $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassAssignedEntity)
-          ->setClassCode(ClassCodeInterface::IDENTITY)
-          ->setExtId($id)
-          ->setAssigningGeographicArea($geographic_area);
-    }
-
-
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc);
-        $el->appendChild($this->getExtId()->toDOMElement($doc));
-        $el->appendChild($this->getAssigningGeographicArea()->toDOMElement($doc));
-        return $el;
-    }
+  /**
+   * AsEntityIdentifier constructor.
+   *
+   * @param ExtId                   $id
+   * @param AssigningGeographicArea $geographic_area
+   */
+  public function __construct (ExtId $id, AssigningGeographicArea $geographic_area)
+  {
+    $this->setAcceptableClassCodes(ClassCodeInterface::RoleClassAssignedEntity)
+      ->setClassCode(ClassCodeInterface::IDENTITY)
+      ->setExtId($id)
+      ->setAssigningGeographicArea($geographic_area);
+  }
 
 
-    /**
-     * @return AssigningGeographicArea
-     */
-    public function getAssigningGeographicArea(): AssigningGeographicArea
-    {
-        return $this->assigningGeographicArea;
-    }
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc);
+    $el->appendChild($this->getExtId()->toDOMElement($doc));
+    $el->appendChild($this->getAssigningGeographicArea()->toDOMElement($doc));
+    return $el;
+  }
 
-    /**
-     * @param AssigningGeographicArea $assigningGeographicArea
-     *
-     * @return AsEntityIdentifier
-     */
-    public function setAssigningGeographicArea(AssigningGeographicArea $assigningGeographicArea): AsEntityIdentifier
-    {
-        $this->assigningGeographicArea = $assigningGeographicArea;
-        return $this;
-    }
 
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'ext:asEntityIdentifier';
-    }
+  /**
+   * @return AssigningGeographicArea
+   */
+  public function getAssigningGeographicArea (): AssigningGeographicArea
+  {
+    return $this->assigningGeographicArea;
+  }
+
+  /**
+   * @param AssigningGeographicArea $assigningGeographicArea
+   *
+   * @return AsEntityIdentifier
+   */
+  public function setAssigningGeographicArea (AssigningGeographicArea $assigningGeographicArea): AsEntityIdentifier
+  {
+    $this->assigningGeographicArea = $assigningGeographicArea;
+    return $this;
+  }
+
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'ext:asEntityIdentifier';
+  }
 }

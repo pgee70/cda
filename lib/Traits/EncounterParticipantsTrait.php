@@ -37,64 +37,68 @@ use i3Soft\CDA\RIM\Participation\EncounterParticipant;
  */
 trait EncounterParticipantsTrait
 {
-    /** @var EncounterParticipant[] */
-    private $encounterParticipants = [];
+  /** @var EncounterParticipant[] */
+  private $encounterParticipants = [];
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderEncounterParticipants(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderEncounterParticipants (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasEncounterParticipants())
     {
-        if ($this->hasEncounterParticipants()) {
-            foreach ($this->getEncounterParticipants() as $encounter_participant) {
-                $el->appendChild($encounter_participant->toDOMElement($doc));
-            }
-        }
-        return $this;
+      foreach ($this->getEncounterParticipants() as $encounter_participant)
+      {
+        $el->appendChild($encounter_participant->toDOMElement($doc));
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @return bool
-     */
-    public function hasEncounterParticipants(): bool
-    {
-        return \count($this->encounterParticipants) > 0;
-    }
+  /**
+   * @return bool
+   */
+  public function hasEncounterParticipants (): bool
+  {
+    return \count($this->encounterParticipants) > 0;
+  }
 
-    /**
-     * @return EncounterParticipant[]
-     */
-    public function getEncounterParticipants(): array
-    {
-        return $this->encounterParticipants;
-    }
+  /**
+   * @return EncounterParticipant[]
+   */
+  public function getEncounterParticipants (): array
+  {
+    return $this->encounterParticipants;
+  }
 
-    /**
-     * @param array $encounter_participants
-     *
-     * @return self
-     */
-    public function setEncounterParticipants(array $encounter_participants): self
+  /**
+   * @param array $encounter_participants
+   *
+   * @return self
+   */
+  public function setEncounterParticipants (array $encounter_participants): self
+  {
+    foreach ($encounter_participants as $encounter_participant)
     {
-        foreach ($encounter_participants as $encounter_participant) {
-            if ($encounter_participant instanceof EncounterParticipant) {
-                $this->addEncounterParticipant($encounter_participant);
-            }
-        }
-        return $this;
+      if ($encounter_participant instanceof EncounterParticipant)
+      {
+        $this->addEncounterParticipant($encounter_participant);
+      }
     }
+    return $this;
+  }
 
-    /**
-     * @param EncounterParticipant $encounter_participant
-     *
-     * @return self
-     */
-    public function addEncounterParticipant(EncounterParticipant $encounter_participant): self
-    {
-        $this->encounterParticipants[] = $encounter_participant;
-        return $this;
-    }
+  /**
+   * @param EncounterParticipant $encounter_participant
+   *
+   * @return self
+   */
+  public function addEncounterParticipant (EncounterParticipant $encounter_participant): self
+  {
+    $this->encounterParticipants[] = $encounter_participant;
+    return $this;
+  }
 }

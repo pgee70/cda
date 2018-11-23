@@ -36,84 +36,88 @@ use i3Soft\CDA\DataType\Quantity\DateAndTime\TimeStamp;
  */
 class EffectiveTime extends AbstractElement
 {
-    /**
-     *
-     * @var TimeStamp|PeriodicIntervalOfTime|IntervalOfTime
-     */
-    protected $value;
+  /**
+   *
+   * @var TimeStamp|PeriodicIntervalOfTime|IntervalOfTime
+   */
+  protected $value;
 
-    /**
-     *
-     * @var string
-     */
-    protected $operator;
+  /**
+   *
+   * @var string
+   */
+  protected $operator;
 
-    /**
-     * EffectiveTime constructor.
-     *
-     * @param $value
-     */
-    public function __construct($value)
+  /**
+   * EffectiveTime constructor.
+   *
+   * @param $value
+   */
+  public function __construct ($value)
+  {
+    $this->operator = '';
+    $this->setValue($value);
+  }
+
+
+  /**
+   * @return TimeStamp|PeriodicIntervalOfTime|IntervalOfTime
+   */
+  public function getValue ()
+  {
+    return $this->value;
+  }
+
+  /**
+   * @param $value
+   *
+   * @return self
+   */
+  public function setValue ($value): self
+  {
+    if ($value instanceof PeriodicIntervalOfTime
+        || $value instanceof TimeStamp
+        || $value instanceof IntervalOfTime
+    )
     {
-        $this->operator = '';
-        $this->setValue($value);
+      $this->value = $value;
     }
-
-
-    /**
-     * @return TimeStamp|PeriodicIntervalOfTime|IntervalOfTime
-     */
-    public function getValue()
+    else
     {
-        return $this->value;
+      throw new \UnexpectedValueException(sprintf('The timestamp must implements %s, %s or %s',
+        PeriodicIntervalOfTime::class, TimeStamp::class, IntervalOfTime::class));
     }
+    return $this;
+  }
 
-    /**
-     * @param $value
-     *
-     * @return self
-     */
-    public function setValue($value): self
-    {
-        if ($value instanceof PeriodicIntervalOfTime
-            || $value instanceof TimeStamp
-            || $value instanceof IntervalOfTime
-        ) {
-            $this->value = $value;
-        } else {
-            throw new \UnexpectedValueException(sprintf('The timestamp must implements %s, %s or %s',
-              PeriodicIntervalOfTime::class, TimeStamp::class, IntervalOfTime::class));
-        }
-        return $this;
-    }
+  /**
+   *
+   */
+  public function setOperatorAppend ()
+  {
+    $this->operator = 'A';
+  }
 
-    /**
-     *
-     */
-    public function setOperatorAppend()
+  /**
+   * @param \DOMDocument $doc
+   *
+   * @return \DOMElement
+   */
+  public function toDOMElement (\DOMDocument $doc): \DOMElement
+  {
+    $el = $this->createElement($doc, ['value']);
+    if ($this->operator === 'A')
     {
-        $this->operator = 'A';
+      $el->setAttribute(CDA::getNS() . 'operator', 'A');
     }
+    return $el;
+  }
 
-    /**
-     * @param \DOMDocument $doc
-     *
-     * @return \DOMElement
-     */
-    public function toDOMElement(\DOMDocument $doc): \DOMElement
-    {
-        $el = $this->createElement($doc, ['value']);
-        if ($this->operator === 'A') {
-            $el->setAttribute(CDA::NS_CDA . 'operator', 'A');
-        }
-        return $el;
-    }
-
-    /**
-     * @return string
-     */
-    protected function getElementTag(): string
-    {
-        return 'effectiveTime';
-    }
+  /**
+   * @return string
+   */
+  protected function getElementTag (): string
+  {
+    return 'effectiveTime';
+  }
 }

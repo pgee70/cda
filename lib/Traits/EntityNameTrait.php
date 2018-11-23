@@ -37,47 +37,48 @@ use i3Soft\CDA\DataType\Name\EntityName;
  */
 trait EntityNameTrait
 {
-    /** @var EntityName */
-    private $name;
+  /** @var EntityName */
+  private $name;
 
-    /**
-     * @return bool
-     */
-    public function hasName(): bool
-    {
-        return null !== $this->name;
-    }
+  /**
+   * @return bool
+   */
+  public function hasName (): bool
+  {
+    return NULL !== $this->name;
+  }
 
-    /**
-     * @return EntityName
-     */
-    public function getName(): EntityName
-    {
-        return $this->name;
-    }
+  /**
+   * @return EntityName
+   */
+  public function getName (): EntityName
+  {
+    return $this->name;
+  }
 
-    /**
-     * @param EntityName $name
-     *
-     * @return self
-     */
-    public function setName(EntityName $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
+  /**
+   * @param EntityName $name
+   *
+   * @return self
+   */
+  public function setName (EntityName $name): self
+  {
+    $this->name = $name;
+    return $this;
+  }
 
-    /**
-     * @param \DOMElement  $el
-     * @param \DOMDocument $doc
-     *
-     * @return self
-     */
-    public function renderEntityName(\DOMElement $el, \DOMDocument $doc): self
+  /**
+   * @param \DOMElement  $el
+   * @param \DOMDocument $doc
+   *
+   * @return self
+   */
+  public function renderEntityName (\DOMElement $el, \DOMDocument $doc): self
+  {
+    if ($this->hasName())
     {
-        if ($this->hasName()) {
-            $this->getName()->setValueToElement($el, $doc);
-        }
-        return $this;
+      $this->getName()->setValueToElement($el, $doc);
     }
+    return $this;
+  }
 }
